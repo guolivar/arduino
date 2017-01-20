@@ -48,10 +48,25 @@ def ConvertTemp(data,places):
   temp = ((data * 330)/float(1023))-50
   temp = round(temp,places)
   return temp
- 
+
+# IR sensor conversion
+# formula retrieved from http://home.roboticlab.eu/en/sensor/ir_distance
+# measures back to the back / middle of the sensor???
+
+# seems to be 1 cm too large all the time
+
+def ConvertDistance(data, places):
+  #return round ( 5461 / (data - 17) -2, places)
+
+  # subtracting 1 extra to compensate maybe it's just the hardware???
+  return round ( 5461 / (data - 17) -3, places)
+
 # Define sensor channels
 light_channel = 0
 temp_channel  = 1
+
+# --Ryan adding one more channel for the ir sensors
+ir_channel = 2
  
 # Define delay between readings
 delay = 5
@@ -66,11 +81,18 @@ while True:
   temp_level = ReadChannel(temp_channel)
   temp_volts = ConvertVolts(temp_level,2)
   temp       = ConvertTemp(temp_level,2)
+
+  # --Ryan Read the distance data
+  ir_level = ReadChannel(ir_channel)
+  ir_volts = ConvertVolts(ir_level, 2)
+  distance = ConvertDistance(ir_level, 7)
  
   # Print out results
   print "--------------------------------------------"
   print("Light: {} ({}V)".format(light_level,light_volts))
   print("Temp : {} ({}V) {} deg C".format(temp_level,temp_volts,temp))
+  print("Distance : {} ({}V) {} cm".format(ir_level, ir_volts, distance))
+  print("Time: {}").format(time.asctime( time.localtime(time.time())))
  
   # Wait before repeating loop
   time.sleep(delay)
