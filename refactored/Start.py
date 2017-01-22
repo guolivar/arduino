@@ -33,3 +33,5 @@ def print_all_data():
 
     # repeat loop
     print_all_data()
+
+print_all_data()
