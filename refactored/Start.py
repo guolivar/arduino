@@ -5,7 +5,7 @@ Created on Mon Jan 23 2017
 @author: Ryan Weyers
 """
 
-#!/usr/bin/python
+#!/usr/bin/pypy
 
 
 # standard python library
