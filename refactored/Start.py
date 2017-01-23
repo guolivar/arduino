@@ -14,11 +14,12 @@ from time import sleep
 from Sensors import Temp, Distance, Light, Time
 
 
+
 def print_data(sensors):
 
     """ This function prints data for a specific sensor"""
     for index, sensor in enumerate(sensors):
-        print sensor.__name__ + ": " + sensor.GetData(index)
+        print sensor.__name__[8:] + ": " + sensor.GetData(index)
 
 
 def print_all_data():
@@ -26,8 +27,11 @@ def print_all_data():
     """ This function prints out all the data for our sensors """
     # Print out results
     print "--------------------------------------------"
-    print_data((Light, Temp, Distance, Time))
 
+    sensors = Distance, Distance, Distance, Time
+    
+    print_data(sensors)
+    
     # Wait before repeating loop
     sleep(5)
 

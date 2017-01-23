@@ -34,10 +34,10 @@ def Data (channel, unit = "", ConvertData = None):
     volts = ConvertVolts(level,2)
 
 
-    data = level + " " + FormatVolts(volts)
+    data = str(level) + " " + FormatVolts(volts)
 
     if not ConvertData is None:
-        value  = ConvertData(level,2) +  " " + unit
+        value  = str(ConvertData(level,2)) +  " " + unit
         return data + value
     
     else:

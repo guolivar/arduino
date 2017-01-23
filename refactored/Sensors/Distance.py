@@ -5,17 +5,14 @@
 
 import Sensor
 def Convert(data, places):
-#return round ( 5461 / (data - 17) -2, places)
 
-# subtracting 1 extra to compensate for it being 1 too large ?
-# return round ( 5461 / (data - 17) -3, places)
+    distance = 5461 / float((data - 17) -2 -1)
 
-    # maybe this will give us mm??? look into it
-    return 5461 / float((data - 17) -2 -1)
+    return round(distance, places)
 
-def GetData():  
+def GetData(channel):  
     
-    return Sensor.Data( 2 , "cm", Convert)
+    return Sensor.Data( channel , "cm", Convert)
 
     
 

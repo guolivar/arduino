@@ -5,7 +5,7 @@ Created on Wed Dec 21 11:40:05 2016
 @author: User
 """
 
-#!/usr/bin/python
+#!/usr/bin/pypy
  
 import spidev
 import time
