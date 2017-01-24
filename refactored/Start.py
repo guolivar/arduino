@@ -11,15 +11,23 @@ Created on Mon Jan 23 2017
 # standard python library
 from time import sleep
 
-from Sensors import Temp, Distance, Light, Time
+from Sensors import Temp, Distance, Light, Time, Sensor
+from Processor import average_10, first_elem, format_data
 
+def print_sensor(index, sensor):
 
+    # we remove the "Sensor." from the name of the measurement
+    measurement_type = sensor.__name__[8:] + ": "
+        
+    data = average_10(first_elem(sensor.GetData(index)))
+    reading = FormatData(data)
+    
+    print measurement_type + reading
 
 def print_data(sensors):
 
     """ This function prints data for a specific sensor"""
-    for index, sensor in enumerate(sensors):
-        print sensor.__name__[8:] + ": " + sensor.GetData(index)
+    Processor.process_sensors(print_sensor, sensors)
 
 
 def print_all_data():

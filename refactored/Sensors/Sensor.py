@@ -28,17 +28,21 @@ def ConvertVolts(data,places):
     volts = round(volts,places)
     return volts
 
-def Data (channel, unit = "", ConvertData = None):
+def Data (channel, ConvertData):
     # this function pulls out the data from the pdi port and converts it into the relevant format according to the ConvertData callback
     level = ReadChannel(channel)
     volts = ConvertVolts(level,2)
 
 
-    data = str(level) + " " + FormatVolts(volts)
+    data = ConvertData(level,2)
 
-    if not ConvertData is None:
-        value  = str(ConvertData(level,2)) +  " " + unit
-        return data + value
+    return data, level, volts
+
+##    if not ConvertData is None:
+##        value  = str(ConvertData(level,2)) +  " " + unit
+##        return data + value
+##    
+##    else:
+##        return data
+
     
-    else:
-        return data
