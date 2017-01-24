@@ -4,6 +4,9 @@
 # measures back to the back / middle of the sensor???
 
 import Sensor
+
+unit = "cm"
+
 def Convert(data, places):
 
     min_17 = data - 17

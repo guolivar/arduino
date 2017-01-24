@@ -6,8 +6,6 @@ import os
 spi = spidev.SpiDev()
 spi.open(0,0)
 
-def FormatVolts(volts):
-    return "({}V) ".format(volts)
 
 
 def ReadChannel(channel):
@@ -44,5 +42,18 @@ def Data (channel, ConvertData):
 ##    
 ##    else:
 ##        return data
+
+
+def format_data(data, level, volts):
+    # this function pulls out the data from the spi port and converts it into the relevant format according to the ConvertData callback
+ 
+    result = str(level) + " " + FormatVolts(volts)
+
+    if not ConvertData is None:
+        value  = str(data) +  " " + unit
+        return result + value
+    
+    else:
+        return result
 
     

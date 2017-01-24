@@ -12,29 +12,40 @@ Created on Mon Jan 23 2017
 from time import sleep
 
 from Sensors import Temp, Distance, Light, Time, Sensor
-from Processor import average_10, first_elem, format_data
+from Processor import average_10, nth_elem, process_sensors, format_data
+
+#impo Processor
+
+def average (data, index):
+    return round(average_10( nth_elem( data, index)), 2)
 
 def print_sensor(index, sensor):
 
     # we remove the "Sensor." from the name of the measurement
     measurement_type = sensor.__name__[8:] + ": "
-        
-    data = average_10(first_elem(sensor.GetData(index)))
-    reading = FormatData(data)
+
+    rawData = sensor.GetData
     
-    print measurement_type + reading
+    data  = average( rawData(index), 0 )
+    volts = average( rawData(index), 1 )
+    level = average( rawData(index), 2 )
+    
+    reading = format_data(data, level, volts, sensor.unit)
+    #reading = format_data(rawData())
+    
+    print (measurement_type + reading)
 
 def print_data(sensors):
 
     """ This function prints data for a specific sensor"""
-    Processor.process_sensors(print_sensor, sensors)
+    process_sensors(print_sensor, sensors)
 
 
 def print_all_data():
 
     """ This function prints out all the data for our sensors """
     # Print out results
-    print "--------------------------------------------"
+    print ("--------------------------------------------")
 
     sensors = Distance, Distance, Distance, Time
     
