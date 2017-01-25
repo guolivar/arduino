@@ -30,8 +30,6 @@ def Data (channel, ConvertData):
     # this function pulls out the data from the pdi port and converts it into the relevant format according to the ConvertData callback
     level = ReadChannel(channel)
     volts = ConvertVolts(level,2)
-
-
     data = ConvertData(level,2)
 
     return data, level, volts

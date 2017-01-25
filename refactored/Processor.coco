@@ -1,0 +1,38 @@
+def process_sensors(process, sensors):
+    for index, sensor in enumerate(sensors):
+        process(index, sensor)
+
+
+# replace this with map reduce etc   
+def repeat(callback, repetitions, items = []):
+
+    """ This function  calls the callback the specified times """
+
+    items.append <| callback()
+
+    if repetitions == 0:
+        return items
+
+    return repeat(callback, repetitions -1, items)
+    
+    
+def average(items):
+    return sum(items) / len(items)
+
+
+def average_10(callback):
+    "this function repeats a callback 10 times and then averages the result"
+    return (callback, 10) |*> repeat |> average
+
+def FormatVolts(volts):
+    return "({}V) ".format(volts)
+
+def format_data(data, level, volts, unit):
+    # this function pulls out the data from the spi port and converts it into the relevant format according to the ConvertData callback
+ 
+    result = str(level) + " " + FormatVolts(volts)
+
+    value  = str(data) +  " " + unit
+    return result + value
+    
+

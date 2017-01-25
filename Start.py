@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0x46ad5bcd
+# __coconut_hash__ = 0xc4edebeb
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -21,7 +21,6 @@ for name in dir(__coconut__):
  if name.startswith("_") and not name.startswith("__"):
   globals()[name] = getattr(__coconut__, name)
 
-from time import sleep
 from Sensors import Temp
 from Sensors import Distance
 from Sensors import Light
@@ -45,9 +44,8 @@ def print_data(sensors):
 def print_all_data():
  """ This function prints out all the data for our sensors """
  print("--------------------------------------------")
- sensors = Distance, Distance, Distance
+ sensors = Distance, Distance, Distance, Time
  print_data(sensors)
- print(Time.GetTime())
  sleep(5)
  print_all_data()
 print_all_data()

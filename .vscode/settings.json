@@ -1,0 +1,9 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "files.associations": {
+        "*.coco": "python",
+        "*.coc": "python",
+        "*.coconut": "python"
+    },
+    "python.linting.enabled": false
+}
