@@ -4,24 +4,28 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Convert	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Distance.py	/^def Convert(data, places):$/;"	kind:function	line:10
+Convert	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Distance.py	/^def Convert(data):$/;"	kind:function	line:10
 ConvertDistance	C:\Users\Ryan\Source\Repos\SKOMOBO\rasp_pi_sensor_reader.py	/^def ConvertDistance(data, places):$/;"	kind:function	line:58
 ConvertTemp	C:\Users\Ryan\Source\Repos\SKOMOBO\rasp_pi_sensor_reader.py	/^def ConvertTemp(data,places):$/;"	kind:function	line:35
 ConvertVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\rasp_pi_sensor_reader.py	/^def ConvertVolts(data,places):$/;"	kind:function	line:27
+ConvertVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Distance.py	/^from Sensor import ReadChannel, ConvertVolts$/;"	kind:namespace	line:6
 ConvertVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Sensor.py	/^def ConvertVolts(data,places):$/;"	kind:function	line:20
 Data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Sensor.py	/^def Data (channel, ConvertData):$/;"	kind:function	line:29
+Distance	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from Sensors import Distance$/;"	kind:namespace	line:25
 Distance	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Sensors import Distance$/;"	kind:namespace	line:26
 Distance	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^from Sensors import Temp, Distance, Light, Time, Sensor$/;"	kind:namespace	line:14
 Distance.py	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Distance.py	1;"	kind:file	line:1
 EXACT_THIRD_OCTAVE_CENTER_FREQUENCIES	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^EXACT_THIRD_OCTAVE_CENTER_FREQUENCIES = REFERENCE_FREQUENCY * 10.0**(0.01*(np.arange(10, 44)-30))$/;"	kind:variable	line:57
 FAST	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^FAST = 0.125$/;"	kind:variable	line:81
-FormatVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def FormatVolts(volts):$/;"	kind:function	line:51
+FormatVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def FormatVolts(volts):$/;"	kind:function	line:34
 FormatVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor_old.py	/^def FormatVolts(volts):$/;"	kind:function	line:28
 GetData	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Distance.py	/^def GetData(channel):  $/;"	kind:function	line:26
 GetData	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Light.py	/^def GetData(channel):$/;"	kind:function	line:4
 GetData	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Temp.py	/^def GetData(channel):$/;"	kind:function	line:24
-GetData	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Time.py	/^def GetData(channel):$/;"	kind:function	line:8
+GetLevel	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Distance.py	/^def GetLevel(channel):$/;"	kind:function	line:33
 GetTime	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Time.py	/^def GetTime():$/;"	kind:function	line:4
+GetVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Distance.py	/^def GetVolts(channel):$/;"	kind:function	line:30
+Light	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from Sensors import Light$/;"	kind:namespace	line:26
 Light	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Sensors import Light$/;"	kind:namespace	line:27
 Light	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^from Sensors import Temp, Distance, Light, Time, Sensor$/;"	kind:namespace	line:14
 Light.py	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Light.py	1;"	kind:file	line:1
@@ -36,9 +40,10 @@ Python	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^        fr
 REFERENCE_FREQUENCY	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^REFERENCE_FREQUENCY = 1000.0$/;"	kind:variable	line:53
 REFERENCE_PRESSURE	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^from .iso_tr_25417_2007 import REFERENCE_PRESSURE$/;"	kind:namespace	line:34
 ReadChannel	C:\Users\Ryan\Source\Repos\SKOMOBO\rasp_pi_sensor_reader.py	/^def ReadChannel(channel):$/;"	kind:function	line:20
+ReadChannel	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Distance.py	/^from Sensor import ReadChannel, ConvertVolts$/;"	kind:namespace	line:6
 ReadChannel	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Sensor.py	/^def ReadChannel(channel):$/;"	kind:function	line:11
 SLOW	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^SLOW = 1.000$/;"	kind:variable	line:85
-Sensor	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Distance.py	/^import Sensor$/;"	kind:namespace	line:6
+Sensor	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from Sensors import Sensor$/;"	kind:namespace	line:28
 Sensor	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Light.py	/^import Sensor$/;"	kind:namespace	line:2
 Sensor	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Temp.py	/^import Sensor$/;"	kind:namespace	line:1
 Sensor	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Sensors import Sensor$/;"	kind:namespace	line:29
@@ -46,12 +51,15 @@ Sensor	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^from Sensors
 Sensor.py	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Sensor.py	1;"	kind:file	line:1
 Serial	C:\Users\Ryan\Source\Repos\SKOMOBO\pacman.py	/^import serial # Serial communications$/;"	kind:namespace	line:14
 SrlLogv2.py	C:\Users\Ryan\Source\Repos\SKOMOBO\SrlLogv2.py	1;"	kind:file	line:1
+Start.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	1;"	kind:file	line:1
 Start.py	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	1;"	kind:file	line:1
 Start_old.py	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	1;"	kind:file	line:1
+Temp	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from Sensors import Temp$/;"	kind:namespace	line:24
 Temp	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Sensors import Temp$/;"	kind:namespace	line:25
 Temp	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^from Sensors import Temp, Distance, Light, Time, Sensor$/;"	kind:namespace	line:14
 Temp.py	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Temp.py	1;"	kind:file	line:1
 ThreadPoolExecutor	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^        from concurrent.futures import ThreadPoolExecutor$/;"	kind:namespace	line:220
+Time	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from Sensors import Time$/;"	kind:namespace	line:27
 Time	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Sensors import Time$/;"	kind:namespace	line:28
 Time	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^from Sensors import Temp, Distance, Light, Time, Sensor$/;"	kind:namespace	line:14
 Time.py	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Time.py	1;"	kind:file	line:1
@@ -66,6 +74,7 @@ _NORMALIZATION_CONSTANTS	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	
 _POLE_FREQUENCIES	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^_POLE_FREQUENCIES = {1: 20.60,$/;"	kind:variable	line:215
 __all__	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\__init__.py	/^__all__ = [ basename(f)[:-3] for f in modules if isfile(f)]/;"	kind:variable	line:9
 __call__	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    def __call__(self, *args, **kwargs):$/;"	kind:member	line:157
+__coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^import __coconut__$/;"	kind:namespace	line:18
 __coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^import __coconut__$/;"	kind:namespace	line:12
 __coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^import __coconut__$/;"	kind:namespace	line:18
 __coconut__.py	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	1;"	kind:file	line:1
@@ -146,6 +155,7 @@ _coconut_bool_and	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/
 _coconut_bool_or	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^def _coconut_bool_or(a, b): return a or b$/;"	kind:function	line:171
 _coconut_compose	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^class _coconut_compose(object):$/;"	kind:class	line:153
 _coconut_copy_reg	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^        import functools as _coconut_functools, copy_reg as _coconut_copy_reg$/;"	kind:namespace	line:115
+_coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:15
 _coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:9
 _coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:15
 _coconut_functools	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^        import functools as _coconut_functools, copy_reg as _coconut_copy_reg$/;"	kind:namespace	line:115
@@ -153,11 +163,13 @@ _coconut_igetitem	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/
 _coconut_map	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^class _coconut_map(_coconut.map):$/;"	kind:class	line:181
 _coconut_minus	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^def _coconut_minus(*args): return _coconut.operator.neg(*args) if len(args) < 2 else _coconut.operator.sub(*args)$/;"	kind:function	line:172
 _coconut_new_partial	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^        def _coconut_new_partial(func, args, keywords):$/;"	kind:function	line:116
+_coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:14
 _coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
 _coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:14
 _coconut_pipe	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^def _coconut_pipe(x, f): return f(x)$/;"	kind:function	line:166
 _coconut_reduce_partial	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^        def _coconut_reduce_partial(self):$/;"	kind:function	line:119
 _coconut_starpipe	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^def _coconut_starpipe(xs, f): return f(*xs)$/;"	kind:function	line:167
+_coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:14
 _coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
 _coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:14
 _coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^import sys as _coconut_sys$/;"	kind:namespace	line:11
@@ -167,6 +179,7 @@ _coconut_tee	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^def 
 _coconut_wraps	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    from functools import wraps as _coconut_wraps$/;"	kind:namespace	line:88
 abc	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^        abc = collections$/;"	kind:variable	line:128
 abc	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^        import collections.abc as abc$/;"	kind:namespace	line:130
+absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10
@@ -176,11 +189,11 @@ and	C:\Users\Ryan\Source\Repos\SKOMOBO\pacman.py	/^import os #OS calls to contro
 arduino	C:\Users\Ryan\Source\Repos\SKOMOBO\SrlLogv2.py	/^arduino = serial.Serial('\/dev\/ttyUSB0', baud)$/;"	kind:variable	line:7
 ascii	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    ascii = repr$/;"	kind:variable	line:107
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^def average(data, sample_frequency, averaging_time):$/;"	kind:function	line:104
-average	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def average(items):$/;"	kind:function	line:41
+average	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def average(items):$/;"	kind:function	line:27
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor_old.py	/^def average(items):$/;"	kind:function	line:18
-average	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^def average(data):$/;"	kind:function	line:35
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^def average (data, index):$/;"	kind:function	line:19
-average_10	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def average_10(callback):$/;"	kind:function	line:45
+average_10	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from Processor import average_10$/;"	kind:namespace	line:29
+average_10	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def average_10(callback):$/;"	kind:function	line:30
 average_10	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor_old.py	/^def average_10(callback):$/;"	kind:function	line:21
 average_10	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Processor import average_10$/;"	kind:namespace	line:30
 average_10	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^from Processor import average_10, nth_elem, process_sensors, format_data$/;"	kind:namespace	line:15
@@ -208,6 +221,7 @@ debug	C:\Users\Ryan\Source\Repos\SKOMOBO\SrlLogv2.py	/^debug = True$/;"	kind:var
 default	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^        from multiprocessing import cpu_count  # cpu_count() * 5 is the default Python 3 thread count$/;"	kind:namespace	line:221
 delay	C:\Users\Ryan\Source\Repos\SKOMOBO\rasp_pi_sensor_reader.py	/^delay = 5$/;"	kind:variable	line:72
 dirname	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\__init__.py	/^from os.path import dirname, basename, isfile$/;"	kind:namespace	line:6
+division	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 division	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^from __future__ import division$/;"	kind:namespace	line:28
 division	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 division	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
@@ -217,10 +231,11 @@ fast_level	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^def fast_lev
 floor	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^from math import floor$/;"	kind:namespace	line:33
 fname	C:\Users\Ryan\Source\Repos\SKOMOBO\SrlLogv2.py	/^    fname = time.strftime("%y-%m-%d %H:%M:%S", start) + '.txt'$/;"	kind:variable	line:59
 folder	C:\Users\Ryan\Source\Repos\SKOMOBO\SrlLogv2.py	/^folder = '\/home\/chris\/datalogs\/python_serial_logger\/'$/;"	kind:variable	line:12
-format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def format_data(data, level, volts, unit):$/;"	kind:function	line:53
+format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from Processor import format_data$/;"	kind:namespace	line:31
+format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def format_data(data, level, volts, unit):$/;"	kind:function	line:36
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor_old.py	/^def format_data(data, level, volts, unit):$/;"	kind:function	line:31
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Sensor.py	/^def format_data(data, level, volts):$/;"	kind:function	line:45
-format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Processor import format_data$/;"	kind:namespace	line:33
+format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Processor import format_data$/;"	kind:namespace	line:32
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^from Processor import average_10, nth_elem, process_sensors, format_data$/;"	kind:namespace	line:15
 functools	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    import collections, functools, imp, itertools, operator, types, copy, pickle$/;"	kind:namespace	line:126
 glob	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\__init__.py	/^import glob$/;"	kind:namespace	line:7
@@ -242,14 +257,15 @@ lfilter	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^from scipy.sign
 light_channel	C:\Users\Ryan\Source\Repos\SKOMOBO\rasp_pi_sensor_reader.py	/^light_channel = 0$/;"	kind:variable	line:65
 main	C:\Users\Ryan\Source\Repos\SKOMOBO\SrlLogv2.py	/^def main():$/;"	kind:function	line:23
 modules	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\__init__.py	/^modules = glob.glob(dirname(__file__)+"\/*.py")$/;"	kind:variable	line:8
+normelize	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^def normelize(data):$/;"	kind:function	line:33
+normelize	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^def normelize(data):$/;"	kind:function	line:34
 np	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^import numpy as np$/;"	kind:namespace	line:30
-nth_elem	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def nth_elem(items, index):$/;"	kind:function	line:48
 nth_elem	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor_old.py	/^def nth_elem(items, index):$/;"	kind:function	line:24
-nth_elem	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Processor import nth_elem$/;"	kind:namespace	line:31
 nth_elem	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^from Processor import average_10, nth_elem, process_sensors, format_data$/;"	kind:namespace	line:15
 open	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    from io import open$/;"	kind:namespace	line:18
 operator	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    import collections, functools, imp, itertools, operator, types, copy, pickle$/;"	kind:namespace	line:126
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\SrlLogv2.py	/^import os$/;"	kind:namespace	line:1
+os	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:14
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^import os$/;"	kind:namespace	line:37
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\pacman.py	/^import os #OS calls to control the screensaver and play sounds$/;"	kind:namespace	line:15
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\rasp_pi_sensor_reader.py	/^import os$/;"	kind:namespace	line:12
@@ -267,18 +283,23 @@ pkgutil	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^import pkgutil$
 play	C:\Users\Ryan\Source\Repos\SKOMOBO\pacman.py	/^import os #OS calls to control the screensaver and play sounds$/;"	kind:namespace	line:15
 prepattern	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^def prepattern(base_func):$/;"	kind:function	line:334
 print	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    def print(*args, **kwargs):$/;"	kind:function	line:90
-print_all_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^def print_all_data():$/;"	kind:function	line:46
+print_all_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^def print_all_data():$/;"	kind:function	line:44
+print_all_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^def print_all_data():$/;"	kind:function	line:45
 print_all_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^def print_all_data():$/;"	kind:function	line:44
-print_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^def print_data(sensors):$/;"	kind:function	line:43
+print_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^def print_data(sensors):$/;"	kind:function	line:41
+print_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^def print_data(sensors):$/;"	kind:function	line:42
 print_data	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^def print_data(sensors):$/;"	kind:function	line:38
+print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10
-print_sensor	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^def print_sensor(index, sensor):$/;"	kind:function	line:38
+print_sensor	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^def print_sensor(index, sensor):$/;"	kind:function	line:36
+print_sensor	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^def print_sensor(index, sensor):$/;"	kind:function	line:37
 print_sensor	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^def print_sensor(index, sensor):$/;"	kind:function	line:22
+process_sensors	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from Processor import process_sensors$/;"	kind:namespace	line:30
 process_sensors	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def process_sensors(process, sensors):$/;"	kind:function	line:17
 process_sensors	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor_old.py	/^def process_sensors(process, sensors):$/;"	kind:function	line:1
-process_sensors	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Processor import process_sensors$/;"	kind:namespace	line:32
+process_sensors	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from Processor import process_sensors$/;"	kind:namespace	line:31
 process_sensors	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^from Processor import average_10, nth_elem, process_sensors, format_data$/;"	kind:namespace	line:15
 randint	C:\Users\Ryan\Source\Repos\SKOMOBO\pacman.py	/^from random import randint$/;"	kind:namespace	line:13
 range	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    class range(object):$/;"	kind:class	line:19
@@ -287,7 +308,7 @@ raw_input	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    def
 read_data	C:\Users\Ryan\Source\Repos\SKOMOBO\pacman.py	/^	def read_data(self):$/;"	kind:member	line:73
 recursive_iterator	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^def recursive_iterator(func):$/;"	kind:function	line:308
 recursive_iterator_func	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    def recursive_iterator_func(*args, **kwargs):$/;"	kind:function	line:313
-repeat	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def repeat(callback, repetitions):$/;"	kind:function	line:20
+repeat	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def repeat(callback, repetitions, items=[]):$/;"	kind:function	line:21
 repeat	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor_old.py	/^def repeat(callback, repetitions):$/;"	kind:function	line:7
 repr	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    def repr(obj):$/;"	kind:function	line:102
 screensaver	C:\Users\Ryan\Source\Repos\SKOMOBO\pacman.py	/^import os #OS calls to control the screensaver and play sounds$/;"	kind:namespace	line:15
@@ -297,7 +318,6 @@ sleep	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from time import 
 sleep	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start_old.py	/^from time import sleep$/;"	kind:namespace	line:12
 slow	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^def slow(data, fs):$/;"	kind:function	line:179
 slow_level	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^def slow_level(data, fs):$/;"	kind:function	line:202
-sort	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^def sort(items):$/;"	kind:function	line:28
 sounds	C:\Users\Ryan\Source\Repos\SKOMOBO\pacman.py	/^import os #OS calls to control the screensaver and play sounds$/;"	kind:namespace	line:15
 spi	C:\Users\Ryan\Source\Repos\SKOMOBO\rasp_pi_sensor_reader.py	/^spi = spidev.SpiDev()$/;"	kind:variable	line:15
 spi	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Sensors\Sensor.py	/^spi = spidev.SpiDev()$/;"	kind:variable	line:6
@@ -317,6 +337,7 @@ time_averaged_sound_level	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py
 time_weighted_sound_level	C:\Users\Ryan\Source\Repos\SKOMOBO\iec_61672_1_2013.py	/^def time_weighted_sound_level(pressure, sample_frequency, integration_time, reference_pressure=REFERENCE_PRESSURE):$/;"	kind:function	line:128
 to	C:\Users\Ryan\Source\Repos\SKOMOBO\pacman.py	/^import os #OS calls to control the screensaver and play sounds$/;"	kind:namespace	line:15
 types	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^    import collections, functools, imp, itertools, operator, types, copy, pickle$/;"	kind:namespace	line:126
+unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Processor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\refactored\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10

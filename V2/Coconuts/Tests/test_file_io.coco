@@ -1,0 +1,4 @@
+from file_io import retrieve_data, store_data
+import os
+def test_read():
+    assert retrieve_data("config.txt") == 1000

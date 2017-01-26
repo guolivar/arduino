@@ -1,3 +1,5 @@
+#include <Chronodot.h>
+
 // * Dust Sensor sampler
 // *   Using a ATTiny85 to deal with the dust sensor signal
 // *   Read on analog channel with pulseIn()

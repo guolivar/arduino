@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Python",
             "type": "python",
@@ -159,10 +160,10 @@
             "type": "python",
             "request": "attach",
             "localRoot": "${workspaceRoot}",
-            "remoteRoot": "${workspaceRoot}",
-            "port": 3000,
-            "secret": "my_secret",
-            "host": "localhost"
+            "remoteRoot": "/home/pi/skomobo",
+            "port": 22,
+            "secret": "dev1234",
+            "host": "192.168.0.146"
         }
     ]
 }

@@ -1,0 +1,18 @@
+
+import demjson
+import json
+def retrieve_data(file_name):
+
+    file = open(file_name)
+    result = json.load(file)
+    file.close()
+    return result
+
+def store_data(file_name, data):
+    file = open(file_name, "w")
+    # write to file note cwd is the root of he vscode project    
+
+    json = demjson.encode(data)
+    file.write(json)
+    file.close()
+    
