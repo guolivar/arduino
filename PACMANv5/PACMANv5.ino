@@ -1,4 +1,3 @@
-#include <Chronodot.h>
 
 // * Dust Sensor sampler
 // *   Using a ATTiny85 to deal with the dust sensor signal
@@ -16,7 +15,7 @@
 #include <SD.h>
 //Add Libraries to work with the Real Time Clock
 #include <Wire.h>
-#include "Arduino-Chronodot-master/Chronodot.h"  // Chronodot library by Stephanieplanet
+#include "Chronodot.h"  // Chronodot library by Stephanieplanet
 Chronodot RTC;
 DateTime time;
 //Control AnalogDemux
