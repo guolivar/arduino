@@ -27,25 +27,6 @@ def ConvertVolts(data,places =2):
   volts = round(volts,places)
   return volts
  
-# Function to calculate temperature from
-# TMP36 data, rounded to specified
-# number of decimal places.
-def ConvertTemp(data,places):
- 
-  # ADC Value
-  # (approx)  Temp  Volts
-  #    0      -50    0.00
-  #   78      -25    0.25
-  #  155        0    0.50
-  #  233       25    0.75
-  #  310       50    1.00
-  #  465      100    1.50
-  #  775      200    2.50
-  # 1023      280    3.30
- 
-  temp = ((data * 330)/float(1023))-50
-  temp = round(temp,places)
-  return temp
 
 # IR sensor conversion
 # formula retrieved from http://home.roboticlab.eu/en/sensor/ir_distance
@@ -111,92 +92,34 @@ def normalize(data, arg, repetitions = 10, result =[]):
 
   return normalize(data, arg, repetitions -1, result)
 
+  def print_distances(channel = 0):
+      #--Ryan Read the distance data
+
+      if channel == 3:
+        return
+
+      level = ReadChannel(channel)
+      volts = ConvertVolts(level)
+      distance = ConvertDistance(volts)
+
+      format_data(level, volts, data)
+      print_distances(channel++)
+
+
+    def format_data(data, level, volts):
+      print("Distance : {} ({}V) {} cm".format(level, volts, data))
+
+
 while True:
- 
-  # # Read the light sensor data
-  # light_level = ReadChannel(light_channel)
-  # light_volts = ConvertVolts(light_level,2)
- 
-  # # Read the temperature sensor data
-  # temp_level = ReadChannel(temp_channel)
-  # temp_volts = ConvertVolts(temp_level,2)
-  # temp       = ConvertTemp(temp_level,2)
-
-
-  # # --Ryan Read the distance data
-  # ir_level = normalize <| ReadChannel$(ir_channel)
-  # ir_volts = normalize <| ConvertVolts$(ir_level, 2)
-  # distance = normalize <| ConvertDistance$(ir_level, 2)
-
-  # # --Ryan Read the distance data
-  # ir_channel2 = ir_channel + 1
-
-  # ir_level2 = normalize <| ReadChannel$(ir_channel2)
-  # ir_volts2 = normalize <| ConvertVolts$(ir_level2, 2)
-  # distance2 = normalize <| ConvertDistance$(ir_level2, 2)
-
-  # # --Ryan Read the distance data
-
-  # ir_channel3 = ir_channel + 2
-
-  # ir_level3 = normalize <| ReadChannel$(ir_channel3)
-  # ir_volts3 = normalize <| ConvertVolts$(ir_level3, 2)
-  # distance3 = normalize <| ConvertDistance$(ir_level3, 2)
-
-  #--Ryan Read the distance data
-  ir_level = ReadChannel(ir_channel)
-  ir_volts = ConvertVolts(ir_level)
-  distance =  ConvertDistance(ir_volts)
-
-  # --Ryan Read the distance data
-  ir_channel2 = ir_channel + 1
-
-  ir_level2 = ReadChannel(ir_channel2)
-  ir_volts2 = ConvertVolts(ir_level2)
-  distance2 = ConvertDistance(ir_level2)
-
-  # --Ryan Read the distance data
-
-  ir_channel3 = ir_channel + 2
-
-  ir_level3 = ReadChannel( ir_channel3)
-  ir_volts3 = ConvertVolts(ir_level3)
-  distance3 = ConvertDistance(ir_level3)
-
-  # # --Ryan Read the distance data
-  # ir_level = normalize(ReadChannel, ir_channel)
-  # ir_volts = normalize(ConvertVolts, ir_level)
-  # distance = normalize(ConvertDistance, ir_level)
-
-  # # --Ryan Read the distance data
-  # ir_channel2 = ir_channel + 1
-
-  # ir_level2 = normalize(ReadChannel, ir_channel2)
-  # ir_volts2 = normalize(ConvertVolts, ir_level2)
-  # distance2 = normalize(ConvertDistance, ir_level2)
-
-  # # --Ryan Read the distance data
-
-  # ir_channel3 = ir_channel + 2
-
-  # ir_level3 = normalize(ReadChannel, ir_channel3)
-  # ir_volts3 = normalize(ConvertVolts, ir_level3)
-  # distance3 = normalize(ConvertDistance, ir_level3)
 
   get_time = time.asctime .. time.localtime .. time.time
  
   # Print out results
   print <| "--------------------------------------------"
- # print("Light: {} ({}V)".format(light_level,light_volts))
- # print("Temp : {} ({}V) {} deg C".format(temp_level,temp_volts,temp))
-  
-  print("Distance : {} ({}V) {} cm".format(ir_level, ir_volts, distance))
 
-  print("Distance2 : {} ({}V) {} cm".format(ir_level2, ir_volts2, distance2))
-
-  print("Distance2 : {} ({}V) {} cm".format(ir_level3, ir_volts3, distance3))
+  print_distances()
   
-  print("Time: {}".format <| get_time())
+  print("Time: " + get_time())
  
   # Wait before repeating loop
   time.sleep(delay)
