@@ -1,0 +1,12 @@
+
+def addUp(items):
+  """ Our owm summing function because the python one has a memory leak"""
+
+  # if len(items) == 0:
+  #     return total
+  add = reduce$(+)
+  return  add <| items
+  
+def average(*items):
+  print( "length: ", len(items))
+   return addUp(items)/len(items)

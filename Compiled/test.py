@@ -1,15 +1,20 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-def ConvertDistance(data, places = 2):
-  #return round ( 5461 / (data - 17) -2, places)
+from distance_sensor import ConvertDistance
+from converter import ConvertVolts
 
-  # subtracting 1 extra to compensate maybe it's just the hardware???
-  #return round ( 5461 / float((data - 17) -3), places)
-  return round ( 5461 / float((data - 17) -2), places)
-  #return 13.5/ volts
-
-  #return (16.2537 * v ** 4) - ( 129.893 * v ** 3 )+ ( 382.268 * v ** 2 )  - ( 512.611 * v )+ 306.439
+from calculator import addUp, average
 
 def test_distance():
-    print(ConvertDistance(2.5))
+ assert ConvertDistance(2.25, 2) == 10
 
-test_distance()
+def test_volts():
+ assert ConvertVolts(10, 2) == 0.03
+
+def test_addUp():
+ assert addUp([1, 2, 3, 4, 4]) == 14
+
+def test_average():
+#  assert average([3, 3, 4, 4, 5]) == 3.8
+    average([3, 3, 4, 4, 5])

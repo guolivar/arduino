@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0xc0ef9a05
+# __coconut_hash__ = 0x5a66161e
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -14,8 +14,7 @@ _coconut_sys.path.remove(_coconut_file_path)
 for name in dir(__coconut__):
  if name.startswith("_") and not name.startswith("__"):
   globals()[name] = getattr(__coconut__, name)
-from file_io import retrieve_data
-from file_io import store_data
-import os
-def test_read():
- assert retrieve_data("**/config.txt") == 1000
+def ConvertVolts(data, places=2):
+ volts = (data * 3.3) / float(1023)
+ volts = round(volts, places)
+ return volts

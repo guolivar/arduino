@@ -1,3 +1,4 @@
 {
-  "Compiled/Tests/test_file_io.py": true
+  "Compiled/test.py::test_average": true, 
+  "Compiled/test.py::test_distance": true
 }

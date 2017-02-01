@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0x85dd202c
+# __coconut_hash__ = 0x58e40dd2
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -14,8 +14,3 @@ _coconut_sys.path.remove(_coconut_file_path)
 for name in dir(__coconut__):
  if name.startswith("_") and not name.startswith("__"):
   globals()[name] = getattr(__coconut__, name)
-from file_io import retrieve_data
-from file_io import store_data
-import os
-def test_read():
- assert retrieve_data("config.txt") == 1000

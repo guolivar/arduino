@@ -1,8 +1,5 @@
-#include <Arduino.h>
 
-
-// * Dust Sensor sampler
-// *   Using a ATTiny85 to deal with the dust sensor signal
+// * Dust Sensor sampler/ *   Using a ATTiny85 to deal with the dust sensor signal
 // *   Read on analog channel with pulseIn()
 // * Movement with PIR
 // * Distance with Maxbotix EZ4
@@ -17,7 +14,7 @@
 #include <SD.h>
 //Add Libraries to work with the Real Time Clock
 #include <Wire.h>
-#include "Chronodot.h"  // Chronodot library by Stephanieplanet
+#include "Chronodot.h" // Chronodot library by Stephanieplanet adjusted by Ryan Weyers for the arduino pro micro
 Chronodot RTC;
 DateTime time;
 //Control AnalogDemux
@@ -27,7 +24,7 @@ int x10=5;
 unsigned long Dust;
 //Temperature sensor variable
 unsigned long Temp; //Temperature
-//Distance variable 
+//Distance variable
 unsigned long Distance; //Distance
 //CO2 variable
 unsigned long CO2; //CO2 signal
@@ -51,7 +48,7 @@ String fname;
 String currdir;
 char file_fname[20];
 char dir_dname[10];
-long fcount,dcount;
+//long fcount,dcount;
 int psec,csec;
 
 unsigned long GetDust()
@@ -123,7 +120,7 @@ void COPwrCycler(){
 String fname_date(DateTime ctime)
 {
   String xday, xmonth, xx;
-  // Converstion of the month and date to a string which will be displayed as the sdCard file name 
+  // Converstion of the month and date to a string which will be displayed as the sdCard file name
   //One digit days
   if (ctime.day()<10){
     xday="0"+String(ctime.day());
@@ -138,8 +135,8 @@ String fname_date(DateTime ctime)
   else {
     xmonth=String(ctime.month());
   }
-   xx=String(ctime.year())+xmonth+xday; 
-  // Obtain the string xx and save as the name of the sdCard file           
+   xx=String(ctime.year())+xmonth+xday;
+  // Obtain the string xx and save as the name of the sdCard file
   return xx;
 }
 String recordstring(DateTime ctime){
@@ -163,30 +160,30 @@ void SaveData(DateTime xtime)
   //Serial.println("Temperature Done");
   //CO2 from analog
   CO2=GetCO2();
-  //Serial.println("CO2 Done");
+  Serial.println("CO2 Done");
   //CO from analog
   CO=GetCO();
-  //Serial.println("CO Done");
+  Serial.println("CO Done");
   //Increment Record count
   rcount++;
   //Get the current RECORD string
   String currRecord=recordstring(xtime);
-  //Serial.println("Current Time Done");
+  Serial.println("Current Time Done");
   //Output the measured values
   //To the serial port
   Serial.println(currRecord);
   //To the file output
   //Open the current file
-  //Serial.println("Opening file");
+  Serial.println("Opening file");
   //digitalWrite(13,HIGH);
   fname=String(fname_date(xtime)+".txt");
   fname.toCharArray(file_fname,fname.length()+1);
   currfile=SD.open(file_fname, FILE_WRITE);
   //Write to the file
-  //Serial.println("Writing to file");
+  Serial.println("Writing to file");
   currfile.println(currRecord);
   currfile.close();
-  //Serial.println("Writing to file Done");
+  Serial.println("Writing to file Done");
   //Reinitialise the variables
   Dust=0;
   Distance=0;
@@ -222,6 +219,8 @@ void selectCO(){
 void setup(){
   //Set up serial comms
   Serial.begin(57600);
+  while(!Serial); // for the Arduino Leonardo/Micro only
+  
   //Set up RTC
   Wire.begin();
   RTC.begin();   // the function to get the time from the RTC
@@ -271,6 +270,7 @@ void setup(){
   psec=time.second();
 }
 void loop(){
+  Serial.print("hello world");
   time=RTC.now();
   csec=time.second();
   if (csec!=psec) {

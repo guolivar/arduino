@@ -1,0 +1,1 @@
+pytest ../Compiled/test.py
