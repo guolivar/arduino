@@ -1,13 +1,6 @@
 
-def addUp(items):
-  """ Our owm summing function because the python one has a memory leak"""
 
-  # if len(items) == 0:
-  #     return total
-  # return reduce((x, y) -> x+y, items)
-  result = reduce((x, y) -> x+y, items)
-  return result
-  
-  
-def average(*items):
-  return addUp(items)/len(items)
+
+def addUp(items) = reduce((+), items)
+
+def average(items) = addUp(items)/len(items)

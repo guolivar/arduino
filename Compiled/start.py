@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0x175c01b4
+# __coconut_hash__ = 0x5bc066b6
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -33,8 +33,6 @@ def ReadChannel(channel):
 from converter import ConvertVolts
 from calculator import addUp
 from calculator import average
-ir_channel = 0
-delay = 5
 from distance_sensor import ConvertDistance
 def repeat(funct, arg, repetitions=100):
  items = []
@@ -60,4 +58,4 @@ while True:
  (print)("--------------------------------------------")
  (print_distances)(range(3))
  print("Time: " + get_time())
- time.sleep(delay)
+ time.sleep(5)

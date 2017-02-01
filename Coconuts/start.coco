@@ -24,14 +24,6 @@ from converter import ConvertVolts
 from calculator import addUp, average
 
 
-# --Ryan adding one more channel for the ir sensors
-#ir_channel = 2
-ir_channel = 0
- 
-# Define delay between readings
-delay = 5
-  
-
 from distance_sensor import ConvertDistance
 
 # def repeat(repetitions, data, result = []):
@@ -98,4 +90,5 @@ while True:
   print("Time: " + get_time())
  
   # Wait before repeating loop
-  time.sleep(delay)
+  
+  time.sleep(5)

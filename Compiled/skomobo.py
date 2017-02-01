@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0xf095ef88
+# __coconut_hash__ = 0xd2467274
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -19,3 +19,9 @@ def addUp(items):
  raise _coconut_tail_call(reduce, _coconut.operator.add, items)
 def average(items):
  return addUp(items) / len(items)
+def ConvertVolts(data, places=2):
+ volts = (data * 3.3) / float(1023)
+ volts = round(volts, places)
+ return volts
+def ConvertDistance(v, places=2):
+ return 16.2537 * v**4 - 129.893 * v**3 + 382.268 * v**2 - 512.611 * v + 306.439
