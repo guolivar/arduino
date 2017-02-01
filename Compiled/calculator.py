@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0xb9ad1a00
+# __coconut_hash__ = 0x5abead55
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -14,10 +14,9 @@ _coconut_sys.path.remove(_coconut_file_path)
 for name in dir(__coconut__):
  if name.startswith("_") and not name.startswith("__"):
   globals()[name] = getattr(__coconut__, name)
-@_coconut_tco
 def addUp(items):
  """ Our owm summing function because the python one has a memory leak"""
- add = _coconut.functools.partial(reduce, _coconut.operator.add)
- raise _coconut_tail_call((add), items)
-def average(*data):
- return addUp(data) / len(data)
+ result = reduce(lambda x, y: x + y, items)
+ return result
+def average(*items):
+ return addUp(items) / len(items)

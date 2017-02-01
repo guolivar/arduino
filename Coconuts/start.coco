@@ -22,9 +22,7 @@ def ReadChannel(channel):
 
 from converter import ConvertVolts
 from calculator import addUp, average
-# Define sensor channels
-# light_channel = 0
-# temp_channel  = 1
+
 
 # --Ryan adding one more channel for the ir sensors
 #ir_channel = 2
@@ -32,94 +30,55 @@ ir_channel = 0
  
 # Define delay between readings
 delay = 5
-
-#Try rewriting these to use coconut more if  I need them because results are so consistent that I probably won't
-
-
-  # total += items.pop()
-  # return addUp(items, total)
-
-
-# def normalize(data, arg, repetitions = 100, result =[]):
-  
-#   if repetitions == 0:
-      
-#       # do not refactor because lists are immutable and addup treats them as stack so length becomes 0
-#       length = len(result) 
-
-#        # in case no reads occur
-#       if length == 0:
-#         return 0
-
-#       total = addUp(result)
-      
-#       average = total / length
-    
-#       print("sum: ", total,"average: ", average)
-#       return average
-  
-#   read = data(arg)
-
-#   if read >= 0:
-#     print( "repetitions: ", repetitions, "read: ", read)
-#     result.append(read)
-
-#   return normalize(data, arg, repetitions -1, result)
-
-
   
 
 from distance_sensor import ConvertDistance
 
-def repeat(data, repetitions, result = []):
+# def repeat(repetitions, data, result = []):
   
-  if( repetitions == 0):
-    return result
-  
-  addItem = result.append .. list
-  repeat( data, repetitions - 1, addItem(data)) 
-  
+#   if( repetitions == 0):
+#     print("result: ", result)
+#     answer = consume <| result
+#     print("answer: ", answer)
+#     return answer
+# repeat( repetitions - 1, data, result :: data ) 
+
+def repeat(funct, arg, repetitions = 100):
+
+  items = []
+  while repetitions > 0:
+
+    processed = funct(arg)
+    repetitions -= 1
+    items.append(processed)
+  return items
 
 def print_distances(channels):
-  #--Ryan Read the distance data
+  #--Ryan Read the distance 
     
-    times_100 = repeat$(100)
+    for channel in channels:
+      levels = repeat( ReadChannel, channel)
+      print("levels: ", levels)
+      
+      volts = list(map(ConvertVolts, levels))
+      distances = list(map(ConvertDistance, volts))
+      
+      average_levels = average(levels)
+      average_volts = average(volts)
+      average_distance = average(distances)
 
-    print_data = format_data .. average
-
-    extract = times_100 .. map
-
-    levels = extract <*| (ReadChannel, channels)
-
-    print("levels: ", levels)
-
-    volts = extract <*| (ConvertVolts, levels)
-
-    print("volts: ", volts)
-
-    distances = extract <*| (ConvertDistance, volts)
-
-    print("distances: ", distances)
-    
-    print_data <*| ( channels, levels, volts, distances )
+      format_data( channel, average_distance, average_levels, average_volts) 
 
 
+    # volts = average <*| (ConvertVolts, levels)
 
-  # if channel == 3
-  #   return
+    # print("volts: ", volts)
 
- 
+    # distances = average <*| (ConvertDistance, volts)
 
+    # print("distances: ", distances)
 
-  # level = ReadChannel(channel)
-  # volts = ConvertVolts(level)
-  # distance = normalize <*| (ConvertDistance, volts)
-
-  # getData = ConvertDistance .. ConvertVolts .. ReadChannel
-
-  # format_data(channel, level, volts, data)
-
-  # print_distances(channel + 1)
+    # format_data <*| ( channels, levels, volts, distances )
 
 
 def format_data(channel, data, level, volts):

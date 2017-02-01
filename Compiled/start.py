@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0x87b0b10e
+# __coconut_hash__ = 0x175c01b4
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -36,22 +36,23 @@ from calculator import average
 ir_channel = 0
 delay = 5
 from distance_sensor import ConvertDistance
-def repeat(data, repetitions, result=[]):
- if (repetitions == 0):
-  return result
- addItem = _coconut_compose(result.append, list)
- repeat(data, repetitions - 1, addItem(data))
+def repeat(funct, arg, repetitions=100):
+ items = []
+ while repetitions > 0:
+  processed = funct(arg)
+  repetitions -= 1
+  items.append(processed)
+ return items
 def print_distances(channels):
- times_100 = _coconut.functools.partial(repeat, 100)
- print_data = _coconut_compose(format_data, average)
- extract = _coconut_compose(times_100, map)
- levels = (extract)(*(ReadChannel, channels))
- print("levels: ", levels)
- volts = (extract)(*(ConvertVolts, levels))
- print("volts: ", volts)
- distances = (extract)(*(ConvertDistance, volts))
- print("distances: ", distances)
- (print_data)(*(channels, levels, volts, distances))
+ for channel in channels:
+  levels = repeat(ReadChannel, channel)
+  print("levels: ", levels)
+  volts = list(map(ConvertVolts, levels))
+  distances = list(map(ConvertDistance, volts))
+  average_levels = average(levels)
+  average_volts = average(volts)
+  average_distance = average(distances)
+  format_data(channel, average_distance, average_levels, average_volts)
 def format_data(channel, data, level, volts):
  (print)("Distance {}: {} ({}V) {} cm".format(channel, level, volts, data))
 while True:
