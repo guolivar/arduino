@@ -4,9 +4,8 @@ Created on Wed Dec 21 11:40:05 2016
 
 @author: User
 """
- 
+
 import spidev
-import time
 import os
 
 # Open SPI bus
@@ -20,75 +19,35 @@ def ReadChannel(channel):
   data = ((adc[1]&3) << 8) + adc[2]
   return data
 
-from converter import ConvertVolts
-from calculator import addUp, average
+from skomobo import *
+
+def print_distance(channel):
+    levels = ReadChannel$(channel) `times` 100
+
+    data = convert( levels, to_volts,  to_distance)
+
+    averages = resolve(average, data)
+    print <| format_data(channel, *averages)
+
+def print_distances(channels)=  resolve(print_distance, channels)
 
 
-from distance_sensor import ConvertDistance
-
-# def repeat(repetitions, data, result = []):
-  
-#   if( repetitions == 0):
-#     print("result: ", result)
-#     answer = consume <| result
-#     print("answer: ", answer)
-#     return answer
-# repeat( repetitions - 1, data, result :: data ) 
-
-def repeat(funct, arg, repetitions = 100):
-
-  items = []
-  while repetitions > 0:
-
-    processed = funct(arg)
-    repetitions -= 1
-    items.append(processed)
-  return items
-
-def print_distances(channels):
-  #--Ryan Read the distance 
-    
-    for channel in channels:
-      levels = repeat( ReadChannel, channel)
-      print("levels: ", levels)
-      
-      volts = list(map(ConvertVolts, levels))
-      distances = list(map(ConvertDistance, volts))
-      
-      average_levels = average(levels)
-      average_volts = average(volts)
-      average_distance = average(distances)
-
-      format_data( channel, average_distance, average_levels, average_volts) 
-
-
-    # volts = average <*| (ConvertVolts, levels)
-
-    # print("volts: ", volts)
-
-    # distances = average <*| (ConvertDistance, volts)
-
-    # print("distances: ", distances)
-
-    # format_data <*| ( channels, levels, volts, distances )
-
-
-def format_data(channel, data, level, volts):
-  print <| "Distance {}: {} ({}V) {} cm".format(channel, level, volts, data)
-
-
+# start the program
 while True:
 
-  get_time = time.asctime .. time.localtime .. time.time
- 
+
   # Print out results
-  print <| "--------------------------------------------"
+  #print <| "--------------------------------------------"
+
+  ReadChannel$(2) `times` 100 |> average |> to_volts |> save |> print
 
   # print distances using channels 1 - 3 ( 0 - 2 in programmatic counting)
-  print_distances <| range(3)
+  #print_distances <| range(3)
   
-  print("Time: " + get_time())
+  #print("Time: " + get_time())
  
   # Wait before repeating loop
   
-  time.sleep(5)
+  #sleep(5)
+
+

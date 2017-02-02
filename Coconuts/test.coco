@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from skomobo import *
+
+def test_distance(): assert to_distance(2.25, 2) == 10
+
+def test_volts(): assert to_volts(10, 2) == 0.03
+
+def test_add(): assert add([1, 2, 3, 4, 4]) == 14
+
+def test_average(): assert average([3, 3, 4, 4, 5]) == 3.8
+
+def test_times(): assert -> (1 + 2) `times` 5 == [3, 3, 3, 3, 3]
+
+def test_format_data(): assert format_data( 0, 40, 23, 12) == "Distance 0: 40 (23V) 12 cm"
+
+# an component test we use both the time function and the file writing function
+def test_save(): assert save(34) == "34 " + get_time()  

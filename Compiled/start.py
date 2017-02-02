@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0x5bc066b6
+# __coconut_hash__ = 0xb18274d7
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -22,7 +22,6 @@ for name in dir(__coconut__):
   globals()[name] = getattr(__coconut__, name)
 
 import spidev
-import time
 import os
 spi = spidev.SpiDev()
 spi.open(0, 0)
@@ -30,32 +29,14 @@ def ReadChannel(channel):
  adc = spi.xfer2([1, (8 + channel) << 4, 0])
  data = ((adc[1] & 3) << 8) + adc[2]
  return data
-from converter import ConvertVolts
-from calculator import addUp
-from calculator import average
-from distance_sensor import ConvertDistance
-def repeat(funct, arg, repetitions=100):
- items = []
- while repetitions > 0:
-  processed = funct(arg)
-  repetitions -= 1
-  items.append(processed)
- return items
+from skomobo import *
+def print_distance(channel):
+ levels = (times)(_coconut.functools.partial(ReadChannel, channel), 100)
+ data = convert(levels, to_volts, to_distance)
+ averages = resolve(average, data)
+ (print)(format_data(channel, *averages))
+@_coconut_tco
 def print_distances(channels):
- for channel in channels:
-  levels = repeat(ReadChannel, channel)
-  print("levels: ", levels)
-  volts = list(map(ConvertVolts, levels))
-  distances = list(map(ConvertDistance, volts))
-  average_levels = average(levels)
-  average_volts = average(volts)
-  average_distance = average(distances)
-  format_data(channel, average_distance, average_levels, average_volts)
-def format_data(channel, data, level, volts):
- (print)("Distance {}: {} ({}V) {} cm".format(channel, level, volts, data))
+ raise _coconut_tail_call(resolve, print_distance, channels)
 while True:
- get_time = _coconut_compose(time.asctime, time.localtime, time.time)
- (print)("--------------------------------------------")
- (print_distances)(range(3))
- print("Time: " + get_time())
- time.sleep(5)
+ (print)((save)((to_volts)((average)((times)(_coconut.functools.partial(ReadChannel, 2), 100)))))

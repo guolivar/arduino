@@ -44,14 +44,8 @@ CHLD	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_deb
 COLLECTION_TYPES_WITH_ROUND_TRIPPING_REPR	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^COLLECTION_TYPES_WITH_ROUND_TRIPPING_REPR = set((tuple, list, set, frozenset))$/;"	kind:variable	line:286
 ConditionalWeakTable	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    from System.Runtime.CompilerServices import ConditionalWeakTable$/;"	kind:namespace	line:90
 Convert	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\Distance.py	/^def Convert(data):$/;"	kind:function	line:10
-ConvertDistance	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	/^def ConvertDistance(v, places=2):$/;"	kind:function	line:17
-ConvertDistance	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^from distance_sensor import ConvertDistance$/;"	kind:namespace	line:38
-ConvertDistance	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^from distance_sensor import ConvertDistance$/;"	kind:namespace	line:4
 ConvertDistance	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\rasp_pi_sensor_reader.py	/^def ConvertDistance(data, places):$/;"	kind:function	line:58
 ConvertTemp	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\rasp_pi_sensor_reader.py	/^def ConvertTemp(data,places):$/;"	kind:function	line:35
-ConvertVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	/^def ConvertVolts(data, places=2):$/;"	kind:function	line:17
-ConvertVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^from converter import ConvertVolts$/;"	kind:namespace	line:33
-ConvertVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^from converter import ConvertVolts$/;"	kind:namespace	line:5
 ConvertVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\rasp_pi_sensor_reader.py	/^def ConvertVolts(data,places):$/;"	kind:function	line:27
 ConvertVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\Distance.py	/^from Sensor import ReadChannel, ConvertVolts$/;"	kind:namespace	line:6
 ConvertVolts	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\Sensor.py	/^def ConvertVolts(data,places):$/;"	kind:function	line:20
@@ -311,6 +305,8 @@ __abs__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^        
 __add__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^                    def __add__(self,x): return self$/;"	kind:member	line:441
 __add__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^                    def __add__(self,x): return self$/;"	kind:member	line:473
 __add__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^                    def __add__(self,x): return self$/;"	kind:member	line:558
+__all__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\__init__.py	/^__all__ = [ basename(f)[:-3] for f in modules if isfile(f)]/;"	kind:variable	line:9
+__all__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__..py	/^__all__ = [ basename(f)[:-3] for f in modules if isfile(f)]/;"	kind:variable	line:9
 __all__	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\__init__.py	/^__all__ = [ basename(f)[:-3] for f in modules if isfile(f)]/;"	kind:variable	line:9
 __all__	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\__init__.py	/^__all__ = ['enable_attach', 'wait_for_attach', 'break_into_debugger', 'settrace', 'is_attached', 'AttachAlreadyEnabledError']$/;"	kind:variable	line:20
 __all__	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^__all__ = ['enable_attach', 'wait_for_attach', 'break_into_debugger', 'settrace', 'is_attached', 'AttachAlreadyEnabledError']$/;"	kind:variable	line:20
@@ -328,12 +324,9 @@ __call__	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/
 __call__	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^            def __call__(tsk, *args, **kwargs):$/;"	kind:function	line:777
 __call__	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^    def __call__(self, obj):$/;"	kind:member	line:237
 __coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__index__.py	/^import __coconut__$/;"	kind:namespace	line:12
-__coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__.py	/^import __coconut__$/;"	kind:namespace	line:12
-__coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^import __coconut__$/;"	kind:namespace	line:12
-__coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	/^import __coconut__$/;"	kind:namespace	line:12
-__coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	/^import __coconut__$/;"	kind:namespace	line:12
-__coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^import __coconut__$/;"	kind:namespace	line:12
+__coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^import __coconut__$/;"	kind:namespace	line:14
 __coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^import __coconut__$/;"	kind:namespace	line:18
+__coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^import __coconut__$/;"	kind:namespace	line:12
 __coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^import __coconut__$/;"	kind:namespace	line:12
 __coconut__	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^import __coconut__$/;"	kind:namespace	line:18
 __coconut__.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	1;"	kind:file	line:1
@@ -446,8 +439,8 @@ __init__	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py
 __init__	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def __init__(self, mod_name='__main__'):$/;"	kind:member	line:554
 __init__	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def __init__(self, reason):$/;"	kind:member	line:145
 __init__	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^            def __init__(self, iter = ()): list.__init__(self, iter)$/;"	kind:member	line:570
+__init__..py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__..py	1;"	kind:file	line:1
 __init__.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\__init__.py	1;"	kind:file	line:1
-__init__.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__.py	1;"	kind:file	line:1
 __init__.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\__init__.py	1;"	kind:file	line:1
 __init__.py	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\__init__.py	1;"	kind:file	line:1
 __instancecheck__	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^            def __instancecheck__(cls, inst):$/;"	kind:member	line:77
@@ -661,12 +654,9 @@ _coconut_compose	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconu
 _coconut_copy_reg	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^        import functools as _coconut_functools, copy_reg as _coconut_copy_reg$/;"	kind:namespace	line:115
 _coconut_copy_reg	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^        import functools as _coconut_functools, copy_reg as _coconut_copy_reg$/;"	kind:namespace	line:115
 _coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__index__.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:9
-_coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:9
-_coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:9
-_coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:9
-_coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:9
-_coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:9
+_coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:11
 _coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:15
+_coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:9
 _coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:9
 _coconut_file_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^_coconut_file_path = _coconut_os_path.dirname(_coconut_os_path.abspath(__file__))$/;"	kind:variable	line:15
 _coconut_functools	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^        import functools as _coconut_functools, copy_reg as _coconut_copy_reg$/;"	kind:namespace	line:115
@@ -680,12 +670,9 @@ _coconut_minus	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut_
 _coconut_new_partial	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^        def _coconut_new_partial(func, args, keywords):$/;"	kind:function	line:116
 _coconut_new_partial	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^        def _coconut_new_partial(func, args, keywords):$/;"	kind:function	line:116
 _coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__index__.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-_coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-_coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-_coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-_coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-_coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
+_coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:10
 _coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:14
+_coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
 _coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
 _coconut_os_path	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:14
 _coconut_pipe	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^def _coconut_pipe(x, f): return f(x)$/;"	kind:function	line:166
@@ -696,12 +683,9 @@ _coconut_starpipe	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^d
 _coconut_starpipe	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^def _coconut_starpipe(xs, f): return f(*xs)$/;"	kind:function	line:167
 _coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^import sys as _coconut_sys$/;"	kind:namespace	line:11
 _coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__index__.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-_coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-_coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-_coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-_coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-_coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
+_coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:10
 _coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:14
+_coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
 _coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
 _coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:14
 _coconut_sys	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^import sys as _coconut_sys$/;"	kind:namespace	line:11
@@ -769,19 +753,14 @@ abc	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^    
 abc	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^        import collections.abc as abc$/;"	kind:namespace	line:130
 absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10
 absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__index__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
+absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:9
 absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
+absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10
 acquire	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def acquire(self):$/;"	kind:member	line:99
-addUp	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^def addUp(items):$/;"	kind:function	line:17
-addUp	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^from calculator import addUp$/;"	kind:namespace	line:34
-addUp	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^from calculator import addUp, average$/;"	kind:namespace	line:7
+addUp	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def addUp(items):$/;"	kind:function	line:22
 add_break_point	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^def add_break_point(bp):$/;"	kind:function	line:1581
 add_breakpoint	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def add_breakpoint(self, lineno, brkpt_id):$/;"	kind:member	line:629
 add_exception	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def add_exception(self, name, mode=BREAK_MODE_UNHANDLED):$/;"	kind:member	line:526
@@ -823,9 +802,7 @@ author	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\setup.py	/^      author
 author_email	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\setup.py	/^      author_email='ptvshelp@microsoft.com',$/;"	kind:variable	line:25
 auto_detect_encoding	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def auto_detect_encoding( s ):$/;"	kind:member	line:1141
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^def average(data, sample_frequency, averaging_time):$/;"	kind:function	line:104
-average	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^def average(*items):$/;"	kind:function	line:21
-average	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^from calculator import average$/;"	kind:namespace	line:35
-average	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^from calculator import addUp, average$/;"	kind:namespace	line:7
+average	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def average(items):$/;"	kind:function	line:24
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^def average(items):$/;"	kind:function	line:27
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor_old.py	/^def average(items):$/;"	kind:function	line:18
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start_old.py	/^def average (data, index):$/;"	kind:function	line:19
@@ -833,6 +810,8 @@ average_10	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/
 average_10	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor_old.py	/^def average_10(callback):$/;"	kind:function	line:21
 average_10	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^from Processor import average_10$/;"	kind:namespace	line:30
 average_10	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start_old.py	/^from Processor import average_10, nth_elem, process_sensors, format_data$/;"	kind:namespace	line:15
+basename	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\__init__.py	/^from os.path import dirname, basename, isfile$/;"	kind:namespace	line:6
+basename	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__..py	/^from os.path import dirname, basename, isfile$/;"	kind:namespace	line:6
 basename	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\__init__.py	/^from os.path import dirname, basename, isfile$/;"	kind:namespace	line:6
 baud	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\SrlLogv2.py	/^baud = 57600$/;"	kind:variable	line:6
 behaviors_eq	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^        def behaviors_eq(self, other):$/;"	kind:function	line:2747
@@ -852,7 +831,6 @@ bytes	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^  
 c_int	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^        from ctypes import c_int, c_voidp, c_wchar_p$/;"	kind:namespace	line:117
 c_voidp	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^        from ctypes import c_int, c_voidp, c_wchar_p$/;"	kind:namespace	line:117
 c_wchar_p	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^        from ctypes import c_int, c_voidp, c_wchar_p$/;"	kind:namespace	line:117
-calculator.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	1;"	kind:file	line:1
 call_hook	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def call_hook(self, hook_name, input_object, position=None, *args, **kwargs):$/;"	kind:member	line:3574
 calls	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\pacman.py	/^import os #OS calls to control the screensaver and play sounds$/;"	kind:namespace	line:15
 char_is_identifier_leader	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def char_is_identifier_leader( c ):$/;"	kind:member	line:1064
@@ -938,7 +916,6 @@ content_type	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^con
 context_dispatcher	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def context_dispatcher(self, old, new):$/;"	kind:member	line:819
 control	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\pacman.py	/^import os #OS calls to control the screensaver and play sounds$/;"	kind:namespace	line:15
 convert	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\Temp.py	/^def convert(data,places):$/;"	kind:function	line:7
-converter.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	1;"	kind:file	line:1
 copy	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def copy( self ):$/;"	kind:member	line:1560
 copy	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def copy(self):$/;"	kind:member	line:3037
 copy	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^    import collections, functools, imp, itertools, operator, types, copy, pickle$/;"	kind:namespace	line:126
@@ -988,9 +965,7 @@ decode_string	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^  
 decodeobj	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def decodeobj(self, state, identifier_as_string=False, at_document_start=False):$/;"	kind:member	line:4823
 default	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^        from multiprocessing import cpu_count  # cpu_count() * 5 is the default Python 3 thread count$/;"	kind:namespace	line:221
 default	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^        from multiprocessing import cpu_count  # cpu_count() * 5 is the default Python 3 thread count$/;"	kind:namespace	line:221
-delay	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^delay = 5$/;"	kind:variable	line:37
 delay	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\rasp_pi_sensor_reader.py	/^delay = 5$/;"	kind:variable	line:72
-demjson	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^import demjson$/;"	kind:namespace	line:17
 demjson.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	1;"	kind:file	line:1
 deque	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^from collections import deque$/;"	kind:namespace	line:48
 deque	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^        from collections import deque$/;"	kind:namespace	line:219
@@ -1003,18 +978,16 @@ detach_threads	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstu
 determine_float_limits	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^def determine_float_limits( number_type=float ):$/;"	kind:function	line:205
 determine_float_precision	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^def determine_float_precision():$/;"	kind:function	line:349
 dict_types	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^    dict_types = [(dict, '{', '}', '', ': ', '')]$/;"	kind:variable	line:225
+dirname	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\__init__.py	/^from os.path import dirname, basename, isfile$/;"	kind:namespace	line:6
+dirname	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__..py	/^from os.path import dirname, basename, isfile$/;"	kind:namespace	line:6
 dirname	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\__init__.py	/^from os.path import dirname, basename, isfile$/;"	kind:namespace	line:6
 disconnect_from_debugger	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def disconnect_from_debugger(self):$/;"	kind:member	line:1076
-distance_sensor.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	1;"	kind:file	line:1
 division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^from __future__ import division$/;"	kind:namespace	line:28
 division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10
 division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__index__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
+division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:9
 division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
+division	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 division	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 division	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 division	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10
@@ -1083,7 +1056,6 @@ extend_list_with_sep	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.
 fast	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^def fast(data, fs):$/;"	kind:function	line:167
 fast_level	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^def fast_level(data, fs):$/;"	kind:function	line:191
 file_ext	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^file_ext = 'json'$/;"	kind:variable	line:176
-file_io.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	1;"	kind:file	line:1
 filename	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_launcher.py	/^filename = sys.argv[0]$/;"	kind:variable	line:72
 fileno	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def fileno(self):$/;"	kind:member	line:1198
 find_by_id	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def find_by_id(breakpoint_id):$/;"	kind:member	line:201
@@ -1096,7 +1068,7 @@ flush	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_re
 flush	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def flush(self):$/;"	kind:member	line:509
 fname	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\SrlLogv2.py	/^    fname = time.strftime("%y-%m-%d %H:%M:%S", start) + '.txt'$/;"	kind:variable	line:59
 folder	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\SrlLogv2.py	/^folder = '\/home\/chris\/datalogs\/python_serial_logger\/'$/;"	kind:variable	line:12
-format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^def format_data(channel, data, level, volts):$/;"	kind:function	line:56
+format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def format_data(*data):$/;"	kind:function	line:50
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^def format_data(data, level, volts, unit):$/;"	kind:function	line:36
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor_old.py	/^def format_data(data, level, volts, unit):$/;"	kind:function	line:31
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\Sensor.py	/^def format_data(data, level, volts):$/;"	kind:function	line:45
@@ -1132,12 +1104,15 @@ get_signatures	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstu
 get_signatures_for_frame	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def get_signatures_for_frame(self, expression, thread, cur_frame, frame_kind):$/;"	kind:member	line:1160
 get_thread_and_frame	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def get_thread_and_frame(self, tid, fid, frame_kind):$/;"	kind:member	line:1946
 get_thread_from_id	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^def get_thread_from_id(id):$/;"	kind:function	line:353
+get_time	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^ get_time = _coconut_compose(time.asctime, time.localtime, time.time)$/;"	kind:variable	line:35
 get_type_name	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def get_type_name(val):$/;"	kind:function	line:1022
 get_value_for_behavior	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^            def get_value_for_behavior(self,name=name):$/;"	kind:function	line:2705
 getbehaviorsfor	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^            def getbehaviorsfor(self,value=v):$/;"	kind:function	line:2737
 getopt	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^        import sys, os, getopt, unicodedata$/;"	kind:namespace	line:6051
 getpass	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^import getpass$/;"	kind:namespace	line:23
 getx	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^                def getx(self,name=name,forval=v):$/;"	kind:function	line:2697
+glob	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\__init__.py	/^import glob$/;"	kind:namespace	line:7
+glob	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__..py	/^import glob$/;"	kind:namespace	line:7
 glob	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\__init__.py	/^import glob$/;"	kind:namespace	line:7
 handle_c_call	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def handle_c_call(self, frame, arg):$/;"	kind:member	line:1137
 handle_c_exception	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def handle_c_exception(self, frame, arg):$/;"	kind:member	line:1145
@@ -1190,7 +1165,6 @@ intercept_threads	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visual
 interrupt_main	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def interrupt_main(self):$/;"	kind:function	line:826
 interrupt_main	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def interrupt_main(self):$/;"	kind:member	line:481
 io	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^import io$/;"	kind:namespace	line:36
-ir_channel	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^ir_channel = 0$/;"	kind:variable	line:36
 ir_channel	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\rasp_pi_sensor_reader.py	/^ir_channel = 2$/;"	kind:variable	line:69
 is	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^        from multiprocessing import cpu_count  # cpu_count() * 5 is the default Python 3 thread count$/;"	kind:namespace	line:221
 is	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^        from multiprocessing import cpu_count  # cpu_count() * 5 is the default Python 3 thread count$/;"	kind:namespace	line:221
@@ -1212,6 +1186,8 @@ is_same_py_file	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualst
 isatty	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def isatty(self):$/;"	kind:member	line:2397
 isatty	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def isatty(self):$/;"	kind:member	line:1231
 isatty	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def isatty(self):$/;"	kind:member	line:1265
+isfile	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\__init__.py	/^from os.path import dirname, basename, isfile$/;"	kind:namespace	line:6
+isfile	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__..py	/^from os.path import dirname, basename, isfile$/;"	kind:namespace	line:6
 isfile	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\__init__.py	/^from os.path import dirname, basename, isfile$/;"	kind:namespace	line:6
 islineterm	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def islineterm(self, c):$/;"	kind:member	line:3631
 isnumbertype	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def isnumbertype( obj ):$/;"	kind:member	line:1319
@@ -1221,7 +1197,6 @@ itertools	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^    impor
 itertools	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^    import collections, functools, imp, itertools, operator, types, copy, pickle$/;"	kind:namespace	line:126
 javascript_reserved_words	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    javascript_reserved_words = frozenset([$/;"	kind:variable	line:983
 join_substate	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def join_substate(self, other_state):$/;"	kind:member	line:2226
-json	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^import json$/;"	kind:namespace	line:18
 json_format	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def json_format(self):$/;"	kind:member	line:671
 json_int	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^class json_int( (1L).__class__ ):    # Have to specify base this way to satisfy 2to3$/;"	kind:class	line:645
 json_options	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^class json_options(object):$/;"	kind:class	line:2813
@@ -1258,6 +1233,8 @@ maxstring_inner	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualst
 maxstring_outer	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^    maxstring_outer = 2 ** 16$/;"	kind:variable	line:194
 maxunicode	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    maxunicode = sys.maxunicode$/;"	kind:variable	line:977
 module	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^        raise ValueError('could not import the ssl module - SSL is not supported on this version of Python')$/;"	kind:namespace	line:147
+modules	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\__init__.py	/^modules = glob.glob(dirname(__file__)+"\/*.py")$/;"	kind:variable	line:8
+modules	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__..py	/^modules = glob.glob(dirname(__file__)+"\/*.py")$/;"	kind:variable	line:8
 modules	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\__init__.py	/^modules = glob.glob(dirname(__file__)+"\/*.py")$/;"	kind:variable	line:8
 msvcrt	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^        import msvcrt$/;"	kind:namespace	line:2348
 name	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def name(self):$/;"	kind:member	line:2404
@@ -1304,13 +1281,10 @@ os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    import os
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^import os$/;"	kind:namespace	line:37
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\pacman.py	/^import os #OS calls to control the screensaver and play sounds$/;"	kind:namespace	line:15
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__index__.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
-os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
+os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:10
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^import os$/;"	kind:namespace	line:26
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:14
+os	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\rasp_pi_sensor_reader.py	/^import os$/;"	kind:namespace	line:12
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^import sys as _coconut_sys, os.path as _coconut_os_path$/;"	kind:namespace	line:8
 os	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\Sensor.py	/^import os$/;"	kind:namespace	line:3
@@ -1373,16 +1347,14 @@ print_all_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/
 print_all_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start_old.py	/^def print_all_data():$/;"	kind:function	line:44
 print_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^def print_data(sensors):$/;"	kind:function	line:42
 print_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start_old.py	/^def print_data(sensors):$/;"	kind:function	line:38
-print_distances	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^def print_distances(channels):$/;"	kind:function	line:46
+print_distances	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def print_distances(channels):$/;"	kind:function	line:39
+print_distances	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^from skomobo import print_distances$/;"	kind:namespace	line:33
 print_exception	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^def print_exception(exc_type, exc_value, exc_tb):$/;"	kind:function	line:2448
 print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10
 print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__index__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
+print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:9
 print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
+print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 print_function	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10
@@ -1444,7 +1416,7 @@ recursive_iterator_func	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.
 recursive_iterator_func	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^    def recursive_iterator_func(*args, **kwargs):$/;"	kind:function	line:313
 release	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def release(self):$/;"	kind:member	line:109
 remove_breakpoint	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def remove_breakpoint(self, lineno):$/;"	kind:member	line:632
-repeat	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^def repeat(funct, arg, repetitions=100):$/;"	kind:function	line:39
+repeat	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def repeat(funct, arg, repetitions=100):$/;"	kind:function	line:32
 repeat	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^def repeat(callback, repetitions, items=[]):$/;"	kind:function	line:21
 repeat	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor_old.py	/^def repeat(callback, repetitions):$/;"	kind:function	line:7
 replace_trace_func	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^    def replace_trace_func():$/;"	kind:function	line:293
@@ -1469,7 +1441,6 @@ reset	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def re
 reset	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def reset(self):$/;"	kind:member	line:2396
 reset_to_defaults	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def reset_to_defaults(self):$/;"	kind:member	line:2877
 restore_position	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def restore_position(self):$/;"	kind:member	line:1640
-retrieve_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^def retrieve_data(file_name):$/;"	kind:function	line:19
 rewind	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def rewind( self ):$/;"	kind:member	line:1571
 rewind	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def rewind(self):$/;"	kind:member	line:1695
 run_as	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_launcher.py	/^    run_as = 'code'$/;"	kind:variable	line:68
@@ -1548,6 +1519,7 @@ skipwhile	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    de
 skipws	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def skipws( self, allow_unicode_whitespace=True ):$/;"	kind:member	line:1888
 skipws	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def skipws(self, state):$/;"	kind:member	line:4586
 skipws_nocomments	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def skipws_nocomments(self, state):$/;"	kind:member	line:4580
+skomobo.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	1;"	kind:file	line:1
 sleep	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^from time import sleep$/;"	kind:namespace	line:24
 sleep	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start_old.py	/^from time import sleep$/;"	kind:namespace	line:12
 slow	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^def slow(data, fs):$/;"	kind:function	line:179
@@ -1577,7 +1549,6 @@ start	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\SrlLogv2.py	/^    start
 start.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	1;"	kind:file	line:1
 start_new_thread	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^start_new_thread = thread.start_new_thread$/;"	kind:variable	line:149
 startswith	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def startswith( self, s ):$/;"	kind:member	line:1813
-store_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^def store_data(file_name, data):$/;"	kind:function	line:24
 strictness	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def strictness(self):$/;"	kind:member	line:3325
 strictness	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def strictness(self, strict):$/;"	kind:member	line:3329
 string_types	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^        string_types = (str, bytes)$/;"	kind:variable	line:197
@@ -1627,10 +1598,12 @@ tell	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_deb
 temp_channel	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\rasp_pi_sensor_reader.py	/^temp_channel  = 1$/;"	kind:variable	line:66
 test	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^        def test(source, expected):$/;"	kind:function	line:455
 test.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	1;"	kind:file	line:1
-test_addUp	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^def test_addUp():$/;"	kind:function	line:15
-test_average	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^def test_average():$/;"	kind:function	line:18
-test_distance	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^def test_distance():$/;"	kind:function	line:9
-test_volts	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^def test_volts():$/;"	kind:function	line:12
+test_addUp	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^def test_addUp():$/;"	kind:function	line:22
+test_average	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^def test_average():$/;"	kind:function	line:24
+test_distance	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^def test_distance():$/;"	kind:function	line:18
+test_format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^def test_format_data():$/;"	kind:function	line:28
+test_repeat	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^def test_repeat():$/;"	kind:function	line:26
+test_volts	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^def test_volts():$/;"	kind:function	line:20
 tests	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^            print('WARNING! could not import numpy - skipping all numpy tests.')$/;"	kind:namespace	line:620
 text_after	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def text_after(self):$/;"	kind:member	line:1519
 text_after	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def text_after(self, value):$/;"	kind:member	line:1527
@@ -1670,6 +1643,8 @@ to_bytes	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py
 to_bytes	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^to_bytes = _vspu.to_bytes$/;"	kind:variable	line:59
 to_bytes	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^    def to_bytes(cmd_str):$/;"	kind:function	line:48
 to_bytes	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^    def to_bytes(cmd_str):$/;"	kind:function	line:51
+to_distance	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def to_distance(v, places=2):$/;"	kind:function	line:30
+to_volts	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def to_volts(data, places=2):$/;"	kind:function	line:26
 tobytes	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^            def tobytes():$/;"	kind:function	line:806
 tochar	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^            def tochar(c):$/;"	kind:function	line:4342
 trace_func	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def trace_func(self, frame, event, arg):$/;"	kind:member	line:859
@@ -1693,12 +1668,9 @@ unicode_as_surrogate_pair	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\dem
 unicode_decode	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def unicode_decode( txt, encoding=None ):$/;"	kind:member	line:1223
 unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10
 unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__index__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\calculator.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\converter.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\distance_sensor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
-unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\file_io.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
+unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:9
 unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
+unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\test.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:7
 unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:13
 unicode_literals	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10

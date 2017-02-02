@@ -1,6 +1,0 @@
-
-
-
-def addUp(items) = reduce((+), items)
-
-def average(items) = addUp(items)/len(items)
