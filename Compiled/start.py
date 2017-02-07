@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0xb18274d7
+# __coconut_hash__ = 0x815cb0c6
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -27,14 +27,11 @@ spi = spidev.SpiDev()
 spi.open(0, 0)
 def ReadChannel(channel):
  adc = spi.xfer2([1, (8 + channel) << 4, 0])
- data = ((adc[1] & 3) << 8) + adc[2]
+ data = ((adc[1] & 3 << 8) + adc[2])
  return data
 from skomobo import *
 def print_distance(channel):
- levels = (times)(_coconut.functools.partial(ReadChannel, channel), 100)
- data = convert(levels, to_volts, to_distance)
- averages = resolve(average, data)
- (print)(format_data(channel, *averages))
+ (print)((_coconut.functools.partial(format_data, channel))((_coconut.functools.partial(resolve, average))(convert(ReadChannel(channel), to_volts, to_distance))))
 @_coconut_tco
 def print_distances(channels):
  raise _coconut_tail_call(resolve, print_distance, channels)

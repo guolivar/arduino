@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0x6765c3e3
+# __coconut_hash__ = 0xcd964d0d
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -33,9 +33,11 @@ def convert(*items):
  append(items[1], items[0])
  append(items[2], result[1])
  return result
-from datetime import datetime
+from time import sleep
+from time import asctime
+from time import localtime
+from time import time
 get_time = _coconut_compose(asctime, localtime, time)
-get_time_stamp = localti
 def save(text):
  log = open("Log.txt", "a")
  data = str(text) + " " + get_time()

@@ -219,7 +219,6 @@ void selectCO(){
 void setup(){
   //Set up serial comms
   Serial.begin(57600);
-  while(!Serial); // for the Arduino Leonardo/Micro only
   
   //Set up RTC
   Wire.begin();
@@ -238,12 +237,18 @@ void setup(){
   pinMode(A1,INPUT);
   //Set up file(s)
   Serial.println("Initialising SD card");
-  pinMode(10, OUTPUT); //Pin 10 must be set as an output for the SD communication to work.
-  if (!SD.begin(10)){
+  
+  // Comment this out so that I can use the serial printing 
+ pinMode(10, OUTPUT); //Pin 10 must be set as an output for the SD communication to work.
+
+  
+ if (!SD.begin(10)){
     //Initialize the SD card and configure the I/O pins.
-    Serial.println("Initialisation failed!!");
-    return;
-  }
+    //Serial.println("Initialisation failed!!");
+   return;
+ }
+
+  
   Serial.println("Initialisation done.");
   fname=String(fname_date(time)+".txt");
   fname.toCharArray(file_fname,fname.length()+1);
@@ -270,7 +275,6 @@ void setup(){
   psec=time.second();
 }
 void loop(){
-  Serial.print("hello world");
   time=RTC.now();
   csec=time.second();
   if (csec!=psec) {

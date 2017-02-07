@@ -1,0 +1,1 @@
+juniper -s src/blink.jun -o dist/blink.cpp
