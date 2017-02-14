@@ -1,107 +1,99 @@
-#include <Servo.h>
-
-Servo myServo;
-byte servoPin = 8;
-byte servoMin = 10;
-byte servoMax = 170;
-byte servoPos = 0;
-byte newServoPos = servoMin;
-
-const byte numLEDs = 2;
-byte ledPin[numLEDs] = {12, 13};
-unsigned long LEDinterval[numLEDs] = {200, 400};
-unsigned long prevLEDmillis[numLEDs] = {0, 0};
-
-const byte buffSize = 40;
-char inputBuffer[buffSize];
-const char startMarker = '<';
-const char endMarker = '>';
-byte bytesRecvd = 0;
-boolean readInProgress = false;
-boolean newDataFromPC = false;
-
-char messageFromPC[buffSize] = {0};
-int newFlashInterval = 0;
-float servoFraction = 0.0; // fraction of servo range to move
 
 
-unsigned long curMillis;
+//void setup() {
+  //Serial.begin(9600);
+  //Serial.println(analogRead(0));
+  //Serial.println("<Arduino is ready>");
+//}
 
-unsigned long prevReplyToPCmillis = 0;
-unsigned long replyToPCinterval = 1000;
+//const byte buffSize = 40;
+//char messageFromPC[buffSize] = {0};
+//boolean newDataFromPC = false;
 
-//=============
+//void replyToPC() {
 
-void setup() {
-  Serial.begin(9600);
+  //if (newDataFromPC) {
+    //newDataFromPC = false;
+    //Serial.print("<Msg ");
+    //Serial.print(messageFromPC);
+    //Serial.println(">");
+  //}
+//}
+
+//void receivedCommand() {
   
-    // flash LEDs so we know we are alive
-  for (byte n = 0; n < numLEDs; n++) {
-     pinMode(ledPin[n], OUTPUT);
-     digitalWrite(ledPin[n], HIGH);
-  }
-  delay(500); // delay() is OK in setup as it only happens once
-  
-  for (byte n = 0; n < numLEDs; n++) {
-     digitalWrite(ledPin[n], LOW);
-  }
-  
-    // initialize the servo
-  myServo.attach(servoPin);
-  moveServo();
-  
-    // tell the PC we are ready
-  Serial.println("<Arduino is ready>");
-}
+  //if (strcmp(messageFromPC, "RECORD") == 0) {
+    // Record();
+  //}
+//}
 
-//=============
+// we need to send back the raw data that we sense on the arduino and process it in python
+//void Record() {
+  //Serial.print("adc: " + analogRead(0));
+//}
 
-void loop() {
-  curMillis = millis();
-  getDataFromPC();
-  updateFlashInterval();
-  updateServoPos();
-  replyToPC();
-  flashLEDs();
-  moveServo();
-}
 
-//=============
 
-void getDataFromPC() {
+/// new code :) 
+
+// send the letter R to the arduino to record saves us the trouble of having to use buffers
+
+// arduino then sends back its raw adc value for the sensor
+
+// we then process the adc convert it to volts and use it to measure the distance
+
+//void loop() { 
+  //getDataFromPC();
+  //receivedCommand();
+  //replyToPC();
+//}
+
+//byte bytesRecvd = 0;
+//boolean read_now = false;
+
+//void isStart( char letter ){
+    //if (letter == '<') { 
+      //bytesRecvd = 0; 
+      //read_now = true;
+    //}
+//}
+
+//char inputBuffer[buffSize];
+//void getDataFromPC() {
 
     // receive data from PC and save it into inputBuffer
     
-  if(Serial.available() > 0) {
+  //if(Serial.available() > 0) {
 
-    char x = Serial.read();
+   // char letter = Serial.read();
 
       // the order of these IF clauses is significant
-      
-    if (x == endMarker) {
-      readInProgress = false;
+
+    //isStart(letter);
+    
+    //if(read_now) {
+     // inputBuffer[bytesRecvd] = letter;
+     // bytesRecvd ++;
+     // if (bytesRecvd == buffSize) {
+     //  bytesRecvd = buffSize - 1;
+     // }
+    //}
+
+   // isEnd(letter);
+ 
+  //}
+//}
+
+
+void isEnd( char letter ){
+    if (letter == '>') {
+      read_now = false;
       newDataFromPC = true;
       inputBuffer[bytesRecvd] = 0;
       parseData();
     }
-    
-    if(readInProgress) {
-      inputBuffer[bytesRecvd] = x;
-      bytesRecvd ++;
-      if (bytesRecvd == buffSize) {
-        bytesRecvd = buffSize - 1;
-      }
-    }
-
-    if (x == startMarker) { 
-      bytesRecvd = 0; 
-      readInProgress = true;
-    }
-  }
 }
 
-//=============
- 
 void parseData() {
 
     // split the data into its parts
@@ -111,93 +103,12 @@ void parseData() {
   strtokIndx = strtok(inputBuffer,",");      // get the first part - the string
   strcpy(messageFromPC, strtokIndx); // copy it to messageFromPC
   
-  strtokIndx = strtok(NULL, ","); // this continues where the previous call left off
-  newFlashInterval = atoi(strtokIndx);     // convert this part to an integer
+  //strtokIndx = strtok(NULL, ","); // this continues where the previous call left off
+  //int newFlashInterval = atoi(strtokIndx);     // convert this part to an integer
   
-  strtokIndx = strtok(NULL, ","); 
-  servoFraction = atof(strtokIndx);     // convert this part to a float
+  //strtokIndx = strtok(NULL, ","); 
+  //float fraction = atof(strtokIndx);     // convert this part to a float
 
 }
 
-//=============
 
-void replyToPC() {
-
-  if (newDataFromPC) {
-    newDataFromPC = false;
-    Serial.print("<Msg ");
-    Serial.print(messageFromPC);
-    Serial.print(" NewFlash ");
-    Serial.print(newFlashInterval);
-    Serial.print(" SrvFrac ");
-    Serial.print(servoFraction);
-    Serial.print(" SrvPos ");
-    Serial.print(newServoPos);
-    Serial.print(" Time ");
-    Serial.print(curMillis >> 9); // divide by 512 is approx = half-seconds
-    Serial.println(">");
-  }
-}
-
-//============
-
-void updateFlashInterval() {
-
-   // this illustrates using different inputs to call different functions
-  if (strcmp(messageFromPC, "LED1") == 0) {
-     updateLED1();
-  }
-  
-  if (strcmp(messageFromPC, "LED2") == 0) {
-     updateLED2();
-  }
-}
-
-//=============
-
-void updateLED1() {
-
-  if (newFlashInterval > 100) {
-    LEDinterval[0] = newFlashInterval;
-  }
-}
-
-//=============
-
-void updateLED2() {
-
-  if (newFlashInterval > 100) {
-    LEDinterval[1] = newFlashInterval;
-  }
-}
-
-//=============
-
-void flashLEDs() {
-
-  for (byte n = 0; n < numLEDs; n++) {
-    if (curMillis - prevLEDmillis[n] >= LEDinterval[n]) {
-       prevLEDmillis[n] += LEDinterval[n];
-       digitalWrite( ledPin[n], ! digitalRead( ledPin[n]) );
-    }
-  }
-}
-
-//=============
-
-void updateServoPos() {
-
-  byte servoRange = servoMax - servoMin;
-  if (servoFraction >= 0 && servoFraction <= 1) {
-    newServoPos = servoMin + ((float) servoRange * servoFraction);
-  }
-}
-
-//=============
-
-void moveServo() {
-  if (servoPos != newServoPos) {
-    servoPos = newServoPos;
-    myServo.write(servoPos);
-  }
-}

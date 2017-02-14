@@ -880,7 +880,7 @@ absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	
 absolute_import	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^from __future__ import print_function, absolute_import, unicode_literals, division$/;"	kind:namespace	line:10
 acquire	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def acquire(self):$/;"	kind:member	line:99
 add	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^add = _coconut.functools.partial(reduce, _coconut.operator.add)$/;"	kind:variable	line:48
-add	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^add = _coconut.functools.partial(reduce, _coconut.operator.add)$/;"	kind:variable	line:50
+add	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^add = _coconut.functools.partial(reduce, _coconut.operator.add)$/;"	kind:variable	line:53
 add_break_point	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^def add_break_point(bp):$/;"	kind:function	line:1581
 add_breakpoint	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def add_breakpoint(self, lineno, brkpt_id):$/;"	kind:member	line:629
 add_exception	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def add_exception(self, name, mode=BREAK_MODE_UNHANDLED):$/;"	kind:member	line:526
@@ -936,7 +936,7 @@ author_email	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\setup.py	/^      
 auto_detect_encoding	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def auto_detect_encoding( s ):$/;"	kind:member	line:1141
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^def average(data, sample_frequency, averaging_time):$/;"	kind:function	line:104
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def average(items):$/;"	kind:function	line:49
-average	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^def average(items):$/;"	kind:function	line:51
+average	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^def average(items):$/;"	kind:function	line:54
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^def average(items):$/;"	kind:function	line:27
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor_old.py	/^def average(items):$/;"	kind:function	line:18
 average	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start_old.py	/^def average (data, index):$/;"	kind:function	line:19
@@ -960,10 +960,8 @@ bom	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def bom(
 break_into_debugger	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\__init__.py	/^from ptvsd.attach_server import enable_attach, wait_for_attach, break_into_debugger, settrace, is_attached, AttachAlreadyEnabledError$/;"	kind:namespace	line:22
 break_into_debugger	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^def break_into_debugger():$/;"	kind:function	line:320
 breakpoint_path_match	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^def breakpoint_path_match(vs_path, local_path):$/;"	kind:function	line:572
-btnA	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def btnA(btn):$/;"	kind:function	line:76
 btnA	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^def btnA(btn):$/;"	kind:function	line:79
 btnA	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^def btnA(btn):$/;"	kind:function	line:79
-btnB	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def btnB(btn):$/;"	kind:function	line:85
 btnB	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^def btnB(btn):$/;"	kind:function	line:90
 btnB	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^def btnB(btn):$/;"	kind:function	line:90
 buffered_stream	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^class buffered_stream(object):$/;"	kind:class	line:1604
@@ -989,11 +987,12 @@ check_for_exit_execution_loop	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\
 check_for_exit_repl_loop	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def check_for_exit_repl_loop(self):$/;"	kind:member	line:1175
 check_for_exit_repl_loop	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def check_for_exit_repl_loop(self):$/;"	kind:member	line:244
 classifiers	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\setup.py	/^      classifiers=[$/;"	kind:variable	line:27
+clean_window	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def clean_window():$/;"	kind:function	line:40
 clear	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def clear(self):$/;"	kind:member	line:442
 clear_all_hooks	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def clear_all_hooks(self):$/;"	kind:member	line:3478
 clear_hook	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def clear_hook(self, hookname):$/;"	kind:member	line:3474
 clear_saved_position	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def clear_saved_position(self):$/;"	kind:member	line:1633
-closeSerial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def closeSerial():$/;"	kind:function	line:46
+closeSerial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def closeSerial():$/;"	kind:function	line:43
 closeSerial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoComms.py	/^def closeSerial():$/;"	kind:function	line:65
 closeSerial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoComms.py	/^def closeSerial():$/;"	kind:function	line:65
 closed	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    closed = False$/;"	kind:variable	line:1184
@@ -1051,6 +1050,7 @@ compile	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_
 concurrent_map	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^class concurrent_map(_coconut_map):$/;"	kind:class	line:216
 concurrent_map	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\__coconut__.py	/^class concurrent_map(_coconut_map):$/;"	kind:class	line:216
 concurrent_map	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^class concurrent_map(_coconut_map):$/;"	kind:class	line:216
+config	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def config(item, command):$/;"	kind:function	line:42
 connect	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def connect(self, port):$/;"	kind:member	line:184
 connect	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def connect(self, port):$/;"	kind:member	line:580
 connect_from_debugger	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def connect_from_debugger(self, port):$/;"	kind:member	line:1068
@@ -1091,6 +1091,8 @@ cpos	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def cpo
 cpu_count	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^        from multiprocessing import cpu_count  # cpu_count() * 5 is the default Python 3 thread count$/;"	kind:namespace	line:221
 cpu_count	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\__coconut__.py	/^        from multiprocessing import cpu_count  # cpu_count() * 5 is the default Python 3 thread count$/;"	kind:namespace	line:221
 cpu_count	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^        from multiprocessing import cpu_count  # cpu_count() * 5 is the default Python 3 thread count$/;"	kind:namespace	line:221
+createRadio	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^ def createRadio(words):$/;"	kind:function	line:53
+createRadios	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^ def createRadios(radios):$/;"	kind:function	line:55
 ctypes	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^import ctypes$/;"	kind:namespace	line:29
 daemon	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\SrlLogv2.py	/^import daemon$/;"	kind:namespace	line:4
 datamaker	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^def datamaker(data_type):$/;"	kind:function	line:339
@@ -1134,6 +1136,7 @@ deque	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_ut
 describe	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def describe(self, show_text=True):$/;"	kind:member	line:1543
 describe_behavior	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^        def describe_behavior(self,name):$/;"	kind:function	line:2684
 description	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\setup.py	/^      description='Python Tools for Visual Studio remote debugging server',$/;"	kind:variable	line:22
+destroy	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^destroy = lambda child: child.destroy()$/;"	kind:variable	line:39
 detach_process	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^def detach_process():$/;"	kind:function	line:2285
 detach_process_and_notify_debugger	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^def detach_process_and_notify_debugger():$/;"	kind:function	line:2275
 detach_threads	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^def detach_threads():$/;"	kind:function	line:2298
@@ -1188,7 +1191,7 @@ encode_to_file	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^d
 encode_undefined	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def encode_undefined(self, state):$/;"	kind:member	line:3673
 encoding	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def encoding(self):$/;"	kind:member	line:2384
 encoding	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    encoding = 'utf8'$/;"	kind:variable	line:1185
-endMarker	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^endMarker = 62$/;"	kind:variable	line:54
+endMarker	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^endMarker = 62$/;"	kind:variable	line:51
 endMarker	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoComms.py	/^endMarker = 62$/;"	kind:variable	line:8
 endMarker	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui\ComArduino2.py	/^endMarker = 62$/;"	kind:variable	line:157
 endMarker	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoComms.py	/^endMarker = 62$/;"	kind:variable	line:8
@@ -1244,13 +1247,14 @@ flush	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_re
 fname	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\SrlLogv2.py	/^    fname = time.strftime("%y-%m-%d %H:%M:%S", start) + '.txt'$/;"	kind:variable	line:59
 folder	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\SrlLogv2.py	/^folder = '\/home\/chris\/datalogs\/python_serial_logger\/'$/;"	kind:variable	line:12
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def format_data(*data):$/;"	kind:function	line:52
-format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^def format_data(*data):$/;"	kind:function	line:54
+format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^def format_data(*data):$/;"	kind:function	line:57
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor.py	/^def format_data(data, level, volts, unit):$/;"	kind:function	line:36
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Processor_old.py	/^def format_data(data, level, volts, unit):$/;"	kind:function	line:31
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\Sensor.py	/^def format_data(data, level, volts):$/;"	kind:function	line:45
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^from Processor import format_data$/;"	kind:namespace	line:32
 format_data	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start_old.py	/^from Processor import average_10, nth_elem, process_sensors, format_data$/;"	kind:namespace	line:15
 format_timedelta_iso	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def format_timedelta_iso( td ):$/;"	kind:member	line:1416
+frame	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^frame = Frame(bg="green")$/;"	kind:variable	line:31
 frozenset_info	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^        frozenset_info = (frozenset, 'frozenset([', '])', False)$/;"	kind:variable	line:203
 frozenset_info	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^        frozenset_info = (frozenset, 'frozenset({', '})', False)$/;"	kind:variable	line:199
 func	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^        def func():$/;"	kind:function	line:615
@@ -1393,13 +1397,12 @@ json_int	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^class j
 json_options	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^class json_options(object):$/;"	kind:class	line:2813
 json_syntax_characters	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    json_syntax_characters = u"{}[]\\"\\\\,:0123456789.-+abcdefghijklmnopqrstuvwxyz \\t\\n\\r"$/;"	kind:variable	line:3418
 jsonlint	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^class jsonlint(object):$/;"	kind:class	line:5781
+labl	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^labl = _coconut.functools.partial(Label, frame)$/;"	kind:variable	line:45
 leading_zero_radix	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def leading_zero_radix(self):$/;"	kind:member	line:3293
 leading_zero_radix	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def leading_zero_radix(self, radix):$/;"	kind:member	line:3298
 leading_zero_radix_as_word	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def leading_zero_radix_as_word(self):$/;"	kind:member	line:3312
-ledAstatus	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^ledAstatus = 0$/;"	kind:variable	line:27
 ledAstatus	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^ledAstatus = 0$/;"	kind:variable	line:12
 ledAstatus	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^ledAstatus = 0$/;"	kind:variable	line:12
-ledBstatus	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^ledBstatus = 0$/;"	kind:variable	line:28
 ledBstatus	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^ledBstatus = 0$/;"	kind:variable	line:13
 ledBstatus	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^ledBstatus = 0$/;"	kind:variable	line:13
 lfilter	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^from scipy.signal import lfilter, bilinear$/;"	kind:namespace	line:32
@@ -1407,7 +1410,7 @@ license	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\setup.py	/^      licen
 light_channel	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\rasp_pi_sensor_reader.py	/^light_channel = 0$/;"	kind:variable	line:65
 line	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def line(self):$/;"	kind:member	line:1483
 line_locations	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def line_locations(self):$/;"	kind:member	line:636
-listSerialPorts	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def listSerialPorts():$/;"	kind:function	line:35
+listSerialPorts	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def listSerialPorts():$/;"	kind:function	line:30
 listSerialPorts	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoComms.py	/^def listSerialPorts():$/;"	kind:function	line:16
 listSerialPorts	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoComms.py	/^def listSerialPorts():$/;"	kind:function	line:16
 local_path_to_vs_path	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^local_path_to_vs_path = {}$/;"	kind:variable	line:570
@@ -1420,7 +1423,7 @@ lookup_local	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudi
 loop	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def loop(self):$/;"	kind:member	line:1641
 main	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\SrlLogv2.py	/^def main():$/;"	kind:function	line:23
 main	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def main( self, argv ):$/;"	kind:member	line:6039
-mainScreen	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def mainScreen():$/;"	kind:function	line:57
+mainScreen	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def mainScreen():$/;"	kind:function	line:61
 mainScreen	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^def mainScreen():$/;"	kind:function	line:53
 mainScreen	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^def mainScreen():$/;"	kind:function	line:53
 make_decimal	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def make_decimal( self, s, sign='+' ):$/;"	kind:member	line:3241
@@ -1442,6 +1445,9 @@ modules	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__init__..py	/^modules = glo
 modules	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\__init__..py	/^modules = glob.glob(dirname(__file__)+"\/*.py")$/;"	kind:variable	line:8
 modules	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Sensors\__init__.py	/^modules = glob.glob(dirname(__file__)+"\/*.py")$/;"	kind:variable	line:8
 msvcrt	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^        import msvcrt$/;"	kind:namespace	line:2348
+my_filter	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^from skomobo import my_filter$/;"	kind:namespace	line:22
+my_filter	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^def my_filter(value, items):$/;"	kind:function	line:42
+my_labl	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def my_labl(width, height, text=""):$/;"	kind:function	line:46
 name	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def name(self):$/;"	kind:member	line:2404
 nan	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^                    nan = decimal.Decimal('NaN')$/;"	kind:variable	line:466
 nan	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^                    nan = nan()$/;"	kind:variable	line:468
@@ -1603,9 +1609,10 @@ push_frame	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_
 push_info	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def push_info(self, message, *args, **kwargs):$/;"	kind:member	line:2467
 push_warning	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def push_warning(self, message, *args, **kwargs):$/;"	kind:member	line:2462
 python_executor	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^    def python_executor(self, code):$/;"	kind:member	line:612
-radioPress	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def radioPress():$/;"	kind:function	line:98
+radioPress	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def radioPress():$/;"	kind:function	line:64
 radioPress	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^def radioPress():$/;"	kind:function	line:108
 radioPress	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^def radioPress():$/;"	kind:function	line:108
+radioVar	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^radioVar = StringVar()$/;"	kind:variable	line:32
 randint	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\pacman.py	/^from random import randint$/;"	kind:namespace	line:13
 random	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^import random$/;"	kind:namespace	line:44
 range	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^    class range(object):$/;"	kind:class	line:19
@@ -1643,7 +1650,7 @@ recursive_iterator	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coco
 recursive_iterator_func	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^    def recursive_iterator_func(*args, **kwargs):$/;"	kind:function	line:313
 recursive_iterator_func	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\__coconut__.py	/^    def recursive_iterator_func(*args, **kwargs):$/;"	kind:function	line:313
 recursive_iterator_func	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\__coconut__.py	/^    def recursive_iterator_func(*args, **kwargs):$/;"	kind:function	line:313
-recvFromArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def recvFromArduino(timeOut):$/;"	kind:function	line:60
+recvFromArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def recvFromArduino(timeOut):$/;"	kind:function	line:57
 recvFromArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoComms.py	/^def recvFromArduino(timeOut): # timeout in seconds eg 1.5$/;"	kind:function	line:87
 recvFromArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui\ComArduino2.py	/^def recvFromArduino():$/;"	kind:function	line:65
 recvFromArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoComms.py	/^def recvFromArduino(timeOut): # timeout in seconds eg 1.5$/;"	kind:function	line:87
@@ -1675,11 +1682,12 @@ reset	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def re
 reset_to_defaults	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def reset_to_defaults(self):$/;"	kind:member	line:2877
 resolve	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^resolve = _coconut_compose(list, map)$/;"	kind:variable	line:27
 resolve	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^from skomobo import resolve$/;"	kind:namespace	line:21
+resolve	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^from skomobo import resolve$/;"	kind:namespace	line:38
 resolve	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^resolve = _coconut_compose(list, map)$/;"	kind:variable	line:27
 restore_position	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def restore_position(self):$/;"	kind:member	line:1640
 rewind	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def rewind( self ):$/;"	kind:member	line:1571
 rewind	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def rewind(self):$/;"	kind:member	line:1695
-runProgram	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def runProgram():$/;"	kind:function	line:39
+runProgram	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def runProgram():$/;"	kind:function	line:36
 runProgram	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^def runProgram():$/;"	kind:function	line:29
 runProgram	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^def runProgram():$/;"	kind:function	line:29
 runTest	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui\ComArduino2.py	/^def runTest(td):$/;"	kind:function	line:108
@@ -1701,7 +1709,7 @@ safe_hex_repr	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstud
 safe_repr	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^safe_repr = _vspu.SafeRepr()$/;"	kind:variable	line:66
 safe_unichr	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def safe_unichr( codepoint ):$/;"	kind:member	line:1026
 save	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def save(text):$/;"	kind:function	line:39
-save	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^def save(text):$/;"	kind:function	line:41
+save	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^def save(text):$/;"	kind:function	line:44
 save_position	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def save_position(self):$/;"	kind:member	line:1629
 schedule_work	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def schedule_work(self, work):$/;"	kind:member	line:1236
 screensaver	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\pacman.py	/^import os #OS calls to control the screensaver and play sounds$/;"	kind:namespace	line:15
@@ -1709,10 +1717,10 @@ script_argv	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\__main__.py	
 script_argv	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\__main__.py	/^script_argv = []$/;"	kind:variable	line:37
 seek	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def seek(self, pos, whence = 0):$/;"	kind:member	line:2436
 select	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^import select$/;"	kind:namespace	line:39
-selectPort	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def selectPort():$/;"	kind:function	line:41
+selectPort	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def selectPort():$/;"	kind:function	line:50
 selectPort	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^def selectPort():$/;"	kind:function	line:32
 selectPort	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^def selectPort():$/;"	kind:function	line:32
-sendToArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def sendToArduino(sendStr):$/;"	kind:function	line:55
+sendToArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def sendToArduino(sendStr):$/;"	kind:function	line:52
 sendToArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoComms.py	/^def sendToArduino(sendStr):$/;"	kind:function	line:76
 sendToArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui\ComArduino2.py	/^def sendToArduino(sendStr):$/;"	kind:function	line:59
 sendToArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoComms.py	/^def sendToArduino(sendStr):$/;"	kind:function	line:76
@@ -1734,7 +1742,6 @@ serial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoComms.py	/
 serial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui\ComArduino2.py	/^import serial$/;"	kind:namespace	line:143
 serial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoComms.py	/^import serial$/;"	kind:namespace	line:1
 server_thread_func	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^    def server_thread_func():$/;"	kind:function	line:169
-servoPos	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^servoPos = 10$/;"	kind:variable	line:29
 servoPos	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^servoPos = 10$/;"	kind:variable	line:14
 servoPos	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^servoPos = 10$/;"	kind:variable	line:14
 set_all	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^        def set_all(self,value):$/;"	kind:function	line:2717
@@ -1756,10 +1763,10 @@ settrace	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\attach_server.p
 settrace	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^            def settrace(tsk, tb):$/;"	kind:function	line:791
 setup	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\setup.py	/^from distutils.core import setup$/;"	kind:namespace	line:18
 setup.py	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\setup.py	1;"	kind:file	line:1
-setupSerial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def setupSerial(serPort):$/;"	kind:function	line:40
+setupSerial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def setupSerial(serPort):$/;"	kind:function	line:37
 setupSerial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoComms.py	/^def setupSerial(serPort):$/;"	kind:function	line:51
 setupSerial	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoComms.py	/^def setupSerial(serPort):$/;"	kind:function	line:51
-setupView	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def setupView():$/;"	kind:function	line:34
+setupView	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def setupView():$/;"	kind:function	line:33
 setupView	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^def setupView():$/;"	kind:function	line:22
 setupView	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^def setupView():$/;"	kind:function	line:22
 severities	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    severities = frozenset(['fatal','error','warning','info'])$/;"	kind:variable	line:2060
@@ -1788,7 +1795,6 @@ skomobo.py	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py
 sleep	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^from time import sleep$/;"	kind:namespace	line:36
 sleep	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start.py	/^from time import sleep$/;"	kind:namespace	line:24
 sleep	C:\Users\Ryan\Source\Repos\SKOMOBO\Old code\refactored\Start_old.py	/^from time import sleep$/;"	kind:namespace	line:12
-slide	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def slide(sval):$/;"	kind:function	line:94
 slide	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^def slide(sval):$/;"	kind:function	line:102
 slide	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^def slide(sval):$/;"	kind:function	line:102
 slow	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^def slow(data, fs):$/;"	kind:function	line:179
@@ -1816,7 +1822,7 @@ stackless	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_p
 stackless	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    stackless = None$/;"	kind:variable	line:81
 start	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\SrlLogv2.py	/^    start = time.localtime()$/;"	kind:variable	line:58
 start.py	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\start.py	1;"	kind:file	line:1
-startMarker	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^startMarker = 60$/;"	kind:variable	line:53
+startMarker	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^startMarker = 60$/;"	kind:variable	line:50
 startMarker	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoComms.py	/^startMarker = 60$/;"	kind:variable	line:7
 startMarker	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui\ComArduino2.py	/^startMarker = 60$/;"	kind:variable	line:156
 startMarker	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoComms.py	/^startMarker = 60$/;"	kind:variable	line:7
@@ -1923,8 +1929,8 @@ time	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_rep
 time_averaged_sound_level	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^def time_averaged_sound_level(pressure, sample_frequency, averaging_time, reference_pressure=REFERENCE_PRESSURE):$/;"	kind:function	line:90
 time_weighted_sound_level	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\iec_61672_1_2013.py	/^def time_weighted_sound_level(pressure, sample_frequency, integration_time, reference_pressure=REFERENCE_PRESSURE):$/;"	kind:function	line:128
 times	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\skomobo.py	/^def times(funct, repetitions):$/;"	kind:function	line:46
-times	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^def times(funct, repetitions):$/;"	kind:function	line:48
-tkArd	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^tkArd = Tk()$/;"	kind:variable	line:30
+times	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\skomobo.py	/^def times(funct, repetitions):$/;"	kind:function	line:51
+tkArd	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^tkArd = Tk()$/;"	kind:variable	line:27
 tkArd	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoGUI.py	/^tkArd = Tk()$/;"	kind:variable	line:17
 tkArd	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoGUI.py	/^tkArd = Tk()$/;"	kind:variable	line:17
 to	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\pacman.py	/^import os #OS calls to control the screensaver and play sounds$/;"	kind:namespace	line:15
@@ -1946,7 +1952,8 @@ traceback	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_p
 truncate	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def truncate(self, pos = None):$/;"	kind:member	line:2430
 try_bind_break_point	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^def try_bind_break_point(mod_filename, module, bp):$/;"	kind:function	line:1587
 try_encode_default	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def try_encode_default( self, obj, state ):$/;"	kind:member	line:5470
-try_port	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def try_port(port):$/;"	kind:function	line:27
+try_port	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def try_port(items, port):$/;"	kind:function	line:23
+txt_labl	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoGUI.py	/^def txt_labl(text):$/;"	kind:function	line:48
 types	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^        import types, UserString$/;"	kind:namespace	line:1362
 types	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\__coconut__.py	/^    import collections, functools, imp, itertools, operator, types, copy, pickle$/;"	kind:namespace	line:126
 types	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\__coconut__.py	/^    import collections, functools, imp, itertools, operator, types, copy, pickle$/;"	kind:namespace	line:126
@@ -2000,7 +2007,6 @@ utf32le_decode	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^ 
 utf32le_encode	C:\Users\Ryan\Source\Repos\SKOMOBO\Compiled\Vendor\demjson.py	/^    def utf32le_encode( obj, errors='strict', include_bom=False ):$/;"	kind:member	line:854
 utf_8	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^from encodings import utf_8$/;"	kind:namespace	line:94
 utf_8	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^from encodings import utf_8, ascii$/;"	kind:namespace	line:31
-valToArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def valToArduino(ledA, ledB, servo):$/;"	kind:function	line:22
 valToArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoComms.py	/^def valToArduino(ledA, ledB, servo):$/;"	kind:function	line:11
 valToArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoComms.py	/^def valToArduino(ledA, ledB, servo):$/;"	kind:function	line:11
 version	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^        raise ValueError('could not import the ssl module - SSL is not supported on this version of Python')$/;"	kind:namespace	line:147
@@ -2016,7 +2022,7 @@ visualstudio_py_util.py	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\
 vspd	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^import ptvsd.visualstudio_py_debugger as vspd$/;"	kind:namespace	line:40
 vspd	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_launcher.py	/^    import visualstudio_py_debugger as vspd$/;"	kind:namespace	line:31
 vspr	C:\Users\Ryan\Source\Repos\SKOMOBO\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^import ptvsd.visualstudio_py_repl as vspr$/;"	kind:namespace	line:41
-waitForArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def waitForArduino():$/;"	kind:function	line:77
+waitForArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Compiled\arduinoComms.py	/^def waitForArduino():$/;"	kind:function	line:74
 waitForArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui 2\arduinoComms.py	/^def waitForArduino():$/;"	kind:function	line:117
 waitForArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Gui\ComArduino2.py	/^def waitForArduino():$/;"	kind:function	line:88
 waitForArduino	C:\Users\Ryan\Source\Repos\SKOMOBO\IR calibration\Original code\arduinoComms.py	/^def waitForArduino():$/;"	kind:function	line:117

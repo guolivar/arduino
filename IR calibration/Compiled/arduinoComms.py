@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0x8868e5e6
+# __coconut_hash__ = 0x7445b7b6
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -19,24 +19,21 @@ import time
 import sys
 import glob
 from skomobo import resolve
-def valToArduino(ledA, ledB, servo):
- spaced = map(+" ", ledA, ledB, servo)
- sendStr = reduce(_coconut.operator.add, spaced)
- (print)("SENDSTR " + sendStr)
- sendToArduino(sendStr)
-def try_port(port):
+from skomobo import my_filter
+def try_port(items, port):
  try:
   s = serial.Serial(port)
   s.close()
-  return port
+  items.append(port)
  except (OSError, serial.SerialException):
   return
-@_coconut_tco
 def listSerialPorts():
  """ Lists serial ports :returns: A list of available serial ports """
  port_name = lambda i: 'COM' + str(i + 1)
- ports = takewhile(lambda i: i != None, resolve(port_name, range(256)))
- raise _coconut_tail_call(resolve, try_port, ports)
+ ports = resolve(port_name, range(256))
+ tested_ports = []
+ resolve(_coconut.functools.partial(try_port, tested_ports), ports)
+ return tested_ports
 def setupSerial(serPort):
  global ser
  baudRate = 9600
@@ -76,8 +73,8 @@ def recvFromArduino(timeOut):
  return (dataBuf)
 def waitForArduino():
  (print)("Waiting for Arduino to reset")
- msg = ""
- while msg.find("Arduino is ready") == -1:
+ msg = recvFromArduino(10)
+ while msg.find("Arduino is ready") != -1:
   msg = recvFromArduino(10)
-  (print)(msg)
-  print()
+  if msg != "" and msg != " ":
+   (print)(msg + "\n")

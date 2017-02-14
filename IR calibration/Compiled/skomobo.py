@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0xcd964d0d
+# __coconut_hash__ = 0x59e02bb5
 
 # Compiled with Coconut version 1.2.0 [Colonel]
 
@@ -38,6 +38,9 @@ from time import asctime
 from time import localtime
 from time import time
 get_time = _coconut_compose(asctime, localtime, time)
+@_coconut_tco
+def my_filter(value, items):
+ raise _coconut_tail_call(items.remove, value)
 def save(text):
  log = open("Log.txt", "a")
  data = str(text) + " " + get_time()

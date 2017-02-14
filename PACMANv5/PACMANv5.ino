@@ -154,10 +154,10 @@ void SaveData(DateTime xtime)
   Dust=GetDust();
   //Distance from Range Finder
   Distance=GetDistance();
-  //Serial.println("Distance Done");
+  Serial.println("Distance Done");
   //Temperature from analog
   Temp=GetTemperature();
-  //Serial.println("Temperature Done");
+  Serial.println("Temperature Done");
   //CO2 from analog
   CO2=GetCO2();
   Serial.println("CO2 Done");
@@ -255,6 +255,12 @@ void setup(){
   currfile=SD.open(file_fname, FILE_WRITE);
   currfile.println("Count\tYear\tMonth\tDay\tHour\tMinute\tSecond\tDistance\tTmpOUT\tTmpIN\tPM\tCO2\tCO\tMovement\tCOstatus");
   currfile.close(); //Close the file
+
+  //debug
+  currfile = SD.open(file_fname, FILE_READ);
+  Serial.println(currfile.read());
+  currfile.close();
+  
   Serial.println(file_fname);
   //Serial data headers
   Serial.println("Count\tYear\tMonth\tDay\tHour\tMinute\tSecond\tDistance\tTmpOUT\tTmpIN\tPM\tCO2\tCO\tMovement\tCOstatus");

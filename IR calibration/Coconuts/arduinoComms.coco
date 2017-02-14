@@ -2,20 +2,20 @@ import serial
 import time
 import sys
 import glob
-from skomobo import resolve
+from skomobo import resolve, my_filter
 
-def valToArduino(ledA, ledB, servo):
-	spaced = map(+ " ", ledA, ledB, servo)
-	sendStr = reduce( (+), spaced)
+# def valToArduino(command):
+# 	# spaced = map(+ " ", ledA, ledB, servo)
+# 	# sendStr = reduce( (+), spaced)
 
-	print ↤ "SENDSTR " + sendStr
-	sendToArduino(sendStr)
+# 	print ↤ "SENDSTR " + command
+# 	sendToArduino(command)
 
-def try_port(port):
+def try_port(items, port):
 	try:
 		s = serial.Serial(port)
 		s.close()
-		return port
+		items.append(port)
 
 	except (OSError, serial.SerialException):
 		return
@@ -27,9 +27,11 @@ def listSerialPorts():
 
 	port_name = i → 'COM' + str(i + 1)
 	
-	ports = takewhile( i -> i != None, resolve(port_name, range(256) ) ) 
-		
-	return resolve( try_port, ports)
+	ports = resolve(port_name, range(256) )
+	tested_ports = []
+	resolve( try_port$(tested_ports), ports)
+	
+	return tested_ports
 
 def setupSerial(serPort):
 
@@ -102,11 +104,10 @@ def waitForArduino():
 
 	print ↤ "Waiting for Arduino to reset"
 
-	msg = ""
-
-	while msg.find("Arduino is ready") == -1:
+	msg = recvFromArduino(10)
+	while msg.find("Arduino is ready") ≠ -1:
 
 		msg = recvFromArduino(10)
 
-		print ↤ msg
-		print()
+		if msg != "" and msg != " ":
+			print ↤ msg + "\n"

@@ -8,15 +8,15 @@ import spidev
 import os
 
 -- Open SPI bus
-spi = spidev.SpiDev()
+spi = spidev.SpiDev
 spi.open(0,0)
  
 -- Function to read SPI data from MCP3008 chip
 -- Channel must be an integer 0-7
-def ReadChannel(channel):
+ReadChannel channel = 
   adc = spi.xfer2([1, (8 + channel) « 4, 0])
-  data = (( adc[1] ∩ 3 « 8) + adc[2] )
-  return data
+  info = (( adc[1] ∩ 3 « 8) + adc[2] )
+  return info
 
 --from skomobo import *
 import skomobo

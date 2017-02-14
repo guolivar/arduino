@@ -50,6 +50,9 @@ from time import sleep, asctime, localtime, time
 
 get_time = asctime ∘ localtime ∘ time
 
+
+def my_filter( value, items) = items.remove(value)
+
 #get_time_stamp = localti
 
 def save(text): 
