@@ -35,7 +35,7 @@ void getdata(byte *a, byte *b, byte *c, byte *d)
   *a = Wire.read();
   *b = Wire.read();
   *c = Wire.read();
-  *d = Wire.read();
+  *d = Wire.read(); 
 }
  void showthedata()
 {
