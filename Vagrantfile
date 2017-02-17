@@ -14,11 +14,6 @@ Vagrant.configure("2") do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "rjweyers/manjaro-i3-chromium"
 
-  # Disable automatic box update checking. If you disable this, then
-  # boxes will only be checked for updates when the user runs
-  # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
-
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
@@ -46,7 +41,9 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
   	vb.gui = true
-  #
+	  Vagrant.require_version ">= 1.8"
+    linked_clone = true
+    vb.name = "SKOMOBO"
   #   # Customize the amount of memory on the VM:
    	#vb.memory = "1024"
   end
@@ -54,18 +51,30 @@ Vagrant.configure("2") do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
 
-  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
-  # such as FTP and Heroku are also available. See the documentation at
-  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
-  # config.push.define "atlas" do |push|
-  #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
-  # end
 
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
+
+  packages = <<-SHELL
+    echo "Y" | pacman -S ctags
+    echo "Y" | pacman -S yaourt
+    yaourt -S par --noconfirm 
+    curl -L https://git.io/haskell-vim-now > /tmp/haskell-vim-now.sh
+    bash /tmp/haskell-vim-now.sh
+    
+    # config using docker inside of shell instead of all these other package managers
+#   docker pull haskell:7.8
+#   docker build -t haskell-vim .
+#   docker run --rm -i -t haskell-vim /bin/bash
+  SHELL
+
+  config.vm.provision "shell", inline: packages, privileged: false
+  
+
+  # config.vm.provision "docker" do |d|
+  #   d.pull_images "haskell"
+  #   d.build_image "haskell-vim"
+  #   d.run "haskell-vim"
+  # end
 end
