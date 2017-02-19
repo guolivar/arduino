@@ -5,6 +5,8 @@
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
+
+require_relative "setup"
 Vagrant.configure("2") do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
@@ -13,68 +15,27 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "rjweyers/manjaro-i3-chromium"
+  #config.vm.box = "ogarcia/archlinux"
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
-
-  # Create a public network, which generally matched to bridged network.
-  # Bridged networks make the machine appear as another physical device on
-  # your network.
-  # config.vm.network "public_network"
-
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
-
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
   config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
+    # Display the VirtualBox GUI when booting the machine
   	vb.gui = true
+
+    # using linked clone to save space and processing
 	  Vagrant.require_version ">= 1.8"
     linked_clone = true
     vb.name = "SKOMOBO"
-  #   # Customize the amount of memory on the VM:
-   	#vb.memory = "1024"
+
   end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
-
-
+  
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
 
-  packages = <<-SHELL
-    echo "Y" | pacman -S ctags
-    echo "Y" | pacman -S yaourt
-    yaourt -S par --noconfirm 
-    curl -L https://git.io/haskell-vim-now > /tmp/haskell-vim-now.sh
-    bash /tmp/haskell-vim-now.sh
-    
-    # config using docker inside of shell instead of all these other package managers
-#   docker pull haskell:7.8
-#   docker build -t haskell-vim .
-#   docker run --rm -i -t haskell-vim /bin/bash
-  SHELL
-
-  config.vm.provision "shell", inline: packages, privileged: false
+  config.vm.provision "shell", inline: pacman("ctags")
+  config.vm.provision "shell", inline: provision(), privileged: false
   
-
-  # config.vm.provision "docker" do |d|
-  #   d.pull_images "haskell"
-  #   d.build_image "haskell-vim"
-  #   d.run "haskell-vim"
-  # end
 end
