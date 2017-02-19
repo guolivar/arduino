@@ -1,5 +1,5 @@
 
-def aur (*packages)
+def yaourt (*packages)
     install("yaourt", packages)
 end
 
@@ -8,7 +8,7 @@ def pacman (*packages)
 end
 
 def install (manager, packages)
-    manager + " -S " + packages.join(" ") + " --noconfirm \n"
+    manager + " -Syu " + packages.join(" ") + " --noconfirm \n"
 end
 
 def install_haskell_ide()
@@ -16,6 +16,6 @@ def install_haskell_ide()
 end
 
 def provision()
-     pacman("yaourt") + " " + aur("par", "stack") + " " + install_haskell_ide()
-     #packages = pacman("ctags", "yaourt", "i3", "i3-wm") + aur("par", "stack") + install_haskell_ide()
+     pacman("yaourt") + " " + yaourt("par", "stack") + " " + install_haskell_ide()
+     #packages = pacman("ctags", "yaourt", "i3", "i3-wm") + yaourt("par", "stack") + install_haskell_ide()
 end
