@@ -1,14 +1,14 @@
 
 def yaourt (*packages)
-    install("yaourt", packages)
+    install("yaourt", packages, " -S ")
 end
 
 def pacman (*packages)
     install("pacman", packages)
 end
 
-def install (manager, packages)
-    manager + " -Syu " + packages.join(" ") + " --noconfirm \n"
+def install (manager, packages, flag = " -Syu ")
+    manager + flag + packages.join(" ") + " --noconfirm \n"
 end
 
 def install_haskell_ide()

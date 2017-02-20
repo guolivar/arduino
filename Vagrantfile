@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
     # using linked clone to save space and processing
 	  Vagrant.require_version ">= 1.8"
     linked_clone = true
-    vb.name = "SKOMOBO"
+    vb.name = "Seed-dev-machine"
 
   end
   #
