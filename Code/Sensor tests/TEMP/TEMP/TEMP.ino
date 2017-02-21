@@ -1,11 +1,12 @@
-//// CO2 Meter K-series Example Interface
+
+//// CO2 Meter Kseries Example Interface
 //// Revised by Marv Kausch, 7/2016 at CO2 Meter <co2meter.com>
 //// Talks via I2C to K30/K33 Sensors and displays CO2 values
 //#include <Wire.h>
 //// We will be using the I2C hardware interface on the Arduino in
-//// combination with the built-in Wire library to interface.
-//// Arduino analog input 5 - I2C SCL
-//// Arduino analog input 4 - I2C SDA
+//// combination with the builtin Wire library to interface.
+//// Arduino analog input 5  I2C SCL
+//// Arduino analog input 4  I2C SDA
 ///*
 // In this example we will do a basic read of the CO2 value and checksum
 //verification. For more advanced applications see the I2C Comm guide.
@@ -16,14 +17,14 @@
 //  Serial.begin(9600);
 //  Wire.begin ();
 //  pinMode(13, OUTPUT); // address of the Arduino LED indicator
-//  Serial.println("Application Note AN-102: Interface Arduino to Temp sensor");
+//  Serial.println("Application Note AN102: Interface Arduino to Temp sensor");
 //}
 /////////////////////////////////////////////////////////////////////
 //// Function : int readCO2()
 //// Returns : CO2 Value upon success, 0 upon checksum failure
-//// Assumes : - Wire library has been imported successfully.
-//// - LED is connected to IO pin 13
-//// - CO2 sensor address is defined in co2_addr
+//// Assumes :  Wire library has been imported successfully.
+////  LED is connected to IO pin 13
+////  CO2 sensor address is defined in co2_addr
 /////////////////////////////////////////////////////////////////////
 //int readCO2()
 //{
@@ -144,3 +145,5 @@
 //
 //  delay(500);
 //}
+
+
