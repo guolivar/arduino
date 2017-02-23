@@ -28,19 +28,17 @@ int avg(int * nums, size_t repetitions){
 //     return mapresult<CONT, FUNC>(in, f);
 // }
 
-int * collect_distances(unsigned int pin, size_t ammount){
 
-  int collection[ammount];
-
-  for (size_t i = 0; i < ammount; i++) {
-    collection[i] = analogRead(pin);
-  }
-
-  return collection;
-}
 
 void loop() {
 
   unsigned int repetitions = 50;
-  Serial.println( avg( collect_distances(2, repetitions), repetitions ) );
+
+  int collection[repetitions];
+
+  for (size_t i = 0; i < repetitions; i++) {
+    collection[i] = analogRead(2);
+  }
+
+  Serial.println( avg( collection, repetitions ) );
 }
