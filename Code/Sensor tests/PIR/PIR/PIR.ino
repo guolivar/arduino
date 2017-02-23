@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 /******************************************************************************
 PIR_Motion_Detector_Example.ino
 Example sketch for SparkFun's PIR Motion Detector
