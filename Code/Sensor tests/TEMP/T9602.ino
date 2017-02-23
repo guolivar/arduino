@@ -33,9 +33,12 @@ void getdata(byte *a, byte *b, byte *c, byte *d)
   
   Wire.requestFrom(0x00, 4);
   *a = Wire.read();
+  Serial.println(*a);
+  
   *b = Wire.read();
   *c = Wire.read();
   *d = Wire.read(); 
+   Serial.println(*b); Serial.println(*c); Serial.println(*d);
 }
  void showthedata()
 {
