@@ -23,24 +23,32 @@ void setup(){
  Wire.begin();
  Serial.println("Amphenol Advanced Sensors");
  Serial.println("Arduino T9602 Monitor");
+
+ ScanI2CBus();
 }
 
 void getdata(byte *a, byte *b, byte *c, byte *d)
 {
 
-  Wire.beginTransmission(0x00);
+ // Wire.beginTransmission(0x00);
+  Wire.beginTransmission(40);
   Wire.write(0);
   Wire.endTransmission();
-  
-  Wire.requestFrom(0x00, 4);
+
+  //Wire.requestFrom(0x00, 4);
+  Wire.requestFrom(40, 4);
   *a = Wire.read();
   Serial.println(*a);
-  
+
   *b = Wire.read();
   *c = Wire.read();
-  *d = Wire.read(); 
-   Serial.println(*b); Serial.println(*c); Serial.println(*d);
+  *d = Wire.read();
 }
+
+float adjust_temp(float rawData){
+  return rawData;
+}
+
 void showthedata()
 {
  byte aa,bb,cc,dd;
@@ -51,7 +59,7 @@ void showthedata()
  humidity = (float)(((aa & 0x3F ) << 8) + bb) / 16384.0 * 100.0;
 
 // temperature = (Temp_High [7:0] x 64 + Temp_Low [7:2]/4 ) / 16384 x 165 40
- temperature = (float)((unsigned)(cc  * 64) + (unsigned)(dd >> 2 )) / 16384.0 * 165.0 - 40.0;
+ temperature = adjust_temp((float)((unsigned)(cc  * 64) + (unsigned)(dd >> 2 )) / 16384.0 * 165.0 - 40.0);
 
 //static void cc2_calculations(void)
 //{
@@ -72,6 +80,6 @@ Serial.print(temperature);Serial.print(" degC  ");Serial.print(humidity);Serial.
 void loop(){
 
  showthedata();
- 
+
   delay(3000);
 }
