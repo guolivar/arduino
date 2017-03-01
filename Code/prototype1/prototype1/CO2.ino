@@ -12,6 +12,36 @@
 
 ///////////////////////////////////////////////////////////////////
 
+
+// CO2 Meter K-series Example Interface
+
+
+// Arduino analog input 5 - I2C SCL
+
+// Arduino analog input 4 - I2C SDA
+
+/*
+
+In this example we will do a basic read of the CO2 value and checksum
+
+verification. For more advanced applications see the I2C Comm guide.
+
+*/
+
+int co2Addr = 0x68;
+
+// This is the default address of the CO2 sensor, 7bits shifted left.
+
+void co2setup() {
+
+   Wire.begin ();
+
+   pinMode(13, OUTPUT); // address of the Arduino LED indicator
+
+   //println("Application Note AN-102: Interface Arduino to K-30");
+
+}
+
 void wire_write(int nums[4]){
 
   for(int i = 0; i < 4; ++i){
@@ -94,12 +124,9 @@ int readCO2(){
 
   */
 
-  while (Wire.available())
-
-  {
-
+  while (Wire.available()){
+    
     buffer[i] = Wire.read();
-
     i++;
 
   }
