@@ -22,20 +22,31 @@ uint16_t PM10Value=0;         //define PM10 value of the air detector module
 
 uint8_t receiveDat[receiveDatIndex]; //receive data from the air detector module
 
+#include <SoftwareSerial.h>
+//SoftwareSerial dust_port(4,5);
 
 void setup() {
   
   // put your setup code here, to run once:
 
 Serial.begin(9600);   //set the serial's Baudrate of the air detector module
-
+//Serial1.begin(9600);
+//dust_port.begin(9600);
 }
+
+
+
+
+// try read write idea where it runs for a few seconds then stops??? read gus's code
+
+
 
 
 void loop()
 {
-
- int length = serialRead(Serial,receiveDat,receiveDatIndex,5); //change the serial port:Serial1,Serial2..
+  
+  int length = serialRead(Serial,receiveDat,receiveDatIndex,5); //change the serial port:Serial1,Serial2..
+// int length = serial1Read(receiveDat,receiveDatIndex,5); //change the serial port:Serial1,Serial2..
  int checkSum=checkValue(receiveDat,receiveDatIndex);
  
   if(length&&checkSum)
@@ -57,11 +68,11 @@ void loop()
       Serial.print(PM01Value);
       Serial.println("  ug/m3");            
     
-      Serial.print("PM2.5: ");  //send PM1.0 data to bluetooth
+      Serial.print("PM2.5: ");  //send PM2.5 data to bluetooth
       Serial.print(PM2_5Value);
       Serial.println("  ug/m3");     
       
-      Serial.print("PM10:  ");  //send PM1.0 data to bluetooth
+      Serial.print("PM10:  ");  //send PM10.0 data to bluetooth
       Serial.print(PM10Value);
       Serial.println("  ug/m3");   
     }

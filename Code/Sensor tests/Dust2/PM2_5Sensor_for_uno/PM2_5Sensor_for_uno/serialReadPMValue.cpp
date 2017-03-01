@@ -11,6 +11,7 @@
 /**************************************************************************/
 
 #include <Arduino.h>
+//#include <SoftwareSerial.h>
 
 //call like : serialRead (Serial1, buffer, 12, 5)
 uint8_t serialRead (HardwareSerial the_serial, 

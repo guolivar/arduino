@@ -220,8 +220,27 @@ void setup()
 
 }
 
+
+void printData(String format, int formatInt, unsigned char* data){
+   Serial.println(format + " \n");
+      for(int i = 0; i < LENG; i++) {
+
+        unsigned char data = buf[i]; 
+        Serial.print(data, formatInt);
+
+        // Seperate number into groups of 4
+        if( i % 4 == 1){
+          Serial.print(" ");
+        }
+      }
+
+      Serial.print("\n\n");
+}
+
+
 void loop()
 {
+  
   if(Serial.find(0x42)){    //start to read when detect 0x42
     Serial.readBytes(buf,LENG);
 
@@ -232,7 +251,38 @@ void loop()
         PM10Value=transmitPM10(buf); //count PM10 value of the air detector module
       }
     }
+
+//      Serial.readBytes(buf,LENG);
+
+//      int i;
+//      char* buf_str = (char*) malloc (2*LENG + 1);
+//      char* buf_ptr = buf_str;
+//      for (i = 0; i < LENG; i++)
+//      {
+//          buf_ptr += sprintf(buf_ptr, "%02X", buf[i]);
+//      }
+//      sprintf(buf_ptr,"\n");
+//      *(buf_ptr + 1) = '\0';
+//      printf("%s\n", buf_str);
+
+      
+      //Serial.write(buf, LENG);
+
+//      Serial.println("HEX: \n");
+//      for(int i = 0; i < LENG; i++) { 
+//        Serial.print(buf[i], HEX);
+//      }
+//
+//      Serial.print("\n");
+        
+//      printData(HEX, buf);
+//      printData(DEC, buf);
+      
+      //Serial.println(String( buf, HEX) );
   }
+
+  printData("HEX", HEX, buf);
+  printData("DEC", DEC, buf);
 
   static unsigned long OledTimer=millis();
     if (millis() - OledTimer >=1000)
