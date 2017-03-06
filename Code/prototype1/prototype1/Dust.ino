@@ -1,85 +1,65 @@
-long pmcf10=0;
-long pmcf25=0;
-long pmcf100=0;
-long pmat1=0;
-long pmat25=0;
-long pmat10=0;
+//long pmcf1=0;
+//long pmcf25=0;
+//long pmcf10=0;
+//long pmat1=0;
+//long pmat25=0;
+//long pmat10=0;
 
-char buf[50];
+//char buf[50];
 
 void DUST_setup() {
-  // put your setup code here, to run once:
-  //Serial.begin(9600);
   Serial2.begin(9600);
 }
 
 
-
-void print_atmosphere(String particle_size, long pmcf){
-  Serial.print("atmosphere PM " + particle_size + " = ");
-  Serial.print(pmcf);
+void show(String environment, String particle_size){
+  Serial.print(environment + ", PM " + particle_size + " = ");
+  Serial.print(calc_pm());
   Serial.println(" ug/m3");
 }
 
+unsigned char c;
+  
+long calc_pm(){ 
+  return 256 *( 2 * c);
+}
+
 void DUST_loop() {
-  // put your main code here, to run repeatedly:
+
   int count = 0;
-  unsigned char c;
-  unsigned char high;
-//  Serial.println(Serial2.available());
+  
   while (Serial2.available()) {
+    
     c = Serial2.read();
+    
     if((count==0 && c!=0x42) || (count==1 && c!=0x4d)){
       Serial.println("check failed");
       break;
+    }
+
+    if(count == 5){
+      show("CF = 1", "1");
+    }
+    else if(count == 7){
+      show("CF = 1", "2.5");
+    }
+    else if(count == 9){
+      show("CF = 1", "10");
+    }
+    else if(count == 11){
+      show("atmosphere", "1.0");
+    }
+    else if(count == 13){
+      show("atmosphere", "2.5");
+    }
+    else if(count == 15){
+      show("atmosphere", "10");
     }
     if(count > 15){
       Serial.println("complete");
       break;
     }
-    else if(count == 4 || count == 6 || count == 8 || count == 10 || count == 12 || count == 14) {
-      high = c;
-    }
-    else if(count == 5){
-      pmcf10 = 256*high + c;
-      Serial.print("CF=1, PM1.0=");
-      Serial.print(pmcf10);
-      Serial.println(" ug/m3");
-    }
-    else if(count == 7){
-      pmcf25 = 256*high + c;
-      Serial.print("CF=1, PM2.5=");
-      Serial.print(pmcf25);
-      Serial.println(" ug/m3");
-    }
-    else if(count == 9){
-      pmcf100 = 256*high + c;
-      Serial.print("CF=1, PM10=");
-      Serial.print(pmcf100);
-      Serial.println(" ug/m3");
-    }
-    else if(count == 11){
-      pmat1 = 256*high + c;
-      
-//      Serial.print("atmosphere, PM1.0=");
-//      Serial.print(pmat10);
-//      Serial.println(" ug/m3");
-      print_atmosphere("1.0", pmat1);
-    }
-    else if(count == 13){
-      pmat25 = 256*high + c;
-//      Serial.print("atmosphere, PM2.5=");
-//      Serial.print(pmat25);
-//      Serial.println(" ug/m3");
-      print_atmosphere("2.5", pmat25);
-    }
-    else if(count == 15){
-      pmat10 = 256*high + c;
-//      Serial.print("atmosphere, PM10=");
-//      Serial.print(pmat100);
-//      Serial.println(" ug/m3");
-      print_atmosphere("10", pmat10);
-    }
+
     count++;
   }
   while(Serial2.available()) Serial2.read();
