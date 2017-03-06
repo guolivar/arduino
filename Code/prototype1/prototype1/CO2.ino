@@ -29,6 +29,7 @@ verification. For more advanced applications see the I2C Comm guide.
 */
 
 int co2Addr = 0x68;
+//104
 
 // This is the default address of the CO2 sensor, 7bits shifted left.
 

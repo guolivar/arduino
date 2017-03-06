@@ -1,9 +1,9 @@
 long pmcf10=0;
 long pmcf25=0;
 long pmcf100=0;
-long pmat10=0;
+long pmat1=0;
 long pmat25=0;
-long pmat100=0;
+long pmat10=0;
 
 char buf[50];
 
@@ -11,6 +11,14 @@ void DUST_setup() {
   // put your setup code here, to run once:
   //Serial.begin(9600);
   Serial2.begin(9600);
+}
+
+
+
+void print_atmosphere(String particle_size, long pmcf){
+  Serial.print("atmosphere PM " + particle_size + " = ");
+  Serial.print(pmcf);
+  Serial.println(" ug/m3");
 }
 
 void DUST_loop() {
@@ -51,22 +59,26 @@ void DUST_loop() {
       Serial.println(" ug/m3");
     }
     else if(count == 11){
-      pmat10 = 256*high + c;
-      Serial.print("atmosphere, PM1.0=");
-      Serial.print(pmat10);
-      Serial.println(" ug/m3");
+      pmat1 = 256*high + c;
+      
+//      Serial.print("atmosphere, PM1.0=");
+//      Serial.print(pmat10);
+//      Serial.println(" ug/m3");
+      print_atmosphere("1.0", pmat1);
     }
     else if(count == 13){
       pmat25 = 256*high + c;
-      Serial.print("atmosphere, PM2.5=");
-      Serial.print(pmat25);
-      Serial.println(" ug/m3");
+//      Serial.print("atmosphere, PM2.5=");
+//      Serial.print(pmat25);
+//      Serial.println(" ug/m3");
+      print_atmosphere("2.5", pmat25);
     }
     else if(count == 15){
-      pmat100 = 256*high + c;
-      Serial.print("atmosphere, PM10=");
-      Serial.print(pmat100);
-      Serial.println(" ug/m3");
+      pmat10 = 256*high + c;
+//      Serial.print("atmosphere, PM10=");
+//      Serial.print(pmat100);
+//      Serial.println(" ug/m3");
+      print_atmosphere("10", pmat10);
     }
     count++;
   }
