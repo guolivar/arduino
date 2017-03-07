@@ -42,7 +42,9 @@ void DUST_loop() {
       Serial.println("check failed");
       break;
     }
-
+    
+    map<String, int> cf_granularities;
+    
     show_cf("1", 5);
     show_cf("2.5", 7);
     show_cf("10", 9);
