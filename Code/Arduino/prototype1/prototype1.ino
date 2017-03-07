@@ -23,10 +23,8 @@ void setup() {
   DUST_setup();
 //  setupTemp();
 
-  while (!Serial) {
-    //;  wait for serial port to connect. Needed for native USB port only
-  }
-
+//;  wait for serial port to connect. Needed for native USB port only
+  while (!Serial) {}
  
 }
 

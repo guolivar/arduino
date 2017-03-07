@@ -2,26 +2,37 @@
 
 //char buf[50];
 
-//void DUST_setup() {
-//  Serial2.begin(9600);
-//}
+int count;
 
+void show(String environment, String particle_size, int check_point){
 
-void show(String environment, String particle_size){
-  Serial.print(environment + ", PM " + particle_size + " = ");
-  Serial.print(calc_pm());
-  Serial.println(" ug/m3");
+  if(count == check_point ){
+    Serial.print(environment + ", PM " + particle_size + " = ");
+    Serial.print(calc_pm());
+    Serial.println(" ug/m3");
+  }
 }
 
 unsigned char c;
-  
+
 long calc_pm(){ 
   return 256 *( 2 * c);
 }
 
+//#define ATMOSPHERE "atmosphere"
+//#define CF "CF = 1"
+
+//void show_cf(String particle_size, int check){
+//  show("CF = 1", particle_size, check);
+//}
+
+auto show_cf = curry(show, "CF = 1");
+auto show_atmosphere = curry(show, "atmosphere");
+
+
 void DUST_loop() {
 
-  int count = 0;
+  count = 0;
   
   while (Serial2.available()) {
     
@@ -32,24 +43,46 @@ void DUST_loop() {
       break;
     }
 
-    if(count == 5){
-      show("CF = 1", "1");
-    }
-    else if(count == 7){
-      show("CF = 1", "2.5");
-    }
-    else if(count == 9){
-      show("CF = 1", "10");
-    }
-    else if(count == 11){
-      show("atmosphere", "1.0");
-    }
-    else if(count == 13){
-      show("atmosphere", "2.5");
-    }
-    else if(count == 15){
-      show("atmosphere", "10");
-    }
+    show_cf("1", 5);
+    show_cf("2.5", 7);
+    show_cf("10", 9);
+   
+    show_atmosphere("1.0", 11);
+    show_atmosphere( "2.5", 13);
+    show_atmosphere("10", 15);
+    
+//    show(CF, "1", 5);
+//    show(CF, "2.5", 7);
+//    show(CF, "10", 9);
+//    show(ATMOSPHERE, "1.0", 11);
+//    show(ATMOSPHERE, "2.5", 13);
+//    show(ATMOSPHERE, "10", 15);
+
+//    show("CF = 1", "1", 5);
+//    show("CF = 1", "2.5", 7);
+//    show("CF = 1", "10", 9);
+//    show("atmosphere", "1.0", 11);
+//    show("atmosphere", "2.5", 13);
+//    show("atmosphere", "10", 15);
+    
+//    if(count == 5){
+//      show("CF = 1", "1");
+//    }
+//    else if(count == 7){
+//      show("CF = 1", "2.5");
+//    }
+//    else if(count == 9){
+//      show("CF = 1", "10");
+//    }
+//    else if(count == 11){
+//      show("atmosphere", "1.0");
+//    }
+//    else if(count == 13){
+//      show("atmosphere", "2.5");
+//    }
+//    else if(count == 15){
+//      show("atmosphere", "10");
+//    }
     if(count > 15){
       Serial.println("complete");
       break;

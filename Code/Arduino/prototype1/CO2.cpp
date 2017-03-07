@@ -35,21 +35,6 @@ int co2Addr = 0x68;
 
 // This is the default address of the CO2 sensor, 7bits shifted left.
 
-//void co2setup() {
-//
-//   Wire.begin ();
-//   pinMode(13, OUTPUT); // address of the Arduino LED indicator
-//
-//   //println("Application Note AN-102: Interface Arduino to K-30");
-//}
-
-void wire_write(int nums[4]){
-
-  for(int i = 0; i < 4; ++i){
-    Wire.write(nums[i]);
-  }
-
-}
 
 int readCO2(){
 
@@ -67,15 +52,15 @@ int readCO2(){
 
   Wire.beginTransmission(co2Addr);
 
-  Wire.write(0x22);
+//  Wire.write(0x22);
+//
+//  Wire.write(0x00);
+//
+//  Wire.write(0x08);
+//
+//  Wire.write(0x2A);
 
-  Wire.write(0x00);
-
-  Wire.write(0x08);
-
-  Wire.write(0x2A);
-
-  //wire_write([0x22, 0x00, 0x08, 0x2A]);
+  wire_write(0x22, 0x00, 0x08, 0x2A);
 
   Wire.endTransmission();
 
