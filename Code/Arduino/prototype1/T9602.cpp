@@ -18,14 +18,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "Wire.h"
 
-void setupTemp(){
- //Serial.begin(115200);  // start serial for output
- //Wire.begin();
- Serial.println("Amphenol Advanced Sensors");
- Serial.println("Arduino T9602 Monitor");
-
- ScanI2CBus();
-}
+//void setupTemp(){
+// //Serial.begin(115200);  // start serial for output
+// //Wire.begin();
+// Serial.println("Amphenol Advanced Sensors");
+// Serial.println("Arduino T9602 Monitor");
+//
+// ScanI2CBus();
+//}
 
 void getdata(byte *a, byte *b, byte *c, byte *d)
 {

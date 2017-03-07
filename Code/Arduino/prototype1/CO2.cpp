@@ -17,31 +17,31 @@
 
 
 // Arduino analog input 5 - I2C SCL
-
 // Arduino analog input 4 - I2C SDA
 
 /*
 
 In this example we will do a basic read of the CO2 value and checksum
-
 verification. For more advanced applications see the I2C Comm guide.
 
 */
 
 int co2Addr = 0x68;
+
+#include <Wire.h>
+#define HIGH 1
+
 //104
 
 // This is the default address of the CO2 sensor, 7bits shifted left.
 
-void co2setup() {
-
-   Wire.begin ();
-
-   pinMode(13, OUTPUT); // address of the Arduino LED indicator
-
-   //println("Application Note AN-102: Interface Arduino to K-30");
-
-}
+//void co2setup() {
+//
+//   Wire.begin ();
+//   pinMode(13, OUTPUT); // address of the Arduino LED indicator
+//
+//   //println("Application Note AN-102: Interface Arduino to K-30");
+//}
 
 void wire_write(int nums[4]){
 
@@ -161,31 +161,19 @@ int readCO2(){
   if (sum == buffer[3]){
 
   // Success!
-
     digitalWrite(13, LOW);
-
     return co2_value;
 
   }
-
   else{
-
     // Failure!
-
     /*
-
-    Checksum failure can be due to a number of factors,
-
-    fuzzy electrons, sensor busy, etc.
-
+    Checksum failure can be due to a number of factors, fuzzy electrons, sensor busy, etc.
     */
-
     digitalWrite(13, LOW);
-
     return 0;
 
   }
-
 }
 
 void CO2_loop(){

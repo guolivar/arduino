@@ -1,15 +1,10 @@
-//long pmcf1=0;
-//long pmcf25=0;
-//long pmcf10=0;
-//long pmat1=0;
-//long pmat25=0;
-//long pmat10=0;
+
 
 //char buf[50];
 
-void DUST_setup() {
-  Serial2.begin(9600);
-}
+//void DUST_setup() {
+//  Serial2.begin(9600);
+//}
 
 
 void show(String environment, String particle_size){
