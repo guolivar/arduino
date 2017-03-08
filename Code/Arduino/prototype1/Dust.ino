@@ -7,8 +7,14 @@
 
 //char buf[50];
 
+#include <SoftwareSerial.h>
+SoftwareSerial dustport(8,9);
+
 void DUST_setup() {
-  Serial2.begin(9600);
+  //mega
+  //Serial2.begin(9600);
+  dustport.begin(9600);
+  
 }
 
 
@@ -27,11 +33,14 @@ long calc_pm(){
 void DUST_loop() {
 
   int count = 0;
-  
-  while (Serial2.available()) {
-    
-    c = Serial2.read();
-    
+
+  //mega
+//  while (Serial2.available()) {
+//    
+//    c = Serial2.read();
+
+ while (dustport.available()) {
+    c = dustport.read();
     if((count==0 && c!=0x42) || (count==1 && c!=0x4d)){
       Serial.println("check failed");
       break;
@@ -62,7 +71,9 @@ void DUST_loop() {
 
     count++;
   }
-  while(Serial2.available()) Serial2.read();
+  //mega
+  //while(Serial2.available()) Serial2.read();
+  while(dustport.available()) dustport.read();
   Serial.println();
   delay(5000);
 }

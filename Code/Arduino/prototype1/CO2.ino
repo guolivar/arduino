@@ -35,7 +35,7 @@ int co2Addr = 0x68;
 
 void co2setup() {
 
-   Wire.begin ();
+   //Wire.begin ();
 
    pinMode(13, OUTPUT); // address of the Arduino LED indicator
 
@@ -190,7 +190,7 @@ int readCO2(){
 
 void CO2_loop(){
   int co2Value = readCO2();
-
+  //int co2Value = analogRead(A0);
   if (co2Value > 0){
     print("CO2 Value: ");
     println(String(co2Value));
