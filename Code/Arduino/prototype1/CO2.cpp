@@ -29,7 +29,8 @@ verification. For more advanced applications see the I2C Comm guide.
 int co2Addr = 0x68;
 
 #include <Wire.h>
-#define HIGH 1
+#include "Arduino.h"
+// #include "Skomobo.h"
 
 //104
 
@@ -52,15 +53,16 @@ int readCO2(){
 
   Wire.beginTransmission(co2Addr);
 
-//  Wire.write(0x22);
-//
-//  Wire.write(0x00);
-//
-//  Wire.write(0x08);
-//
-//  Wire.write(0x2A);
+ Wire.write(0x22);
 
-  wire_write(0x22, 0x00, 0x08, 0x2A);
+ Wire.write(0x00);
+
+ Wire.write(0x08);
+
+ Wire.write(0x2A);
+  
+  // int message[] = {0x22, 0x00, 0x08, 0x2A};
+  // wire_write(message);
 
   Wire.endTransmission();
 
@@ -165,12 +167,12 @@ void CO2_loop(){
   int co2Value = readCO2();
 
   if (co2Value > 0){
-    print("CO2 Value: ");
-    println(String(co2Value));
+    Serial.print("CO2 Value: ");
+    Serial.println(String(co2Value));
   }
 
   else {
-    println("Checksum failed / Communication failure");
+    Serial.println("Checksum failed / Communication failure");
   }
 }
 

@@ -6,7 +6,7 @@
 //void IR_setup() {
 //  Serial.begin(9600); // start the serial port
 //}
-
+#include "Arduino.h"
 void IR_loop() {
   
   // 5v

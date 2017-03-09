@@ -1,15 +1,14 @@
 
 
-//char buf[50];
-
-int count;
-
 void show(String environment, String particle_size, int check_point){
 
+  // ///////////////// install arduino ino and setup as task runner
+
+//  if(count == check_point){  Serial.print(environment + ", PM " + particle_size + " = " + String(calc_pm()) + "ug/m3") };
   if(count == check_point ){
-    Serial.print(environment + ", PM " + particle_size + " = ");
-    Serial.print(calc_pm());
-    Serial.println(" ug/m3");
+    Serial.print(environment + ", PM " + particle_size + " = " + String(calc_pm()) + "ug/m3");
+    //Serial.print(calc_pm());
+    //Serial.println(" ug/m3");
   }
 }
 
@@ -22,14 +21,18 @@ long calc_pm(){
 //#define ATMOSPHERE "atmosphere"
 //#define CF "CF = 1"
 
-//void show_cf(String particle_size, int check){
-//  show("CF = 1", particle_size, check);
-//}
+void show_cf(String particle_size, int check){
+ show("CF = 1", particle_size, check);
+}
 
-auto show_cf = curry(show, "CF = 1");
-auto show_atmosphere = curry(show, "atmosphere");
+void show_atmosphere(){
+  show("atmosphere", particle_size, check);
+}
 
+//auto show_cf = curry(show, "CF = 1");
+// auto show_atmosphere = curry(show, "atmosphere");
 
+#include "Arduino.h"
 void DUST_loop() {
 
   count = 0;
@@ -43,7 +46,7 @@ void DUST_loop() {
       break;
     }
     
-    map<String, int> cf_granularities;
+    //map<String, int> cf_granularities;
     
     show_cf("1", 5);
     show_cf("2.5", 7);
