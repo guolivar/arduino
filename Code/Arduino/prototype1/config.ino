@@ -6,3 +6,4 @@
 
 #define LOCATION "Auckland"
 
+#define CURRENT_TIME ""
