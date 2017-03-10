@@ -1,7 +1,17 @@
-#include "Chronodot.h"
+#include "RTClib.h"
+//using namespace RTC_DS3231
 
-// install RTCLIB remove chronodot
-String get_time(){
-  return RTC.now();
+
+RTC_DS3231 rtc;
+
+void Time_setup(){
+  //Wire.begin();
+  rtc.begin();
+  
+}
+
+void Time_loop(){
+   DateTime this_time = rtc.now();
+   
 }
 

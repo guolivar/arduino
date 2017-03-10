@@ -64,7 +64,21 @@ int readCO2(){
   /* Begin Write Sequence */
 
   //////////////////////////
-
+//  
+//  TwoWire twoWire = TwoWire();
+//  twoWire.beginTransmission(co2Addr);
+//
+//  twoWire.write(0x22);
+//
+//  twoWire.write(0x00);
+//
+//  twoWire.write(0x08);
+//
+//  twoWire.write(0x2A);
+//
+//
+//  twoWire.endTransmission();
+//    
   Wire.beginTransmission(co2Addr);
 
   Wire.write(0x22);

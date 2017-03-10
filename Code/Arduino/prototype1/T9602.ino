@@ -16,10 +16,13 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Wire.h"
+
+TwoWire twoWire = TwoWire();
 
 void setupTemp(){
  //Serial.begin(115200);  // start serial for output
+ 
+ //twoWire.begin();
  Wire.begin();
  Serial.println("Amphenol Advanced Sensors");
  Serial.println("Arduino T9602 Monitor");
@@ -27,13 +30,20 @@ void setupTemp(){
 
 void getdata(byte *a, byte *b, byte *c, byte *d)
 {
-
- // Wire.beginTransmission(0x00);
+//  twoWire.beginTransmission(40);
+//  twoWire.write(0);
+//  twoWire.endTransmission();
+//  twoWire.requestFrom(40, 4);
+//  *a = twoWire.read();
+//  //Serial.println(*a);
+//
+//  *b = twoWire.read();
+//  *c = twoWire.read();
+//  *d = twoWire.read();
+ 
   Wire.beginTransmission(40);
   Wire.write(0);
   Wire.endTransmission();
-
-  //Wire.requestFrom(0x00, 4);
   Wire.requestFrom(40, 4);
   *a = Wire.read();
   //Serial.println(*a);
