@@ -1,32 +1,33 @@
 #######################################
-# Syntax Coloring Map For I2C
+# Syntax Coloring Map For Time
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-I2C	KEYWORD1
-
+time_t	KEYWORD1
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-
-begin	KEYWORD2
-end	KEYWORD2
-timeOut	KEYWORD2
-setSpeed	KEYWORD2
-pullup	KEYWORD2
-scan	KEYWORD2
-write	KEYWORD2
-read	KEYWORD2
-available	KEYWORD2
-receive	KEYWORD2
-
+now	KEYWORD2
+second	KEYWORD2
+minute	KEYWORD2
+hour	KEYWORD2
+day	KEYWORD2
+month	KEYWORD2
+year	KEYWORD2
+isAM	KEYWORD2
+isPM	KEYWORD2
+weekday	KEYWORD2
+setTime	KEYWORD2
+adjustTime	KEYWORD2
+setSyncProvider	KEYWORD2
+setSyncInterval	KEYWORD2
+timeStatus	KEYWORD2
+TimeLib	KEYWORD2
 #######################################
 # Instances (KEYWORD2)
 #######################################
-
-I2c	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

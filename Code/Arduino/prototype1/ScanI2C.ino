@@ -15,14 +15,22 @@ void ScanI2CBus()
     // the Write.endTransmisstion to see if
     // a device did acknowledge to the address.
 //    Serial.println("test: " + String(Wire.requestFrom(address, 1)));
-    Serial.println("attempting " + String(address));
+   // Serial.println("attempting " + String(address));
   
 //    I2c.beginTransmission(address);
 //    error = I2c.endTransmission();  
 //    TwoWire twoWire = TwoWire();
 //    twoWire.beginTransmission(address);
 //    error = twoWire.endTransmission();
+   
     Wire.beginTransmission(address);
+
+    //rtclib address
+    //Wire.beginTransmission(104);
+
+    //datasheet address for m version
+//    Wire.beginTransmission(00h);
+    
     error = Wire.endTransmission();
     
     //Serial.println("Error: " + String(error));
@@ -39,9 +47,9 @@ void ScanI2CBus()
       Serial.print("Unknown error at address ");
       Serial.println(address, DEC);
     }
-    else{
-      Serial.println("Error was " + String(error));
-    }
+//    else{
+//      Serial.println("Error was " + String(error));
+//    }
   }
   if (nDevices == 0)
     Serial.println("No I2C devices found\n");
