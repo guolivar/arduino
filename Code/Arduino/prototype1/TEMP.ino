@@ -16,10 +16,11 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+// T9602 sensor
 
 TwoWire twoWire = TwoWire();
 
-void setupTemp(){
+void TEMP_setup(){
  //Serial.begin(115200);  // start serial for output
  
  //twoWire.begin();

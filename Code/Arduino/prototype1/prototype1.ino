@@ -15,9 +15,10 @@ void setup() {
 //    PIR_setup();
 
 //  IR_setup();
-//  co2setup();
+//  CO2_setup();
 //  DUST_setup();
-//   setupTemp();
+//  TEMP_setup();
+
 
 
 //  ScanI2CBus();

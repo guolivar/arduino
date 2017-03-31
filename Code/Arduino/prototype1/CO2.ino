@@ -33,7 +33,7 @@ int co2Addr = 0x68;
 
 // This is the default address of the CO2 sensor, 7bits shifted left.
 
-void co2setup() {
+void CO2_setup() {
 
    //Wire.begin ();
 
