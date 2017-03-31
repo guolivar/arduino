@@ -1,5 +1,4 @@
-
-
+  
  #define MOTION_PIN 2
  
  void PIR_setup(){
@@ -13,4 +12,3 @@
  }
  
  
-
