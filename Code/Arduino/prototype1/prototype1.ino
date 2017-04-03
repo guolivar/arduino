@@ -1,12 +1,19 @@
 
 #include <SPI.h>
 
+void print(String words){
+  Serial.print(words);
+}
+
+void println(String words){
+  Serial.println(words);
+}
 
 #include <Wire.h>
 //#include "WSWire.h"
 //U#include "I2C.h"
 
-#include "Startup.h"
+//#include "Startup.h"
 
 void setup() {
  
@@ -19,7 +26,7 @@ void setup() {
 //  DUST_setup();
 //  TEMP_setup();
 
-
+  SD_setup();
 
 //  ScanI2CBus();
    
@@ -44,12 +51,15 @@ void loop() {
 //  PIR_loop();
 
 //  DUST_loop();
-
+//  SD_Loop();
 //  CO2_loop();
 
 //  Temp_loop();
 
 //  Time_loop();
+
+  // feed all the other loops in here or variables
+  //SD_loop();
 
   delay(1000);
 }

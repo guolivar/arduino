@@ -1,11 +1,3 @@
-//long pmcf1=0;
-//long pmcf25=0;
-//long pmcf10=0;
-//long pmat1=0;
-//long pmat25=0;
-//long pmat10=0;
-
-//char buf[50];
 
 #include <SoftwareSerial.h>
 SoftwareSerial dustport(8,9);
@@ -14,7 +6,6 @@ void DUST_setup() {
   //mega
   //Serial2.begin(9600);
   dustport.begin(9600);
-  
 }
 
 

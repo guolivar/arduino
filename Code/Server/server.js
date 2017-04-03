@@ -17,9 +17,9 @@ function handleRequest(request, response){
     if(request.url != '/favicon.ico'){
 
         var text = request.url.split('-').join(' ').slice(1)        
-        io.appendFile('log.txt', text + '\n', (err) =>{
-            if(err) console.log(err)
-        })
+        // io.appendFile('log.txt', text + '\n', (err) =>{
+        //     if(err) console.log(err)
+        // })
 
     }
 

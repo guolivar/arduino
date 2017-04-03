@@ -2,12 +2,68 @@
 
 File myFile;
 
-void sd(){
+void Save(String text){
+  myFile = SD.open("data.txt", FILE_WRITE);
 
-  print("Initializing SD card...");
+  //if the file opened okay, write to it
+  if (myFile) {
+    
+    print("Writing to data.txt...");
+    myFile.println(text);
+    
+    //close the file
+    myFile.close();
+    println("done.");
+  
+  } 
+  
+  else {
+    
+    //if the file didn't open, print an error
+    println("error opening test.txt");
+    
+  }
+}
+
+void SD_setup(){
+  Serial.print("Initializing SD card...");
 
   if (!SD.begin(53)) {
-    println("initialization failed!");
+    Serial.println("initialization failed!");
+    return;
+  }
+  
+  println("initialization done.");
+
+  // print the headings for our data in the txt file
+
+  // improvement: check if the headings already are in the file if they are then dont print
+  Save("Time Movement Temperature Humidty CO2 IR 1 2 3 4 5 6 7 Dust 1.0 2.5 10");
+}
+
+String Concat(datetime current_time, bool movement, float * values){
+  
+  String result = String(current_time) + " " + String(movement);
+  for( int i = 0; i < size(values); i++){
+    result = result + " " + String(values[i]);
+  }
+
+  return result;
+}
+
+
+void SD_loop(datetime current_time, bool movement, float * values){
+  String text = Concat(current_time, movement, values);
+  Save(text);
+}
+
+
+void SD_test(){
+
+  Serial.print("Initializing SD card...");
+
+  if (!SD.begin(53)) {
+    Serial.println("initialization failed!");
     return;
   }
   
