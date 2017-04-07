@@ -26,9 +26,9 @@ void setup() {
 //  DUST_setup();
 //  TEMP_setup();
 
-  SD_setup();
+//  SD_setup();
 
-//  ScanI2CBus();
+  ScanI2CBus();
    
   //Time_setup();
 
@@ -45,7 +45,7 @@ void setup() {
 }
 
 void loop() {
-
+//  OLED();
 // IR_loop();
 
 //  PIR_loop();

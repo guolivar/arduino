@@ -9,13 +9,13 @@ void ScanI2CBus()
   Serial.println("Scanning...");
 
   nDevices = 0;
-  for (address = 1; address < 127; address++ )
+  for (address = 1; address <= 127; address++ )
   {
     // The i2c_scanner uses the return value of
     // the Write.endTransmisstion to see if
     // a device did acknowledge to the address.
 //    Serial.println("test: " + String(Wire.requestFrom(address, 1)));
-    Serial.println("attempting " + String(address));
+//    Serial.println("attempting " + String(address));
   
 //    I2c.beginTransmission(address);
 //    error = I2c.endTransmission();  
@@ -33,7 +33,7 @@ void ScanI2CBus()
     
     error = Wire.endTransmission();
     
-    Serial.println("Error: " + String(error));
+//    Serial.println("Error: " + String(error));
     
     if (error == 0)
     {

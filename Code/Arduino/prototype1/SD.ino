@@ -41,21 +41,21 @@ void SD_setup(){
   Save("Time Movement Temperature Humidty CO2 IR 1 2 3 4 5 6 7 Dust 1.0 2.5 10");
 }
 
-String Concat(datetime current_time, bool movement, float * values){
-  
-  String result = String(current_time) + " " + String(movement);
-  for( int i = 0; i < size(values); i++){
-    result = result + " " + String(values[i]);
-  }
+//String Concat(datetime current_time, bool movement, float * values){
+//  
+//  String result = String(current_time) + " " + String(movement);
+//  for( int i = 0; i < size(values); i++){
+//    result = result + " " + String(values[i]);
+//  }
+//
+//  return result;
+//}
 
-  return result;
-}
 
-
-void SD_loop(datetime current_time, bool movement, float * values){
-  String text = Concat(current_time, movement, values);
-  Save(text);
-}
+//void SD_loop(datetime current_time, bool movement, float * values){
+//  String text = Concat(current_time, movement, values);
+//  Save(text);
+//}
 
 
 void SD_test(){
