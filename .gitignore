@@ -1,2 +1,3 @@
 .vagrant\*
-node_modules\*
+Code\Server\node_modules\*
+node_modules
