@@ -211,13 +211,7 @@ int CO2_loop(){
     println(String(co2Value));
 
     display_heading();
-//    display.clearDisplay();
-//    display.setTextSize(1);
-//    display.setTextColor(WHITE);
-//    display.setCursor(0,0);
-//    display.println("       SKOMOBO");
     
-    display.setTextSize(2);
     display.print("CO2: ");
     display.print(co2Value);
     display.setTextSize(1);

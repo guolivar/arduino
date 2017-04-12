@@ -16,13 +16,9 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-
-TwoWire twoWire = TwoWire();
-
 void setupTemp(){
  //Serial.begin(115200);  // start serial for output
- 
- //twoWire.begin();
+
  Wire.begin();
 // Serial.println("Amphenol Advanced Sensors");
 // Serial.println("Arduino T9602 Monitor");
@@ -30,17 +26,9 @@ void setupTemp(){
 
 void getdata(byte *a, byte *b, byte *c, byte *d)
 {
-//  twoWire.beginTransmission(40);
-//  twoWire.write(0);
-//  twoWire.endTransmission();
-//  twoWire.requestFrom(40, 4);
-//  *a = twoWire.read();
+
 //  //Serial.println(*a);
 //
-//  *b = twoWire.read();
-//  *c = twoWire.read();
-//  *d = twoWire.read();
- 
   Wire.beginTransmission(40);
   Wire.write(0);
   Wire.endTransmission();
@@ -69,44 +57,22 @@ String Temp_loop()
 // temperature = (Temp_High [7:0] x 64 + Temp_Low [7:2]/4 ) / 16384 x 165 40
  temperature = adjust_temp((float)((unsigned)(cc  * 64) + (unsigned)(dd >> 2 )) / 16384.0 * 165.0 - 40.0);
 
-//static void cc2_calculations(void)
-//{
-//  raw_rh =
-//    (uint32_t)(((uint16_t)(i2c_buf[0] & 0x3F) * 256) + (uint16_t)i2c_buf[1]);
-//  cooked_rh = ((double)raw_rh / 16384.0) * 100.0;
-
-//  raw_tc =
-//    (int32_t)(((uint16_t)i2c_buf[2] * 64) + ((uint16_t)(i2c_buf[3] & 0xFC) >> 2));
-//  cooked_tc = ((double)raw_tc / 16384.0) * 165.0 40.0;
-//} // cc2_calculations
-
-
-
   Serial.print(temperature);
   Serial.print(" degC  ");
   Serial.print(humidity);
   Serial.println(" %rH");
 
   display_heading();
-//  display.clearDisplay();
-//  display.setTextSize(1);
-//  display.setTextColor(WHITE);
-//  display.setCursor(0,0);
-//  display.println("       SKOMOBO");
-  
-  display.setTextSize(2);
+
   display.print("T: ");
   display.print(temperature);
   display.drawCircle(100, 11, 3, WHITE);
   display.println(" C");
   display.display();
   delay(2000);
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.setCursor(0,0);
-  display.println("       SKOMOBO");
-  display.setTextSize(2);
+
+  display_heading();
+
   display.print("RH: ");
   display.print(humidity);
   display.println("%");

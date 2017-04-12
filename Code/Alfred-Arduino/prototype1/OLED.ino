@@ -4,5 +4,6 @@ void display_heading(){
     display.setTextColor(WHITE);
     display.setCursor(0,0);
     display.println("       SKOMOBO");
+    display.setTextSize(2);
 }
 

@@ -1,11 +1,3 @@
-//long pmcf1=0;
-//long pmcf25=0;
-//long pmcf10=0;
-//long pmat1=0;
-//long pmat25=0;
-//long pmat10=0;
-
-//char buf[50];
 
 #include <SoftwareSerial.h>
 SoftwareSerial dustport(8,9);
@@ -79,16 +71,9 @@ String DUST_loop() {
       pm10 = calc_pm();
 
       display_heading();
-//      display.clearDisplay();
-//      display.setTextSize(1);
-//      display.setTextColor(WHITE);
-//      display.setCursor(0,0);
-//      display.println("       SKOMOBO");
-//      display.setTextSize(2);
-//      
+          
       display.print("PM: ");
 
-      
       display.print(calc_pm());
       display.setTextSize(1);
       display.println("ug/m3");
@@ -110,44 +95,4 @@ String DUST_loop() {
   delay(2000);
 }
 
-//#define receiveDatIndex 24 // Sensor data payload size
-//
-////Variable declarations
-//byte receiveDat[receiveDatIndex]; //receive data from the air detector module
-//boolean valid_data;
-//unsigned int PM1,PM25,PM10;
-//unsigned int checkSum,checkresult;
-//void readDust(){
-//  while (Serial2.peek()!=66){
-//    receiveDat[0]=Serial2.read();
-//  }
-//  Serial2.readBytes((char *)receiveDat,receiveDatIndex);
-//  checkSum = 0;
-//  for (int i = 0;i < receiveDatIndex;i++){
-//    checkSum = checkSum + receiveDat[i];
-//  }
-//  checkresult = receiveDat[receiveDatIndex-2]*256+receiveDat[receiveDatIndex-1]+receiveDat[receiveDatIndex-2]+receiveDat[receiveDatIndex-1];
-//  valid_data = (checkSum == checkresult);
-//}
-//
-//byte getData(unsigned int index){
-//  return (receiveDat[index]*256)+receiveDat[index + 1];
-//}
-//
-// void loop(){
-//  readDust();
-//  PM1 = (receiveDat[4]*256)+receiveDat[5];
-//  PM25 = (receiveDat[6]*256)+receiveDat[7];
-//  PM10 = (receiveDat[8]*256)+receiveDat[9];
-//  String message1 = String(PM1) + F("\t") + String(PM25) + F("\t") + String(PM10);
-//
-//  Serial.println(message1);
-////  Serial.write(getData(4));
-////  Serial.write(getData(8));
-////  getData(6);
-////  getData(8);
-//
-//    
-// }
-  
 

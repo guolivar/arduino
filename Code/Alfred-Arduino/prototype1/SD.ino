@@ -56,8 +56,6 @@ void SD_setup(){
 
   // print the headings for our data in the txt file
 
-  // improvement: check if the headings already are in the file if they are then dont print
-
 //  String headings = "Time Movement Temperature Humidty CO2 IR 1 2 3 4 5 6 7 Dust 1.0 2.5 10";
   
   String headings = "Time Movement Temperature Humidty CO2 Dust 1.0 2.5 10";

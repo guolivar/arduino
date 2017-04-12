@@ -3,9 +3,8 @@
 //using namespace RTC_DS3231
 
 #include "RTClib.h"
-//DS3231RTC rtc;
+
 RTC_DS3231 rtc;
-//#include <Serial.h>
 
 void Time_setup(){
   //Wire.begin();
@@ -40,6 +39,8 @@ String Time_loop(){
 // new lib code that has temp in it
 //tmElements_t this_time = tmElements_t();
 // rtc.read(this_time);
+
+// add in code for heat again
 Serial.println(this_time);
  display.clearDisplay();
   display.setTextSize(1);
