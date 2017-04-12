@@ -50,24 +50,24 @@ String DUST_loop() {
     }
 
     if(count == 5){
-      show("CF = 1", "1");
+//      show("CF = 1", "1");
     }
     else if(count == 7){
-      show("CF = 1", "2.5");
+//      show("CF = 1", "2.5");
     }
     else if(count == 9){
-      show("CF = 1", "10");
+//      show("CF = 1", "10");
     }
     else if(count == 11){
-      show("atmosphere", "1.0");
+//      show("atmosphere", "1.0");
       pm1 = calc_pm();
     }
     else if(count == 13){
-      show("atmosphere", "2.5");
+//      show("atmosphere", "2.5");
       pm25 = calc_pm();
     }
     else if(count == 15){
-      show("atmosphere", "10");
+//      show("atmosphere", "10");
       pm10 = calc_pm();
 
       display_heading();

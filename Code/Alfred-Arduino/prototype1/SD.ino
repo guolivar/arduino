@@ -8,57 +8,39 @@ void Save(String text){
   //if the file opened okay, write to it
   if (myFile) {
     
-    print("Writing to data.txt...");
+//    print("Writing data.txt");
     myFile.println(text);
     
     //close the file
     myFile.close();
-    println("done.");
   
-  } 
-  
-  else {
-    
-    //if the file didn't open, print an error
-    println("error opening test.txt");
-    
   }
 }
 
 // fix this function so that we can make sure that the spaces are even?
 
-//String concatenate(...){
-//
-//  va_list words;
-//  
-//  unsigned int i = 0;
-//  String result = "";
-//  while(i < size(words)){
-//    result = result + "  " + words[i];
-//  }
-//  return result;
-//}
 
 void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
-
-  Save(Time + " " + String(Temp) + " " + String(CO2) + " " + Dust + " " + String(PIR));
+  
+//  concatenate(Time, Temp);
+  Save(Time + " " + Temp + " " + String(CO2) + " " + Dust + " " + String(PIR));
 }
  
 void SD_setup(){
-  Serial.print("Initializing SD card...");
+  Serial.print("Init SD");
 
   if (!SD.begin(53)) {
-    Serial.println("initialization failed!");
+    Serial.println("init failed!");
     return;
   }
   
-  println("initialization done.");
+  println("init done");
 
   // print the headings for our data in the txt file
 
 //  String headings = "Time Movement Temperature Humidty CO2 IR 1 2 3 4 5 6 7 Dust 1.0 2.5 10";
   
-  String headings = "Time Movement Temperature Humidty CO2 Dust 1.0 2.5 10";
+  const String headings = "Time Movement Temp Humidty CO2 Dust 1.0 2.5 10";
 
   myFile = SD.open("data.txt");
   

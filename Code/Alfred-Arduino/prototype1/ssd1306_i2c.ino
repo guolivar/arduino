@@ -16,17 +16,8 @@ BSD license, check license.txt for more information
 All text above, and the splash screen must be included in any redistribution
 *********************************************************************/
 
-
-
-
-
-
-
-
-
-void oledsetup()   {                
+void oledsetup(){                
   
-
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
   display.clearDisplay();
@@ -36,19 +27,14 @@ void oledsetup()   {
   display.setCursor(0,0);
   
   display.println("  SKOMOBO");
-   display.println("  PROJECT");
+  display.println("  PROJECT");
   display.display();
   delay(2000);
   
 
 }
  void text(){
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.setCursor(0,0);
-  display.println("       SKOMOBO");
-  display.setTextSize(2);
+  display_heading();
   display.print("Temp: ");
   display.print("48");
   display.drawCircle(100, 11, 3, WHITE);

@@ -12,8 +12,6 @@ void println(String text){
 }
 
 
-
-
 Adafruit_SSD1306 display(4);
 
 void setup() {
@@ -39,6 +37,7 @@ void setup() {
     //;  wait for serial port to connect. Needed for native USB port only
   }
 }
+
 
 void loop() {
 

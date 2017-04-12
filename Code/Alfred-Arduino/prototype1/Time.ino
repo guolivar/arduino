@@ -41,7 +41,6 @@ String Time_loop(){
 // rtc.read(this_time);
 
 // add in code for heat again
-Serial.println(this_time);
  display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(WHITE);
