@@ -45,6 +45,16 @@ float adjust_temp(float rawData){
   return rawData;
 }
 
+void display_val(String label, float val){
+  display.print(label + ": ");
+  display.print(val);
+}
+
+void display_end(String thing ){
+  display.println(thing);
+  display.display();
+}
+
 String Temp_loop()
 {
  byte aa,bb,cc,dd;
@@ -63,20 +73,23 @@ String Temp_loop()
 //  Serial.println(" %rH");
 
   display_heading();
-
-  display.print("T: ");
-  display.print(temperature);
+  display_val("T", temperature);
+//  display.print("T: ");
+//  display.print(temperature);
   display.drawCircle(100, 11, 3, WHITE);
-  display.println(" C");
-  display.display();
-  delay(2000);
+  display_end(" C");
+//  display.println(" C");
+//  display.display();
+//  delay(2000);
 
   display_heading();
 
-  display.print("RH: ");
-  display.print(humidity);
-  display.println("%");
-  display.display();
+  display_val("RH", humidity);
+//  display.print("RH: ");
+//  display.print(humidity);
+  display_end("%");
+//  display.println("%");
+//  display.display();
   delay(2000);
 
   return String(temperature) + " " + String(humidity);

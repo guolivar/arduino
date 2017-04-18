@@ -19,28 +19,26 @@ void Save(String text){
 
 // fix this function so that we can make sure that the spaces are even?
 
-
 void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
-  
-//  concatenate(Time, Temp);
-  Save(Time + " " + Temp + " " + String(CO2) + " " + Dust + " " + String(PIR));
+ 
+  Save(Time + " " + String(PIR) + " " + Temp + " " + String(CO2) + " " + Dust);
 }
  
 void SD_setup(){
   Serial.print("Init SD");
 
   if (!SD.begin(53)) {
-    Serial.println("init failed!");
+    Serial.println("Init failed!");
     return;
   }
   
-  println("init done");
+//  Serial.println("init done");
 
   // print the headings for our data in the txt file
 
 //  String headings = "Time Movement Temperature Humidty CO2 IR 1 2 3 4 5 6 7 Dust 1.0 2.5 10";
   
-  const String headings = "Time Movement Temp Humidty CO2 Dust 1.0 2.5 10";
+  const String headings = "Time Moving Temp Humid CO2 Dust 1.0 2.5 10";
 
   myFile = SD.open("data.txt");
   

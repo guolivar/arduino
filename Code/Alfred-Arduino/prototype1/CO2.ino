@@ -28,11 +28,6 @@ verification. For more advanced applications see the I2C Comm guide.
 
 */
 
-int co2Addr = 127;
-//104
-
-// This is the default address of the CO2 sensor, 7bits shifted left.
-
 void co2setup() {
 
    //Wire.begin ();
@@ -43,13 +38,13 @@ void co2setup() {
 
 }
 
-void wire_write(int nums[4]){
-
-  for(int i = 0; i < 4; ++i){
-    Wire.write(nums[i]);
-  }
-
-}
+//void wire_write(int nums[4]){
+//
+//  for(int i = 0; i < 4; ++i){
+//    Wire.write(nums[i]);
+//  }
+//
+//}
 
 int readCO2(){
 
@@ -64,21 +59,13 @@ int readCO2(){
   /* Begin Write Sequence */
 
   //////////////////////////
-//  
-//  TwoWire twoWire = TwoWire();
-//  twoWire.beginTransmission(co2Addr);
-//
-//  twoWire.write(0x22);
-//
-//  twoWire.write(0x00);
-//
-//  twoWire.write(0x08);
-//
-//  twoWire.write(0x2A);
-//
-//
-//  twoWire.endTransmission();
-//    
+
+  
+  const int co2Addr = 127;
+  //104
+
+// This is the default address of the CO2 sensor, 7bits shifted left.
+
   Wire.beginTransmission(co2Addr);
 
   Wire.write(0x22);
@@ -88,6 +75,7 @@ int readCO2(){
   Wire.write(0x08);
 
   Wire.write(0x2A);
+
 
   //wire_write([0x22, 0x00, 0x08, 0x2A]);
 
@@ -207,9 +195,6 @@ int CO2_loop(){
   //int co2Value = analogRead(A0);
   if (co2Value > 0){
     
-    print("CO2 Value: ");
-    println(String(co2Value));
-
     display_heading();
     
     display.print("CO2: ");
@@ -223,7 +208,7 @@ int CO2_loop(){
   }
 
   else {
-    println("Checksum failed / Communication failure");
+    Serial.println("Checksum failed / Communication failure");
   }
 }
 

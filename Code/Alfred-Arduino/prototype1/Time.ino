@@ -41,12 +41,8 @@ String Time_loop(){
 // rtc.read(this_time);
 
 // add in code for heat again
- display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.setCursor(0,0);
-  display.println("       SKOMOBO");
-  display.setTextSize(2);
+
+  display_heading();
   display.println(this_time);
   display.setTextSize(1);
   display.println(that_time);

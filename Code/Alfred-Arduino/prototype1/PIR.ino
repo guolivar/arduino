@@ -13,7 +13,7 @@ void PIR_setup(){
     display.setTextSize(1);
 
     bool movement = digitalRead(2) == LOW;
-    display.println( movement ? "Movement \n          Detected" : "No Movement");
+    display.println( movement ? "Moving \n          Detected" : "Still");
     display.display();
     delay(2000);
 

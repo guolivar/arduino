@@ -16,6 +16,7 @@ BSD license, check license.txt for more information
 All text above, and the splash screen must be included in any redistribution
 *********************************************************************/
 
+
 void oledsetup(){                
   
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)

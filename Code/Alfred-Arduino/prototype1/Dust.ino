@@ -9,12 +9,12 @@ void DUST_setup() {
   
 }
 
-
-void show(String environment, String particle_size){
-  Serial.print(environment + ", PM " + particle_size + " = ");
-  Serial.print(calc_pm());
-  Serial.println(" ug/m3");
-}
+//
+//void show(String environment, String particle_size){
+//  Serial.print(environment + ", PM " + particle_size + " = ");
+//  Serial.print(calc_pm());
+//  Serial.println(" ug/m3");
+//}
 
 unsigned char c;
   
@@ -49,16 +49,16 @@ String DUST_loop() {
       break;
     }
 
-    if(count == 5){
-//      show("CF = 1", "1");
-    }
-    else if(count == 7){
-//      show("CF = 1", "2.5");
-    }
-    else if(count == 9){
-//      show("CF = 1", "10");
-    }
-    else if(count == 11){
+//    if(count == 5){
+////      show("CF = 1", "1");
+//    }
+//    else if(count == 7){
+////      show("CF = 1", "2.5");
+//    }
+//    else if(count == 9){
+////      show("CF = 1", "10");
+//    }
+    if(count == 11){
 //      show("atmosphere", "1.0");
       pm1 = calc_pm();
     }
@@ -82,8 +82,10 @@ String DUST_loop() {
       display.display();
     }
     if(count > 15){
-      Serial.println("complete");
+//      Serial.println("complete");
       return String(pm1) + " " + String(pm25) +  " " + String(pm10);
+//      long pms[3] = {pm1, pm25, pm10};
+//      return pms;
     }
 
     count++;
