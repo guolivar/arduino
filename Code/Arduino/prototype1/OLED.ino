@@ -1,10 +1,9 @@
-//#include "Adafruit_SH1106.h"
-//#include "Adafruit_GFX.h"
-//#include <Wire.h>
-
-//Adafruit_SH1106 screen;
-
-//void OLED(){
-//   screen::fastSPIwrite("Hello Alfred!");
-//}
+void display_heading(){
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0,0);
+    display.println("       SKOMOBO");
+    display.setTextSize(2);
+}
 

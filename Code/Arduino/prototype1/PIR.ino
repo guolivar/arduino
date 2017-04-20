@@ -1,14 +1,24 @@
-  
- #define MOTION_PIN 2
- 
- void PIR_setup(){
-    pinMode(MOTION_PIN, INPUT_PULLUP);
+void PIR_setup(){
+    pinMode(2, INPUT);
  }
 
- void PIR_loop(){
+ bool PIR_loop(){
   
     // If the sensor's output goes low, motion is detected
-    println( digitalRead(MOTION_PIN) == LOW ? "Movement" : "No Movement");
+
+   
+    display_heading();
+    
+    display.print("PIR: ");
+    display.setTextSize(1);
+
+    bool movement = digitalRead(2) == LOW;
+    display.println( movement ? "Moving \n          Detected" : "Still");
+    display.display();
+    delay(2000);
+
+    return movement;
  }
  
  
+

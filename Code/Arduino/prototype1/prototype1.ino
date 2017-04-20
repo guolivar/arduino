@@ -1,65 +1,49 @@
-
 #include <SPI.h>
-
-void print(String words){
-  Serial.print(words);
-}
-
-void println(String words){
-  Serial.println(words);
-}
-
 #include <Wire.h>
-//#include "WSWire.h"
-//U#include "I2C.h"
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
-//#include "Startup.h"
+//void print( String text){
+//  Serial.print(text);
+//}
+//
+//void println(String text){
+//  Serial.println(text);
+//}
+
+
+Adafruit_SSD1306 display(4);
 
 void setup() {
  
   Serial.begin(9600);
-
-//    PIR_setup();
-
-//  IR_setup();
-//  CO2_setup();
-//  DUST_setup();
-//  TEMP_setup();
-
-//  SD_setup();
-
-  ScanI2CBus();
-   
-  //Time_setup();
-
-  //CheckSD();
-//  sd();
-   
-  //I2c.scan();
+  oledsetup();
+  PIR_setup();
   
+//  IR_setup();
+
+  co2setup();
+  DUST_setup();
+  setupTemp();
+//  ScanI2CBus();
+  Time_setup();
+//CheckSD();
+//  sd();
+//I2c.scan();
+
+  SD_setup();
+ 
   while (!Serial) {
     //;  wait for serial port to connect. Needed for native USB port only
   }
-
- 
 }
 
+
 void loop() {
-//  OLED();
-// IR_loop();
 
-//  PIR_loop();
+//    IR_loop();
 
-//  DUST_loop();
-//  SD_Loop();
-//  CO2_loop();
-
-//  Temp_loop();
-
-//  Time_loop();
-
-  // feed all the other loops in here or variables
-  //SD_loop();
-
-  delay(1000);
+    // Time Movement Temp Humidty CO2 Dust 1.0 2.5 10
+    Save_sensors(Time_loop(), PIR_loop(), Temp_loop(), CO2_loop(), DUST_loop());
+    delay(1000);
 }

@@ -6,7 +6,7 @@ void ScanI2CBus()
   byte error, address;
   int nDevices;
 
-  Serial.println("Scanning...");
+  Serial.println("Scanning");
 
   nDevices = 0;
   for (address = 1; address <= 127; address++ )
@@ -16,12 +16,7 @@ void ScanI2CBus()
     // a device did acknowledge to the address.
 //    Serial.println("test: " + String(Wire.requestFrom(address, 1)));
 //    Serial.println("attempting " + String(address));
-  
-//    I2c.beginTransmission(address);
-//    error = I2c.endTransmission();  
-//    TwoWire twoWire = TwoWire();
-//    twoWire.beginTransmission(address);
-//    error = twoWire.endTransmission();
+ 
    
     Wire.beginTransmission(address);
 
@@ -37,14 +32,14 @@ void ScanI2CBus()
     
     if (error == 0)
     {
-      Serial.print("I2C device found at address ");
+      Serial.print("I2C device found at ");
       Serial.print(address, DEC); Serial.println(" (decimal)");
 
       nDevices++;
     }
     else if (error == 4)
     {
-      Serial.print("Unknown error at address ");
+      Serial.print("Unknown error at ");
       Serial.println(address, DEC);
     }
 //    else{
