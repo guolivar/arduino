@@ -1,5 +1,6 @@
 
-[![Build Status](https://travis-ci.org/Ulfasaar/skomobo.svg?branch=master)](https://travis-ci.org/Ulfasaar/skomobo) 
+[![Build Status](https://travis-ci.org/Ulfasaar/skomobo.svg?branch=master)](https://travis-ci.org/Ulfasaar/skomobo)
+[![Coverage Status](https://coveralls.io/repos/github/Ulfasaar/skomobo/badge.svg)](https://coveralls.io/github/Ulfasaar/skomobo)
 
 # Skomobo:
 
