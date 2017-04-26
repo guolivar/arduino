@@ -1,6 +1,6 @@
 
 import * as http from "http"
-import * as sensors from "sensors"
+// import {CO2, Temp, PIR, IR, Dust} from './sensors'
 
 
 // import mysql from "mysql2"
@@ -8,7 +8,7 @@ import * as sensors from "sensors"
 
 //Lets define a port we want to listen to
 const PORT=8080; 
-
+// sensors.CO2
 
 //We need a function which handles requests and send response
 

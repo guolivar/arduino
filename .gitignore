@@ -1,6 +1,6 @@
 .vagrant\*
-Code\Server\node_modules\*
+Code\node_modules\*
 node_modules
 .pioenvs
 .piolibdeps
-Code\Server\dist\*
+Code\Dist\*
