@@ -1,6 +1,9 @@
 
 import * as http from "http"
-import mysql from "mysql2"
+import * as sensors from "sensors"
+
+
+// import mysql from "mysql2"
 // var mysql = require('mysql2');
 
 //Lets define a port we want to listen to
@@ -10,8 +13,29 @@ const PORT=8080;
 //We need a function which handles requests and send response
 
 
+import {createConnection} from "typeorm";
+
+createConnection({
+    driver: {
+        type: "mysql",
+        host: "localhost",
+        port: 3306,
+        username: "root",
+        password: "dev1234",
+        database: "skomobo"
+    },
+    entities: [
+        __dirname + "/dist/sensors.js"
+    ],
+    autoSchemaSync: true,
+}).then(connection => {
+    // Here you can start to work with your entities
+}).catch(error => console.log(error));
+
+
+
 // create the connection to database
-var connection = mysql.createConnection({host:'localhost', user: 'root', database: 'skomobo', password: 'dev1234'});
+// let connection = mysql.createConnection({host:'localhost', user: 'root', database: 'skomobo', password: 'dev1234'});
 
 function extract(url){
      // breaks up each value by a dash and removes / in the front
@@ -39,7 +63,7 @@ function extract(url){
     return values
 }
 
-function handleRequest(request, response){
+async function handleRequest(request, response){
 
     // for browser testing
     if(request.url != '/favicon.ico'){
@@ -51,21 +75,26 @@ function handleRequest(request, response){
         // })
         console.log(values)
             // simple query
-        connection.query('INSERT INTO sensor_data SET Dust = ?', values  , function (error, results, fields) {
-        // note fields is a list
-            if(error) throw error;
-            // console.log(error, error.code, error.errno, error.sqlState); // results contains rows returned by server
+        // await connection.query('INSERT INTO sensor_data SET Dust = ?', values)  
+        // , function (error, results, fields) 
         
-        //   console.log(fields); // fields contains extra meta data about results, if available
-        });
+        // {
+        // // note fields is a list
+        //     if(error) throw error;
+        //     // console.log(error, error.code, error.errno, error.sqlState); // results contains rows returned by server
+        
+        // //   console.log(fields); // fields contains extra meta data about results, if available
+        // });
 
-        connection.end();
+        // connection.end()
     }
 
 }
 
 //Create a server
-var server = http.createServer(handleRequest);
+// var server = http.createServer(handleRequest);
+
+let server = http.createServer(handleRequest);
 
 //Lets start our server
 server.listen(PORT, function(){

@@ -1,7 +1,10 @@
 {
   "dependencies": {
     "@types/node": "^7.0.13",
+    "mysql": "^2.13.0",
     "mysql2": "^1.2.0",
+    "reflect-metadata": "^0.1.10",
+    "typeorm": "^0.0.11",
     "typescript": "^2.2.2"
   },
   "scripts": {

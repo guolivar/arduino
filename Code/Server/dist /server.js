@@ -1,4 +1,12 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments)).next());
+    });
+};
 var http = require("http");
 var mysql2_1 = require("mysql2");
 // var mysql = require('mysql2');
@@ -31,23 +39,18 @@ function extract(url) {
     return values;
 }
 function handleRequest(request, response) {
-    // for browser testing
-    if (request.url != '/favicon.ico') {
-        var values = extract(request.url);
-        // io.appendFile('log.txt', text + '\n', (err) =>{
-        //     if(err) console.log(err)
-        // })
-        console.log(values);
-        // simple query
-        connection.query('INSERT INTO sensor_data SET Dust = ?', values, function (error, results, fields) {
-            // note fields is a list
-            if (error)
-                throw error;
-            // console.log(error, error.code, error.errno, error.sqlState); // results contains rows returned by server
-            //   console.log(fields); // fields contains extra meta data about results, if available
-        });
-        connection.end();
-    }
+    return __awaiter(this, void 0, void 0, function* () {
+        // for browser testing
+        if (request.url != '/favicon.ico') {
+            var values = extract(request.url);
+            // io.appendFile('log.txt', text + '\n', (err) =>{
+            //     if(err) console.log(err)
+            // })
+            console.log(values);
+            // simple query
+            yield connection.query('INSERT INTO sensor_data SET Dust = ?', values);
+        }
+    });
 }
 //Create a server
 var server = http.createServer(handleRequest);
