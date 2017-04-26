@@ -3,4 +3,4 @@ Code\node_modules\*
 node_modules
 .pioenvs
 .piolibdeps
-Code\Dist\*
+Dist
