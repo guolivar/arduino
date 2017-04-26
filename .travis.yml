@@ -37,6 +37,7 @@ install:
     - pip install -U platformio
 
 script:
+    - cd Code\Client\Arduino
     - platformio run
 
 
