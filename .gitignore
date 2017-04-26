@@ -1,3 +1,5 @@
 .vagrant\*
 Code\Server\node_modules\*
 node_modules
+.pioenvs
+.piolibdeps

@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "mysql2": "^1.2.0"
+    "@types/node": "^7.0.13",
+    "mysql2": "^1.2.0",
+    "typescript": "^2.2.2"
   },
   "scripts": {
     "test": "ava"

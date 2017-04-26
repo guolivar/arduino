@@ -1,6 +1,7 @@
-//Lets require/import the HTTP module
-var http = require('http');
-var mysql = require('mysql2');
+
+import * as http from "http"
+import mysql from "mysql2"
+// var mysql = require('mysql2');
 
 //Lets define a port we want to listen to
 const PORT=8080; 
@@ -14,11 +15,11 @@ var connection = mysql.createConnection({host:'localhost', user: 'root', databas
 
 function extract(url){
      // breaks up each value by a dash and removes / in the front
-    var tokens = request.url.slice(1).split('_')
+    let tokens = url.slice(1).split('_')
 
     // layout how the data is going to be mapped
     // use javascript array.map for this somehow
-    var values = {
+    let values = {
         Dust: tokens[0],
         Temperature: tokens[1],
         Humidity: tokens[2],
@@ -43,7 +44,7 @@ function handleRequest(request, response){
     // for browser testing
     if(request.url != '/favicon.ico'){
 
-       values = extract(request.url)
+       let values = extract(request.url)
 
         // io.appendFile('log.txt', text + '\n', (err) =>{
         //     if(err) console.log(err)

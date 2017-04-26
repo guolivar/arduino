@@ -1,26 +1,10 @@
-// {
-//     // See https://go.microsoft.com/fwlink/?LinkId=733558
-//     // for the documentation about the tasks.json format
-//     "version": "0.1.0",
-//     "command": "pytest",
-//     "isShellCommand": true,,
-//     "args": ["refactored", "&&", "build", "${fileBasename}"],
-//     "showOutput": "always",
-//     "promptOnClose": false
-// }
-
 {
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
     "version": "0.1.0",
+    "command": "tsc",
     "isShellCommand": true,
-    "command": "pytest",
-    "tasks": [
-        {
-            "taskName": "pytest",
-            "args": [
-                "V2/Compiled/*.py"
-            ],
-            "isTestCommand": true,
-            "suppressTaskName": true
-        }
-    ]
+    "args": ["-p", "."],
+    "showOutput": "silent",
+    "problemMatcher": "$tsc"
 }
