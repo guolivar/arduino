@@ -3,18 +3,11 @@
     "files.associations": {
         "*.coco": "python",
         "*.coc": "python",
-        "*.coconut": "python",
-        "*.jun": "cpp"
+        "*.coconut": "python"
     },
     "python.linting.enabled": false,
     "python.unitTest.pyTestEnabled": false,
     "python.unitTest.unittestEnabled": false,
     "python.unitTest.nosetestsEnabled": false,
-    "arduino.baudrate": 57600,
-    "arduino.fqbn": "arduino:avr:pro mini",
-    "arduino.partno": "atmega328",
-    "arduino.serialPort": "COM4",
-    "editor.tabCompletion": true,
-    "arduino.idePath": "C:/Program Files (x86)/Arduino/arduino.exe",
-    "arduino.libraryPath": "C:/Program Files (x86)/Arduino/lib"
+  
 }
