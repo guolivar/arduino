@@ -1,6 +1,11 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "es6"
+        ],
         "target": "es5",
         "module": "commonjs",
         "outDir": "Code/Server/dist "
