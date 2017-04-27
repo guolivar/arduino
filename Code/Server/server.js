@@ -18,6 +18,9 @@ function extract(url){
 
     // layout how the data is going to be mapped
     // use javascript array.map for this somehow
+
+
+    // Dust  needs to be restructured too
     var values = {
         Dust: tokens[0],
         Temperature: tokens[1],
