@@ -3,7 +3,7 @@ import * as http from "http"
 // import {CO2, Temp, PIR, IR, Dust} from './sensors'
 
 
-// import mysql from "mysql2"
+import mysql from "mysql2"
 // var mysql = require('mysql2');
 
 //Lets define a port we want to listen to
@@ -12,30 +12,38 @@ const PORT=8080;
 
 //We need a function which handles requests and send response
 
+// import "reflect-metadata";
+// import {createConnection} from "typeorm";
+// import * as sensors from "./sensors";
 
-import {createConnection} from "typeorm";
+// createConnection({
+//     driver: {
+//         type: "mysql",
+//         host: "localhost",
+//         port: 3306,
+//         username: "root",
+//         password: "dev1234",
+//         database: "test"
+//     },
+//     entities: [
+//         __dirname + "../Dist/sensors.js"
+//     ],
+//     autoSchemaSync: true,
+// }).then(async connection => {
 
-createConnection({
-    driver: {
-        type: "mysql",
-        host: "localhost",
-        port: 3306,
-        username: "root",
-        password: "dev1234",
-        database: "skomobo"
-    },
-    entities: [
-        __dirname + "/dist/sensors.js"
-    ],
-    autoSchemaSync: true,
-}).then(connection => {
-    // Here you can start to work with your entities
-}).catch(error => console.log(error));
+//     // let temp = new sensors.Temp();
+//     let temp = new sensors.Temp()
+
+//     temp.temperature = 1234
+
+//     await connection.entityManager.persist(temp)
+//     // Here you can start to work with your entities
+// }).catch(error => console.log(error));
 
 
 
 // create the connection to database
-// let connection = mysql.createConnection({host:'localhost', user: 'root', database: 'skomobo', password: 'dev1234'});
+let connection = mysql.createConnection({host:'localhost', user: 'root', database: 'skomobo', password: 'dev1234'});
 
 function extract(url){
      // breaks up each value by a dash and removes / in the front
@@ -75,7 +83,7 @@ async function handleRequest(request, response){
         // })
         console.log(values)
             // simple query
-        // await connection.query('INSERT INTO sensor_data SET Dust = ?', values)  
+        await connection.query('INSERT INTO sensor_data SET Dust = ?', values)  
         // , function (error, results, fields) 
         
         // {

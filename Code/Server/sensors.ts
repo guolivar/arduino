@@ -1,72 +1,82 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
     
 
-declare namespace Sensors{
+// abstract class Sensor{
     
-    private abstract class Sensor{
-        @PrimaryGeneratedColumn()
-        id: number
-        abstract calculate: Function
-    }
-    
-    @Entity()
-    export class IR extends Sensor{
-        @Column()
-        distance: number
+//     // abstract calculate: Function
+// }
 
-        function calculate (){ return 1 + 2 }
-    }
+@Entity()
+export class IR{
+    @PrimaryGeneratedColumn()
+    id: number
 
-    @Entity()
-    export class Dust extends Sensor{
+    @Column()
+    distance: number
+
+    // function calculate (){ return 1 + 2 }
+}
+
+@Entity()
+export class Dust{
+    @PrimaryGeneratedColumn()
+    id: number
+
+    @Column()
+    pm1: number
     
-        pm1: number
-        
+    /**
+     * PM 2.5
+     * @type {number}
+     * @memberOf Dust
+     */
+    @Column()
+    pm25: number
+
         /**
-         * PM 2.5
-         * @type {number}
-         * @memberOf Dust
-         */
-        @Column()
-        pm25: number
+     * PM 10
+     * @type {number}
+     * @memberOf Dust
+     */
+    @Column()
+    pm10: number
 
-         /**
-         * PM 10
-         * @type {number}
-         * @memberOf Dust
-         */
-        @Column()
-        pm10: number
+    // calculate = () => { return 1 + 2 }
+}
 
-        calculate = () => { return 1 + 2 }
-    }
+@Entity()
+export class PIR{
+    @PrimaryGeneratedColumn()
+    id: number
 
-    @Entity()
-    export class PIR extends Sensor{
+    @Column()
+    moving: boolean
 
-        @Column()
-        moving: boolean
+    // calculate = () => { return 1 + 2 }
+}
 
-        calculate = () => { return 1 + 2 }
-    }
+@Entity()
+export class CO2{
+    @PrimaryGeneratedColumn()
+    id: number
 
-    @Entity()
-    export class CO2 extends Sensor{
-        @Column()
-        value: number
+    @Column()
+    value: number
 
-        calculate = () => { return 1 + 2 }
-    }
+    // calculate = () => { return 1 + 2 }
+}
 
-    @Entity()
-    export class Temp extends Sensor{
+@Entity()
+export class Temp{
 
-        @Column()
-        temperature: number
+    @PrimaryGeneratedColumn()
+    id: number
 
-        @Column()
-        humidity: number
+    @Column("int")
+    temperature: number
 
-        calculate = () => { return 1 + 2 }
-    }
+    @Column("int")
+    humidity: number
+
+    // calculate = () => { return 1 + 2 }
 }
