@@ -14,7 +14,7 @@ var connection = mysql.createConnection({host:'localhost', user: 'root', databas
 
 function extract(url){
      // breaks up each value by a dash and removes / in the front
-    var tokens = request.url.slice(1).split('_')
+    var tokens = url.slice(1).split('_')
 
     // layout how the data is going to be mapped
     // use javascript array.map for this somehow
