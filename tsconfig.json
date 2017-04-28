@@ -9,8 +9,12 @@
         "module": "commonjs",
         "outDir": "Code/Dist",
         "sourceMap": true,
-        "watch": true
+        "watch": true,
+        "allowJs": true
     },"exclude": [
-        "node_modules"
+        "node_modules",
+        "Dist",
+        "Client",
+        "Shared"
     ]
 }
