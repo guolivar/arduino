@@ -7,7 +7,7 @@
 -->
 
 <div align="center">
-  <img src="./Resources/icon.jpg" width="492" height="228">
+  <img src="./Resources/icon.jpg" width="492" height="450">
   <br>
   <br>
 	<a href="https://travis-ci.org/Ulfasaar/skomobo">
