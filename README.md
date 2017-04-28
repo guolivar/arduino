@@ -1,4 +1,13 @@
-<center>
+<style>
+    h1{
+        text-align: center
+    }
+
+    img{
+        align: center
+    }
+
+</style>
 ![SKOMOBO](https://github.com/Ulfasaar/skomobo/raw/New_Architecture/Resources/icon.jpg)
 
 [![Build Status](https://travis-ci.org/Ulfasaar/skomobo.svg?branch=master)](https://travis-ci.org/Ulfasaar/skomobo)
@@ -6,8 +15,6 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/ulfasaar/skomobo/badge.svg?targetFile=Code%2FServer%2Fpackage.json)](https://snyk.io/test/github/ulfasaar/skomobo?targetFile=Code%2FServer%2Fpackage.json)
 
 # Skomobo:
-
-</center>
 
 To unit test the arduino code you need to upload the test.ino file inside the test folder
 
