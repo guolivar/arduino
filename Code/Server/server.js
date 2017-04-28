@@ -22,20 +22,23 @@ function extract(url){
 
     // Dust  needs to be restructured too
     var values = {
-        Dust: tokens[0],
-        Temperature: tokens[1],
-        Humidity: tokens[2],
-        CO2: tokens[3],
-        Decibals: tokens[4],
-        Distance1: tokens[5],
-        Distance2: tokens[6],
-        Distance3: tokens[7],
-        Distance4: tokens[8],
-        Distance5: tokens[9],
-        Distance6: tokens[10],
-        Distance7: tokens[11],
-        Presence: tokens[12] === 'true',
-        Time: tokens[13]
+        Dust1: tokens[0],
+        Dust2_5: tokens[1],
+        Dust10: tokens[2],
+        Box_ID: tokens[3],
+        Temperature: tokens[3],
+        Humidity: tokens[4],
+        CO2: tokens[5],
+        Decibals: tokens[6],
+        Distance1: tokens[7],
+        Distance2: tokens[8],
+        Distance3: tokens[9],
+        Distance4: tokens[10],
+        Distance5: tokens[11],
+        Distance6: tokens[12],
+        Distance7: tokens[13],
+        Presence: tokens[14] === 'true',
+        Time: tokens[15]
     }
 
     return values
@@ -53,7 +56,7 @@ function handleRequest(request, response){
         // })
         console.log(values)
             // simple query
-        connection.query('INSERT INTO sensor_data SET Dust = ?', values  , function (error, results, fields) {
+        connection.query('INSERT INTO sensor_data set ?' , values  , function (error, results, fields) {
         // note fields is a list
             if(error) throw error;
             // console.log(error, error.code, error.errno, error.sqlState); // results contains rows returned by server
