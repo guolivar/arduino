@@ -1,13 +1,4 @@
-<style>
-    h1{
-        text-align: center
-    }
 
-    img{
-        align: center
-    }
-
-</style>
 ![SKOMOBO](https://github.com/Ulfasaar/skomobo/raw/New_Architecture/Resources/icon.jpg)
 
 [![Build Status](https://travis-ci.org/Ulfasaar/skomobo.svg?branch=master)](https://travis-ci.org/Ulfasaar/skomobo)
