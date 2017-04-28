@@ -116,7 +116,7 @@
 // var http = require('http');
 // var mysql = require('mysql2');
 
-import * as http from "http"
+// import * as http from "http"
 import mysql from 'mysql2/promise'
 import rambda from 'rambda'
 

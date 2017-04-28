@@ -1,9 +1,27 @@
 
-![SKOMOBO](https://github.com/Ulfasaar/skomobo/raw/New_Architecture/Resources/icon.jpg)
+<!--![SKOMOBO](https://github.com/Ulfasaar/skomobo/raw/New_Architecture/Resources/icon.jpg)-->
 
-[![Build Status](https://travis-ci.org/Ulfasaar/skomobo.svg?branch=master)](https://travis-ci.org/Ulfasaar/skomobo)
+<!--[![Build Status](https://travis-ci.org/Ulfasaar/skomobo.svg?branch=master)](https://travis-ci.org/Ulfasaar/skomobo)
 [![Coverage Status](https://coveralls.io/repos/github/Ulfasaar/skomobo/badge.svg)](https://coveralls.io/github/Ulfasaar/skomobo)
 [![Known Vulnerabilities](https://snyk.io/test/github/ulfasaar/skomobo/badge.svg?targetFile=Code%2FServer%2Fpackage.json)](https://snyk.io/test/github/ulfasaar/skomobo?targetFile=Code%2FServer%2Fpackage.json)
+-->
+
+<div align="center">
+  <img src="./Resources/icon.jpg" width="492" height="228">
+  <br>
+  <br>
+	<a href="https://travis-ci.org/Ulfasaar/skomobo">
+		<img src="https://travis-ci.org/Ulfasaar/skomobo.svg?branch=master">
+	</a>
+    <a href="https://coveralls.io/github/Ulfasaar/skomobo">
+		<img src="https://coveralls.io/repos/github/Ulfasaar/skomobo/badge.svg">
+	</a>
+    <a href="https://snyk.io/test/github/ulfasaar/skomobo?targetFile=Code%2FServer%2Fpackage.json">
+		<img src="https://snyk.io/test/github/ulfasaar/skomobo/badge.svg?targetFile=Code%2FServer%2Fpackage.json">
+	</a>
+  <br>
+  <br>
+</div>
 
 # Skomobo:
 

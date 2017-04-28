@@ -2,19 +2,17 @@
     "compilerOptions": {
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "lib": [
-            "es2016"
-        ],
         "target": "es5",
-        "module": "commonjs",
-        "outfile": "Code/Dist/app.js",
+        "module": "system",
+        "outFile": "Code/Dist/app.js",
         "sourceMap": true,
         "watch": true,
         "allowJs": true
     },"exclude": [
+        "Code/node_modules",
         "node_modules",
-        "Dist",
-        "Client",
-        "Shared"
+        "Code/Dist",
+        "Code/Client",
+        "Resources"
     ]
 }
