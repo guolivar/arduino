@@ -28,15 +28,22 @@ language: python
 python:
     - "2.7"
 
-sudo: false
+sudo: true
 cache:
     directories:
         - "~/.platformio"
 
 install:
     - pip install -U platformio
+    - rm -rf ~/.nvm
+    - git clone https://github.com/creationix/nvm.git ~/.nvm
+    - (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`)
+    - source ~/.nvm/nvm.sh
+    - nvm install '7.9.0'
+    - npm install typescript -g
 
 script:
+    - tsc .
     - cd Code
     - cd Client
     - cd Arduino
