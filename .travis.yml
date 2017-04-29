@@ -45,7 +45,6 @@ install:
 
 script:
     - tsc
-    - cd Code
     - cd Client
     - cd Arduino
     - platformio run
