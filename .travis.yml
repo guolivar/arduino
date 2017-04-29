@@ -43,7 +43,7 @@ install:
     - npm install typescript -g
 
 script:
-    - tsc .
+    - tsc
     - cd Code
     - cd Client
     - cd Arduino
