@@ -1,1 +1,1 @@
-node ../Dist/app.js
+node server.js

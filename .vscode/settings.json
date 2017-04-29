@@ -8,6 +8,5 @@
     "python.linting.enabled": false,
     "python.unitTest.pyTestEnabled": false,
     "python.unitTest.unittestEnabled": false,
-    "python.unitTest.nosetestsEnabled": false,
-    "typescript.tsdk": "Code/node_modules/typescript/lib"
+    "python.unitTest.nosetestsEnabled": false
 }

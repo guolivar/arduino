@@ -1,4 +1,5 @@
 
+///<reference path="node_modules/@types/node/index.d.ts"/>
 import * as http from "http"
 // // import {CO2, Temp, PIR, IR, Dust} from './sensors'
 
@@ -118,10 +119,11 @@ const PORT=8080;
 
 
 // // import * as http from "http"
-import * as mysql from 'mysql'
+// import * as mysql from 'mysql2/promise'
+let mysql = require('mysql2')
 // var mysql = require('mysql2')
 // // import rambda from 'rambda'
-
+// import * as mysql from 'mysql'
 // // //Lets define a port we want to listen to
 // // const PORT=8080; 
 
@@ -143,7 +145,9 @@ var connection = mysql.createConnection({host:'localhost', user: 'root', databas
  * @returns {number[]} 
  */
 function range(start: number, end: number): number[]{
-    return Array.apply(null, Array(start, end)).map(function (_, i) {return i;});
+   let nums = Array.apply(null, Array(end + 1)).map(function (_, i) {return i;});
+
+   return nums.slice(start)
 }
 
 function repeat(col: string, times: number){
@@ -168,25 +172,8 @@ function extract(url){
     tokens.map((value, index)=>{
         values[col_names[index]] = value
     })
-// //     // var values = {
-// //     //     Dust1: tokens[0],
-// //     //     Dust2_5: tokens[1],
-// //     //     Dust10: tokens[2],
-// //     //     Box_ID: tokens[3],
-// //     //     Temperature: tokens[3],
-// //     //     Humidity: tokens[4],
-// //     //     CO2: tokens[5],
-// //     //     Decibals: tokens[6],
-// //     //     Distance1: tokens[7],
-// //     //     Distance2: tokens[8],
-// //     //     Distance3: tokens[9],
-// //     //     Distance4: tokens[10],
-// //     //     Distance5: tokens[11],
-// //     //     Distance6: tokens[12],
-// //     //     Distance7: tokens[13],
-// //     //     Presence: tokens[14] === 'true',
-// //     //     Time: tokens[15]
-// //     // }
+
+    values['Presence'] = values['Presence'] == 'true'
 
     return values
 }
@@ -204,7 +191,11 @@ async function handleRequest(request, response){
         console.log(values)
         await connection.query('INSERT INTO sensor_data set ?' , values)
           
-          
+        // put in error handling and if server turns off close connection 
+
+        // replace with type orm
+
+
             // simple query
         // connection.query('INSERT INTO sensor_data set ?' , values  , function (error, results, fields) {
         // // note fields is a list
@@ -214,7 +205,6 @@ async function handleRequest(request, response){
         // //   console.log(fields); // fields contains extra meta data about results, if available
         // });
 
-        connection.end();
     }
 
 }

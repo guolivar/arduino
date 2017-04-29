@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "module": "system",
-        "outFile": "Code/Dist/app.js",
+        "module": "commonjs",
+        "moduleResolution": "node",
         "sourceMap": true,
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "allowJs": true
     },"exclude": [
         "Code/Server/node_modules",
         "Code/Dist",
