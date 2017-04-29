@@ -164,6 +164,19 @@
             "port": 22,
             "secret": "dev1234",
             "host": "192.168.0.146"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${file}"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Port",
+            "address": "localhost",
+            "port": 5858
         }
     ]
 }

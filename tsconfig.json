@@ -1,16 +1,13 @@
 {
     "compilerOptions": {
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
         "target": "es5",
         "module": "system",
         "outFile": "Code/Dist/app.js",
         "sourceMap": true,
-        "watch": true,
-        "allowJs": true
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
     },"exclude": [
-        "Code/node_modules",
-        "node_modules",
+        "Code/Server/node_modules",
         "Code/Dist",
         "Code/Client",
         "Resources"
