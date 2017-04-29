@@ -41,6 +41,7 @@ install:
     - source ~/.nvm/nvm.sh
     - nvm install '7.9.0'
     - npm install typescript -g
+    - cd Code/Server && npm install
 
 script:
     - tsc
