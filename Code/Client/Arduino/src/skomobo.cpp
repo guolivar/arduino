@@ -44,20 +44,6 @@ void display_heading(){
 }
 
 
-void DUST_setup() {
-  //mega
-  //Serial2.begin(9600);
-  dustport.begin(9600);
-  
-}
-
-//
-//void show(String environment, String particle_size){
-//  Serial.print(environment + ", PM " + particle_size + " = ");
-//  Serial.print(calc_pm());
-//  Serial.println(" ug/m3");
-//}
-
 unsigned char c;
   
 long calc_pm(){ 
@@ -529,6 +515,7 @@ void setup() {
  
   Serial.begin(9600);
 
+  dustport.begin(9600);
 
   // oled
     // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
@@ -552,7 +539,6 @@ void setup() {
   
 
   co2setup();
-  DUST_setup();
   setupTemp();
   rtc.begin();
 

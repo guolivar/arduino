@@ -11,6 +11,7 @@
 	</a>
     <a href="https://snyk.io/test/github/ulfasaar/skomobo?targetFile=Code%2FServer%2Fpackage.json">
 		<img src="https://snyk.io/test/github/ulfasaar/skomobo/badge.svg?targetFile=Code%2FServer%2Fpackage.json">
+    <a href='https://dependencyci.com/github/Ulfasaar/skomobo'><img src='https://dependencyci.com/github/Ulfasaar/skomobo/badge' alt='Dependency Status'/></a>
 	</a>
   <br>
   <br>
