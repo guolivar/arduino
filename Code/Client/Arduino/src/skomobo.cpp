@@ -5,8 +5,6 @@
 #include <Arduino.h>
 #include <SD.h>
 
-// This macro allows us to succinctly convert each argument into a string
-#define format( arg ) ( String(rtc.now().arg()) )
 
 #include "RTClib.h"
 
@@ -20,19 +18,6 @@ SoftwareSerial dustport(8,9);
 
 // T9602 is temp sensor
 
-void Save(String text){
-  File myFile = SD.open("data.txt", FILE_WRITE);
-
-  //if the file opened okay, write to it
-  if (myFile) {
-
-    myFile.println(text);
-    
-    //close the file
-    myFile.close();
-  
-  }
-}
 
 void display_heading(){
     display.clearDisplay();
@@ -60,6 +45,9 @@ long pm25;
 long pm10;
 
 // look into difference between atmosphere and the cm values
+
+
+// use F function to save on space
 
 String DUST_loop() {
 
@@ -123,11 +111,15 @@ String DUST_loop() {
   // while(dustport.available()) dustport.read();
   Serial.println();
   delay(2000);
+
+  // replace with proper concatenation
   return String(pm1) + " " + String(pm25) +  " " + String(pm10);
   
 }
 
 
+// This macro allows us to succinctly convert each argument into a string
+#define format( arg ) ( String(rtc.now().arg()) )
 
 #define current_time "  " + format( hour ) + ":" + format( minute ) +":" + format( second ) 
 #define day_month_year "      " + format( day ) + "/" + format( month )+ "/" + format( year )
@@ -211,11 +203,13 @@ void getdata(byte *a, byte *b, byte *c, byte *d)
   *d = Wire.read();
 }
 
+// is this function necessary?
 float adjust_temp(float rawData){
   return rawData;
 }
 
 void display_val(String label, float val){
+  display_heading();
   display.print(label + ": ");
   display.print(val);
 }
@@ -237,16 +231,12 @@ String Temp_loop()
 // temperature = (Temp_High [7:0] x 64 + Temp_Low [7:2]/4 ) / 16384 x 165 40
  temperature = adjust_temp((float)((unsigned)(cc  * 64) + (unsigned)(dd >> 2 )) / 16384.0 * 165.0 - 40.0);
 
-  display_heading();
   display_val("T", temperature);
 
   display.drawCircle(100, 11, 3, WHITE);
   display_end(" C");
 
-  display_heading();
-
   display_val("RH", humidity);
-
   display_end("%");
 
   delay(2000);
@@ -473,6 +463,20 @@ int CO2_loop(){
 }
 
 
+void Save(String text){
+  File myFile = SD.open("data.txt", FILE_WRITE);
+
+  //if the file opened okay, write to it
+  if (myFile) {
+
+    myFile.println(text);
+    
+    //close the file
+    myFile.close();
+  
+  }
+}
+
 void loop() {
 
 
@@ -507,6 +511,8 @@ void loop() {
   delay(2000);
 
   // change formatting to match server url
+
+  // do proper string concatenation because this is causing a tonne of heap fragmentation I think
   Save(current_time + day_month_year + " " + String(movement) + " " + Temp_loop() + " " + String(CO2_loop()) + " " + DUST_loop());
   delay(1000);
 }
@@ -556,6 +562,7 @@ void setup() {
   
 
   File myFile = SD.open("data.txt");
+
   
   // we save the headings regardless of whether or not they are there  already because it marks any reboots to the system
   Save("Time Moving Temp Humid CO2 Dust 1.0 2.5 10");
