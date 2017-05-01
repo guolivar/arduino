@@ -24,7 +24,7 @@ void display_heading(){
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.setCursor(0,0);
-    display.println("       SKOMOBO");
+    display.println(F("       SKOMOBO"));
     display.setTextSize(2);
 }
 
@@ -61,7 +61,7 @@ String DUST_loop() {
  while (dustport.available()) {
     c = dustport.read();
     if((count==0 && c!=0x42) || (count==1 && c!=0x4d)){
-      Serial.println("check failed");
+      Serial.println(F("check failed"));
       break;
     }
 
@@ -88,13 +88,13 @@ String DUST_loop() {
 
       display_heading();
           
-      display.print("PM: ");
+      display.print(F("PM: "));
 
       display.print(calc_pm());
       display.setTextSize(1);
-      display.println("ug/m3");
-      display.println(" ");
-      display.println(" 10");
+      display.println(F("ug/m3"));
+      display.println(F(" "));
+      display.println(F(" 10"));
       display.display();
     }
     if(count > 15){
@@ -130,7 +130,7 @@ void ScanI2CBus()
   byte error, address;
   int nDevices;
 
-  Serial.println("Scanning");
+  Serial.println(F("Scanning"));
 
   nDevices = 0;
   for (address = 1; address <= 127; address++ )
@@ -156,14 +156,14 @@ void ScanI2CBus()
     
     if (error == 0)
     {
-      Serial.print("I2C device found at ");
-      Serial.print(address, DEC); Serial.println(" (decimal)");
+      Serial.print(F("I2C device found at "));
+      Serial.print(address, DEC); Serial.println(F(" (decimal)"));
 
       nDevices++;
     }
     else if (error == 4)
     {
-      Serial.print("Unknown error at ");
+      Serial.print(F("Unknown error at "));
       Serial.println(address, DEC);
     }
 //    else{
@@ -171,9 +171,9 @@ void ScanI2CBus()
 //    }
   }
   if (nDevices == 0)
-    Serial.println("No I2C devices found\n");
+    Serial.println(F("No I2C devices found\n"));
   else
-    Serial.println("done\n");
+    Serial.println(F("done\n"));
 
 }
 
@@ -210,7 +210,7 @@ float adjust_temp(float rawData){
 
 void display_val(String label, float val){
   display_heading();
-  display.print(label + ": ");
+  display.print(label + F(": "));
   display.print(val);
 }
 
@@ -447,10 +447,10 @@ int CO2_loop(){
     
     display_heading();
     
-    display.print("CO2: ");
+    display.print(F("CO2: "));
     display.print(co2Value);
     display.setTextSize(1);
-    display.println("ppm");
+    display.println(F("ppm"));
     display.display();
     delay(2000);
 
@@ -458,13 +458,13 @@ int CO2_loop(){
   }
 
   else {
-    Serial.println("Checksum failed / Communication failure");
+    Serial.println(F("Checksum failed / Communication failure"));
   }
 }
 
 
 void Save(String text){
-  File myFile = SD.open("data.txt", FILE_WRITE);
+  File myFile = SD.open(F("data.txt"), FILE_WRITE);
 
   //if the file opened okay, write to it
   if (myFile) {
@@ -506,7 +506,7 @@ void loop() {
   display.setTextSize(1);
 
   bool movement = digitalRead(2) == LOW;
-  display.println( movement ? "Moving \n          Detected" : "Still");
+  display.println( movement ? F("Moving \n          Detected" ): F("Still"));
   display.display();
   delay(2000);
 
@@ -532,8 +532,8 @@ void setup() {
   display.setTextColor(WHITE);
   display.setCursor(0,0);
   
-  display.println("  SKOMOBO");
-  display.println("  PROJECT");
+  display.println(F("  SKOMOBO"));
+  display.println(F("  PROJECT"));
   display.display();
   delay(2000);
   
@@ -553,19 +553,19 @@ void setup() {
 //CheckSD();
 //  sd();
 //I2c.scan();
-  Serial.print("Init SD");
+  Serial.print(F("Init SD"));
 
   if (!SD.begin(53)) {
-    Serial.println("Init failed!");
+    Serial.println(F("Init failed!"));
     return;
   }
   
 
-  File myFile = SD.open("data.txt");
+  File myFile = SD.open(F("data.txt"));
 
   
   // we save the headings regardless of whether or not they are there  already because it marks any reboots to the system
-  Save("Time Moving Temp Humid CO2 Dust 1.0 2.5 10");
+  Save(F("Time Moving Temp Humid CO2 Dust 1.0 2.5 10"));
 
   while (!Serial) {
     //;  wait for serial port to connect. Needed for native USB port only
