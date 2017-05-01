@@ -521,8 +521,6 @@ void setup() {
  
   Serial.begin(9600);
 
-  dustport.begin(9600);
-
   // oled
     // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
@@ -553,11 +551,12 @@ void setup() {
 //CheckSD();
 //  sd();
 //I2c.scan();
-  Serial.print(F("Init SD"));
+
+  Serial.println(F("Init SD"));
 
   if (!SD.begin(53)) {
     Serial.println(F("Init failed!"));
-    return;
+    // return;
   }
   
 
