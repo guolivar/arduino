@@ -1,8 +1,9 @@
 #lang racket
-( define compile
 
-    (print "hi")
+( define upper 100 )
+( define lower 1 )
 
- )
+(define (guess) (quotient(+ lower upper)) 2)
 
-compile
+upper
+lower
