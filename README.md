@@ -19,6 +19,8 @@
 
 # Skomobo:
 
+[![Join the chat at https://gitter.im/skomobo/Lobby](https://badges.gitter.im/skomobo/Lobby.svg)](https://gitter.im/skomobo/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 To test the python code you need to run the test command in the coconuts folder and to add tests add them to the test.py file in side the compiled folder.
 
 ## Tools currently in use:
