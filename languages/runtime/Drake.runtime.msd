@@ -6,7 +6,11 @@
     </modelRoot>
   </models>
   <sourcePath />
-  <languageVersions />
-  <dependencyVersions />
+  <languageVersions>
+    <language slang="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" version="1" />
+  </languageVersions>
+  <dependencyVersions>
+    <module reference="1d0fee6b-4322-4113-8fe9-2e14ec63257e(Drake.runtime)" version="0" />
+  </dependencyVersions>
 </solution>
 

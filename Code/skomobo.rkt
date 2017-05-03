@@ -5,8 +5,8 @@
 ;(define arduino)
 ;(define raspi)
 
-(define (compile code) (call-with-output-file "test.txt" (lambda (out) (display code out)) "text" "truncate/replace") )
+(define (create code) (call-with-output-file "test.cpp" #:mode-flag 'text #:exists-flag 'truncate/replace (lambda (out) (write code)) ) )
 
-compile "yes yes yes"
+create "yes yes yes"
 
 ;the code needs to be able to specify what each fragment is targeting
