@@ -556,7 +556,7 @@ void setup() {
 
   if (!SD.begin(53)) {
     Serial.println(F("Init failed!"));
-    // return;
+    return;
   }
   
 
