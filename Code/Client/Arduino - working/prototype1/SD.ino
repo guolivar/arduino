@@ -29,7 +29,7 @@ void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
     Save(Sep(String(PIR)));
     Save(Sep(Temp));
     Save(Sep(String(CO2)));
-    Serial.println(Dust);
+//    Serial.println(Dust);
     Save(Dust);
     Save(F("\n"));
 }

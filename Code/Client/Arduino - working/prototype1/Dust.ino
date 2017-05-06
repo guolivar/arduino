@@ -32,15 +32,24 @@ long pm10;
 // look into difference between atmosphere and the cm values
 #define Sep( val ) val + ","
 
+int freeRam () 
+{
+  extern int __heap_start, *__brkval; 
+  int v; 
+  return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
+}
+
 String DUST_loop() {
 
   int count = 0;
 
  while (dustport.available()) {
     c = dustport.read();
+
+    Serial.print("Free Ram: ");
+    Serial.println(freeRam());
     if((count==0 && c!=0x42) || (count==1 && c!=0x4d)){
       Serial.println(F("check failed"));
-      return F("check failed");
     }
 
     if(count == 11){
@@ -66,13 +75,22 @@ String DUST_loop() {
 
     }
 
+//    check_mem();
+
+   
+//    char text[30];
+//    sprintf(text, "heap memory: %p\n", heapptr);
+//    Serial.println(text);
+//    sprintf(text, "stack memory: %p\n", stackptr);
+//    Serial.println(text); 
+
     count++;
   }
 
 
   while(dustport.available()) dustport.read();
   Serial.println();
-  delay(2000);
+  delay(5000);
 }
 
 
