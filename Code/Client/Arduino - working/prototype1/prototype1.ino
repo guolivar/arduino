@@ -16,7 +16,7 @@ void setup() {
   
 //  ScanI2CBus();
 
-  Time_setup();
+//  Time_setup();
   
 //  CheckSD();
 //  sd();
@@ -30,6 +30,7 @@ void setup() {
   }
 }
 
+// this gets the final address for the heap and the stack so we can see if they are fluctuating
 uint8_t * heapptr, * stackptr;
 void check_mem() {
   stackptr = (uint8_t *)malloc(4);          // use stackptr temporarily
@@ -38,10 +39,18 @@ void check_mem() {
   stackptr =  (uint8_t *)(SP);           // save value of stack pointer
 }
 
+// checks how much ram is available
+int freeRam () 
+{
+  extern int __heap_start, *__brkval; 
+  int v; 
+  return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
+}
+
 void loop() {
-//  Time_loop();
+
     // Time Movement Temp Humidty CO2 Dust 1.0 2.5 10
-    Save_sensors(Time_loop(), PIR_loop(), Temp_loop(), CO2_loop(), DUST_loop());
+    Save_sensors( Time_loop(), PIR_loop(), Temp_loop(), CO2_loop(), DUST_loop());
 //     Save_sensors(Time_loop(), PIR_loop(), Temp_loop(), CO2_loop());
     
 //    /Serial.println("heap memory: ");

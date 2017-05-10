@@ -3,7 +3,15 @@ SdFat SD;
 
 File myFile;
 
-void Save(String text){
+void Save(String text, String label = ""){
+
+  
+  Serial.print("Free Ram: ");
+  Serial.println(freeRam());
+    
+  if(label != ""){
+      Serial.println(label + ": " + text);
+  }
 
   //if the file opened okay, write to it
   if (myFile) {
@@ -25,12 +33,23 @@ void Save(String text){
 void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
     
     // break it up so that the giant string doesnt go to ram
-    Save(Sep(Time));
-    Save(Sep(String(PIR)));
-    Save(Sep(Temp));
-    Save(Sep(String(CO2)));
+    Save(Sep(Time), "Time");
+    Save(Sep(String(PIR)), "PIR");
+    Save(Sep(Temp), "Temp");
+    Save(Sep(String(CO2)),"CO2");
 //    Serial.println(Dust);
-    Save(Dust);
+    
+
+    Save(Dust, "Dust");
+//    for(int i = 0; i < sizeof(Dust); i++){
+//
+//      if(i < sizeof(Dust) - 1){
+//        Save(Sep(String(Dust[i])));
+//      }
+//      else{
+//        Save(String(Dust[i]), "Dust");
+//      }
+//    }
     Save(F("\n"));
 }
 
