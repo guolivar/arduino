@@ -50,9 +50,13 @@ int freeRam ()
 void loop() {
 
     // Time Movement Temp Humidty CO2 Dust 1.0 2.5 10
-    Save_sensors( Time_loop(), PIR_loop(), Temp_loop(), CO2_loop(), DUST_loop());
+//    Save_sensors( Time_loop(), PIR_loop(), Temp_loop(), CO2_loop(), DUST_loop());
 //     Save_sensors(Time_loop(), PIR_loop(), Temp_loop(), CO2_loop());
-    
+   
+//    Save_sensors( PIR_loop(), Temp_loop(), CO2_loop(), DUST_loop());
+      Save_sensors( PIR_loop(), Temp_loop(), CO2_loop());
+
+
 //    /Serial.println("heap memory: ");
 //    Serial.println(freeMemory);
     
