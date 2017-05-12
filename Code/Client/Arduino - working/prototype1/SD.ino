@@ -6,8 +6,8 @@ File myFile;
 void Save(String text, String label = ""){
 
   
-  Serial.print(F("Free Ram: "));
-  Serial.println(freeRam());
+//  Serial.print(F("Free Ram: "));
+//  Serial.println(freeRam());
     
   if(label != ""){
       Serial.print(label);
@@ -24,7 +24,7 @@ void Save(String text, String label = ""){
     //close the file
     myFile.flush();
 //    myFile.close();
-    Serial.println(F("Saved"));
+  
   
   }
 }
@@ -54,46 +54,48 @@ void Save_time(int x, int y, int z, __FlashStringHelper* sep){
 //  int year;
 //} Time_stamp;
 
-#include "Time.h"
-//using namespace RTC_DS3231
-
-#include "RTClib.h"
-//#include <time.h>
+//#include "Time.h"
+////using namespace RTC_DS3231
 //
-RTC_DS3231 rtc;
+//#include "RTClib.h"
+////#include <time.h>
+////
+//RTC_DS3231 rtc;
 //DS3231RTC rtc;
-void Time_setup() {
-  rtc.begin();
+//void Time_setup() {
+//  rtc.begin();
+//
+//  //(int hr, int min, int sec, int day, int month, int yr)
+//  //    setTime(17, 57, 0, 5, 5, 2017);
+//  //    Serial.println("time set");
+//}
 
-  //(int hr, int min, int sec, int day, int month, int yr)
-  //    setTime(17, 57, 0, 5, 5, 2017);
-  //    Serial.println("time set");
-}
 
+//#define format( arg ) ( rtc.now().arg() )
 
-#define format( arg ) ( rtc.now().arg() )
-
-//void Save_sensors(Time_stamp Time, bool PIR, String Temp, int CO2, String Dust){
+void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
 //void Save_sensors( bool PIR, String Temp, int CO2, String Dust){
 
-void Save_sensors( bool PIR, String Temp, int CO2){
+//void Save_sensors( String Time, bool PIR, String Temp, int CO2){
     // break it up so that the giant string doesnt go to ram
 //    Save(Sep(Time), F("Time"));
 //    Save(Sep(String(PIR)), F("PIR"));
 //    Save(Sep(Temp), F("Temp"));
 //    Save(Sep(String(CO2)),F("CO2"));
 
-//    Save_sensor(Time, F("Time"));
+    Save_sensor(Time, F("Time"));
 
 //    Save(Time.hour);
 //    Save(F(':'));
 //    Save(Time.minute);
 //    Save(F(':');
 //    Save(Time.second);
-    Save_time(format(hour), format(minute), format(second), F(":"));
-    Save(F(" "));
+    
+//    Save_time(format(hour), format(minute), format(second), F(":"));
+//    Save(F(" "));
 //    Save(Time.day);
-    Save_time(format(day), format(month), format(year), F("/"));
+//    Save_time(format(day), format(month), format(year), F("/"));
+//    Serial.println(format(year));
 //    Save(F('/'));
 //    Save(Time.month);
 //    Save(F('/'));
@@ -102,11 +104,13 @@ void Save_sensors( bool PIR, String Temp, int CO2){
     Save_sensor(String(PIR), F("PIR"));
     Save_sensor(Temp, F("Temp"));
     Save_sensor(String(CO2),F("CO2"));
-    Save(String(CO2),F("CO2"));
+//    Save(String(CO2),F("CO2"));
+
 //    Serial.println(Dust);
     
 
-//    Save(Dust, F("Dust"));
+    Save(Dust, F("Dust"));
+    
 //    for(int i = 0; i < sizeof(Dust); i++){
 //
 //      if(i < sizeof(Dust) - 1){

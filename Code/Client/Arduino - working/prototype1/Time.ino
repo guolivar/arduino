@@ -1,30 +1,33 @@
 //#include "DS3231RTC.h"
-//#include "Time.h"
+#include "Time.h"
 ////using namespace RTC_DS3231
 //
-//#include "RTClib.h"
+#include "RTClib.h"
 //#include <time.h>
 //
-//RTC_DS3231 rtc;
+RTC_DS3231 rtc;
 ////DS3231RTC rtc;
-//void Time_setup() {
-//  rtc.begin();
-////
-////  //(int hr, int min, int sec, int day, int month, int yr)
-////  //    setTime(17, 57, 0, 5, 5, 2017);
-////  //    Serial.println("time set");
-//}
+void Time_setup() {
+
+      //
+      
+  rtc.begin();
+//
+//  //(int hr, int min, int sec, int day, int month, int yr)
+//  //    setTime(17, 57, 0, 5, 5, 2017);
+//  //    Serial.println("time set");
+}
 
 
 // This macro allows us to succinctly convert each argument into a string
-//#define format( arg ) ( String(rtc.now().arg()) )
+#define format( arg ) ( String(rtc.now().arg()) )
 
 
 //Time_stamp Stamp_time(int hour, int minute, int second, int day, int month, int year){
 //  return {.hour = hour, .minute = minute, .second = second, .day = day, .month = month, .year = year };
 //}
 //
-//Time_stamp Time_loop() {
+String Time_loop() {
 //
 //  // RTC lib with code to get time
 //
@@ -55,9 +58,9 @@
 //
 //  // return that_time + " " + this_time;
 ////  Time_stamp result = new Time_stamp(){hour }
-////  return format( hour ) + ":" + format( minute ) + ":" + format( second ) + " " + format( day ) + "/" + format( month ) + "/" + format( year );
+  return format( hour ) + ":" + format( minute ) + ":" + format( second ) + " " + format( day ) + "/" + format( month ) + "/" + format( year );
 ////  return {.hour = format(hour), .minute= format(minute), .second = format(second), .day = format(day), .month = format(month)
 //  Serial.println(freeRam());
 //  return Stamp_time(format(hour), format(minute), format(second), format(day), format(month), format(year));
-//}
+}
 

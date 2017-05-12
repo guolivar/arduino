@@ -8,22 +8,29 @@
 void setup() {
  
   Serial.begin(9600);
+
+  // setup the sd card first because we need it to be ready for virtmem
+  SD_setup();
+
+  
   PIR_setup();
 //
   co2setup();
+
+  // note dust uses virtmem
   DUST_setup();
-  setupTemp();
+//  setupTemp();
   
 //  ScanI2CBus();
 
-//  Time_setup();
+  Time_setup();
   
 //  CheckSD();
 //  sd();
 //#include "MemoryFree.h"
 //I2c.scan();
 
-  SD_setup();
+
  
   while (!Serial) {
     //;  wait for serial port to connect. Needed for native USB port only
@@ -50,17 +57,22 @@ int freeRam ()
 void loop() {
 
     // Time Movement Temp Humidty CO2 Dust 1.0 2.5 10
-//    Save_sensors( Time_loop(), PIR_loop(), Temp_loop(), CO2_loop(), DUST_loop());
+    Save_sensors( Time_loop(), PIR_loop(), Temp_loop(), CO2_loop(), DUST_loop());
 //     Save_sensors(Time_loop(), PIR_loop(), Temp_loop(), CO2_loop());
-   
+//   Serial.println(DUST_loop());
 //    Save_sensors( PIR_loop(), Temp_loop(), CO2_loop(), DUST_loop());
-      Save_sensors( PIR_loop(), Temp_loop(), CO2_loop());
+//      Save_sensors( PIR_loop(), Temp_loop(), CO2_loop());
+//    DUST_loop();
 
 
+////// add co2 in front of checksum message
+
+
+  
 //    /Serial.println("heap memory: ");
 //    Serial.println(freeMemory);
-    
-    delay(2000);
+      Serial.println(F("Saved"));
+    delay(60000);
 //    Serial.println("stack memory: ");
 //    Serial.println(&stackptr, DEC);
 }
