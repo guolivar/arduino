@@ -1410,6 +1410,7 @@ ledBstatus	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Gui 2\arduinoGUI.py	/
 ledBstatus	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Original code\arduinoGUI.py	/^ledBstatus = 0$/;"	kind:variable	line:13
 lfilter	SKOMOBO\Code\Client\Raspberry pi\Compiled\Vendor\iec_61672_1_2013.py	/^from scipy.signal import lfilter, bilinear$/;"	kind:namespace	line:32
 license	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\setup.py	/^      license='Apache License 2.0',$/;"	kind:variable	line:23
+license	SKOMOBO\Code\Client\Raspberry pi\setup.py	/^    license='Creative Commons Attribution-Noncommercial-Share Alike license',$/;"	kind:variable	line:7
 light_channel	SKOMOBO\Code\Client\Raspberry pi\Old code\rasp_pi_sensor_reader.py	/^light_channel = 0$/;"	kind:variable	line:65
 line	SKOMOBO\Code\Client\Raspberry pi\Compiled\Vendor\demjson.py	/^    def line(self):$/;"	kind:member	line:1483
 line_locations	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def line_locations(self):$/;"	kind:member	line:636
@@ -1419,6 +1420,7 @@ listSerialPorts	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Original code\ar
 local_path_to_vs_path	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^local_path_to_vs_path = {}$/;"	kind:variable	line:570
 locals_to_fast	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def locals_to_fast(self, frame):$/;"	kind:member	line:1287
 localtime	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Compiled\skomobo.py	/^from time import localtime$/;"	kind:namespace	line:38
+long_description	SKOMOBO\Code\Client\Raspberry pi\setup.py	/^    long_description=open('..\/..\/..\/README.md').read(),$/;"	kind:variable	line:8
 lookup	SKOMOBO\Code\Client\Raspberry pi\Compiled\Vendor\demjson.py	/^    def lookup( name ):$/;"	kind:member	line:765
 lookup_builtin	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^def lookup_builtin(name, frame):$/;"	kind:function	line:381
 lookup_codec	SKOMOBO\Code\Client\Raspberry pi\Compiled\Vendor\demjson.py	/^    def lookup_codec( encoding ):$/;"	kind:member	line:1114
@@ -1452,6 +1454,7 @@ my_filter	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Compiled\arduinoComms.
 my_filter	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Compiled\skomobo.py	/^def my_filter(value, items):$/;"	kind:function	line:42
 my_labl	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Compiled\arduinoGUI.py	/^def my_labl(width, height, text=""):$/;"	kind:function	line:46
 name	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^    def name(self):$/;"	kind:member	line:2404
+name	SKOMOBO\Code\Client\Raspberry pi\setup.py	/^    name='SKOMOBO',$/;"	kind:variable	line:4
 nan	SKOMOBO\Code\Client\Raspberry pi\Compiled\Vendor\demjson.py	/^                    nan = decimal.Decimal('NaN')$/;"	kind:variable	line:466
 nan	SKOMOBO\Code\Client\Raspberry pi\Compiled\Vendor\demjson.py	/^                    nan = nan()$/;"	kind:variable	line:468
 nan	SKOMOBO\Code\Client\Raspberry pi\Compiled\Vendor\demjson.py	/^                class nan(float):$/;"	kind:class	line:437
@@ -1517,6 +1520,7 @@ os	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_launche
 os	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^import os$/;"	kind:namespace	line:45
 os	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_util.py	/^import os$/;"	kind:namespace	line:26
 packages	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\setup.py	/^      packages=['ptvsd']$/;"	kind:variable	line:33
+packages	SKOMOBO\Code\Client\Raspberry pi\setup.py	/^    packages=['spidev', 'coconut'],$/;"	kind:variable	line:6
 pacman.py	SKOMOBO\Code\Client\Raspberry pi\Compiled\Vendor\pacman.py	1;"	kind:file	line:1
 parallel_map	SKOMOBO\Code\Client\Raspberry pi\Compiled\__coconut__.py	/^class parallel_map(_coconut_map):$/;"	kind:class	line:206
 parallel_map	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Compiled\__coconut__.py	/^class parallel_map(_coconut_map):$/;"	kind:class	line:206
@@ -1768,6 +1772,7 @@ settrace	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\__init__.py	/^fro
 settrace	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^settrace = enable_attach$/;"	kind:variable	line:302
 settrace	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_debugger.py	/^            def settrace(tsk, tb):$/;"	kind:function	line:791
 setup	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\setup.py	/^from distutils.core import setup$/;"	kind:namespace	line:18
+setup	SKOMOBO\Code\Client\Raspberry pi\setup.py	/^from distutils.core import setup$/;"	kind:namespace	line:1
 setup.py	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\setup.py	1;"	kind:file	line:1
 setup.py	SKOMOBO\Code\Client\Raspberry pi\setup.py	1;"	kind:file	line:1
 setupSerial	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Compiled\arduinoComms.py	/^def setupSerial(serPort):$/;"	kind:function	line:37
@@ -2021,6 +2026,7 @@ valToArduino	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Gui 2\arduinoComms.
 valToArduino	SKOMOBO\Code\Client\Raspberry pi\IR calibration\Original code\arduinoComms.py	/^def valToArduino(ledA, ledB, servo):$/;"	kind:function	line:11
 version	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\attach_server.py	/^        raise ValueError('could not import the ssl module - SSL is not supported on this version of Python')$/;"	kind:namespace	line:147
 version	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\setup.py	/^      version='3.0.0rc1',$/;"	kind:variable	line:21
+version	SKOMOBO\Code\Client\Raspberry pi\setup.py	/^    version='0.1dev',$/;"	kind:variable	line:5
 visualstudio_py_debugger	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^            import visualstudio_py_debugger$/;"	kind:namespace	line:1014
 visualstudio_py_debugger	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^        import visualstudio_py_debugger$/;"	kind:namespace	line:1008
 visualstudio_py_debugger	SKOMOBO\Code\Client\Raspberry pi\ptvsd-3.0.0rc1\ptvsd\visualstudio_py_repl.py	/^        import visualstudio_py_debugger$/;"	kind:namespace	line:354

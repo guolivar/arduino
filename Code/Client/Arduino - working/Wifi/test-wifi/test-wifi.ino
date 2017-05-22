@@ -31,7 +31,7 @@ WiFiUDP Udp;
 
 void setup() {
   //Initialize serial and wait for port to open:
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
@@ -51,10 +51,10 @@ void setup() {
   // attempt to connect to Wifi network:
   while (status != WL_CONNECTED) {
     Serial.print("Attempting to connect to SSID: ");
-//    Serial.println(ssid);
+    Serial.println(F("DESKTOP-73HN80N 5011"));
     // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
-   // status = WiFi.begin(ssid);
-
+    status = WiFi.begin("DESKTOP-73HN80N 5011", "u658\7Q0");
+    
     // wait 10 seconds for connection:
     delay(10000);
   }

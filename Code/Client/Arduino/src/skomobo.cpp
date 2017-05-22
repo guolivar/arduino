@@ -559,6 +559,7 @@ void setup() {
     return;
   }
   
+  Serial.println(F('test'))
 
   File myFile = SD.open(F("data.txt"));
 

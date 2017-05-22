@@ -20,8 +20,8 @@
 #include <SPI.h>
 #include <WiFi.h>
 
-char ssid[] = "DESKTOP-73HN80N 5011";      //  your network SSID (name)
-char pass[] = "u658\7W0";   // your network password
+char ssid[] = "yourNetwork";      //  your network SSID (name)
+char pass[] = "secretPassword";   // your network password
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
 
 int status = WL_IDLE_STATUS;
@@ -37,11 +37,10 @@ unsigned long lastConnectionTime = 0;            // last time you connected to t
 const unsigned long postingInterval = 10L * 1000L; // delay between updates, in milliseconds
 
 void setup() {
-  //Initialize Serial1 and wait for port to open:
-  Serial.begin(9600);
-
+  //Initialize serial and wait for port to open:
+  Serial.begin(115200);
   while (!Serial) {
-    ; // wait for Serial1 port to connect. Needed for native USB port only
+    ; // wait for serial port to connect. Needed for native USB port only
   }
 
   // check for the presence of the shield:
@@ -53,7 +52,7 @@ void setup() {
 
   String fv = WiFi.firmwareVersion();
   if (fv != "1.1.0") {
-    Serial1.println("Please upgrade the firmware");
+    Serial.println("Please upgrade the firmware");
   }
 
   // attempt to connect to Wifi network:
@@ -72,7 +71,7 @@ void setup() {
 
 void loop() {
   // if there's incoming data from the net connection.
-  // send it out the Serial1 port.  This is for debugging
+  // send it out the serial port.  This is for debugging
   // purposes only:
   while (client.available()) {
     char c = client.read();
