@@ -8,26 +8,26 @@
 #include "WiFiEsp.h"
 
 // Emulate Serial1 on pins 6/7 if not present
-#ifndef HAVE_HWSERIAL1
-#include "SoftwareSerial.h"
-SoftwareSerial Serial1(6, 7); // RX, TX
-#endif
+//#ifndef HAVE_HWSERIAL1
+//#include "SoftwareSerial.h"
+//SoftwareSerial Serial1(6, 7); // RX, TX
+// Initialize the Ethernet client object
+WiFiEspClient client;
 
-char ssid[] = "Twim";            // your network SSID (name)
-char pass[] = "12345678";        // your network password
+//#endif
+
+char ssid[] = "4G UFI_8B8";            // your network SSID (name)
+char pass[] = "1234567890";        // your network password
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
 char server[] = "arduino.cc";
-
-// Initialize the Ethernet client object
-WiFiEspClient client;
 
 void setup()
 {
   // initialize serial for debugging
   Serial.begin(115200);
   // initialize serial for ESP module
-  Serial1.begin(9600);
+  Serial1.begin(115200);
   // initialize ESP module
   WiFi.init(&Serial1);
 
