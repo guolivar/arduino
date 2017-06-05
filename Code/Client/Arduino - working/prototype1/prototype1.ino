@@ -73,7 +73,9 @@ void loop() {
 //    /Serial.println("heap memory: ");
 //    Serial.println(freeMemory);
       Serial.println(F("Saved"));
-    delay(60000);
+//    delay(60000);
+      delay(100);
+
 //    Serial.println("stack memory: ");
 //    Serial.println(&stackptr, DEC);
 }
