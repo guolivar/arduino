@@ -58,9 +58,8 @@ String Time_loop() {
 //
 //  // return that_time + " " + this_time;
 ////  Time_stamp result = new Time_stamp(){hour }
+
   return format( hour ) + ":" + format( minute ) + ":" + format( second ) + " " + format( day ) + "/" + format( month ) + "/" + format( year );
-////  return {.hour = format(hour), .minute= format(minute), .second = format(second), .day = format(day), .month = format(month)
-//  Serial.println(freeRam());
-//  return Stamp_time(format(hour), format(minute), format(second), format(day), format(month), format(year));
+
 }
 

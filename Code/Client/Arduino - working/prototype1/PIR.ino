@@ -16,29 +16,29 @@ void PIR_setup(){
 
 // read 10 times if 5 or more are moving then it is moving else not moving
 
-    int count = 0;
-    for(int i = 0; i < 10; i++ ){
-      
-      if(digitalRead(2) == LOW)
-      {
-        count++;
-      }
-    }
-
-    if(count > 5){
-      return true;
-    }
-    else{
-      return false;
-    }
+//    int count = 0;
+//    for(int i = 0; i < 10; i++ ){
+//      
+//      if(digitalRead(2) == LOW)
+//      {
+//        count++;
+//      }
+//    }
+//
+//    if(count > 5){
+//      return true;
+//    }
+//    else{
+//      return false;
+//    }
    
 
-//    bool movement = digitalRead(2) == LOW;
-//    display.println( movement ? F("Moving \n          Detected" ): F("Still"));
-//    display.display();
-//    delay(2000);
+    bool movement = digitalRead(2) == LOW;
+    display.println( movement ? F("Moving \n          Detected" ): F("Still"));
+    display.display();
+    delay(2000);
 
-//    return movement;
+    return movement;
  }
  
  

@@ -25,6 +25,13 @@ void ScanI2CBus()
 
     //datasheet address for m version
 //    Wire.beginTransmission(00h);
+
+
+    //// timeout if timeout is reached then we assume that there is a issue with the i2c bus
+
+    // use a watchdog timer for this would be good if I can somehow 
+    // https://learn.adafruit.com/multi-tasking-the-arduino-part-2/timers
+    /// or use a timed interrupt so that once time is exceeded then it swaps to the error message printer and says hardware issue
     
     error = Wire.endTransmission();
     
