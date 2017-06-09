@@ -20,17 +20,17 @@
 
 # Skomobo:
 
-Arduino:
+## Arduino:
 
 In order to write code for the arduino part of the project you need to make sure that you have the Arduino IDE installed.
 
 Once you have the IDE installed you need to make sure that you add all the zip files stored in the Libraries to install folder to your IDE by selecting sketch and then include library.
 
-Collaboration guidelines:
+## Collaboration guidelines:
 
 If you add any code that uses a external library make sure you download it as a zip file an put it in the above mentioned folder so that other programmers can install all the necesarry libraries to upload the code to the Arduino.
 
-Push cmd file:
+## Push cmd file:
 
 The push cmd file is a convenient command for git users so they can commit changes easily.
 
