@@ -1,5 +1,5 @@
 void PIR_setup(){
-    pinMode(2, INPUT);
+    pinMode(2, INPUT_PULLUP);
  }
 
  bool PIR_loop(){
@@ -32,11 +32,17 @@ void PIR_setup(){
 //      return false;
 //    }
    
-
+    // when the sensor goes low (0) it returns True or 1
     bool movement = digitalRead(2) == LOW;
-    display.println( movement ? F("Moving \n          Detected" ): F("Still"));
-    display.display();
-    delay(2000);
+//
+//    if(movement){
+//      return true;
+//    }else{
+//      return false;
+//    }
+//    display.println( movement ? F("Moving \n          Detected" ): F("Still"));
+//    display.display();
+//    delay(2000);
 
     return movement;
  }

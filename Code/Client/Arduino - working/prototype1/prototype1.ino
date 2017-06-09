@@ -60,6 +60,7 @@ void loop() {
 
     
     Save_sensors( Time_loop(), PIR_loop(), Temp_loop(), CO2_loop(), DUST_loop() );
+//    Save_sensors( PIR_loop());
 
 //    Save_sensors(Time_loop(), PIR_loop(), Temp_loop(), CO2_loop());
 //   Serial.println(DUST_loop());
@@ -75,8 +76,8 @@ void loop() {
 //    /Serial.println("heap memory: ");
 //    Serial.println(freeMemory);
       Serial.println(F("Saved"));
-//    delay(60000);
-      delay(100);
+      delay(60000);
+//      delay(100);
 
 //    Serial.println("stack memory: ");
 //    Serial.println(&stackptr, DEC);

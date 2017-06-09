@@ -73,7 +73,10 @@ void Save_time(int x, int y, int z, __FlashStringHelper* sep){
 
 //#define format( arg ) ( rtc.now().arg() )
 
+//working 
 void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
+
+//void Save_sensors(bool PIR){
   
 //void Save_sensors( bool PIR, String Temp, int CO2, String Dust){
 
@@ -84,6 +87,7 @@ void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
 //    Save(Sep(Temp), F("Temp"));
 //    Save(Sep(String(CO2)),F("CO2"));
 
+    //working 
     Save_sensor(Time, F("Time"));
 
 //    Save(Time.hour);
@@ -101,15 +105,18 @@ void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
 //    Save(Time.month);
 //    Save(F('/'));
 //    Save(Time.year);
-    
+
+    // working
     Save_sensor(String(PIR), F("PIR"));
     Save_sensor(Temp, F("Temp"));
     Save_sensor(String(CO2),F("CO2"));
+
+
 //    Save(String(CO2),F("CO2"));
 
 //    Serial.println(Dust);
     
-
+    //working
     Save(Dust, F("Dust"));
     
 //    for(int i = 0; i < sizeof(Dust); i++){
