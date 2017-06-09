@@ -1,6 +1,0 @@
-node_modules
-.pioenvs
-.piolibdeps
-Dist
-Code/Server/*.js
-Code/Server/*.js.map

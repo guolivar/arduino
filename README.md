@@ -20,18 +20,24 @@
 
 # Skomobo:
 
-To test the python code you need to run the test command in the coconuts folder and to add tests add them to the test.py file in side the compiled folder.
+Arduino:
 
-## Tools currently in use:
+In order to write code for the arduino part of the project you need to make sure that you have the Arduino IDE installed.
 
-- python 2.7
-- vscode with platform io extension
-- platform io core
-- Nodejs
-- pm2
-- Typescript
-- Coconuts
-- Travis CI
-- Snyk dependency vulnerability checker
+Once you have the IDE installed you need to make sure that you add all the zip files stored in the Libraries to install folder to your IDE by selecting sketch and then include library.
 
-Future versions of the project will use a provisioning system such as CHEF and a vm using Vagrant. Most likely it will just use chocolatey.
+Collaboration guidelines:
+
+If you add any code that uses a external library make sure you download it as a zip file an put it in the above mentioned folder so that other programmers can install all the necesarry libraries to upload the code to the Arduino.
+
+Push cmd file:
+
+The push cmd file is a convenient command for git users so they can commit changes easily.
+
+It will add any changes you have made, create a commit with the message you want, and it will push the changes to the server.
+
+To use it just open a command terminal in the root folder of the project. Then type ' push "insert comment here" ' without the quotation marks. 
+
+This will then execute all the steps I mentioned and create a new commit in your repository with the message " insert comment here " :)
+
+
