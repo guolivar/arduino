@@ -25,7 +25,7 @@ void Save(String text, String label = ""){
 // using a macro to join the seperating character to make it easier to change and not take up memory
 #define SEP( val ) val + ","
 
-void Save_sensor(String data, __FlashStringHelper* label){
+void Save_sensor(String data, const __FlashStringHelper* label){
   Save(SEP(data), label);
 }
 

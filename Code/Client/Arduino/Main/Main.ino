@@ -19,7 +19,6 @@ void setup() {
   }
 }
 
-
 void loop() {
 
     // csv file headings, the functions need to be called in this order
