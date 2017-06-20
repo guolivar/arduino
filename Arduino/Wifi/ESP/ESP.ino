@@ -1,35 +1,102 @@
-/*
- WiFiEsp example: WebClient
- This sketch connects to google website using an ESP8266 module to
- perform a simple web search.
- For more details see: http://yaab-arduino.blogspot.com/p/wifiesp-example-client.html
-*/
+//void setup() {
+//  Serial.setTimeout(5000);
+//  Serial.begin(115200);
+//  Serial2.begin(115200);
+//
+//  delay(1000);
+//}
+//
+//void loop() {
+////  delay(2000);
+//  Serial2.println("AT");
+//  CheckVoltage();
+//
+//  Serial.println(Serial2.readString());//  Serial1.println(command);
+//  delay(100);
+////  if(Serial1.available())
+////  {
+////    while(Serial1.available())
+////    {
+////      char c=Serial1.read();
+////      Serial.write(c);          
+////    }
+////  }
+//}
 
+
+void CheckVoltage(){
+  Serial.print(analogRead(A1) * (5.0/1023.0));
+  Serial.println(F("V"));
+}
+
+
+///*
+// WiFiEsp example: WebClient
+// This sketch connects to google website using an ESP8266 module to
+// perform a simple web search.
+// For more details see: http://yaab-arduino.blogspot.com/p/wifiesp-example-client.html
+//*/
+//
 #include "WiFiEsp.h"
-
-// Emulate Serial1 on pins 6/7 if not present
-//#ifndef HAVE_HWSERIAL1
-//#include "SoftwareSerial.h"
-//SoftwareSerial Serial1(6, 7); // RX, TX
-// Initialize the Ethernet client object
+//
+//// Emulate Serial1 on pins 6/7 if not present
+////#ifndef HAVE_HWSERIAL1
+////#include "SoftwareSerial.h"
+////SoftwareSerial Serial1(6, 7); // RX, TX
+//// Initialize the Ethernet client object
 WiFiEspClient client;
-
-//#endif
-
+//
+////#endif
+//
 char ssid[] = "4G UFI_8B8";            // your network SSID (name)
 char pass[] = "1234567890";        // your network password
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
-
+//
 char server[] = "arduino.cc";
-
+//
+//// AT+RST
+////#define num_words 100
+//
+////AT&GMR
+////#define num_words 7
 void setup()
 {
+//  Serial.begin(115200);
+//
+//  long bauds[] = {300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 74880, 115200, 230400, 250000, 500000, 1000000, 2000000};
+//
+//  // scanning baud rates
+////  for(int i = 0; i< sizeof(bauds)/sizeof(long); i++){
+//
+//  Serial.println("Scanning");
+//  Serial.println(sizeof(bauds)/sizeof(long));
+//  
+//  for(int i = 0; i < sizeof(bauds)/sizeof(long); i++){
+//    Serial1.begin(bauds[i]);
+//
+//    Serial.print("Scanning baud ");
+//    Serial.println(bauds[i]);
+//    Serial1.print("AT+GMR");
+//
+//    // length 100 says error with baudrate 115200
+//
+////    char words[num_words];
+//
+//    //scan 10 bytes to be sure
+////    Serial1.readBytes(words, num_words);
+//    
+//    Serial.println(Serial1.readString(), DEC);
+//    Serial1.flush();
+//  }
+//  
   // initialize serial for debugging
   Serial.begin(115200);
   // initialize serial for ESP module
-  Serial1.begin(9600);
+  Serial2.begin(115200);
   // initialize ESP module
-  WiFi.init(&Serial1);
+
+  
+  WiFi.init(&Serial2);
 
   // check for the presence of the shield
   if (WiFi.status() == WL_NO_SHIELD) {
@@ -66,6 +133,7 @@ void setup()
     client.println();
     client.println(content);
   }
+
 }
 
 void loop()
