@@ -6,7 +6,8 @@
         "sourceMap": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "allowJs": true
+        "allowJs": true,
+        "outDir": "Server/Dist"
     },"include": [
         "Server/node_modules/@types",
         "Server/*"
