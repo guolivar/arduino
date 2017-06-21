@@ -1,28 +1,3 @@
-//void setup() {
-//  Serial.setTimeout(5000);
-//  Serial.begin(115200);
-//  Serial2.begin(115200);
-//
-//  delay(1000);
-//}
-//
-//void loop() {
-////  delay(2000);
-//  Serial2.println("AT");
-//  CheckVoltage();
-//
-//  Serial.println(Serial2.readString());//  Serial1.println(command);
-//  delay(100);
-////  if(Serial1.available())
-////  {
-////    while(Serial1.available())
-////    {
-////      char c=Serial1.read();
-////      Serial.write(c);          
-////    }
-////  }
-//}
-
 
 void CheckVoltage(){
   Serial.print(analogRead(A1) * (5.0/1023.0));
@@ -51,51 +26,15 @@ WiFiEspClient client;
 char ssid[] = "4G UFI_8B8";            // your network SSID (name)
 char pass[] = "1234567890";        // your network password
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
-//
+
 char server[] = "arduino.cc";
-//
-//// AT+RST
-////#define num_words 100
-//
-////AT&GMR
-////#define num_words 7
 void setup()
 {
-//  Serial.begin(115200);
-//
-//  long bauds[] = {300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 74880, 115200, 230400, 250000, 500000, 1000000, 2000000};
-//
-//  // scanning baud rates
-////  for(int i = 0; i< sizeof(bauds)/sizeof(long); i++){
-//
-//  Serial.println("Scanning");
-//  Serial.println(sizeof(bauds)/sizeof(long));
-//  
-//  for(int i = 0; i < sizeof(bauds)/sizeof(long); i++){
-//    Serial1.begin(bauds[i]);
-//
-//    Serial.print("Scanning baud ");
-//    Serial.println(bauds[i]);
-//    Serial1.print("AT+GMR");
-//
-//    // length 100 says error with baudrate 115200
-//
-////    char words[num_words];
-//
-//    //scan 10 bytes to be sure
-////    Serial1.readBytes(words, num_words);
-//    
-//    Serial.println(Serial1.readString(), DEC);
-//    Serial1.flush();
-//  }
-//  
   // initialize serial for debugging
   Serial.begin(115200);
   // initialize serial for ESP module
   Serial2.begin(115200);
   // initialize ESP module
-
-  
   WiFi.init(&Serial2);
 
   // check for the presence of the shield
@@ -121,17 +60,19 @@ void setup()
   Serial.println();
   Serial.println("Starting connection to server...");
   // if you get a connection, report back via serial
-  if (client.connect(server, 80)) {
+  char url[] = "192.168.56.1:8080/12332_12_31_23434_12_2434_2342425_242132_2421_4124_5335_535363_134124_4234_5235_true_2016-6-23";
+  if (client.connect( url , 80)) {
     Serial.println("Connected to server");
+    
     // Make a HTTP request
-    String content = "Hey, just testing a post request.";
-    client.println("POST YOUR_RESOURCE_URI HTTP/1.1");
-    client.println("Host: SERVER:PORT");
-    client.println("Accept: */*");
-    client.println("Content-Length: " + content.length());
-    client.println("Content-Type: application/x-www-form-urlencoded");
-    client.println();
-    client.println(content);
+//    String content = "Hey, just testing a post request.";
+//    client.println("POST YOUR_RESOURCE_URI HTTP/1.1");
+//    client.println("Host: SERVER:PORT");
+//    client.println("Accept: */*");
+//    client.println("Content-Length: " + content.length());
+//    client.println("Content-Type: application/x-www-form-urlencoded");
+//    client.println();
+//    client.println(content);
   }
 
 }
