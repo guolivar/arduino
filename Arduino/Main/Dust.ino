@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 SoftwareSerial dustport(8,9);
 
-void DUST_setup() {
+void Dust_setup() {
   //for the arduino mega use serial1 instead of software serial
   //Serial1.begin(9600);
   
@@ -35,7 +35,7 @@ byte getData(unsigned int index){
   return (receiveDat[index]*256)+receiveDat[index + 1];
 }
 
- String DUST_loop(){
+ String Dust_loop(){
   readDust();
   PM1 = (receiveDat[4]*256)+receiveDat[5];
   PM25 = (receiveDat[6]*256)+receiveDat[7];

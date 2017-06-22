@@ -48,7 +48,7 @@ void SD_setup(){
   }
 
   // print the headings for our data in the txt file
-   myFile = SD.open(F("data.csv"), FILE_WRITE);
+   myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
 
    // Print the headings in the csv file
    // please note these do not use the SEP macro because they get converted to Flashstrings which are stored in program memory to save SRAM

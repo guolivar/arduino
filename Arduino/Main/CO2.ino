@@ -29,7 +29,7 @@ verification. For more advanced applications see the I2C Comm guide.
 */
 
 
-void co2setup() {
+void CO2_setup() {
    pinMode(13, OUTPUT); // address of the Arduino LED indicator
    
 }
