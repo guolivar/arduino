@@ -4,6 +4,7 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "sourceMap": true,
+        "lib": ["es2016", "dom"],
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "allowJs": true,
