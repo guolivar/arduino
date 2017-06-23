@@ -5,11 +5,11 @@ File myFile;
 
 void Save(String text, String label = ""){
 
-  if(label != ""){
-      Serial.print(label);
-      Serial.print(F(": "));
-      Serial.println(text);
-  }
+//  if(label != ""){
+//      Serial.print(label);
+//      Serial.print(F(": "));
+//      Serial.println(text);
+//  }
 
   //if the file opened okay, write to it
   if (myFile) {
@@ -29,21 +29,29 @@ void Save_sensor(String data, const __FlashStringHelper* label){
   Save(SEP(data), label);
 }
 
-void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
+bool SD_available = true;
 
-    Save_sensor(Time, F("Time"));
-    Save_sensor(String(PIR), F("PIR"));
-    Save_sensor(Temp, F("Temp"));
-    Save_sensor(String(CO2),F("CO2"));
-    Save(Dust, F("Dust"));
-    Save(F("\n"));
+void Save_sensors(String* Time, bool PIR, String* Temp, int CO2, String* Dust){
+
+    if(SD_available){
+
+      Save_sensor(Time[0] + ":" + Time[1] + ":" + Time[2] + " " + Time[3] + "/" + Time[4] + "/" + Time[5], F("Time"));
+      Save_sensor(String(PIR), F("PIR"));
+      Save_sensor(Temp[0] + F(",") + Temp[1], F("Temp"));
+      Save_sensor(String(CO2),F("CO2"));
+      Save(Dust[0] + F(",") + Dust[1] + F(",") + Dust[2], F("Dust"));
+      Save(F("\n"));
+    }
+    
+    Wifi_send(Time, String(PIR), Temp, String(CO2), Dust);
 }
 
 void SD_setup(){
-  Serial.println(F("Init SD"));
-
+//  Serial.println(F("Init SD"));
+  
   if (!SD.begin(10)) {
-    Serial.println(F("Init failed!"));
+//    Serial.println(F("Init failed!"));
+    SD_available = false;
     return;
   }
 
@@ -62,5 +70,5 @@ void SD_setup(){
    Save(F("Dust 2.5,"));
    Save(F("Dust 10\n"));
    
-   Serial.println(F("init done"));
+//   Serial.println(F("init done"));
 }

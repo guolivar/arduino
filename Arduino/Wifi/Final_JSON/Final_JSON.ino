@@ -75,6 +75,10 @@ void loop()
   }
 }
 
+#include <ArduinoJson.h>
+
+StaticJsonBuffer<300> jsonBuffer;
+JsonObject& sensor_values = jsonBuffer.createObject();
 // this method makes a HTTP connection to the server
 void httpRequest()
 {
@@ -87,9 +91,22 @@ void httpRequest()
   // if there's a successful connection
   if (client.connect(server, 8080)) {
     ////Serial.println("Connecting...");
-    int value = 23;
-    String content = "{\"key\":" + String(value) + "}";
-    // send the HTTP PUT request
+
+    sensor_values["Dust1"] = 434;
+    sensor_values["Dust2_5"] = 423;
+    sensor_values["Dust10"] = 231;
+
+    sensor_values["Box_ID"] = 0;
+    sensor_values["Time_sent"] = "2017-12-02 12:00:12";
+    sensor_values["Temperature"] = 1233;
+    sensor_values["Humidity"] = 1323;
+    sensor_values["CO2"] = 41241;
+    sensor_values["Presence"] = true;
+
+    String content;
+
+    sensor_values.printTo(content);
+ 
     client.println(F("POST /arduino HTTP/1.1"));
     client.println(F("Host: 192.168.100.100"));
     client.println(F("Accept: */*"));

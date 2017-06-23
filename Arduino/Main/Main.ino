@@ -3,8 +3,8 @@
 
 void setup() {
  
-  Serial.begin(9600);
-
+  Serial.begin(115200);
+//  CheckVoltage();
   // setup all the modules
   SD_setup();
   PIR_setup();
@@ -12,6 +12,7 @@ void setup() {
   Dust_setup();
   Temp_setup();
   Time_setup();
+  Wifi_setup();
 
  //wait for Arduino serial port to become available
   while (!Serial) {
@@ -23,7 +24,12 @@ void loop() {
 
     // csv file headings, the functions need to be called in this order
     // Time Movement Temp Humidty CO2 Dust 1.0 2.5 10
+     
     Save_sensors( Time_loop(), PIR_loop(), Temp_loop(), CO2_loop(), Dust_loop() );
-    Serial.println(F("Saved"));
-    delay(60000);
+//    String temp_humid [2] = {"211424", "12424"};
+//    String Dusts[3] = {"24242", "24424", "242313"}; 
+//    Save_sensors( "2016-12-12-03-00-03", PIR_loop(), temp_humid, 200, Dusts );
+   
+//    Serial.println(F("Saved"));
+//    delay(60000);
 }

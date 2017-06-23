@@ -35,13 +35,13 @@ byte getData(unsigned int index){
   return (receiveDat[index]*256)+receiveDat[index + 1];
 }
 
- String Dust_loop(){
+ String* Dust_loop(){
   readDust();
   PM1 = (receiveDat[4]*256)+receiveDat[5];
   PM25 = (receiveDat[6]*256)+receiveDat[7];
   PM10 = (receiveDat[8]*256)+receiveDat[9];
-  String message1 = String(PM1) + F(",") + String(PM25) + F(",") + String(PM10);
-
+//  String message1 = String(PM1) + F(",") + String(PM25) + F(",") + String(PM10);
+  String message1 [3] = {String(PM1), String(PM25), String(PM10)};
   return message1;
   
  }

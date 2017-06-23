@@ -16,23 +16,23 @@ int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
 char server[] = "192.168.100.100";
 
-unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
-const unsigned long postingInterval = 10000L; // delay between updates, in milliseconds
+//unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
+//const unsigned long postingInterval = 10000L; // delay between updates, in milliseconds
 
 // Initialize the Ethernet client object
 WiFiEspClient client;
 
-void setup()
+void Wifi_setup()
 {
-  // initialize serial for debugging
-  Serial.begin(115200);
+//  Serial2.begin(115200);
 
   // initialize ESP module
+//  WiFi.init(&Serial2);
   WiFi.init(&Serial);
 
   // check for the presence of the shield
   if (WiFi.status() == WL_NO_SHIELD) {
-//    ////Serial.println("WiFi shield not present");
+//    Serial.println("WiFi shield not present");
     
     //change this so that it doesnt waste time doing other wifi setup stuff but does carry on to use sd card etc
 
@@ -40,6 +40,8 @@ void setup()
      
     // don't continue
     while (true);
+ 
+    // if we cut out gfx then we may be able to use display
 
       
   }
@@ -54,46 +56,63 @@ void setup()
 
 //  Serial.println("You're connected to the network");
   
-  printWifiStatus();
+//  printWifiStatus();
 }
-
-void loop()
-{
-  // if there's incoming data from the net connection send it out the serial port
-  // this is for debugging purposes only
-//  while (client.available()) {
-//    char c = client.read();
-//    Serial.write(c);
-//  }
-
-  // if 10 seconds have passed since your last connection,
-  // then connect again and send data
-  if (millis() - lastConnectionTime > postingInterval) {
-    httpRequest();
-  }
-}
+//
+//void loop()
+//{
+//  // if there's incoming data from the net connection send it out the serial port
+//  // this is for debugging purposes only
+////  while (client.available()) {
+////    char c = client.read();
+////    Serial.write(c);
+////  }
+//
+//  // if 10 seconds have passed since your last connection,
+//  // then connect again and send data
+////  if (millis() - lastConnectionTime > postingInterval) {
+////    httpRequest();
+////  }
+//}
 
 // this method makes a HTTP connection to the server
-void httpRequest()
+void Wifi_send(String* Time, String PIR, String* Temp, String CO2, String* Dust)
 {
   ////Serial.println();
     
   // close any connection before send a new request
   // this will free the socket on the WiFi shield
+
+  delay(10000);
+//  Serial.println("Sending data");
   client.stop();
 
   // if there's a successful connection
   if (client.connect(server, 8080)) {
-    ////Serial.println("Connecting...");
+//    Serial.println("Connecting...");
+
+    // upgrade to SSL later should just be change from client.connect to client.connectSSL(ip etc)
     
     // send the HTTP PUT request
-    client.println(F("GET /12332_12_31_23434_12_2434_2342425_242132_2421_4124_5335_535363_134124_4234_5235_true_2016-6-23 HTTP/1.1"));
+
+    //replace this with json
+    client.println("GET /" BOX_ID "_" + Time[5] + "_" + Time[4] + "_" + Time[3] + "_" + Time[0] + "_" + Time[1] + "_" + Time[2] + "_" + Dust[0] + "_" + Dust[1] + "_" + Dust[2] + "_" + Temp[0] + "_" + Temp[1] + "_" + CO2 + "_" + PIR + " HTTP/1.1");
     client.println(F("Host: 192.168.100.100"));
     client.println("Connection: close");
     client.println();
 
+//    Serial.println("Data sent");
+
+  // if there's incoming data from the net connection send it out the serial port
+  // this is for debugging purposes only
+//    while (client.available()) {
+//      char c = client.read();
+//      Serial.write(c);
+//    }
+
+
     // note the time that the connection was made
-    lastConnectionTime = millis();
+//    lastConnectionTime = millis();
   }
   else {
     // if you couldn't make a connection
@@ -105,24 +124,19 @@ void httpRequest()
 void printWifiStatus()
 {
   // print the SSID of the network you're attached to
-  //Serial.print("SSID: ");
-  ////Serial.println(WiFi.SSID());
+  Serial.print("SSID: ");
+  Serial.println(WiFi.SSID());
 
   // print your WiFi shield's IP address
   IPAddress ip = WiFi.localIP();
-  //Serial.print("IP Address: ");
-  ////Serial.println(ip);
+  Serial.print("IP Address: ");
+  Serial.println(ip);
 
   // print the received signal strength
   long rssi = WiFi.RSSI();
-  //Serial.print("Signal strength (RSSI):");
-  //Serial.print(rssi);
-  ////Serial.println(" dBm");
+  Serial.print("Signal strength (RSSI):");
+  Serial.print(rssi);
+  Serial.println(" dBm");
 }
 
-// for using arduino mega as voltmeter
-void CheckVoltage(){
-  Serial.print(analogRead(A1) * (5.0/1023.0));
-  Serial.println(F("V"));
-}
 
