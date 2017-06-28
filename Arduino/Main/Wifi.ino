@@ -14,7 +14,7 @@ char ssid[] = "4G UFI_8B8";           // your network SSID (name)
 char pass[] = "1234567890";        // your network password
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
-char server[] = "192.168.100.100";
+char server[] = "192.168.100.101";
 
 //unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
 //const unsigned long postingInterval = 10000L; // delay between updates, in milliseconds
@@ -96,8 +96,8 @@ void Wifi_send(String* Time, String PIR, String* Temp, String CO2, String* Dust)
     // send the HTTP PUT request
 
     //replace this with json
-    client.println("GET /" BOX_ID "_" + Time[5] + "_" + Time[4] + "_" + Time[3] + "_" + Time[0] + "_" + Time[1] + "_" + Time[2] + "_" + Dust[0] + "_" + Dust[1] + "_" + Dust[2] + "_" + Temp[0] + "_" + Temp[1] + "_" + CO2 + "_" + PIR + " HTTP/1.1");
-    client.println(F("Host: 192.168.100.100"));
+    client.println("GET /" BOX_ID "_" + Time[5] + "_" + Time[4] + "_" + Time[3] + "_" + Time[0] + "_" + Time[1] + "_" + Time[2] + "_" + Dust[0] + "_" + Dust[1] + "_" + Dust[2] + "_" + Temp[0] + "_" + Temp[1] + "_" + CO2 + "_" + PIR + " HTTP/1.1 ");
+    client.println(F("Host: 192.168.100.101"));
     client.println("Connection: close");
     client.println();
 
