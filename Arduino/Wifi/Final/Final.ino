@@ -10,11 +10,15 @@
 
 #include "src/WiFiEsp.h"
 
-char ssid[] = "4G UFI_8B8";           // your network SSID (name)
-char pass[] = "1234567890";        // your network password
+//char ssid[] = "4G UFI_8B8";           // your network SSID (name)
+
+char ssid[] = "DESKTOP-73HN8ON 5011";
+char pass[] = "u65879Q0";   
+
+//char pass[] = "1234567890";        // your network password
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
-char server[] = "192.168.100.100";
+char server[] = "seat-skomobo.massey.ac.nz";
 
 unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
 const unsigned long postingInterval = 10000L; // delay between updates, in milliseconds
@@ -83,12 +87,13 @@ void httpRequest()
   client.stop();
 
   // if there's a successful connection
-  if (client.connect(server, 8080)) {
+  if (client.connect(server, 80)) {
     ////Serial.println("Connecting...");
     
     // send the HTTP PUT request
-    client.println(F("GET /12332_12_31_23434_12_2434_2342425_242132_2421_4124_5335_535363_134124_4234_5235_true_2016-6-23 HTTP/1.1"));
-    client.println(F("Host: 192.168.100.100"));
+//    client.println(F("GET /12332_12_31_23434_12_2434_2342425_242132_2421_4124_5335_535363_134124_4234_5235_true_2016-6-23 HTTP/1.1"));
+    client.println(F("GET /0_2016-6-23_12332_12_31_23434_12_2434_1 HTTP/1.1"));
+    client.println(F("Host: seat-skomobo.massey.ac.nz"));
     client.println("Connection: close");
     client.println();
 
