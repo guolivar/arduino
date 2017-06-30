@@ -17,6 +17,8 @@ Once you have the IDE installed you need to make sure that you add all the zip f
 
 If you add any code that uses a external library make sure you download it as a zip file an put it in the above mentioned folder so that other programmers can install all the necesarry libraries to upload the code to the Arduino.
 
+If you need to make changes to the code obtained from the third party library then unzip the library and include all its source files in the src folder within the repository.
+
 ## Push cmd file:
 
 The push cmd file is a convenient command for git users so they can commit changes easily.
