@@ -29,7 +29,17 @@ WiFiEspClient client;
 void setup()
 {
   // initialize serial for debugging
+
+  // this baud rate for board that has jumper wire
+//  Serial.begin(115200);
+  
   Serial.begin(115200);
+  
+//  Serial.println("AT+CIOBAUD=9600");
+//
+//  Serial.flush();
+//
+//  Serial.begin(9600);
 
   // initialize ESP module
   WiFi.init(&Serial);
@@ -94,7 +104,7 @@ void httpRequest()
 //    client.println(F("GET /12332_12_31_23434_12_2434_2342425_242132_2421_4124_5335_535363_134124_4234_5235_true_2016-6-23 HTTP/1.1"));
     client.println(F("GET /0_2016-6-23_12332_12_31_23434_12_2434_1 HTTP/1.1"));
     client.println(F("Host: seat-skomobo.massey.ac.nz"));
-    client.println("Connection: close");
+    client.println(F("Connection: close"));
     client.println();
 
     // note the time that the connection was made

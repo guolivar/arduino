@@ -14,7 +14,7 @@
 //char pass[] = "1234567890";        // your network password
 
 char ssid[] = "DESKTOP-73HN8ON 5011";           // your network SSID (name)
-char pass[] = "u658\7Q0"; 
+char pass[] = "u65879Q0"; 
 
 
 
@@ -97,10 +97,10 @@ void Wifi_send(String* Time, String PIR, String* Temp, String CO2, String* Dust)
 
   delay(10000);
 //  Serial.println("Sending data");
-  client.stop();
+  client.stop(); 
 
   // if there's a successful connection
-  if (client.connect(server, 81)) {
+  if (client.connect(server, 80)) {
 //    Serial.println("Connecting...");
 
     // upgrade to SSL later should just be change from client.connect to client.connectSSL(ip etc)
@@ -110,7 +110,7 @@ void Wifi_send(String* Time, String PIR, String* Temp, String CO2, String* Dust)
     //replace this with json
 //    Serial.println(Time[5]);
 //    client.println("GET /" BOX_ID "_" + Time[5] + "_" + Time[4] + "_" + Time[3] + "_" + Time[0] + "_" + Time[1] + "_" + Time[2] + "_" + Dust[0] + "_" + Dust[1] + "_" + Dust[2] + "_" + Temp[0] + "_" + Temp[1] + "_" + CO2 + "_" + PIR + " HTTP/1.1 ");
-    client.println("GET /0_2016-6-23_12332_12_31_23434_12_2434_1");
+    client.println(F("GET /0_2016-6-23_12332_12_31_23434_12_2434_1"));
 //    client.println(F("Host: 192.168.100.100"));
     
     // change lib so that we can use .print properly so we can dynamically change the server etc
