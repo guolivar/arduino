@@ -13,10 +13,10 @@ void Time_setup() {
 // This macro allows us to succinctly convert each argument into a string
 #define format( arg ) ( String(rtc.now().arg()) )
 
-String* Time_loop() {
- 
-//  return format( hour ) + ":" + format( minute ) + ":" + format( second ) + " " + format( day ) + "/" + format( month ) + "/" + format( year );
-  String Time[] = {format( hour ), format( minute ), format( second ), format( day ), format( month ), format( year )};
-  return Time;
+String Time_loop() {
+  
+  return format( hour ) + ":" + format( minute ) + ":" + format( second ) + " " + format( day ) + "/" + format( month ) + "/" + format( year );
+//  String Time[] = {format( hour ), format( minute ), format( second ), format( day ), format( month ), format( year )};
+//  return Time;
 }
 

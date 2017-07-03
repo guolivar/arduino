@@ -23,8 +23,9 @@ float adjust_temp(float rawData){
 
 #define Sep( val ) val + ","
 
-String* Temp_loop()
+String Temp_loop()
 {
+
  byte aa,bb,cc,dd;
  float temperature=0.0;  float humidity=0.0;
  getdata(&aa,&bb,&cc,&dd);
@@ -35,8 +36,6 @@ String* Temp_loop()
 // temperature = (Temp_High [7:0] x 64 + Temp_Low [7:2]/4 ) / 16384 x 165 40
  temperature = adjust_temp((float)((unsigned)(cc  * 64) + (unsigned)(dd >> 2 )) / 16384.0 * 165.0 - 40.0);
 
-//  return Sep(String(temperature)) + String(humidity);
-  String temp_humidity[2] = {String(temperature), String(humidity)};
-  return temp_humidity;
+  return Sep(String(temperature)) + String(humidity);
 }
 

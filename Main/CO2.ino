@@ -179,6 +179,7 @@ int readCO2(){
 }
 
 int CO2_loop(){
+ 
   int co2Value = readCO2();
 
   if (co2Value > 0){

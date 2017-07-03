@@ -5,11 +5,11 @@ File myFile;
 
 void Save(String text, String label = ""){
 
-//  if(label != ""){
-//      Serial.print(label);
-//      Serial.print(F(": "));
-//      Serial.println(text);
-//  }
+  if(label != ""){
+      Serial.print(label);
+      Serial.print(F(": "));
+      Serial.println(text);
+  }
 
   //if the file opened okay, write to it
   if (myFile) {
@@ -31,19 +31,27 @@ void Save_sensor(String data, const __FlashStringHelper* label){
 
 bool SD_available = true;
 
-void Save_sensors(String* Time, bool PIR, String* Temp, int CO2, String* Dust){
+void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
 
     if(SD_available){
-
-      Save_sensor(Time[0] + ":" + Time[1] + ":" + Time[2] + " " + Time[3] + "/" + Time[4] + "/" + Time[5], F("Time"));
+      
+      Save_sensor(Time, F("Time"));
       Save_sensor(String(PIR), F("PIR"));
-      Save_sensor(Temp[0] + F(",") + Temp[1], F("Temp"));
+      Save_sensor(Temp, F("Temp"));
       Save_sensor(String(CO2),F("CO2"));
-      Save(Dust[0] + F(",") + Dust[1] + F(",") + Dust[2], F("Dust"));
+      Save_sensor(Dust, F("Dust"));
       Save(F("\n"));
     }
     
-    Wifi_send(Time, String(PIR), Temp, String(CO2), Dust);
+   Wifi_send(Time, String(PIR), Temp, String(CO2), Dust);
+
+   //testing without esp module
+   // replacing all other deliminators with underscores because they are the only valid ones
+//   Time.replace(":", "_");
+//   Time.replace("/", "_");
+//   Temp.replace(",", "_");
+//   Dust.replace(",", "_");
+//   Serial.println("GET /" BOX_ID "_" + Time + F("_") + Dust + F("_") + Temp + F("_") + CO2 + F("_") + PIR + F(" HTTP/1.1"));
 }
 
 void SD_setup(){

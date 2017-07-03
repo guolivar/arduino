@@ -51,21 +51,31 @@ void Wifi_setup()
     // actually a hardware reset button to restart this code with a interrupt would be good, wire it in to pin 3???
      
     // don't continue
-    while (true);
+//    while (true);
  
     // if we cut out gfx then we may be able to use display
 
       
   }
 
+  // make sure that if any of these steps fail the system continues
+
   // attempt to connect to WiFi network
-  while ( status != WL_CONNECTED) {
-//    Serial.print("Attempting to connect to WPA SSID: ");
-//    Serial.println(ssid);
-    // Connect to WPA/WPA2 network
+//  while ( status != WL_CONNECTED) {
+////    Serial.print("Attempting to connect to WPA SSID: ");
+////    Serial.println(ssid);
+//    // Connect to WPA/WPA2 network
+//    status = WiFi.begin(ssid, pass);
+//  }
+  
+  for (int i = 0; i< 5; i= i + 1) {
     status = WiFi.begin(ssid, pass);
   }
 
+  
+
+
+  
 //  Serial.println("You're connected to the network");
   
 //  printWifiStatus();
@@ -88,19 +98,28 @@ void Wifi_setup()
 //}
 
 // this method makes a HTTP connection to the server
-void Wifi_send(String* Time, String PIR, String* Temp, String CO2, String* Dust)
+void Wifi_send(String Time, String PIR, String Temp, String CO2, String Dust)
 {
   ////Serial.println();
     
   // close any connection before send a new request
   // this will free the socket on the WiFi shield
 
+
+
+   // if status is not connected to hotspot then try and connect again in each loop
+   // only attempt server connection if hotspot connection successful
+   // only attempt get request if server connection successful 
+   
+
+
   delay(10000);
 //  Serial.println("Sending data");
   client.stop(); 
 
   // if there's a successful connection
-  if (client.connect(server, 80)) {
+//  if (client.connect(server, 80)) {
+
 //    Serial.println("Connecting...");
 
     // upgrade to SSL later should just be change from client.connect to client.connectSSL(ip etc)
@@ -110,7 +129,21 @@ void Wifi_send(String* Time, String PIR, String* Temp, String CO2, String* Dust)
     //replace this with json
 //    Serial.println(Time[5]);
 //    client.println("GET /" BOX_ID "_" + Time[5] + "_" + Time[4] + "_" + Time[3] + "_" + Time[0] + "_" + Time[1] + "_" + Time[2] + "_" + Dust[0] + "_" + Dust[1] + "_" + Dust[2] + "_" + Temp[0] + "_" + Temp[1] + "_" + CO2 + "_" + PIR + " HTTP/1.1 ");
-    client.println(F("GET /0_2016-6-23_12332_12_31_23434_12_2434_1"));
+
+    // this will print the exact same line as client.println but it avoids the nasty issue where
+    // the library appends shit unnesearrily due to this being a normal sring rather than a flash string
+
+//    Serial.println("GET /" BOX_ID "_" + Time + F("_") + Dust.replace(",", "_") + F("_") + Temp.replace(",", "_") + F("_") + CO2 + F("_") + PIR + F(" HTTP/1.1"));
+    
+    // look at the other message it sends first and also send that message think it is AT+CIPSEND ..... followed by AT+CIPCLOSE maybe
+    Dust.replace(",", "_");
+    Temp.replace(",", "_");
+    Time.replace(":", "_");
+    Time.replace("/", "_");
+    
+    client.println("GET /" BOX_ID "_" + Time + F("_") + Dust + F("_") + Temp + F("_") + CO2 + F("_") + PIR + F(" HTTP/1.1"));
+   
+//client.println(F("GET /0_2016-6-23_12332_12_31_23434_12_2434_1"));
 //    client.println(F("Host: 192.168.100.100"));
     
     // change lib so that we can use .print properly so we can dynamically change the server etc
@@ -130,11 +163,11 @@ void Wifi_send(String* Time, String PIR, String* Temp, String CO2, String* Dust)
 
     // note the time that the connection was made
 //    lastConnectionTime = millis();
-  }
-  else {
+//  }
+//  else {
     // if you couldn't make a connection
 //    Serial.println("Connection failed");
-  }
+//  }
 }
 
 
