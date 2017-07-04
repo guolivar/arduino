@@ -10,19 +10,19 @@
 
 #include "src/WiFiEsp.h"
 
-//char ssid[] = "4G UFI_8B8";           // your network SSID (name)
-//char pass[] = "1234567890";        // your network password
+char ssid[] = "4G UFI_8B8";           // your network SSID (name)
+char pass[] = "1234567890";        // your network password
 
-char ssid[] = "DESKTOP-73HN8ON 5011";           // your network SSID (name)
-char pass[] = "u65879Q0"; 
+//char ssid[] = "DESKTOP-73HN8ON 5011";           // your network SSID (name)
+//char pass[] = "u65879Q0"; 
 
 
 
 
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
-//char server[] = "192.168.100.100";
-char server[] = "seat-skomobo.massey.ac.nz";
+char server[] = "192.168.100.100";
+//char server[] = "seat-skomobo.massey.ac.nz";
 
 // sd card not present causes wifi connection to fail
 
@@ -44,6 +44,10 @@ void Wifi_setup()
 
   // check for the presence of the shield
   if (WiFi.status() == WL_NO_SHIELD) {
+
+      // do nothing for now eventually print error to display screen
+      
+    
 //    Serial.println("WiFi shield not present");
     
     //change this so that it doesnt waste time doing other wifi setup stuff but does carry on to use sd card etc
@@ -69,7 +73,12 @@ void Wifi_setup()
 //  }
   
   for (int i = 0; i< 5; i= i + 1) {
-    status = WiFi.begin(ssid, pass);
+    if(status != WL_CONNECTED){
+       status = WiFi.begin(ssid, pass);
+    }
+    else{
+      break;
+    }
   }
 
   
@@ -98,7 +107,7 @@ void Wifi_setup()
 //}
 
 // this method makes a HTTP connection to the server
-void Wifi_send(String Time, String PIR, String Temp, String CO2, String Dust)
+void Wifi_send(String Time, bool PIR, String Temp, int CO2, String Dust)
 {
   ////Serial.println();
     
@@ -116,58 +125,79 @@ void Wifi_send(String Time, String PIR, String Temp, String CO2, String Dust)
   delay(10000);
 //  Serial.println("Sending data");
   client.stop(); 
+  
+  // invert this for cleanliness
 
-  // if there's a successful connection
-//  if (client.connect(server, 80)) {
-
-//    Serial.println("Connecting...");
-
-    // upgrade to SSL later should just be change from client.connect to client.connectSSL(ip etc)
-    
-    // send the HTTP PUT request
-
-    //replace this with json
-//    Serial.println(Time[5]);
-//    client.println("GET /" BOX_ID "_" + Time[5] + "_" + Time[4] + "_" + Time[3] + "_" + Time[0] + "_" + Time[1] + "_" + Time[2] + "_" + Dust[0] + "_" + Dust[1] + "_" + Dust[2] + "_" + Temp[0] + "_" + Temp[1] + "_" + CO2 + "_" + PIR + " HTTP/1.1 ");
-
-    // this will print the exact same line as client.println but it avoids the nasty issue where
-    // the library appends shit unnesearrily due to this being a normal sring rather than a flash string
-
-//    Serial.println("GET /" BOX_ID "_" + Time + F("_") + Dust.replace(",", "_") + F("_") + Temp.replace(",", "_") + F("_") + CO2 + F("_") + PIR + F(" HTTP/1.1"));
-    
-    // look at the other message it sends first and also send that message think it is AT+CIPSEND ..... followed by AT+CIPCLOSE maybe
-    Dust.replace(",", "_");
-    Temp.replace(",", "_");
-    Time.replace(":", "_");
-    Time.replace("/", "_");
-    
-    client.println("GET /" BOX_ID "_" + Time + F("_") + Dust + F("_") + Temp + F("_") + CO2 + F("_") + PIR + F(" HTTP/1.1"));
-   
-//client.println(F("GET /0_2016-6-23_12332_12_31_23434_12_2434_1"));
-//    client.println(F("Host: 192.168.100.100"));
-    
-    // change lib so that we can use .print properly so we can dynamically change the server etc
-    client.println(F("Host: seat-skomobo.massey.ac.nz"));
-    client.println("Connection: close");
-    client.println();
-
-//    Serial.println("Data sent");
-
-  // if there's incoming data from the net connection send it out the serial port
-  // this is for debugging purposes only
-//    while (client.available()) {
-//      char c = client.read();
-//      Serial.write(c);
-//    }
+  // if no connection then try again
+  
+  if(status != WL_CONNECTED){
+    status = WiFi.begin(ssid, pass);
+  }
+  else{
+     // if there's a successful connection
+    if (client.connect(server, 81)) {
+  
+  //    Serial.println("Connecting...");
+  
+      // upgrade to SSL later should just be change from client.connect to client.connectSSL(ip etc)
+      
+      // send the HTTP PUT request
+  
+      //replace this with json
+  //    Serial.println(Time[5]);
+  //    client.println("GET /" BOX_ID "_" + Time[5] + "_" + Time[4] + "_" + Time[3] + "_" + Time[0] + "_" + Time[1] + "_" + Time[2] + "_" + Dust[0] + "_" + Dust[1] + "_" + Dust[2] + "_" + Temp[0] + "_" + Temp[1] + "_" + CO2 + "_" + PIR + " HTTP/1.1 ");
+  
+      // this will print the exact same line as client.println but it avoids the nasty issue where
+      // the library appends shit unnesearrily due to this being a normal sring rather than a flash string
+  
+  //    Serial.println("GET /" BOX_ID "_" + Time + F("_") + Dust.replace(",", "_") + F("_") + Temp.replace(",", "_") + F("_") + CO2 + F("_") + PIR + F(" HTTP/1.1"));
+      
+      // look at the other message it sends first and also send that message think it is AT+CIPSEND ..... followed by AT+CIPCLOSE maybe
+      
+      Dust.replace(",", "_");
+      Temp.replace(",", "_");
+      Time.replace(":", "_");
+      Time.replace("/", "_");
+      Time.replace(" ", "_");
 
 
-    // note the time that the connection was made
-//    lastConnectionTime = millis();
-//  }
-//  else {
-    // if you couldn't make a connection
-//    Serial.println("Connection failed");
-//  }
+      // can the fucking wifi esp library and do it myself
+
+      
+      // use normal serial because the library stuffs it up
+      Serial.println("GET /" BOX_ID "_" + Time + F("_") + Dust + F("_") + Temp + F("_") + String(CO2) + F("_") + String(PIR) + F(" HTTP/1.1"));
+      Serial.println(F("AT+CIPSEND=3,50"));
+      Serial.println(F("AT+CIPCLOSE=3"));
+//      Serial.println("AT+CIPSEND 
+     
+//      client.println(F("GET /0_2016_6_23_12332_12_31_23434_12_2434_1 HTTP:1/1"));
+  //    client.println(F("Host: 192.168.100.100"));
+      
+      // change lib so that we can use .print properly so we can dynamically change the server etc
+  //    client.println(F("Host: seat-skomobo.massey.ac.nz"));
+      client.println(F("Host: 192.168.100.100"));
+  
+      client.println(F("Connection: close"));
+      client.println();
+  
+  //    Serial.println("Data sent");
+  
+    // if there's incoming data from the net connection send it out the serial port
+    // this is for debugging purposes only
+  //    while (client.available()) {
+  //      char c = client.read();
+  //      Serial.write(c);
+  //    }
+  
+  
+      // note the time that the connection was made
+  //    lastConnectionTime = millis();
+    }
+  //  else {
+      // if you couldn't make a connection
+  //    Serial.println("Connection failed");
+  //  }
+  }
 }
 
 

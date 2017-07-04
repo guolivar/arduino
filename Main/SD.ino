@@ -5,11 +5,11 @@ File myFile;
 
 void Save(String text, String label = ""){
 
-  if(label != ""){
-      Serial.print(label);
-      Serial.print(F(": "));
-      Serial.println(text);
-  }
+//  if(label != ""){
+//      Serial.print(label);
+//      Serial.print(F(": "));
+//      Serial.println(text);
+//  }
 
   //if the file opened okay, write to it
   if (myFile) {
@@ -42,16 +42,10 @@ void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
       Save_sensor(Dust, F("Dust"));
       Save(F("\n"));
     }
-    
-   Wifi_send(Time, String(PIR), Temp, String(CO2), Dust);
 
-   //testing without esp module
-   // replacing all other deliminators with underscores because they are the only valid ones
-//   Time.replace(":", "_");
-//   Time.replace("/", "_");
-//   Temp.replace(",", "_");
-//   Dust.replace(",", "_");
-//   Serial.println("GET /" BOX_ID "_" + Time + F("_") + Dust + F("_") + Temp + F("_") + CO2 + F("_") + PIR + F(" HTTP/1.1"));
+//   Wifi_send(Time, PIR, Temp, CO2, Dust);
+    WIFI_send(Time, PIR, Temp, CO2, Dust);
+   
 }
 
 void SD_setup(){
