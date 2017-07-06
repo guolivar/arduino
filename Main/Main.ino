@@ -2,7 +2,7 @@
 #include <Wire.h>
 
 void setup() {
- 
+  
   Serial.begin(115200);
 //  CheckVoltage();
   // setup all the modules
@@ -15,7 +15,7 @@ void setup() {
   
 //  Wifi_setup();
   WIFI_setup();
-  
+ 
  //wait for Arduino serial port to become available
 //  while (!Serial) {
 //    //;  wait for serial port to connect. Needed for native USB port only
