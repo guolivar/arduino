@@ -57,6 +57,10 @@ void SD_setup(){
     return;
   }
 
+//  oled.clear();
+//  oled.print(F("Initializing SD"));
+
+  show(F("Initializing SD"));
   // print the headings for our data in the txt file
    myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
 
@@ -71,6 +75,8 @@ void SD_setup(){
    Save(F("Dust 1.0,"));
    Save(F("Dust 2.5,"));
    Save(F("Dust 10\n"));
+
+   show(F("SD initialized"));
    
 //   Serial.println(F("init done"));
 }
