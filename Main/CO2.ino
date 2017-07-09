@@ -188,7 +188,7 @@ int CO2_loop(){
   }
 
   else {
-//    Serial.println(F(" CO2: Checksum failed / Communication failure"));
+    show(F("CO2: Checksum \n failed / Communication \n failure"));
     return 0;
   }
 }

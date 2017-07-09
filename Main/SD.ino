@@ -5,11 +5,19 @@ File myFile;
 
 void Save(String text, String label = ""){
 
-//  if(label != ""){
+  // BUG the text includes unnesesarry commas and doesnt split up humidity temp etc
+
+  // PIR should say movment or no movement
+
+  // Time should wrap to new line could put if statment in show for this that checks lenght and if too long then wrap
+  // probs put in manually
+  
+  if(label != ""){
 //      Serial.print(label);
 //      Serial.print(F(": "));
 //      Serial.println(text);
-//  }
+      show(label + F(": ") + text);
+  }
 
   //if the file opened okay, write to it
   if (myFile) {
@@ -32,12 +40,15 @@ void Save_sensor(String data, const __FlashStringHelper* label){
 bool SD_available = true;
 
 void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
-
+    
     if(SD_available){
-      
+
+      String temp = Temp.substring(0, Temp.indexOf(','));
+      String humidity = Temp.substring(Temp.indexOf(','));
       Save_sensor(Time, F("Time"));
       Save_sensor(String(PIR), F("PIR"));
-      Save_sensor(Temp, F("Temp"));
+      Save_sensor(temp, F("Temp"));
+      Save_sensor(humidity, F("Humidity"));
       Save_sensor(String(CO2),F("CO2"));
       Save_sensor(Dust, F("Dust"));
       Save(F("\n"));

@@ -68,11 +68,12 @@ void pause_print(int num){
 
 void WIFI_setup(){
 
+  show(F("Checking WIFI \n module"));
   Serial.println(F("AT"));
   
   if(!Serial.find("OK")){
     try_again(F("AT"), 4);
-    show(F("WIFI module not connected"));
+    show(F("WIFI module \n not connected"));
 
     Connected = false;
   }
@@ -101,12 +102,13 @@ void WIFI_setup(){
 
     delay(6000);
 
-    send_next(F("AT+CIFSR"));
+//    send_next(F("AT+CIFSR"));
     
 
     if(Serial.find("OK")){
       Connected = true;
-      show_data(Serial.readString());
+      show(Serial.readString());
+      show(F("Connected to hotspot"));
 
       //screen wires seem faulty
       
@@ -133,11 +135,13 @@ void WIFI_send(String Time, bool PIR, String Temp, int CO2, String Dust){
     delay(10000);
     //try this 
 
-    show_data(Serial.readString());
+    show(Serial.readString());
 //    inspect();
 
     // need check if wifi still connected if not just reconnect also retry connection if failed
     if(Serial.find("OK")){
+
+      show(F("Sending data to server"));
       // Send AT+CIPSEND=3,55 to say the serial content will have X length I think where x in the example is 55
 
       // may need to set to length of url
