@@ -45,7 +45,13 @@ void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
 
       String temp = Temp.substring(0, Temp.indexOf(','));
       String humidity = Temp.substring(Temp.indexOf(','));
-      Save_sensor(Time, F("Time"));
+//      Save_sensor(Time, F("Time"));
+
+      // copy data from time instead of assigining reference
+      String my_time = String(Time);
+      my_time.replace(' ', '\n');
+      Save(Time);
+      show("Time: " + my_time);
       Save_sensor(String(PIR), F("PIR"));
       Save_sensor(temp, F("Temp"));
       Save_sensor(humidity, F("Humidity"));
@@ -64,6 +70,7 @@ void SD_setup(){
   
   if (!SD.begin(10)) {
 //    Serial.println(F("Init failed!"));
+    show(F("Initialization failed"));
     SD_available = false;
     return;
   }
