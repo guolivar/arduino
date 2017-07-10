@@ -1,8 +1,11 @@
 
-#include "src/Time.h"
+//#include "src/Time.h"
+
+// is this still working??
 
 #include "src/RTClib.h"
 
+// if space needs to be reduced then perform my own dead code elimination by recreating the parts of libraries that i use
 RTC_DS3231 rtc;
 
 void Time_setup() {
