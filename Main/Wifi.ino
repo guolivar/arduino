@@ -38,23 +38,24 @@ boolean send_next(const __FlashStringHelper *command){
 //}
 
 void wifi_connect(){
-  
-    // waiy for linked on tcp
-   
-    // TODO make these login details more secure
-
-    //DESKTOP-73HN8ON5011 u65879Q0 for laptop
-    // for dongle 4G UFI_8B8 123456790
-    Serial.println(F("AT+CWJAP_CUR=\"4G UFI_8B8\",\"123456790\""));
-
-    delay(6000);
-
+    Serial.println(F( PASSWORD ));
 //    send_next(F("AT+CIFSR"));
-    
 
-    if(Serial.find("OK")){
+//    Serial.println(Serial.readString());
+//    show(Serial.readString());
+//    inspect();
+
+//    Serial.setTimeout(10000);
+//    inspect();
+//    Serial.setTimeout(1000);
+    Serial.setTimeout(5000);
+    if(Serial.find("WIFI CONNECTED") && Serial.find("WIFI GOT IP") && Serial.find("OK")){
       ap_connected = true;
-      show(Serial.readString());
+
+      // find cool way to show IP
+      Serial.println(F("AT+CIFSR"));
+      inspect();
+//      show(Serial.readString());
       show(F("Connected to hotspot"));
 
       //screen wires seem faulty
@@ -64,6 +65,8 @@ void wifi_connect(){
       show(F("No AP connection"));
       ap_connected = false;
     }
+
+    Serial.setTimeout(1000);
  }
 
 void wifi_config(){
@@ -72,25 +75,33 @@ void wifi_config(){
   
   if(!Serial.find("OK")){
 //    try_again(F("AT"), 4);
-    show(F("WIFI module \n not connected"));
+    show(F("WIFI card \nnot connected"));
     
     plugged_in = false;
   }
   else{
+
+    show(F("Configuring WIFI"));
     plugged_in = true;
     //restart 
     Serial.println(F("AT+RST"));
 
     //disable echo
-    send_next(F("ATE0"));
+
+    if(Serial.find("ready")){
+      Serial.println(F("ATE0"));
+    }
     send_next(F("AT+CWMODE=1"));
-    send_next(F("AT+CIPMUX=1"));
+//    send_next(F("AT+CIPMUX=1"));
     send_next(F("AT+CIPDINFO=1"));
     send_next(F("AT+CWAUTOCONN=0"));
-    send_next(F("AT+CWDHCP=1,1"));
-    
-    delay(3000);
+//    send_next(F("AT+CWDHCP=1,1"));
 
+    if(Serial.find("OK")){
+      wifi_connect();
+    }else{
+      show(F("Setup failure"));
+    }
   }
 } 
 
@@ -124,9 +135,22 @@ void pause_print(int num){
 
 void WIFI_setup(){
 
-  show(F("Checking WIFI \n module"));
+  show(F("Checking WIFI \ncard"));
   wifi_config();
   
+}
+
+void still_plugged_in(){
+  Serial.println(F("AT"));
+  plugged_in = Serial.find("OK");
+
+  
+//  if(Serial.find("OK")){
+//    plugged_in = true;
+//  }
+//  else{
+//    plugged_in = false;
+//  }
 }
 
 void WIFI_send(String Time, bool PIR, String Temp, int CO2, String Dust){
@@ -134,47 +158,63 @@ void WIFI_send(String Time, bool PIR, String Temp, int CO2, String Dust){
   /// first num is id of channel I dont think this is necessary cus this is a one channel only connection
   // Send AT+CIPSTART=3, "TCP", "server", servers_http_port
 
-  // need to put check in to see if we have connection to hostpot if not retry
+  // check if card was unplugged during runtime
 
+  // doenst seem to work for some reason
+  still_plugged_in();
+
+  // troubleshoot these fail safes maybe use functional programming to remove global vars to make it clearer
+
+
+  // somehow doesnt cover if the module was just plugged in during runtime????
   if(plugged_in){
     if(ap_connected){
-      Serial.println(F("AT+CIPSTART=3,\"TCP\",\"192.168.100.100\",81"));
-
-      delay(10000);
+      Serial.println(F("AT+CIPSTART=\"TCP\",\"192.168.100.100\",81"));
       //try this 
   
-      show(Serial.readString());
-  //    inspect();
+//      show(Serial.readString());
+      inspect();
   
       // need check if wifi still connected if not just reconnect also retry connection if failed
-      if(Serial.find("OK")){
+      if(Serial.find("CONNECT") && Serial.find("OK")){
   
-        show(F("Sending data to server"));
+        show(F("Sending data \nto server"));
         // Send AT+CIPSEND=3,55 to say the serial content will have X length I think where x in the example is 55
-  
-        // may need to set to length of url
-        Serial.println(F("AT+CIPSEND=3,55"));
-  
+ 
         // finally send the data
   
         // use wrapper like this cus is not a flash string
-        if(Serial.find("OK")){
+//        if(Serial.find("OK")){
   
-          Dust.replace(",", "_");
-          Temp.replace(",", "_");
-          Time.replace(":", "_");
-          Time.replace("/", "_");
-          Time.replace(" ", "_");
-          Serial.println("GET /" BOX_ID "_" + Time + F("_") + Dust + F("_") + Temp + F("_") + String(CO2) + F("_") + String(PIR) + F(" HTTP/1.1"));
-          send_next(F("HOST: \"192.168.100.100\""));
-          send_next(F("Connection: close"));
-        }
+        Dust.replace(",", "_");
+        Temp.replace(",", "_");
+        Time.replace(":", "_");
+        Time.replace("/", "_");
+        Time.replace(" ", "_");
+
+        String request = "GET /" BOX_ID "_" + Time + F("_") + Dust + F("_") + Temp + F("_") + String(CO2) + F("_") + String(PIR) + F(" HTTP/1.1");
+        // may need to set to length of url
+
+        // we have to send it blind because cipsend gives no replies and only transmits x amounts of bytes
+        request = request + F("\nHOST: \"192.168.100.100\"\nConnection: close");
+        Serial.println("AT+CIPSEND=" + String(request.length()));
+//        Serial.println(F("AT+CIPSEND"));
+        Serial.println(request);
+
+        // stop transmission
+//        Serial.println(F("+++"));
+
+//        Serial.println();
+//        send_next(F("HOST: \"192.168.100.100\""));
+//        send_next(F("Connection: close"));
         
-        send_next(F("AT+CIPSEND=3,100"));
-  
-        send_next(F("AT+CIPCLOSE=3"));
+//        }
+        
+//        send_next(F("AT+CIPSEND=100"));
+ 
   
       }
+       Serial.println(F("AT+CIPCLOSE"));
     }else{
       wifi_connect();
     }
