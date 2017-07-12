@@ -42,7 +42,7 @@ bool SD_available = true;
 void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
     
     if(SD_available){
-
+       
       String temp = Temp.substring(0, Temp.indexOf(','));
       String humidity = Temp.substring(Temp.indexOf(','));
 //      Save_sensor(Time, F("Time"));
@@ -52,17 +52,21 @@ void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
       my_time.replace(' ', '\n');
       Save(Time);
       show("Time: " + my_time);
+
+      /////// BUG Screen will not show values if sd not available
       Save_sensor(String(PIR), F("PIR"));
       Save_sensor(temp, F("Temp"));
       Save_sensor(humidity, F("Humidity"));
       Save_sensor(String(CO2),F("CO2"));
       Save_sensor(Dust, F("Dust"));
       Save(F("\n"));
+    }else{
+      show(F("SD card \nnot plugged \nin"));
     }
 
 //   Wifi_send(Time, PIR, Temp, CO2, Dust);
     WIFI_send(Time, PIR, Temp, CO2, Dust);
-   
+//   WIFI_send("06:30:01 12/07/2017", true, "21,245", 51, "244,423,123");
 }
 
 void SD_setup(){

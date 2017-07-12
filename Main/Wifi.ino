@@ -1,6 +1,3 @@
-//char ssid[] = "4G UFI_8B8";           // your network SSID (name)
-//char pass[] = "1234567890";        // your network password
-
 //char server[] = "192.168.100.100";
 //char server[] = "seat-skomobo.massey.ac.nz";
 
@@ -21,8 +18,6 @@ boolean send_next(const __FlashStringHelper *command){
     return true;
   }
   else{
-    
-//    Serial.println(Serial.readString());
     plugged_in = false;
     return false;
   }
@@ -38,35 +33,25 @@ boolean send_next(const __FlashStringHelper *command){
 //}
 
 void wifi_connect(){
+    show(F("Connecting \nto hotspot"));
     Serial.println(F( PASSWORD ));
-//    send_next(F("AT+CIFSR"));
-
-//    Serial.println(Serial.readString());
-//    show(Serial.readString());
-//    inspect();
-
-//    Serial.setTimeout(10000);
-//    inspect();
-//    Serial.setTimeout(1000);
+    
     Serial.setTimeout(5000);
     if(Serial.find("WIFI CONNECTED") && Serial.find("WIFI GOT IP") && Serial.find("OK")){
       ap_connected = true;
-
+      
+      Serial.setTimeout(1000);
       // find cool way to show IP
       Serial.println(F("AT+CIFSR"));
       inspect();
-//      show(Serial.readString());
       show(F("Connected to hotspot"));
-
-      //screen wires seem faulty
-      
     }
     else{
+      
+      Serial.setTimeout(1000);
       show(F("No AP connection"));
       ap_connected = false;
     }
-
-    Serial.setTimeout(1000);
  }
 
 void wifi_config(){
@@ -133,24 +118,26 @@ void pause_print(int num){
 // setup this macro to tidy up lines
 //#define CMD( arg ) "AT+"arg
 
+
+
+// check if still connected to hotspot if not reconnect
+
+
 void WIFI_setup(){
 
   show(F("Checking WIFI \ncard"));
   wifi_config();
+
+
+    // fix this retry 
+//  delay(1000);
+//  wifi_connect();
   
 }
 
 void still_plugged_in(){
   Serial.println(F("AT"));
   plugged_in = Serial.find("OK");
-
-  
-//  if(Serial.find("OK")){
-//    plugged_in = true;
-//  }
-//  else{
-//    plugged_in = false;
-//  }
 }
 
 void WIFI_send(String Time, bool PIR, String Temp, int CO2, String Dust){
@@ -169,50 +156,59 @@ void WIFI_send(String Time, bool PIR, String Temp, int CO2, String Dust){
   // somehow doesnt cover if the module was just plugged in during runtime????
   if(plugged_in){
     if(ap_connected){
+      show(F("Connecting \nto server IP"));
       Serial.println(F("AT+CIPSTART=\"TCP\",\"192.168.100.100\",81"));
       //try this 
   
 //      show(Serial.readString());
-      inspect();
+//      inspect();
   
       // need check if wifi still connected if not just reconnect also retry connection if failed
       if(Serial.find("CONNECT") && Serial.find("OK")){
   
         show(F("Sending data \nto server"));
+
         // Send AT+CIPSEND=3,55 to say the serial content will have X length I think where x in the example is 55
  
         // finally send the data
   
-        // use wrapper like this cus is not a flash string
-//        if(Serial.find("OK")){
-  
         Dust.replace(",", "_");
+
+        // replace fullstops in CO2 and temp and humidity
         Temp.replace(",", "_");
+        
         Time.replace(":", "_");
         Time.replace("/", "_");
         Time.replace(" ", "_");
 
-        String request = "GET /" BOX_ID "_" + Time + F("_") + Dust + F("_") + Temp + F("_") + String(CO2) + F("_") + String(PIR) + F(" HTTP/1.1");
+//        show(String(meta.length()));
+        String request = "GET /" BOX_ID "_" + Time + "_" + Dust + "_" + Temp + "_" + String(CO2) + "_" + String(PIR);
         // may need to set to length of url
+//        show(String(request.length()));
 
+        String meta = " HTTP:1/1\nHOST: \"192.168.100.100\"\nConnection: close";
+
+
+        // set the length to 51 + request length
+
+        
         // we have to send it blind because cipsend gives no replies and only transmits x amounts of bytes
-        request = request + F("\nHOST: \"192.168.100.100\"\nConnection: close");
-        Serial.println("AT+CIPSEND=" + String(request.length()));
-//        Serial.println(F("AT+CIPSEND"));
-        Serial.println(request);
+//        request = request + F("");
 
-        // stop transmission
-//        Serial.println(F("+++"));
 
-//        Serial.println();
-//        send_next(F("HOST: \"192.168.100.100\""));
-//        send_next(F("Connection: close"));
-        
-//        }
-        
-//        send_next(F("AT+CIPSEND=100"));
- 
+        /// straight through connection to send get request and debug it 
+
+        // probably trying to send get request which is taking a while to process and AT command is still being sent
+
+        // 51 is meta length
+        Serial.println("AT+CIPSEND=" + String(51 + request.length()));
+        Serial.print(request);
+        Serial.println(meta);
+
+        delay(5000);
   
+      }else{
+        show(F("Failed to \nconnect to server"));
       }
        Serial.println(F("AT+CIPCLOSE"));
     }else{
