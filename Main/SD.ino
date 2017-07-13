@@ -54,7 +54,7 @@ void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
       show("Time: " + my_time);
 
       /////// BUG Screen will not show values if sd not available
-      Save_sensor(String(PIR), F("PIR"));
+      Save_sensor(char(PIR), F("PIR"));
       Save_sensor(temp, F("Temp"));
       Save_sensor(humidity, F("Humidity"));
       Save_sensor(String(CO2),F("CO2"));
@@ -82,7 +82,7 @@ void SD_setup(){
 //  oled.clear();
 //  oled.print(F("Initializing SD"));
 
-  show(F("Initializing SD"));
+  show(F("Init SD"));
   // print the headings for our data in the txt file
    myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
 
@@ -98,7 +98,7 @@ void SD_setup(){
    Save(F("Dust 2.5,"));
    Save(F("Dust 10\n"));
 
-   show(F("SD initialized"));
+//   show(F("SD initialized"));
    
 //   Serial.println(F("init done"));
 }
