@@ -13,16 +13,20 @@ void Time_setup() {
 }
 
 
+
 // swap to char array implementation to save more space and find more space saving libs
 
 // This macro allows us to succinctly convert each argument into a string
-#define format( arg ) ( rtc.now().arg() )
+#define fetch( arg ) ( arg = rtc.now().arg() )
 
-char my_time[14];
-char* Time_loop() {
+//char my_time[14];
+void Time_loop() {
 
-  sprintf(my_time, "%d:%d:%d %d/%d/%d", format(hour), format(minute), format(second), format(day), format(month), format(year));
-  return my_time;
-//  return { format( hour ), ':' , format( minute ), ':', format( second ), ' ', format( day ), '/', format( month ), '/', format( year ) };
+  // put in validation for clock presence if there isnt any
+  
+  fetch( hour ); fetch( minute ); fetch( second ); fetch( day ); fetch( month ); fetch( year );
+    
+//  sprintf(my_time, "%d:%d:%d %d/%d/%d", format(hour), format(minute), format(second), format(day), format(month), format(year));
+//  return my_time;
 }
 

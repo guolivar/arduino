@@ -14,7 +14,6 @@ void Dust_setup() {
 //Variable declarations
 byte receiveDat[receiveDatIndex]; //receive data from the air detector module
 boolean valid_data;
-unsigned int PM1,PM25,PM10;
 unsigned int checkSum,checkresult;
 
 

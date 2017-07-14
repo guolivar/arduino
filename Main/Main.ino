@@ -1,8 +1,7 @@
-//#include <SPI.h>
-
-// check that sd still works if not uncomment above line
-
 #include <Wire.h>
+
+// all our own definitions
+#include "definitions.h"
 
 void setup(){
 
@@ -33,6 +32,18 @@ void loop() {
 
   // save the data
   Save_sensors();
+
+  // ordering of shit no longer matters!!! which is awesome only one that matters is wifi but that will change soon
+
+  // this way means no type checking all the time and having to change args
+  // makes it much more flexible like javascript I guess better for prototyping like now
+
+  // harder to reason about because more to remember??
+
+  // does not force code correctness and validate for me
+
+  // takes up less space and means memory is now static so unstable memory shouldny be issue
+
 
   
   // csv file headings, the functions need to be called in this order

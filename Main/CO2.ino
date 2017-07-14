@@ -184,12 +184,13 @@ int CO2_loop(){
 
   if (co2Value > 0){
 
-    return co2Value;
+    CO2 = co2Value;
+//    return co2Value;
   }
 
   else {
 //    show(F("CO2: Checksum \nfailed /Communication \nfailure"));
-    return 0;
+    CO2 = 0;
   }
 }
 

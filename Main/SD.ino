@@ -3,31 +3,17 @@ SdFat SD;
 
 File myFile;
 
-void Save(char text[], String label = ""){
+void Save(char text[]) {
 
-  // BUG the text includes unnesesarry commas and doesnt split up humidity temp etc
-
-  // PIR should say movment or no movement
-
-  // Time should wrap to new line could put if statment in show for this that checks lenght and if too long then wrap
-  // probs put in manually
-//  
-//  if(label != ""){
-////    Serial.print(label);
-////    Serial.print(':');
-////    Serial.print(' ');
-////    Serial.println(text);
-////      show(label + F(": ") + text);
-//  }
 
   //if the file opened okay, write to it
   if (myFile) {
-  
+
     myFile.print(text);
-    
+
     //close the file
     myFile.flush();
-  
+
   }
 
   delay(2000);
@@ -35,92 +21,83 @@ void Save(char text[], String label = ""){
 
 // using a macro to join the seperating character to make it easier to change and not take up memory
 #define SEP( val ) val + ","
-
-void Save_sensor(String data, const __FlashStringHelper* label){
-//  Save(SEP(data), label);
-
-  
-//  if(label != ""){
-////    Serial.print(label);
-////    Serial.print(':');
-////    Serial.print(' ');
-////    Serial.println(text);
-////      show(label + F(": ") + text);
-//  }
-
-   if (myFile) {
-  
-    myFile.print(data);
-    
-    //close the file
-    myFile.flush();
-  
-  }
-
-  delay(2000);
-}
-
 bool SD_available = true;
 
-void Save_sensors(char Time[], bool PIR, String Temp, int CO2, String Dust){
-    
-    if(SD_available){
-       
-//      String temp = Temp.substring(0, Temp.indexOf(','));
-//      String humidity = Temp.substring(Temp.indexOf(','));
-//      Save_sensor(Time, F("Time"));
-    
-      // copy data from time instead of assigining reference
-      String my_time = String(Time);
-      my_time.replace(' ', '\n');
-      Save(Time);
-//      show("Time: " + my_time);
+void Save_sensors() {
 
-      /////// BUG Screen will not show values if sd not available
-      Save_sensor(String(PIR), F("PIR"));
-      Save_sensor(temp, F("Temp"));
-      Save_sensor(humidity, F("Humidity"));
-      Save_sensor(String(CO2),F("CO2"));
-      Save(Dust, F("Dust"));
-      Save('\n');
-//      Save(F("\n"));
-    }else{
-//      show(F("SD card \nnot plugged \nin"));
-    }
+  if (SD_available) {
 
-//   Wifi_send(Time, PIR, Temp, CO2, Dust);
-//    WIFI_send(Time, PIR, Temp, CO2, Dust);
-//   WIFI_send("06:30:01 12/07/2017", true, "21,245", 51, "244,423,123");
-   
-   WIFI_send("06_30_01_12_07_2017", PIR, "21,245", 51, "244,423,123");
+    //      String temp = Temp.substring(0, Temp.indexOf(','));
+    //      String humidity = Temp.substring(Temp.indexOf(','));
+    //      Save_sensor(Time, F("Time"));
+
+    // copy data from time instead of assigining reference
+    //      String my_time = String(Time);
+    //      my_time.replace(' ', '\n');
+    char Time[14];
+
+    sprintf(Time, "%d:%d:%d %d/%d/%d", hour, minute, second, day, month, year);
+    Save(Time);
+    //      show("Time: " + my_time);
+
+    /////// BUG Screen will not show values if sd not available
+
+    
+    Save(&PIR);
+
+    char data[12];
+    sprintf(data, "%g,%g,%d", temperature, humidity, CO2);
+    Save(data);
+//    Save(temperature);
+//    Save(humidity);
+//    Save(CO2);
+
+    char Dust[13];
+    sprintf(Dust, "%d,%d,%d\n", PM1, PM25, PM10);
+    Save(Dust);
+
+    // I think things being global wont cause issues
+
+
+    //      Save('\n');
+    //      Save(F("\n"));
+  } else {
+    //      show(F("SD card \nnot plugged \nin"));
+  }
+
+  //   Wifi_send(Time, PIR, Temp, CO2, Dust);
+  //    WIFI_send(Time, PIR, Temp, CO2, Dust);
+  //   WIFI_send("06:30:01 12/07/2017", true, "21,245", 51, "244,423,123");
+
+  WIFI_send("06_30_01_12_07_2017", PIR, "21,245", 51, "244,423,123");
 }
 
-void SD_setup(){
-  
+void SD_setup() {
+
   if (!SD.begin(10)) {
-//    show(F("Initialization failed"));
+    //    show(F("Initialization failed"));
     SD_available = false;
     return;
   }
 
 
-//  show(F("Initializing SD"));
+  //  show(F("Initializing SD"));
   // print the headings for our data in the txt file
-   myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
+  myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
 
-   // Print the headings in the csv file
-   // please note these do not use the SEP macro because they get converted to Flashstrings which are stored in program memory to save SRAM
-   // as a result we can't use dynamic concatenation I don't think
-   Save("Time,");
-   Save("Moving,");
-   Save("Temp,");
-   Save("Humid,");
-   Save("CO2,");
-   Save("Dust 1.0,");
-   Save("Dust 2.5,");
-   Save("Dust 10\n");
+  // Print the headings in the csv file
+  // please note these do not use the SEP macro because they get converted to Flashstrings which are stored in program memory to save SRAM
+  // as a result we can't use dynamic concatenation I don't think
+  Save("Time,");
+  Save("Moving,");
+  Save("Temp,");
+  Save("Humid,");
+  Save("CO2,");
+  Save("Dust 1.0,");
+  Save("Dust 2.5,");
+  Save("Dust 10\n");
 
-//   show(F("SD initialized"));
-   
-//   Serial.println(F("init done"));
+  //   show(F("SD initialized"));
+
+  //   Serial.println(F("init done"));
 }

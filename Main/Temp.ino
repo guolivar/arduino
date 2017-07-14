@@ -23,9 +23,6 @@ float adjust_temp(float rawData){
 
 #define Sep( val ) val + ","
 
-float temperature;
-float humidity;
-
 void Temp_loop()
 {
 
@@ -39,6 +36,5 @@ void Temp_loop()
 // temperature = (Temp_High [7:0] x 64 + Temp_Low [7:2]/4 ) / 16384 x 165 40
  temperature = adjust_temp((float)((unsigned)(cc  * 64) + (unsigned)(dd >> 2 )) / 16384.0 * 165.0 - 40.0);
 
-//  return Sep(String(temperature)) + String(humidity);
 }
 
