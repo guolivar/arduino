@@ -92,6 +92,14 @@ void httpRequest(char Time[], char PIR, char Temp[], int CO2, char Dust[])
   // this will free the socket on the WiFi shield
   client.stop();
 
+
+  //???????? 
+  /// replace ssid at top with the Macro versions 
+  //??????
+
+
+  
+
   // if there's a successful connection
   if (client.connect(server, 80)) {
     Serial.println(F("Connecting..."));
@@ -117,7 +125,7 @@ void httpRequest(char Time[], char PIR, char Temp[], int CO2, char Dust[])
 
     char request[17];
     
-    sprintf(request, "GET /" BOX_ID "_%c HTTP/1.1", PIR);
+    sprintf_P(request, PSTR("GET /" BOX_ID "_%c HTTP/1.1"), PIR);
 
 //    char meta[] = " HTTP/1.1";
 

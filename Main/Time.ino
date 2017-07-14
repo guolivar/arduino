@@ -26,7 +26,7 @@ void Time_loop() {
   
   fetch( hour ); fetch( minute ); fetch( second ); fetch( day ); fetch( month ); fetch( year );
     
-//  sprintf(my_time, "%d:%d:%d %d/%d/%d", format(hour), format(minute), format(second), format(day), format(month), format(year));
+//  sprintf_p(my_time, "%d:%d:%d %d/%d/%d", format(hour), format(minute), format(second), format(day), format(month), format(year));
 //  return my_time;
 }
 
