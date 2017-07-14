@@ -19,8 +19,6 @@ void Save(char text[]) {
   delay(2000);
 }
 
-// using a macro to join the seperating character to make it easier to change and not take up memory
-#define SEP( val ) val + ","
 bool SD_available = true;
 
 void Save_sensors() {
@@ -49,7 +47,7 @@ void SD_setup() {
 
   if (SD.begin(10)) {
  
-    //  show(F("Initializing SD"));
+    show(F("Init SD"));
     // print the headings for our data in the txt file
     myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
     SD_available = true;
@@ -58,7 +56,8 @@ void SD_setup() {
     char headings[] = "Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n";
     Save(headings);
     //   show(F("SD initialized"));
-  
+
+    show(F("Init done"));
     //   Serial.println(F("init done"));
 
   }

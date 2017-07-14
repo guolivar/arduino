@@ -21,8 +21,6 @@ float adjust_temp(float rawData){
   return rawData;
 }
 
-#define Sep( val ) val + ","
-
 void Temp_loop()
 {
 

@@ -30,7 +30,7 @@ void WIFI_setup()
 
   // check for the presence of the shield
   if (WiFi.status() == WL_NO_SHIELD) {
-    Serial.println("WiFi card not present");
+    Serial.println(F("WiFi card not present"));
     // don't continue
 
     // fix this to be like old code ie reboot after one send etc
@@ -45,7 +45,7 @@ void WIFI_setup()
     status = WiFi.begin(ssid, pass);
   }
 
-  Serial.println("Connected to AP");
+  Serial.println(F("Connected to AP"));
 
   printWifiStatus();
 }
@@ -136,7 +136,7 @@ void httpRequest(char Time[], char PIR, char Temp[], int CO2, char Dust[])
 
     client.println(request);
     client.println(F("Host: seat-skomobo.massey.ac.nz"));
-    client.println("Connection: close");
+    client.println(F("Connection: close"));
     client.println();
 
     // note the time that the connection was made
@@ -144,7 +144,7 @@ void httpRequest(char Time[], char PIR, char Temp[], int CO2, char Dust[])
   }
   else {
     // if you couldn't make a connection
-    Serial.println("Connect failed");
+    Serial.println(F("Connect failed"));
   }
 }
 
@@ -152,11 +152,11 @@ void httpRequest(char Time[], char PIR, char Temp[], int CO2, char Dust[])
 void printWifiStatus()
 {
   // print the SSID of the network you're attached to
-  Serial.print("SSID: ");
+  Serial.print(F("SSID: "));
   Serial.println(WiFi.SSID());
 
   // print your WiFi shield's IP address
-  Serial.print("IP Address: ");
+  Serial.print(F("IP Address: "));
   Serial.println(WiFi.localIP());
 
 }
