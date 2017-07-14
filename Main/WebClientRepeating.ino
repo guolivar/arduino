@@ -10,11 +10,11 @@
 
 #include "src/WiFiEsp.h"
 
-const char ssid[] = "DESKTOP-73HN8ON5011";            // your network SSID (name)
-const char pass[] = "u65879Q0";        // your network password
+char ssid[] = "DESKTOP-73HN8ON5011";            // your network SSID (name)
+char pass[] = "u65879Q0";        // your network password
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
-const char server[] = "seat-skomobo.massey.ac.nz";
+char server[] = "seat-skomobo.massey.ac.nz";
 
 unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
 const unsigned long postingInterval = 10000L; // delay between updates, in milliseconds
@@ -115,17 +115,19 @@ void httpRequest(char Time[], char PIR, char Temp[], int CO2, char Dust[])
     //    Serial.print(request2);
     //    String request = "GET /";
 
-    char request[17] = "GET /" BOX_ID ;
+    char request[17];
+    
+    sprintf(request, "GET /" BOX_ID "_%c HTTP/1.1", PIR);
 
-    char meta[] = " HTTP/1.1";
+//    char meta[] = " HTTP/1.1";
 
     //    "GET /" BOX_ID "_" + Time + "_" + Dust + "_" + Temp + "_" + String(CO2) + "_" + String(PIR);
 
 
     // magic code do not touch
 
-    strcat(request, PIR);
-    strcat(request, meta);
+//    strcat(request, PIR);
+//    strcat(request, meta);
 
 
 
