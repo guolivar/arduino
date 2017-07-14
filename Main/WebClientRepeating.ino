@@ -45,7 +45,7 @@ void WIFI_setup()
 
   // attempt to connect to WiFi network
   while ( status != WL_CONNECTED) {
-    Serial.println("Attempting to connect to AP");
+    Serial.println(F("Attempting to connect to AP"));
 //    Serial.println(ssid);
     // Connect to WPA/WPA2 network
     status = WiFi.begin(ssid, pass);
@@ -106,7 +106,7 @@ void httpRequest(char Time[], char PIR[], char Temp[], int CO2, char Dust[])
 
   // if there's a successful connection
   if (client.connect(server, 80)) {
-    Serial.println("Connecting...");
+    Serial.println(F("Connecting..."));
 
 //    Dust.replace(",", "_");
 //

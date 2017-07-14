@@ -3,7 +3,7 @@ SdFat SD;
 
 File myFile;
 
-void Save(String text, String label = ""){
+void Save(char text[], String label = ""){
 
   // BUG the text includes unnesesarry commas and doesnt split up humidity temp etc
 
@@ -37,19 +37,39 @@ void Save(String text, String label = ""){
 #define SEP( val ) val + ","
 
 void Save_sensor(String data, const __FlashStringHelper* label){
-  Save(SEP(data), label);
+//  Save(SEP(data), label);
+
+  
+//  if(label != ""){
+////    Serial.print(label);
+////    Serial.print(':');
+////    Serial.print(' ');
+////    Serial.println(text);
+////      show(label + F(": ") + text);
+//  }
+
+   if (myFile) {
+  
+    myFile.print(data);
+    
+    //close the file
+    myFile.flush();
+  
+  }
+
+  delay(2000);
 }
 
 bool SD_available = true;
 
-void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
+void Save_sensors(char Time[], bool PIR, String Temp, int CO2, String Dust){
     
     if(SD_available){
        
-      String temp = Temp.substring(0, Temp.indexOf(','));
-      String humidity = Temp.substring(Temp.indexOf(','));
+//      String temp = Temp.substring(0, Temp.indexOf(','));
+//      String humidity = Temp.substring(Temp.indexOf(','));
 //      Save_sensor(Time, F("Time"));
-
+    
       // copy data from time instead of assigining reference
       String my_time = String(Time);
       my_time.replace(' ', '\n');
@@ -61,8 +81,9 @@ void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
       Save_sensor(temp, F("Temp"));
       Save_sensor(humidity, F("Humidity"));
       Save_sensor(String(CO2),F("CO2"));
-      Save_sensor(Dust, F("Dust"));
-      Save(F("\n"));
+      Save(Dust, F("Dust"));
+      Save('\n');
+//      Save(F("\n"));
     }else{
 //      show(F("SD card \nnot plugged \nin"));
     }
@@ -90,14 +111,14 @@ void SD_setup(){
    // Print the headings in the csv file
    // please note these do not use the SEP macro because they get converted to Flashstrings which are stored in program memory to save SRAM
    // as a result we can't use dynamic concatenation I don't think
-   Save(F("Time,"));
-   Save(F("Moving,"));
-   Save(F("Temp,"));
-   Save(F("Humid,"));
-   Save(F("CO2,"));
-   Save(F("Dust 1.0,"));
-   Save(F("Dust 2.5,"));
-   Save(F("Dust 10\n"));
+   Save("Time,");
+   Save("Moving,");
+   Save("Temp,");
+   Save("Humid,");
+   Save("CO2,");
+   Save("Dust 1.0,");
+   Save("Dust 2.5,");
+   Save("Dust 10\n");
 
 //   show(F("SD initialized"));
    

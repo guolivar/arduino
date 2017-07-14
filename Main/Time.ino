@@ -18,19 +18,11 @@ void Time_setup() {
 // This macro allows us to succinctly convert each argument into a string
 #define format( arg ) ( rtc.now().arg() )
 
-// convert int to char array
-//char * format(int arg){
-//  //maximum 4 digits
-//  char num[4];
-//  sprintf(num, "%d", arg);
-//  return num;
-//}
-
+char my_time[14];
 char* Time_loop() {
 
-  char here[14] = 
-
- 
-  return { format( hour ), ':' , format( minute ), ':', format( second ), ' ', format( day ), '/', format( month ), '/', format( year ) };
+  sprintf(my_time, "%d:%d:%d %d/%d/%d", format(hour), format(minute), format(second), format(day), format(month), format(year));
+  return my_time;
+//  return { format( hour ), ':' , format( minute ), ':', format( second ), ' ', format( day ), '/', format( month ), '/', format( year ) };
 }
 
