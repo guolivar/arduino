@@ -188,7 +188,7 @@ int CO2_loop(){
   }
 
   else {
-    show(F("CO2: Checksum \nfailed /Communication \nfailure"));
+//    show(F("CO2: Checksum \nfailed /Communication \nfailure"));
     return 0;
   }
 }

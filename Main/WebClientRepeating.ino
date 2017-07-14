@@ -28,7 +28,7 @@ WiFiEspClient client;
 void WIFI_setup()
 {
   // initialize serial for debugging
-  Serial.begin(115200);
+//  Serial.begin(115200);
   // initialize serial for ESP module
 //  Serial.begin(9600);
   // initialize ESP module
@@ -36,39 +36,48 @@ void WIFI_setup()
 
   // check for the presence of the shield
   if (WiFi.status() == WL_NO_SHIELD) {
-    Serial.println("WiFi shield not present");
+    Serial.println("WiFi card not present");
     // don't continue
-    while (true);
+
+    // fix this to be like old code ie reboot after one send etc
+//    while (true);
   }
 
   // attempt to connect to WiFi network
   while ( status != WL_CONNECTED) {
-    Serial.print("Attempting to connect to WPA SSID: ");
-    Serial.println(ssid);
+    Serial.println("Attempting to connect to AP");
+//    Serial.println(ssid);
     // Connect to WPA/WPA2 network
     status = WiFi.begin(ssid, pass);
   }
 
-  Serial.println("You're connected to the network");
+  Serial.println("Connected to AP");
   
   printWifiStatus();
 }
-//
-//void Wifi_loop()
-//{
-//  // if there's incoming data from the net connection send it out the serial port
-//  // this is for debugging purposes only
+
+void WIFI_send(char Time[], bool PIR, char Temp[], int CO2, char Dust[])
+{
+  // if there's incoming data from the net connection send it out the serial port
+  // this is for debugging purposes only
 //  while (client.available()) {
 //    char c = client.read();
 //    Serial.write(c);
 //  }
-//
-//  // if 10 seconds have passed since your last connection,
-//  // then connect again and send data
-//  if (millis() - lastConnectionTime > postingInterval) {
-//    httpRequest();
-//  }
-//}
+
+  // if 10 seconds have passed since your last connection,
+  // then connect again and send data
+  if (millis() - lastConnectionTime > postingInterval) {
+    char pir[1];
+    if(PIR){
+      pir[0] = '1';
+    }else{
+      pir[0] = '0';
+    }
+    
+    httpRequest(Time, pir, Temp, CO2, Dust);
+  }
+}
 
 
 
@@ -87,7 +96,7 @@ void WIFI_setup()
 
 
 // this method makes a HTTP connection to the server
-void WIFI_send(String Time, bool PIR, String Temp, int CO2, String Dust)
+void httpRequest(char Time[], char PIR[], char Temp[], int CO2, char Dust[])
 {
   Serial.println();
     
@@ -98,10 +107,69 @@ void WIFI_send(String Time, bool PIR, String Temp, int CO2, String Dust)
   // if there's a successful connection
   if (client.connect(server, 80)) {
     Serial.println("Connecting...");
-    
+
+//    Dust.replace(",", "_");
+//
+//        // replace fullstops in CO2 and temp and humidity
+//    Temp.replace(",", "_");
+////        
+//    Time.replace(":", "_");
+//    Time.replace("/", "_");
+//    Time.replace(" ", "_");
     // send the HTTP PUT request
-//    client.println("GET /0_2016-6-23_12332_12_31_23434_12_2434_1 HTTP/1.1");
-    client.println("GET /" BOX_ID "_" + Time + "_" + Dust + "_" + Temp + "_" + String(CO2) + "_" + String(PIR) + "HTTP/1.1");
+//    client.println(F("GET /0_2016-6-23_12332_12_31_23434_12_2434_1 HTTP/1.1"));
+//    char request[70] = "\0";
+//    char request[70];
+//    String request1 = "GET /" BOX_ID "_" + Time + "_" + Dust;
+//    String request2 = "_" + Temp + "_" + String(CO2) + "_" + String(PIR);
+//    Serial.print("AT+CIPSEND=3," + String(request1.length() + request2.length() + 9));
+//    Serial.print(request1);
+//    Serial.print(request2);
+//    Serial.println(F(" HTTP/1.1"));
+//    strcpy(request, foo, 70);
+
+//    char request[16] = {'G','E','T', ' ', '/', char(PIR), ' ', 'H', 'T', 'T', 'P', '/', '1', '.', '1'};
+//
+//    String request = "GET /";
+//    String test = "3";
+//    String meta = " HTTP/1.1";
+//    request.concat(test);
+//    request.concat(meta);
+
+    char request[17] = "GET /" BOX_ID ;
+    
+//    char buff[1];
+//    test.toCharArray(buff, 1);
+    char meta[] = " HTTP/1.1";
+
+//    "GET /" BOX_ID "_" + Time + "_" + Dust + "_" + Temp + "_" + String(CO2) + "_" + String(PIR);
+    
+//    strcat(request, );
+//    strcat(request, );
+//    char pir[] = {'_', PIR};
+//    request + char(PIR);
+
+
+    // magic code do not touch
+
+    strcat(request, PIR);
+    strcat(request, meta);
+//    char test[] = "GET / HTTP/1.1";
+//    char request[] = 
+
+    client.println(request);
+//    client.println(request);
+//    client.println("GET /" + test + " HTTP/1.1");
+//    client.println("GET /3 HTTP/1.1");
+//    client.print(String(PIR));
+//    client.println(F(" HTTP/1.1"));
+//    client.println(request);
+//    client.print(Time);
+//    client.print(Time)
+//    client.println(request);
+//    client.print("GET /" BOX_ID "_" + Time + "_" + Dust + "_");
+//    client.print(Temp + "_" + String(CO2) + "_" + String(PIR));
+//    client.print(F(" HTTP/1.1"));
     client.println(F("Host: seat-skomobo.massey.ac.nz"));
     client.println("Connection: close");
     client.println();
@@ -111,7 +179,7 @@ void WIFI_send(String Time, bool PIR, String Temp, int CO2, String Dust)
   }
   else {
     // if you couldn't make a connection
-    Serial.println("Connection failed");
+    Serial.println("Connect failed");
   }
 }
 

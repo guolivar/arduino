@@ -11,13 +11,14 @@ void Save(String text, String label = ""){
 
   // Time should wrap to new line could put if statment in show for this that checks lenght and if too long then wrap
   // probs put in manually
-  
-  if(label != ""){
-//      Serial.print(label);
-//      Serial.print(F(": "));
-//      Serial.println(text);
-      show(label + F(": ") + text);
-  }
+//  
+//  if(label != ""){
+////    Serial.print(label);
+////    Serial.print(':');
+////    Serial.print(' ');
+////    Serial.println(text);
+////      show(label + F(": ") + text);
+//  }
 
   //if the file opened okay, write to it
   if (myFile) {
@@ -28,6 +29,8 @@ void Save(String text, String label = ""){
     myFile.flush();
   
   }
+
+  delay(2000);
 }
 
 // using a macro to join the seperating character to make it easier to change and not take up memory
@@ -51,38 +54,36 @@ void Save_sensors(String Time, bool PIR, String Temp, int CO2, String Dust){
       String my_time = String(Time);
       my_time.replace(' ', '\n');
       Save(Time);
-      show("Time: " + my_time);
+//      show("Time: " + my_time);
 
       /////// BUG Screen will not show values if sd not available
-      Save_sensor(char(PIR), F("PIR"));
+      Save_sensor(String(PIR), F("PIR"));
       Save_sensor(temp, F("Temp"));
       Save_sensor(humidity, F("Humidity"));
       Save_sensor(String(CO2),F("CO2"));
       Save_sensor(Dust, F("Dust"));
       Save(F("\n"));
     }else{
-      show(F("SD card \nnot plugged \nin"));
+//      show(F("SD card \nnot plugged \nin"));
     }
 
 //   Wifi_send(Time, PIR, Temp, CO2, Dust);
-    WIFI_send(Time, PIR, Temp, CO2, Dust);
+//    WIFI_send(Time, PIR, Temp, CO2, Dust);
 //   WIFI_send("06:30:01 12/07/2017", true, "21,245", 51, "244,423,123");
+   
+   WIFI_send("06_30_01_12_07_2017", PIR, "21,245", 51, "244,423,123");
 }
 
 void SD_setup(){
-//  Serial.println(F("Init SD"));
   
   if (!SD.begin(10)) {
-//    Serial.println(F("Init failed!"));
-    show(F("Initialization failed"));
+//    show(F("Initialization failed"));
     SD_available = false;
     return;
   }
 
-//  oled.clear();
-//  oled.print(F("Initializing SD"));
 
-  show(F("Init SD"));
+//  show(F("Initializing SD"));
   // print the headings for our data in the txt file
    myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
 
