@@ -9,7 +9,7 @@ void setup(){
   //  CheckVoltage();
   
   // setup all the modules
-//  OLED_setup();
+  OLED_setup();
   SD_setup();
   PIR_setup();
   CO2_setup();
