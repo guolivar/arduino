@@ -14,7 +14,7 @@ void PIR_loop(){
 //      PIR = '0';
       PIR = '0';
     }
- }
+ }  
  
  
 
