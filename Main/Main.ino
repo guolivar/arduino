@@ -48,8 +48,5 @@ void loop() {
   
   // csv file headings, the functions need to be called in this order
   // Time Movement Temp Humidty CO2 Dust 1.0 2.5 10
-
-//  Save_sensors( Time_loop(), PIR_loop(), Temp_loop(), CO2_loop(), Dust_loop() );
-
 //  delay(10000);
 }

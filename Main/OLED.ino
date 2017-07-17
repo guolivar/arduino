@@ -27,12 +27,15 @@ bool OLED_connected = false;
 //  
 //}
 
-void show(String data){
+void show(char data[]){
     
-  if(OLED_connected){
+  // if(OLED_connected){
     delay_clear();
     oled.print(data);
-  }
+  // }
+  // else{
+  //   Serial.println(data);
+  // }
 }
 //
 //// to make text bigger use oled.set2X();
@@ -40,18 +43,20 @@ void show(String data){
 //
 void OLED_setup(){
 
-  Wire.beginTransmission(0x3C);
+
+  // this code was ok but not needed
+  // Wire.beginTransmission(0x3C);
 
   // if it returns 0 then the screen exists
-  OLED_connected = Wire.endTransmission() == 0;
+  // OLED_connected = Wire.endTransmission() == 0;
 
-  if(OLED_connected){
-    oled.begin(&Adafruit128x64, 0x3C);
-    oled.setFont(TimesNewRoman16);
-    show(F("SKOMOBO"));
-  }else{
+  // if(OLED_connected){
+  oled.begin(&Adafruit128x64, 0x3C);
+  oled.setFont(TimesNewRoman16);
+  show("SKOMOBO");
+  // }else{
     // testing that this code works
-    Serial.println(F("OLED not connected"));
+    // Serial.println(F("OLED not connected"));
     
-  }
+  //}
 }

@@ -31,7 +31,7 @@ void Save_sensors() {
     Save(Data);
 
   } else {
-    //      show(F("SD card \nnot plugged \nin"));
+    //      show("SD card \nnot plugged \nin"));
   }
 
   //   Wifi_send(Time, PIR, Temp, CO2, Dust);
@@ -47,22 +47,23 @@ void SD_setup() {
 
   if (SD.begin(10)) {
  
-    show(F("Init SD"));
+    show("Init SD");
     // print the headings for our data in the txt file
     myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
     SD_available = true;
-    // Print the headings in the csv file
 
+
+    // Print the headings in the csv file
     char headings[] = "Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n";
     Save(headings);
-    //   show(F("SD initialized"));
+    //   show("SD initialized"));
 
-    show(F("Init done"));
+    show("Init done");
     //   Serial.println(F("init done"));
 
   }
   else{
-       //    show(F("Initialization failed"));
+       //    show("Initialization failed"));
     SD_available = false;
     return;
   }

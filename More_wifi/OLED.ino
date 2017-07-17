@@ -32,7 +32,7 @@ void show(String data){
 void OLED_setup(){
   oled.begin(&Adafruit128x64, 0x3C);
   oled.setFont(TimesNewRoman16);
-  show(F("SKOMOBO"));
+  show("SKOMOBO"));
 //  oled.setFont(TimesNewRoman16);
 //  oled.clear();
 //  oled.print("Screen ready");

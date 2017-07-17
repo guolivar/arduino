@@ -17,9 +17,12 @@ void getdata(byte *a, byte *b, byte *c, byte *d)
   *d = Wire.read();
 }
 
+
+//// what is the point in this function?????
 float adjust_temp(float rawData){
   return rawData;
 }
+
 
 void Temp_loop()
 {

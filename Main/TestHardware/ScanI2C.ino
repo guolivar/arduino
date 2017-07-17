@@ -5,13 +5,12 @@ void ScanI2CBus()
   byte error, address;
   int nDevices;
 
-  Serial.println("Scanning");
-
+  Serial.println(F("Scanning"));
   nDevices = 0;
   for (address = 1; address <= 127; address++ )
   {
     // The i2c_scanner uses the return value of Write.endTransmisstion to see if a module is connected to that address
-
+    Serial.println("Trying address: " + String(address));
     // real time clock address = 104, m version of i2c clock has address 00h according to datasheet
     Wire.beginTransmission(address);
 

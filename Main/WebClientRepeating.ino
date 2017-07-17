@@ -28,10 +28,13 @@ void WIFI_setup()
   // initialize ESP module
   WiFi.init(&Serial);
 
+
+  // put in proper retrys here
   // check for the presence of the shield
   if (WiFi.status() == WL_NO_SHIELD) {
     Serial.println(F("WiFi card not present"));
     // don't continue
+    return;
 
     // fix this to be like old code ie reboot after one send etc
     //    while (true);

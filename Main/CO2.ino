@@ -178,10 +178,13 @@ int readCO2(){
 
 }
 
-int CO2_loop(){
- 
-  int co2Value = readCO2();
 
+// make this more robust and efficient by merging this with above Function
+// and storing NULL when it errors instead of 0 because at moment is confusing as to
+// whether or not the 0 is due to error or legit
+
+int CO2_loop(){
+  int co2Value = readCO2();
   if (co2Value > 0){
 
     CO2 = co2Value;
@@ -189,7 +192,7 @@ int CO2_loop(){
   }
 
   else {
-//    show(F("CO2: Checksum \nfailed /Communication \nfailure"));
+    show("CO2: Checksum \nfailed /Communication \nfailure");
     CO2 = 0;
   }
 }

@@ -33,7 +33,7 @@
 ////}
 //
 //void wifi_connect(){
-//    show(F("Connecting \nto hotspot"));
+//    show("Connecting \nto hotspot"));
 //    
 ////    Serial.println(F( PASSWORD ));
 //    Serial.println(F("AT+CWJAP_CUR=\"DESKTOP-73HN8ON5011\",\"u65879Q0\""));
@@ -46,12 +46,12 @@
 //      // find cool way to show IP
 //      Serial.println(F("AT+CIFSR"));
 //      inspect();
-//      show(F("Connected to hotspot"));
+//      show("Connected to hotspot"));
 //    }
 //    else{
 //      
 //      Serial.setTimeout(1000);
-//      show(F("No AP connection"));
+//      show("No AP connection"));
 //      ap_connected = false;
 //    }
 // }
@@ -62,13 +62,13 @@
 //  
 //  if(!Serial.find("OK")){
 ////    try_again(F("AT"), 4);
-//    show(F("WIFI card \nnot connected"));
+//    show("WIFI card \nnot connected"));
 //    
 //    plugged_in = false;
 //  }
 //  else{
 //
-//    show(F("Configuring WIFI"));
+//    show("Configuring WIFI"));
 //    plugged_in = true;
 //    //restart 
 //    Serial.println(F("AT+RST"));
@@ -87,7 +87,7 @@
 //    if(Serial.find("OK")){
 //      wifi_connect();
 //    }else{
-//      show(F("Setup failure"));
+//      show("Setup failure"));
 //    }
 //  }
 //} 
@@ -127,7 +127,7 @@
 //
 //void WIFI_setup(){
 //
-//  show(F("Checking WIFI \ncard"));
+//  show("Checking WIFI \ncard"));
 //  wifi_config();
 //
 //
@@ -158,7 +158,7 @@
 //  // somehow doesnt cover if the module was just plugged in during runtime????
 //  if(plugged_in){
 //    if(ap_connected){
-//      show(F("Connecting \nto server IP"));
+//      show("Connecting \nto server IP"));
 ////      Serial.println(F("AT+CIPSTART=\"TCP\",\"192.168.100.100\",81"));
 ////      Serial.println(F("AT+CIPSTART=\"TCP\",\"arduino.cc\",80"));
 //      Serial.println(F("AT+CIPSTART=3,\"TCP\",\"seat-skomobo.massey.ac.nz\",80")); 
@@ -170,7 +170,7 @@
 //      // need check if wifi still connected if not just reconnect also retry connection if failed
 //      if(Serial.find("CONNECT") && Serial.find("OK")){
 //  
-//        show(F("Sending data \nto server"));
+//        show("Sending data \nto server"));
 //
 //        // Send AT+CIPSEND=3,55 to say the serial content will have X length I think where x in the example is 55
 // 
@@ -241,14 +241,14 @@
 //        
 ////        }
 ////        else{
-////          show(F("Failed to send data"));
+////          show("Failed to send data"));
 ////          Serial.println(F("AT+CIPCLOSE"));
 ////        }
 //
 //        delay(5000);
 //  
 //      }else{
-//        show(F("Failed to \nconnect to server"));
+//        show("Failed to \nconnect to server"));
 //      }
 //
 //    }else{
