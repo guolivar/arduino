@@ -48,12 +48,8 @@ void Save_sensors() {
     Save(Data);
 
   } else {
-    //      show("SD card \nnot plugged \nin"));
+      show_P("SD card \nnot plugged \nin");
   }
-
-  //   Wifi_send(Time, PIR, Temp, CO2, Dust);
-  //    WIFI_send(Time, PIR, Temp, CO2, Dust);
-  //   WIFI_send("06:30:01 12/07/2017", true, "21,245", 51, "244,423,123");
 
   WIFI_send();
 }
@@ -62,22 +58,23 @@ void SD_setup() {
 
   if (SD.begin(10)) {
  
-    show(PSTR("Init SD"), true);
+    show_P("Initializing SD");
     // print the headings for our data in the txt file
     myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
     SD_available = true;
 
 
+    // replace this with save_P macro
     // Print the headings in the csv file
     flash_save(PSTR("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n"));
     //   show("SD initialized"));
 
-    show(PSTR("Init done"), true);
+    show_P("Initialization done");
     //   Serial.println(F("init done"));
 
   }
   else{
-    show(PSTR("Initialization failed"), true);
+    show_P("Initialization failed");
     SD_available = false;
     return;
   }

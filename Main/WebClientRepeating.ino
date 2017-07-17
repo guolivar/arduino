@@ -35,8 +35,10 @@ void WIFI_setup()
 
   // put in proper retrys here
   // check for the presence of the shield
+
+  show_P("Checking\n WIFI card");
   if (WiFi.status() == WL_NO_SHIELD) {
-    Serial.println(F("WiFi card not present"));
+    show_P("WiFi card\n not present");
     // don't continue
     return;
 
@@ -46,14 +48,14 @@ void WIFI_setup()
 
   // attempt to connect to WiFi network
   while ( status != WL_CONNECTED) {
-    Serial.println(F("Attempting to connect to AP"));
+    show_P("Connecting\n to AP");
     //    Serial.println(ssid);
     // Connect to WPA/WPA2 network
     status = WiFi.begin(ssid, pass);
   }
 
-  Serial.println(F("Connected to AP"));
-
+  // Serial.println(F("Connected to AP"));
+  show_P("Connected\n to AP");
   printWifiStatus();
 }
 
@@ -115,10 +117,11 @@ void httpRequest()
 
 
   
+  show_P("Connecting\n to server");
 
   // if there's a successful connection
   if (client.connect(server, 80)) {
-    Serial.println(F("Connecting..."));
+    show_P("Sending data\nto server");
 
     //    Dust.replace(",", "_");
     //
@@ -175,7 +178,7 @@ void httpRequest()
   }
   else {
     // if you couldn't make a connection
-    Serial.println(F("Connect failed"));
+   show_P("Server\nconnection\nlost");
   }
 }
 

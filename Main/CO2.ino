@@ -192,7 +192,7 @@ int CO2_loop(){
   }
 
   else {
-    show(PSTR("CO2: Checksum \nfailed /Communication \nfailure"), true);
+    show_P("CO2: Checksum\nfailed\n/Communication \nfailure");
     CO2 = 0;
   }
 }

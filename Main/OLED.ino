@@ -31,8 +31,12 @@ char the_char;
 
 // this function reads a char array from flash memory and displays each character one by one
 
-// consider replacing this whole thing with strcpy_P to save even more space
+// consider replacing this whole thing with a macro that wraps strcpy_P and PRGMSTR to save even more space
 void flash_show(char data[]){
+
+  delay(2000);
+  oled.clear();
+
   int len = strlen_P(data);
   for(int k = 0; k < len; k++){
       the_char = pgm_read_byte_near(data + k);
@@ -45,23 +49,13 @@ void flash_show(char data[]){
 
 // put in callbacks to the flash string retriever or get it to stream somehow
 
-void show(char data[], bool progmem){
+void show(char data[]){
     
   // if(OLED_connected){
   delay(2000);
   oled.clear();
 
-  if(progmem){
-    flash_show(data);
-  }
-  else{
-    oled.print(data);
-  }
-  
-  // }
-  // else{
-  //   Serial.println(data);
-  // }
+  oled.print(data);
 }
 //
 //// to make text bigger use oled.set2X();
@@ -81,7 +75,7 @@ void OLED_setup(){
   oled.setFont(TimesNewRoman16);
 
   // static const char title[] PROGMEM = ;
-  show(PSTR("SKOMOBO"), true);
+  show_P("SKOMOBO");
   // }else{
     // testing that this code works
     // Serial.println(F("OLED not connected"));

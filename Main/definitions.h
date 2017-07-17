@@ -9,4 +9,5 @@ float humidity;
 int CO2;
 unsigned int PM1,PM25,PM10;
 char PIR;
- 
+
+#define show_P(arg) flash_show(PSTR(arg))
