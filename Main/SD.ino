@@ -54,10 +54,8 @@ void Save_sensors() {
   //   Wifi_send(Time, PIR, Temp, CO2, Dust);
   //    WIFI_send(Time, PIR, Temp, CO2, Dust);
   //   WIFI_send("06:30:01 12/07/2017", true, "21,245", 51, "244,423,123");
-  char test_time[] = "06_30_01_12_07_2017";
-  char test_temp_humidity[] = "21,245";
-  char test_dust[] = "244,423,123";
-  WIFI_send(test_time, PIR, test_temp_humidity, 51, test_dust);
+
+  WIFI_send();
 }
 
 void SD_setup() {

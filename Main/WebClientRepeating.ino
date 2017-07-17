@@ -10,6 +10,10 @@
 
 #include "src/WiFiEsp.h"
 
+
+// make a macro that stores all these strings in flash and then reads out char arrays at runtime?
+// make a seperate function that constructs the array using the one that reads out individual chars
+
 char ssid[] = "DESKTOP-73HN8ON5011";            // your network SSID (name)
 char pass[] = "u65879Q0";        // your network password
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
@@ -53,7 +57,10 @@ void WIFI_setup()
   printWifiStatus();
 }
 
-void WIFI_send(char Time[], char PIR, char Temp[], int CO2, char Dust[])
+
+// merge this function with the http request one g
+
+void WIFI_send()
 {
   // if there's incoming data from the net connection send it out the serial port
   // this is for debugging purposes only
@@ -62,11 +69,17 @@ void WIFI_send(char Time[], char PIR, char Temp[], int CO2, char Dust[])
   //    Serial.write(c);
   //  }
 
+  // keep this for robustness 
+
+  // check if TCP closed if yes then restart?
+
+  // try improving hardware and further reducing memory to improve robustness
+
   // if 10 seconds have passed since your last connection,
   // then connect again and send data
   if (millis() - lastConnectionTime > postingInterval) {
 
-    httpRequest(Time, PIR, Temp, CO2, Dust);
+    httpRequest();
   }
 }
 
@@ -87,7 +100,7 @@ void WIFI_send(char Time[], char PIR, char Temp[], int CO2, char Dust[])
 
 
 // this method makes a HTTP connection to the server
-void httpRequest(char Time[], char PIR, char Temp[], int CO2, char Dust[])
+void httpRequest()
 {
   Serial.println();
 
@@ -128,7 +141,14 @@ void httpRequest(char Time[], char PIR, char Temp[], int CO2, char Dust[])
 
     char request[17];
     
-    sprintf_P(request, PSTR("GET /" BOX_ID "_%c HTTP/1.1"), PIR);
+    // may need to make seperate get requests so that it can cope
+
+    // maybe make one route for each sensor value??
+
+    // after that put in the script to start the server on boot using this https://www.computerhope.com/issues/ch000322.htm
+
+
+    sprintf_P(request, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%*.2f_%*.2f_%d_%c HTTP/1.1"), year, month, day, second, minute, hour, PM1, PM25, PM10, temperature, humidity, CO2, PIR);
 
 //    char meta[] = " HTTP/1.1";
 

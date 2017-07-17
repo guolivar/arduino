@@ -30,6 +30,8 @@ SSD1306AsciiAvrI2c oled;
 char the_char;
 
 // this function reads a char array from flash memory and displays each character one by one
+
+// consider replacing this whole thing with strcpy_P to save even more space
 void flash_show(char data[]){
   int len = strlen_P(data);
   for(int k = 0; k < len; k++){
@@ -37,6 +39,11 @@ void flash_show(char data[]){
       oled.print(the_char);
   }
 }
+
+
+// remove flag and replace with calls to flash_show
+
+// put in callbacks to the flash string retriever or get it to stream somehow
 
 void show(char data[], bool progmem){
     
