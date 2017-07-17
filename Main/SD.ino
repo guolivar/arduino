@@ -20,6 +20,8 @@ void flash_save(char data[]){
   delay(2000);
 }
 
+//TODO remove redundancy
+
 void Save(char text[]) {
 
 
@@ -46,6 +48,8 @@ void Save_sensors() {
     sprintf_P(Data, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%g,%g,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
 
     Save(Data);
+
+    // TODO: put thing in here to display data on the screen with pretty formatting
 
   } else {
       show_P("SD card \nnot plugged \nin");
