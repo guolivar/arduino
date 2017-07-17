@@ -9,13 +9,13 @@ SSD1306AsciiAvrI2c oled;
 //
 //// we delay the time until the screen gets cleared so that people can read the data
 // might need to use interrupts for this at some point so it doesn't bottleneck
-void delay_clear(){
-  // wait a few milliseconds
-  delay(2000);
-  oled.clear();
-}
+// void delay_clear(){
+//   // wait a few milliseconds
+//   delay(2000);
+//   oled.clear();
+// }
 //
-bool OLED_connected = false;
+// bool OLED_connected = false;
 //
 //// these two functions are exactly the same just with different types, see if theres a way to merge
 //void show(const __FlashStringHelper *message){
@@ -27,11 +27,30 @@ bool OLED_connected = false;
 //  
 //}
 
-void show(char data[]){
+char the_char;
+
+// this function reads a char array from flash memory and displays each character one by one
+void flash_show(char data[]){
+  int len = strlen_P(data);
+  for(int k = 0; k < len; k++){
+      the_char = pgm_read_byte_near(data + k);
+      oled.print(the_char);
+  }
+}
+
+void show(char data[], bool progmem){
     
   // if(OLED_connected){
-    delay_clear();
+  delay(2000);
+  oled.clear();
+
+  if(progmem){
+    flash_show(data);
+  }
+  else{
     oled.print(data);
+  }
+  
   // }
   // else{
   //   Serial.println(data);
@@ -53,7 +72,9 @@ void OLED_setup(){
   // if(OLED_connected){
   oled.begin(&Adafruit128x64, 0x3C);
   oled.setFont(TimesNewRoman16);
-  show("SKOMOBO");
+
+  // static const char title[] PROGMEM = ;
+  show(PSTR("SKOMOBO"), true);
   // }else{
     // testing that this code works
     // Serial.println(F("OLED not connected"));

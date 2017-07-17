@@ -3,6 +3,8 @@
 // all our own definitions
 #include "definitions.h"
 
+#include <avr/pgmspace.h>
+
 void setup(){
 
   Serial.begin(115200);

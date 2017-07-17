@@ -3,6 +3,23 @@ SdFat SD;
 
 File myFile;
 
+void flash_save(char data[]){
+    //if the file opened okay, write to it
+  if (myFile) {
+    int len = strlen_P(data);
+    for(int k = 0; k < len; k++){
+        the_char = pgm_read_byte_near(data + k);
+        myFile.print(the_char);
+    }
+
+    //close the file
+    myFile.flush();
+
+  }
+
+  delay(2000);
+}
+
 void Save(char text[]) {
 
 
@@ -47,23 +64,22 @@ void SD_setup() {
 
   if (SD.begin(10)) {
  
-    show("Init SD");
+    show(PSTR("Init SD"), true);
     // print the headings for our data in the txt file
     myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
     SD_available = true;
 
 
     // Print the headings in the csv file
-    char headings[] = "Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n";
-    Save(headings);
+    flash_save(PSTR("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n"));
     //   show("SD initialized"));
 
-    show("Init done");
+    show(PSTR("Init done"), true);
     //   Serial.println(F("init done"));
 
   }
   else{
-       //    show("Initialization failed"));
+    show(PSTR("Initialization failed"), true);
     SD_available = false;
     return;
   }
