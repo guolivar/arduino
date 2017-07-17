@@ -100,7 +100,7 @@ void WIFI_send()
 
 
 
-char request[50];
+// char request[50];
 
 // this method makes a HTTP connection to the server
 void httpRequest()
@@ -130,8 +130,10 @@ void httpRequest()
 
     // after that put in the script to start the server on boot using this https://www.computerhope.com/issues/ch000322.htm
 
-
-    sprintf_P(request, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%*.f_%*.f_%d_%c HTTP/1.1"), year, month, day, second, minute, hour, PM1, PM25, PM10, temperature, humidity, CO2, PIR);
+    client.println(F("GET /id?d=" BOX_ID));
+    // char ID_request[] = 
+    // sprintf_P("GET /id?d=", )
+    // sprintf_P(request, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%*.f_%*.f_%d_%c HTTP/1.1"), year, month, day, second, minute, hour, PM1, PM25, PM10, temperature, humidity, CO2, PIR);
 
 //    char meta[] = " HTTP/1.1";
 
@@ -148,7 +150,7 @@ void httpRequest()
     //    char test[] = "GET / HTTP/1.1";
     //    char request[] =
 
-    client.println(request);
+    // client.println(request);
     client.println(F("Host: seat-skomobo.massey.ac.nz"));
     client.println(F("Connection: close"));
     client.println();
