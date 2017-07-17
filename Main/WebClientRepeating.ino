@@ -142,7 +142,7 @@ void httpRequest()
     //    Serial.print(request2);
     //    String request = "GET /";
 
-    char request[17];
+    char request[50];
     
     // may need to make seperate get requests so that it can cope
 
@@ -151,7 +151,7 @@ void httpRequest()
     // after that put in the script to start the server on boot using this https://www.computerhope.com/issues/ch000322.htm
 
 
-    sprintf_P(request, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%*.2f_%*.2f_%d_%c HTTP/1.1"), year, month, day, second, minute, hour, PM1, PM25, PM10, temperature, humidity, CO2, PIR);
+    sprintf_P(request, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%*.f_%*.f_%d_%c HTTP/1.1"), year, month, day, second, minute, hour, PM1, PM25, PM10, temperature, humidity, CO2, PIR);
 
 //    char meta[] = " HTTP/1.1";
 
