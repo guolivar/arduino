@@ -100,6 +100,7 @@ void WIFI_send()
 
 
 
+char request[50];
 
 // this method makes a HTTP connection to the server
 void httpRequest()
@@ -122,27 +123,6 @@ void httpRequest()
   // if there's a successful connection
   if (client.connect(server, 80)) {
     show_P("Sending data\nto server");
-
-    //    Dust.replace(",", "_");
-    //
-    //        // replace fullstops in CO2 and temp and humidity
-    //    Temp.replace(",", "_");
-    ////
-    //    Time.replace(":", "_");
-    //    Time.replace("/", "_");
-    //    Time.replace(" ", "_");
-    // send the HTTP PUT request
-    //    client.println(F("GET /0_2016-6-23_12332_12_31_23434_12_2434_1 HTTP/1.1"));
-    //    char request[70] = "\0";
-    //    char request[70];
-    //    String request1 = "GET /" BOX_ID "_" + Time + "_" + Dust;
-    //    String request2 = "_" + Temp + "_" + String(CO2) + "_" + String(PIR);
-    //    Serial.print("AT+CIPSEND=3," + String(request1.length() + request2.length() + 9));
-    //    Serial.print(request1);
-    //    Serial.print(request2);
-    //    String request = "GET /";
-
-    char request[50];
     
     // may need to make seperate get requests so that it can cope
 
