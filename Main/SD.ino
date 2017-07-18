@@ -40,6 +40,8 @@ void Save(char text[]) {
 
 bool SD_available = true;
 
+// char text[11] = "Temp: ";
+
 void Save_sensors() {
 
   if (SD_available) {
@@ -48,6 +50,11 @@ void Save_sensors() {
     sprintf_P(Data, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%g,%g,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
 
     Save(Data);
+
+    // display temperature
+    // dtostrf(temperature, 11, 2, &text[6]);
+    
+    // show(text);
 
     // TODO: put thing in here to display data on the screen with pretty formatting
 

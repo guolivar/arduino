@@ -18,7 +18,7 @@ void getdata(byte *a, byte *b, byte *c, byte *d)
 }
 
 
-//// what is the point in this function?????
+// what is the point in this function?????
 float adjust_temp(float rawData){
   return rawData;
 }

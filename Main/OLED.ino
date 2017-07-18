@@ -76,6 +76,10 @@ void OLED_setup(){
 
   // static const char title[] PROGMEM = ;
   show_P("SKOMOBO");
+
+  //! insert ASCII dragon in Agates email
+
+
   // }else{
     // testing that this code works
     // Serial.println(F("OLED not connected"));
