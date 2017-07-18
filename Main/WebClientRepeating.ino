@@ -146,7 +146,7 @@ void httpRequest()
     // 22 + 14 + 9
 
     // 45
-    sprintf_P(request, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, second, minute, hour, PM1, PM25, PM10);
+    sprintf_P(request, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hout, minute, second, PM1, PM25, PM10);
 
     client.println(request);
 //    char meta[] = " HTTP/1.1";
