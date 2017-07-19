@@ -74,10 +74,15 @@ void OLED_setup(){
   oled.begin(&Adafruit128x64, 0x3C);
   oled.setFont(TimesNewRoman16);
 
-  // static const char title[] PROGMEM = ;
   show_P("SKOMOBO");
 
-  //! insert ASCII dragon in Agates email
+  //! Check to see if these can be on screen at same time
+
+  // release the ASCII dragon
+  show_P("     ,.
+            /,,;';;.  ,;;;..  ,,;.    '
+          .',''   `::;:' ``;;;;'  `..'
+          `      ,,/'     ,,//         ");
 
 
   // }else{

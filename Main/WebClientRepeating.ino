@@ -154,6 +154,18 @@ void httpRequest()
   show_P("Sending second\ndata to server");
   sprintf_P(request, PSTR("GET /2_" BOX_ID "_%d_%d_%d_%c HTTP/1.1"), (int)(temperature*100.0), (int)(humidity*100.0), CO2, PIR);
   send_data();
+
+  // consider JSON encoding here but length issue will still persist I think
+
+  // would just be easier with my scheme
+
+  // my scheme
+
+  // client.println("arduino");
+  // sprintf_P(request, "BOX ID Time Date dusts pir etc ");
+  // client.println(request);
+  // server closes connection
+  // rinse repeat
   delay(6000);
 
 }
