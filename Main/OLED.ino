@@ -74,15 +74,16 @@ void OLED_setup(){
   oled.begin(&Adafruit128x64, 0x3C);
   oled.setFont(TimesNewRoman16);
 
-  show_P("SKOMOBO");
+  // show_P("");
 
   //! Check to see if these can be on screen at same time
 
   // release the ASCII dragon
-  show_P("     ,.
-            /,,;';;.  ,;;;..  ,,;.    '
-          .',''   `::;:' ``;;;;'  `..'
-          `      ,,/'     ,,//         ");
+  // show_P("     ,.
+  //            /,,;';;.  ,;;;..  ,,;.    '
+  //          .',''   `::;:' ``;;;;'  `..'
+  //          `      ,,/'     ,,//         ");
+  show_P("SKOMOBO\n     ,.\n   /,,;';;.  ,;;;..  ,,;.    '\n .',''   `::;:' ``;;;;'  `..'\n `      ,,/'     ,,//         ");
 
 
   // }else{

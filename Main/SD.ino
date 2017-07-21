@@ -41,15 +41,15 @@ void Save(char text[]) {
 bool SD_available = true;
 
 // char text[11] = "Temp: ";
-
+char SD_Data[39];
 void Save_sensors() {
 
   if (SD_available) {
     
-    char Data[39];
-    sprintf_P(Data, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%g,%g,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
+    
+    sprintf_P(SD_Data, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%g,%g,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
 
-    Save(Data);
+    Save(SD_Data);
 
     // display temperature
     // dtostrf(temperature, 11, 2, &text[6]);

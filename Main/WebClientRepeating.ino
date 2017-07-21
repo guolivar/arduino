@@ -98,7 +98,7 @@ void WIFI_send()
 
 // if TCP connection failed then start from beginning agin so setup etc
 
-char request[47];
+char request[51] = "\0";
 
 void send_data(){
    // if there's a successful connection
@@ -116,9 +116,11 @@ void send_data(){
 
     client.println(request);
 
-    client.println(F("Host: seat-skomobo.massey.ac.nz "));
-    client.println(F("Connection: close"));
-    client.println();
+    // client.println(F("Host: seat-skomobo.massey.ac.nz "));
+    // client.println(F("Connection: close"));
+    // client.println();
+
+    // sprintf_P(request, PSTR(BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10)
 
     // note the time that the connection was made
     lastConnectionTime = millis();
@@ -137,6 +139,8 @@ void httpRequest()
 
   // close any connection before send a new request
   // this will free the socket on the WiFi shield
+
+  // move this to bottom for my own protocol
   client.stop();
 
 
@@ -148,14 +152,38 @@ void httpRequest()
   
   show_P("Connecting\n to server");
 
-  sprintf_P(request, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hour, minute, second, PM1, PM25, PM10);
+  // 51
+  
+  // sprintf_P(request, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hour, minute, second, PM1, PM25, PM10);
+  // sprintf_P(request, PSTR(BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%d_%d_%d_%c"), year, month, day, hour, minute, second, PM1, PM25, PM10, (int)(temperature*100.0), (int)(humidity*100.0), CO2, PIR);
+  
+  //! still need two seperate requests to transmit data server needs to handle too
+  sprintf_P(request, PSTR(BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10);
   send_data();
 
-  show_P("Sending second\ndata to server");
-  sprintf_P(request, PSTR("GET /2_" BOX_ID "_%d_%d_%d_%c HTTP/1.1"), (int)(temperature*100.0), (int)(humidity*100.0), CO2, PIR);
-  send_data();
+  // show_P("Sending second\ndata to server");
+  // sprintf_P(request, PSTR("GET /2_" BOX_ID "_%d_%d_%d_%c HTTP/1.1"), (int)(temperature*100.0), (int)(humidity*100.0), CO2, PIR);
+  // send_data();
 
   // consider JSON encoding here but length issue will still persist I think
+
+  // char content[14] = "\0";
+  // sprintf_P(content, PSTR("{id:" BOX_ID ",PIR:%c, }"))
+  // client.println(F("POST /arduino"));
+
+  // would either need to use chunked encoding where each chunk gives a length like this
+  // char length[4] = "\0";
+  // client.println("")
+  // or would need to append all values in string or somehow calculate all lengths of values
+  // without storing them in memory
+
+  // also the above would have to be SRAM because it is purely dynamic not static
+
+  // client.println(F())
+  // need content length buffer here
+  // client.println(F(Content_length = ))
+
+  // 
 
   // would just be easier with my scheme
 
@@ -166,6 +194,8 @@ void httpRequest()
   // client.println(request);
   // server closes connection
   // rinse repeat
+
+  // could even do basic encryption before
   delay(6000);
 
 }
