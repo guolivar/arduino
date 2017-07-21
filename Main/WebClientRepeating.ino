@@ -113,9 +113,10 @@ void send_data(){
 
    
     // sprintf_P(request, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hout, minute, second, PM1, PM25, PM10);
-
+    sprintf_P(request, PSTR("1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10);
     client.println(request);
-
+    sprintf_P(request, PSTR("2_" BOX_ID "%d_%d_%d_%c"), (int)(temperature*100.0), (int)(humidity*100.0), CO2, PIR);
+    client.println(request);
     // client.println(F("Host: seat-skomobo.massey.ac.nz "));
     // client.println(F("Connection: close"));
     // client.println();
@@ -158,7 +159,7 @@ void httpRequest()
   // sprintf_P(request, PSTR(BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%d_%d_%d_%c"), year, month, day, hour, minute, second, PM1, PM25, PM10, (int)(temperature*100.0), (int)(humidity*100.0), CO2, PIR);
   
   //! still need two seperate requests to transmit data server needs to handle too
-  sprintf_P(request, PSTR(BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10);
+  // sprintf_P(request, PSTR("1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10);
   send_data();
 
   // show_P("Sending second\ndata to server");
