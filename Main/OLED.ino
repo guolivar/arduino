@@ -60,12 +60,8 @@ void show(char data[]){
 //
 //// to make text bigger use oled.set2X();
 //// to undo use oled.set1X();
-//
+
 void OLED_setup(){
-
-
-  // this code was ok but not needed
-  // Wire.beginTransmission(0x3C);
 
   // if it returns 0 then the screen exists
   // OLED_connected = Wire.endTransmission() == 0;
@@ -87,10 +83,4 @@ void OLED_setup(){
  //? maybe get a better dragon ask Chris?
   // show_P("SKOMOBO\n     ,.\n   /,,;';;.  ,;;;..  ,,;.    '\n .',''   `::;:' ``;;;;'  `..'\n `      ,,/'     ,,//         ");
 
-
-  // }else{
-    // testing that this code works
-    // Serial.println(F("OLED not connected"));
-    
-  //}
 }
