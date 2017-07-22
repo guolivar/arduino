@@ -41,15 +41,15 @@ void Save(char text[]) {
 bool SD_available = true;
 
 // char text[11] = "Temp: ";
-char SD_Data[39];
+// char SD_Data[39];
 void Save_sensors() {
 
   if (SD_available) {
     
     
-    sprintf_P(SD_Data, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%g,%g,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
+    sprintf_P(Buffer, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%g,%g,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
 
-    Save(SD_Data);
+    Save(Buffer);
 
     // display temperature
     // dtostrf(temperature, 11, 2, &text[6]);
@@ -77,7 +77,9 @@ void SD_setup() {
 
     // replace this with save_P macro
     // Print the headings in the csv file
-    flash_save(PSTR("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n"));
+   // flash_save(PSTR("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n"));
+    save_P("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n");
+
     //   show("SD initialized"));
 
     show_P("Initialization done");

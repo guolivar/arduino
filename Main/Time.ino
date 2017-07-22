@@ -16,7 +16,7 @@ void Time_loop() {
 
   // put in validation for clock presence if there isnt any
   
-  fetch( hour ); fetch( minute ); fetch( second ); fetch( day ); fetch( month ); fetch( year );
+  fetch(hour); fetch(minute); fetch(second); fetch(day); fetch(month); fetch(year);
   
   // sprintf_P(text, "%d", fetch(hour) );
   // show(text);

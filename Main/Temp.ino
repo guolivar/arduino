@@ -11,7 +11,6 @@ void getdata(byte *a, byte *b, byte *c, byte *d)
   Wire.endTransmission();
   Wire.requestFrom(40, 4);
   *a = Wire.read();
-
   *b = Wire.read();
   *c = Wire.read();
   *d = Wire.read();
