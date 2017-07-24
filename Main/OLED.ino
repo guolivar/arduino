@@ -79,8 +79,8 @@ void OLED_setup(){
   //            /,,;';;.  ,;;;..  ,,;.    '
   //          .',''   `::;:' ``;;;;'  `..'
   //          `      ,,/'     ,,//         ");
-  show_P("SKOMOBO");
+  // show_P("SKOMOBO");
  //? maybe get a better dragon ask Chris?
-  // show_P("SKOMOBO\n     ,.\n   /,,;';;.  ,;;;..  ,,;.    '\n .',''   `::;:' ``;;;;'  `..'\n `      ,,/'     ,,//         ");
+  show_P("SKOMOBO\n     ,.\n   /,,;';;.  ,;;;..  ,,;.    '\n .',''   `::;:' ``;;;;'  `..'\n `      ,,/'     ,,//         ");
 
 }

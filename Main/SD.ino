@@ -47,7 +47,7 @@ void Save_sensors() {
   if (SD_available) {
     
     
-    sprintf_P(Buffer, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%g,%g,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
+    sprintf_P(Buffer, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%*.f,%*.f,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
 
     Save(Buffer);
 

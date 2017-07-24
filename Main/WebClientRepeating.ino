@@ -115,7 +115,7 @@ void send_data(){
     // sprintf_P(request, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hout, minute, second, PM1, PM25, PM10);
     sprintf_P(Buffer, PSTR("1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10);
     client.println(Buffer);
-    sprintf_P(Buffer, PSTR("2_" BOX_ID "%d_%d_%d_%c"), (int)(temperature*100.0), (int)(humidity*100.0), CO2, PIR);
+    sprintf_P(Buffer, PSTR("2_" BOX_ID "_%i_%d_%d_%c"), (int)(temperature*100.0), (int)(humidity*100.0), CO2, PIR);
     client.println(Buffer);
     // client.println(F("Host: seat-skomobo.massey.ac.nz "));
     // client.println(F("Connection: close"));
