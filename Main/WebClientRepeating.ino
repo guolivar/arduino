@@ -40,20 +40,12 @@ void WIFI_connect(){
       break;
     }
     else{
+        // Connect to WPA/WPA2 network
       status = WiFi.begin(ssid, pass);
     }
-    
-    //    Serial.println(ssid);
-    // Connect to WPA/WPA2 network
-    
-  // }
 
-  // Serial.println(F("Connected to AP"));
-    
   }
-  // while ( status != WL_CONNECTED) {
-    
-  // printWifiStatus();
+ 
 }
 
 void WIFI_setup()
@@ -71,11 +63,8 @@ void WIFI_setup()
   show_P("Checking\n WIFI card");
   if (WiFi.status() == WL_NO_SHIELD) {
     show_P("WiFi card\n not present");
-    // don't continue
-    return;
 
     // fix this to be like old code ie reboot after one send etc
-    //    while (true);
   }
 
 }
@@ -85,19 +74,7 @@ void WIFI_setup()
 
 void WIFI_send()
 {
-  // if there's incoming data from the net connection send it out the serial port
-  // this is for debugging purposes only
-  //  while (client.available()) {
-  //    char c = client.read();
-  //    Serial.write(c);
-  //  }
-
-  // keep this for robustness 
-
-  // check if TCP closed if yes then restart?
-
-  // try improving hardware and further reducing memory to improve robustness
-
+ 
   // if 10 seconds have passed since your last connection,
   // then connect again and send data
   if (millis() - lastConnectionTime > postingInterval) {
@@ -108,18 +85,7 @@ void WIFI_send()
 
 
 
-
-// integrate this with rest of cocde feed real values
-
-//test variable concatenation
-
 // use other code for own at commands etc to see how to send real values
-
-// remove screen if necessary
-
-// if TCP connection failed then start from beginning agin so setup etc
-
-// char request[51] = "\0";
 
 void send_data(){
    // if there's a successful connection
@@ -179,20 +145,14 @@ void httpRequest()
   // move this to bottom for my own protocol
   client.stop();
 
-
-  //???????? 
-  /// replace ssid at top with the Macro versions 
-  //??????
-
-
-  
   show_P("Connecting\n to server");
 
-  sprintf_P(Buffer, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hour, minute, second, PM1, PM25, PM10);
+  // sprintf_P(Buffer, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hour, minute, second, PM1, PM25, PM10);
+  layout_P("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1", year, month, day, hour, minute, second, PM1, PM25, PM10);
   send_data();
-  // client.println(Buffer);
-
-  sprintf_P(Buffer, PSTR("GET /2_" BOX_ID "_%i_%d_%d_%c HTTP/1.1"), (int)trunc(temperature*100.0f), (int)trunc(humidity*100.0f), CO2, PIR);
+ 
+  // sprintf_P(Buffer, PSTR("GET /2_" BOX_ID "_%i_%d_%d_%c HTTP/1.1"), (int)trunc(temperature*100.0f), (int)trunc(humidity*100.0f), CO2, PIR);
+  layout_P("GET /2_" BOX_ID "_%i_%d_%d_%c HTTP/1.1", (int)trunc(temperature*100.0f), (int)trunc(humidity*100.0f), CO2, PIR);
   send_data();
   
   // 51
