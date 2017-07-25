@@ -144,7 +144,10 @@ void send_data(){
     
     // try construct string then convert to char array for those 
     //values or append it as strings somehow
-  
+
+    // also try dtostrf(humidity, 4, 2, Buffer)
+    // show(Buffer)
+    
     sprintf_P(Buffer, PSTR("2_" BOX_ID "_%i_%d_%d_%c"), (int)trunc(temperature*100.0f), (int)trunc(humidity*100.0f), CO2, PIR);
     client.println(Buffer);
     // client.println(F("Host: seat-skomobo.massey.ac.nz "));

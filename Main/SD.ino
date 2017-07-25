@@ -3,6 +3,18 @@ SdFat SD;
 
 File myFile;
 
+// void flash_print(char data[], size_t (*print)( char ) ){
+//     size_t len = strlen_P(data);
+//     for(int k = 0; k < len; k++){
+    
+//         //! remove the_char and just insert directly
+//         the_char = pgm_read_byte_near(data + k);
+//         print(the_char);
+//         // myFile.print(the_char);
+//     }
+// }
+
+
 void flash_save(char data[]){
     //if the file opened okay, write to it
   if (myFile) {
@@ -11,7 +23,7 @@ void flash_save(char data[]){
         the_char = pgm_read_byte_near(data + k);
         myFile.print(the_char);
     }
-
+    // flash_print(data, &myFile.print);
     //close the file
     myFile.flush();
 
@@ -61,7 +73,7 @@ void Save_sensors() {
 
     // print off other value here to compare
     oled.clear();
-    oled.println("Humidity: ", String(Humidity));
+    oled.println("Humidity: " + String(humidity));
 
     sprintf_P(Buffer, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%*.f,%*.f,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
 
