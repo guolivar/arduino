@@ -57,6 +57,12 @@ void show(char data[]){
 
   oled.print(data);
 }
+
+// my attempt to make my own format function
+// void showf(size_t size, char format[], int value){
+//   snprintf_P(Buffer, 5, PSTR("%d"), CO2);
+//   show(Buffer);
+// }
 //
 //// to make text bigger use oled.set2X();
 //// to undo use oled.set1X();
@@ -79,8 +85,8 @@ void OLED_setup(){
   //            /,,;';;.  ,;;;..  ,,;.    '
   //          .',''   `::;:' ``;;;;'  `..'
   //          `      ,,/'     ,,//         ");
-  // show_P("SKOMOBO");
+  show_P("SKOMOBO");
  //? maybe get a better dragon ask Chris?
-  show_P("SKOMOBO\n     ,.\n   /,,;';;.  ,;;;..  ,,;.    '\n .',''   `::;:' ``;;;;'  `..'\n `      ,,/'     ,,//         ");
+  // show_P("SKOMOBO\n     ,.\n   /,,;';;.  ,;;;..  ,,;.    '\n .',''   `::;:' ``;;;;'  `..'\n `      ,,/'     ,,//         ");
 
 }

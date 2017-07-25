@@ -21,7 +21,7 @@ float humidity = 0.0;
 int CO2 = 0;
 unsigned int PM1 = 0, PM25 = 0, PM10 =0;
 char PIR = '0';
-char Buffer[51] = "\0";
+char Buffer[56] = "\0";
 
 #define show_P(arg) flash_show(PSTR(arg))
 #define save_P(arg) flash_save(PSTR(arg))

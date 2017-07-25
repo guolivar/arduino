@@ -46,11 +46,27 @@ void Save_sensors() {
 
   if (SD_available) {
     
-    
+    // sprintf_P(Buffer, "CO2: %d", CO2);
+    // show(Buffer);
+    // oled.clear();
+    // oled.println("Humidity: " + String(humidity));
+
+    // should print out C02 value properly cus it null terminates before buffer size
+    snprintf_P(Buffer, 10, PSTR("CO2: %d"), CO2);
+    show(Buffer);
+
+    // should print out humidity with decimal point
+    snprintf_P(Buffer, 16, PSTR("Humidity: %d.%d"), (int)humidity, (int)(humidity * 100) % 100);
+    show(Buffer);
+
+    // print off other value here to compare
+    oled.clear();
+    oled.println("Humidity: ", String(Humidity));
+
     sprintf_P(Buffer, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%*.f,%*.f,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
 
     Save(Buffer);
-
+    show_P("Saved data\nto SD");
     // display temperature
     // dtostrf(temperature, 11, 2, &text[6]);
     
@@ -80,9 +96,9 @@ void SD_setup() {
    // flash_save(PSTR("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n"));
     save_P("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n");
 
-    //   show("SD initialized"));
+    show_P("SD initialized");
 
-    show_P("Initialization done");
+    // show_P("Initialization done");
     //   Serial.println(F("init done"));
 
   }

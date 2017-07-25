@@ -26,12 +26,44 @@ const unsigned long postingInterval = 10000L; // delay between updates, in milli
 // Initialize the Ethernet client object
 WiFiEspClient client;
 
+void WIFI_connect(){
+  // attempt to connect to WiFi network
+
+  // attept to connect to AP
+
+  for(int i = 0; i<5; i++){
+    show_P("Connecting\n to AP");
+    status = WiFi.begin(ssid, pass);
+    
+    if(status == WL_CONNECTED){
+      show_P("Connected\n to AP");
+      break;
+    }
+    else{
+      status = WiFi.begin(ssid, pass);
+    }
+    
+    //    Serial.println(ssid);
+    // Connect to WPA/WPA2 network
+    
+  // }
+
+  // Serial.println(F("Connected to AP"));
+    
+  }
+  // while ( status != WL_CONNECTED) {
+    
+  // printWifiStatus();
+}
+
 void WIFI_setup()
 {
 
+  show_P("Configuring\nWIFI card");
   // initialize ESP module
   WiFi.init(&Serial);
 
+  WIFI_connect();
 
   // put in proper retrys here
   // check for the presence of the shield
@@ -46,17 +78,6 @@ void WIFI_setup()
     //    while (true);
   }
 
-  // attempt to connect to WiFi network
-  while ( status != WL_CONNECTED) {
-    show_P("Connecting\n to AP");
-    //    Serial.println(ssid);
-    // Connect to WPA/WPA2 network
-    status = WiFi.begin(ssid, pass);
-  }
-
-  // Serial.println(F("Connected to AP"));
-  show_P("Connected\n to AP");
-  // printWifiStatus();
 }
 
 
@@ -115,20 +136,30 @@ void send_data(){
     // sprintf_P(request, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hout, minute, second, PM1, PM25, PM10);
     sprintf_P(Buffer, PSTR("1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10);
     client.println(Buffer);
-    sprintf_P(Buffer, PSTR("2_" BOX_ID "_%i_%d_%d_%c"), (int)(temperature*100.0), (int)(humidity*100.0), CO2, PIR);
+
+
+    // Humidity not displaying properly should be 54 etc
+
+    // Temperature not displaying properly either
+    
+    // try construct string then convert to char array for those 
+    //values or append it as strings somehow
+  
+    sprintf_P(Buffer, PSTR("2_" BOX_ID "_%i_%d_%d_%c"), (int)trunc(temperature*100.0f), (int)trunc(humidity*100.0f), CO2, PIR);
     client.println(Buffer);
     // client.println(F("Host: seat-skomobo.massey.ac.nz "));
     // client.println(F("Connection: close"));
     // client.println();
 
     // sprintf_P(request, PSTR(BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10)
-
-    // note the time that the connection was made
+    // snprintf_P(Buffer, PSTR()
+    // note th)e time that the connection was made
     lastConnectionTime = millis();
   }
   else {
     // if you couldn't make a connection
-   show_P("Server\nconnection\nlost");
+    show_P("Server\nconnection\nlost");
+    WIFI_connect();
   }
 
 }
@@ -136,7 +167,7 @@ void send_data(){
 // this method makes a HTTP connection to the server
 void httpRequest()
 {
-  Serial.println();
+  // Serial.println();
 
   // close any connection before send a new request
   // this will free the socket on the WiFi shield
