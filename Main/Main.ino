@@ -7,10 +7,11 @@
 
 
 
-// this function assumes we are using the global buffer
-void layout(char format[], ...){
-  sprintf_P(buffer, format, ...);
-}
+// // this function assumes we are using the global buffer
+// void layout(char format[], ...){
+//   va_list args;
+//   sprintf_P(Buffer, format, args);
+// }
 
 void setup(){
 

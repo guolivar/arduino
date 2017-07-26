@@ -64,18 +64,26 @@ void Save_sensors() {
     // oled.println("Humidity: " + String(humidity));
 
     // should print out C02 value properly cus it null terminates before buffer size
-    snprintf_P(Buffer, 10, PSTR("CO2: %d"), CO2);
-    show(Buffer);
+    // snprintf_P(Buffer, 10, PSTR("CO2: %d"), CO2);
+    // show(Buffer);
 
     // should print out humidity with decimal point
     snprintf_P(Buffer, 16, PSTR("Humidity: %d.%d"), (int)humidity, (int)(humidity * 100) % 100);
+    // layout_P("Humidity: %d.%d", (int)humidity, (int)(humidity * 100) % 100);
     show(Buffer);
 
-    // print off other value here to compare
-    oled.clear();
-    oled.println("Humidity: " + String(humidity));
+    snprintf_P(Buffer, 20, PSTR("Temperature: %d.%d"), (int)temperature, (int)(temperature * 100) %100);
+    show(Buffer);
 
-    sprintf_P(Buffer, PSTR("%d:%d:%d %d/%d/%d,%c,%d,%*.f,%*.f,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, temperature, humidity, CO2, PM1, PM25, PM10);
+    snprintf_P(Buffer, 9, PSTR("CO2: %d"), CO2);
+    show(Buffer);
+
+
+    // delay(3000);
+    // print off other value here to compare
+    // oled.clear();
+    // oled.println("Humidity: " + String(humidity));
+    snprintf_P(Buffer, 66, PSTR("%d:%d:%d %d/%d/%d,%c,%d.%d,%d.%d,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PM1, PM25, PM10);
 
     Save(Buffer);
     show_P("Saved data\nto SD");
