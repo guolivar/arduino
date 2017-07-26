@@ -21,7 +21,7 @@ float humidity = 0.0;
 int CO2 = 0;
 unsigned int PM1 = 0, PM25 = 0, PM10 =0;
 char PIR = '0';
-char Buffer[66] = "\0";
+char Buffer[67] = "\0";
 
 // All the p versions of our functions are macros that use the PSTR macro for working with flash 
 // memory succinctly
