@@ -108,8 +108,8 @@ void send_data(){
     // if you couldn't make a connection
     show_P("Server\nconnection\nlost");
     
-    // WiFi.init(&Serial);
-    // WIFI_connect();
+    WiFi.init(&Serial);
+    WIFI_connect();
   }
 
 }
