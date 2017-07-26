@@ -78,26 +78,6 @@ void Show_sensor(char format[], int length, int val, int val2, int val3){
 
 void Show_sensors(){
 
-    // snprintf_P(Buffer, 14, PSTR("Time: %d:%d:%d"), hour, minute, second);
-    // show(Buffer);
-
-    // snprintf_P(Buffer, 16, PSTR("Date: %d/%d/%d"), day, month, year);
-    // show(Buffer);
-
-    // should print out humidity with decimal point
-    // snprintf_P(Buffer, 16, PSTR("Humidity: %d.%d"), (int)humidity, (int)(humidity * 100) % 100);
-    // // layout_P("Humidity: %d.%d", (int)humidity, (int)(humidity * 100) % 100);
-    // show(Buffer);
-
-    // snprintf_P(Buffer, 20, PSTR("Temperature: %d.%d"), (int)temperature, (int)(temperature * 100) %100);
-    // show(Buffer);
-
-    // snprintf_P(Buffer, 9, PSTR("CO2: %d"), CO2);
-    // show(Buffer);
-
-    // snprintf_P(Buffer, 9, PSTR("Dust PM1: %d"), PM1);
-    // show(Buffer);
-    
     Show_sensor(PSTR("Time: %d:%d:%d"), 14, hour, minute, second);
     Show_sensor(PSTR("Date: %d/%d/%d"), 16, day, month, year);
     Show_sensor(PSTR("Temperature: %d.%d"), 20, (int)temperature, (int)(temperature * 100) %100);
