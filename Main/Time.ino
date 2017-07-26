@@ -10,15 +10,10 @@ void Time_setup() {
 // This macro allows us to succinctly convert each argument into a string
 #define fetch( arg ) ( arg = rtc.now().arg() )
 
-//char my_time[14];
-// char text[5] = "\0";
 void Time_loop() {
 
   // put in validation for clock presence if there isnt any
   
   fetch(hour); fetch(minute); fetch(second); fetch(day); fetch(month); fetch(year);
-  
-  // sprintf_P(text, "%d", fetch(hour) );
-  // show(text);
 }
 

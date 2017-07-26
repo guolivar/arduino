@@ -52,47 +52,73 @@ void Save(char text[]) {
 
 bool SD_available = true;
 
-// char text[11] = "Temp: ";
-// char SD_Data[39];
-void Save_sensors() {
 
-  if (SD_available) {
+//TODO: replace with variadic function or single function with branching ifs
+
+void Show_sensor(char format[], int length, int val){
     
-    // sprintf_P(Buffer, "CO2: %d", CO2);
-    // show(Buffer);
-    // oled.clear();
-    // oled.println("Humidity: " + String(humidity));
+    snprintf_P(Buffer, length, format, val);
+    show(Buffer);
 
-    // should print out C02 value properly cus it null terminates before buffer size
-    // snprintf_P(Buffer, 10, PSTR("CO2: %d"), CO2);
+}
+
+void Show_sensor(char format[], int length, int val, int val2){
+    
+    snprintf_P(Buffer, length, format, val, val2);
+    show(Buffer);
+
+}
+
+void Show_sensor(char format[], int length, int val, int val2, int val3){
+    
+    snprintf_P(Buffer, length, format, val, val2, val3);
+    show(Buffer);
+
+}
+
+void Show_sensors(){
+
+    // snprintf_P(Buffer, 14, PSTR("Time: %d:%d:%d"), hour, minute, second);
+    // show(Buffer);
+
+    // snprintf_P(Buffer, 16, PSTR("Date: %d/%d/%d"), day, month, year);
     // show(Buffer);
 
     // should print out humidity with decimal point
-    snprintf_P(Buffer, 16, PSTR("Humidity: %d.%d"), (int)humidity, (int)(humidity * 100) % 100);
-    // layout_P("Humidity: %d.%d", (int)humidity, (int)(humidity * 100) % 100);
-    show(Buffer);
+    // snprintf_P(Buffer, 16, PSTR("Humidity: %d.%d"), (int)humidity, (int)(humidity * 100) % 100);
+    // // layout_P("Humidity: %d.%d", (int)humidity, (int)(humidity * 100) % 100);
+    // show(Buffer);
 
-    snprintf_P(Buffer, 20, PSTR("Temperature: %d.%d"), (int)temperature, (int)(temperature * 100) %100);
-    show(Buffer);
+    // snprintf_P(Buffer, 20, PSTR("Temperature: %d.%d"), (int)temperature, (int)(temperature * 100) %100);
+    // show(Buffer);
 
-    snprintf_P(Buffer, 9, PSTR("CO2: %d"), CO2);
-    show(Buffer);
+    // snprintf_P(Buffer, 9, PSTR("CO2: %d"), CO2);
+    // show(Buffer);
 
+    // snprintf_P(Buffer, 9, PSTR("Dust PM1: %d"), PM1);
+    // show(Buffer);
+    
+    Show_sensor(PSTR("Time: %d:%d:%d"), 14, hour, minute, second);
+    Show_sensor(PSTR("Date: %d/%d/%d"), 16, day, month, year);
+    Show_sensor(PSTR("Temperature: %d.%d"), 20, (int)temperature, (int)(temperature * 100) %100);
+    Show_sensor(PSTR("Humidity: %d.%d"), 16, (int)humidity, (int)(humidity * 100) % 100);
+    Show_sensor(PSTR("CO2: %d"), 9, CO2);
+    Show_sensor(PSTR("Dust PM1: %d"), 14, PM1);
+    Show_sensor(PSTR("Dust PM2.5: %d"), 14, PM25);
+    Show_sensor(PSTR("Dust PM10: %d"), 14, PM10);
 
-    // delay(3000);
-    // print off other value here to compare
-    // oled.clear();
-    // oled.println("Humidity: " + String(humidity));
+}
+
+void Save_sensors() {
+
+  Show_sensors();
+
+  if (SD_available) {
+
     snprintf_P(Buffer, 66, PSTR("%d:%d:%d %d/%d/%d,%c,%d.%d,%d.%d,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PM1, PM25, PM10);
 
     Save(Buffer);
     show_P("Saved data\nto SD");
-    // display temperature
-    // dtostrf(temperature, 11, 2, &text[6]);
-    
-    // show(text);
-
-    // TODO: put thing in here to display data on the screen with pretty formatting
 
   } else {
       show_P("SD card \nnot plugged \nin");
@@ -111,15 +137,10 @@ void SD_setup() {
     SD_available = true;
 
 
-    // replace this with save_P macro
     // Print the headings in the csv file
-   // flash_save(PSTR("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n"));
     save_P("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n");
 
     show_P("SD initialized");
-
-    // show_P("Initialization done");
-    //   Serial.println(F("init done"));
 
   }
   else{
