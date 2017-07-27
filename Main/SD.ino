@@ -20,8 +20,8 @@ void flash_save(char data[]){
   if (myFile) {
     int len = strlen_P(data);
     for(int k = 0; k < len; k++){
-        the_char = pgm_read_byte_near(data + k);
-        myFile.print(the_char);
+        // the_char = pgm_read_byte_near(data + k);
+        myFile.print((char)pgm_read_byte_near(data + k));
     }
     // flash_print(data, &myFile.print);
     //close the file
@@ -78,14 +78,15 @@ void Show_sensor(char format[], int length, int val, int val2, int val3){
 
 void Show_sensors(){
 
-    Show_sensor(PSTR("Time: %d:%d:%d"), 14, hour, minute, second);
-    Show_sensor(PSTR("Date: %d/%d/%d"), 16, day, month, year);
-    Show_sensor(PSTR("Temperature: %d.%d"), 20, (int)temperature, (int)(temperature * 100) %100);
-    Show_sensor(PSTR("Humidity: %d.%d"), 16, (int)humidity, (int)(humidity * 100) % 100);
-    Show_sensor(PSTR("CO2: %d"), 9, CO2);
-    Show_sensor(PSTR("Dust PM1: %d"), 14, PM1);
-    Show_sensor(PSTR("Dust PM2.5: %d"), 14, PM25);
-    Show_sensor(PSTR("Dust PM10: %d"), 14, PM10);
+    Show_sensor(PSTR("Time: %d:%d:%d"), 15, hour, minute, second);
+    Show_sensor(PSTR("Date: %d/%d/%d"), 17, day, month, year);
+    // Show_sensor(PSTR("Time: %d:%d:%d\nDate: %d/%d/%d"), 30, hour, minute, second, day, month, year);
+    Show_sensor(PSTR("Temperature: %d.%d"), 21, (int)temperature, (int)(temperature * 100) %100);
+    Show_sensor(PSTR("Humidity: %d.%d"), 17, (int)humidity, (int)(humidity * 100) % 100);
+    Show_sensor(PSTR("CO2: %d"), 10, CO2);
+    Show_sensor(PSTR("Dust PM1: %d"), 15, PM1);
+    Show_sensor(PSTR("Dust PM2.5: %d"), 15, PM25);
+    Show_sensor(PSTR("Dust PM10: %d"), 15, PM10);
 
 }
 
@@ -95,8 +96,12 @@ void Save_sensors() {
 
   if (SD_available) {
 
-    snprintf_P(Buffer, 66, PSTR("%d:%d:%d %d/%d/%d,%c,%d.%d,%d.%d,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PM1, PM25, PM10);
+    // snprintf_P(Buffer, 66, PSTR("%d:%d:%d %d/%d/%d,%c,%d.%d,%d.%d,%d,%d,%d,%d\n"), hour, minute, second, day, month, year, PIR, (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PM1, PM25, PM10);
+    snprintf_P(Buffer, 22, PSTR("%d:%d:%d %d/%d/%d,%c"), hour, minute, second, day, month, year, PIR);
+    Save(Buffer);
 
+    snprintf_P(Buffer, 28, PSTR(",%d.%d,%d.%d,%d,%d,%d,%d\n"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PM1, PM25, PM10);
+    
     Save(Buffer);
     show_P("Saved data\nto SD");
 

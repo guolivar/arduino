@@ -18,13 +18,16 @@ char ssid[] = HOTSPOT;            // your network SSID (name)
 char pass[] = PASSWORD;        // your network password
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
-char server[] = "seat-skomobo.massey.ac.nz";
+// char server[] = "seat-skomobo.massey.ac.nz";
 
 unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
 const unsigned long postingInterval = 10000L; // delay between updates, in milliseconds
 
 // Initialize the Ethernet client object
 WiFiEspClient client;
+
+
+/// Move the ssid and password out of global spacec use same trick as the http formatting
 
 void WIFI_connect(){
   // attempt to connect to WiFi network
@@ -89,28 +92,36 @@ void WIFI_send()
 
 void send_data(){
    // if there's a successful connection
-  if (client.connect(server, 80)) {
-    show_P("Sending data\nto server");
+
+  // strncpy_P(Buffer, PSTR("seat-skomobo.massey.ac.nz"), 26);
+  // if (client.connect(Buffer, 80)) {
+  show_P("Sending data\nto server");
+  
+  // may need to make seperate get requests so that it can cope
+
+  // maybe make one route for each sensor value??
+
+  client.println(Buffer);
+  strncpy_P(Buffer, PSTR("Host: seat-skomobo.massey.ac.nz"), 32);
+  client.println(Buffer);
+  strncpy_P(Buffer, PSTR("Connection: close"), 18);
+  client.println(Buffer);
+
+  // show_P("Crashed?");
+  // client.println(F("Host: seat-skomobo.massey.ac.nz"));
+  // client.println(F("Connection: close"));
+  client.println();
+
+  // note the time that the connection was made
+  lastConnectionTime = millis();
+  // }
+  // else {
+  //   // if you couldn't make a connection
+  //   show_P("Server\nconnection\nlost");
     
-    // may need to make seperate get requests so that it can cope
-
-    // maybe make one route for each sensor value??
-
-    client.println(Buffer);
-    client.println(F("Host: seat-skomobo.massey.ac.nz"));
-    client.println(F("Connection: close"));
-    client.println();
-
-    // note the time that the connection was made
-    lastConnectionTime = millis();
-  }
-  else {
-    // if you couldn't make a connection
-    show_P("Server\nconnection\nlost");
-    
-    WiFi.init(&Serial);
-    WIFI_connect();
-  }
+  //   WiFi.init(&Serial);
+  //   WIFI_connect();
+  // }
 
 }
 
@@ -125,14 +136,37 @@ void httpRequest()
 
   show_P("Connecting\n to server");
 
-  snprintf_P(Buffer,53, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hour, minute, second, PM1, PM25, PM10);
-  // layout_P("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1", year, month, day, hour, minute, second, PM1, PM25, PM10);
-  send_data();
- 
-  snprintf_P(Buffer, 36, PSTR("GET /2_" BOX_ID "_%d.%d_%d.%d_%d_%c HTTP/1.1"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
-  // layout_P("GET /2_" BOX_ID "_%i_%d_%d_%c HTTP/1.1", (int)trunc(temperature*100.0f), (int)trunc(humidity*100.0f), CO2, PIR);
-  send_data();
+  strncpy_P(Buffer, PSTR("seat-skomobo.massey.ac.nz"), 26);
+  if (client.connect(Buffer, 80)) {
+
+    snprintf_P(Buffer,54, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hour, minute, second, PM1, PM25, PM10);
+    // layout_P("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1", year, month, day, hour, minute, second, PM1, PM25, PM10);
+    send_data();
+  }else{
+    show_P("Server\nconnection\nlost");
+
+    WiFi.init(&Serial);
+    WIFI_connect();
+  }
+  
+  strncpy_P(Buffer, PSTR("seat-skomobo.massey.ac.nz"), 26);
+  if (client.connect(Buffer, 80)) {
+    snprintf_P(Buffer, 37, PSTR("GET /2_" BOX_ID "_%d.%d_%d.%d_%d_%c HTTP/1.1"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
+    // layout_P("GET /2_" BOX_ID "_%i_%d_%d_%c HTTP/1.1", (int)trunc(temperature*100.0f), (int)trunc(humidity*100.0f), CO2, PIR);
+    send_data();
+  }
+  else{
+    show_P("Server\nconnection\nlost");
+
+    WiFi.init(&Serial);
+    WIFI_connect();
+  }
   
   delay(6000);
 
 }
+
+
+
+
+/// need to copy the server name to the buffer then we need to copy the data after that 

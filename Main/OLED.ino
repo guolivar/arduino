@@ -27,7 +27,7 @@ SSD1306AsciiAvrI2c oled;
 //  
 //}
 
-char the_char;
+// char the_char;
 
 // this function reads a char array from flash memory and displays each character one by one
 
@@ -39,8 +39,8 @@ void flash_show(char data[]){
 
   int len = strlen_P(data);
   for(int k = 0; k < len; k++){
-      the_char = pgm_read_byte_near(data + k);
-      oled.print(the_char);
+      // the_char = pgm_read_byte_near(data + k);
+      oled.print((char)pgm_read_byte_near(data + k));
   }
 }
 
