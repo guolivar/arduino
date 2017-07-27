@@ -34,6 +34,10 @@ void WIFI_connect(){
 
   // attept to connect to AP
 
+  show_P("Configuring\nWIFI card");
+  // initialize ESP module
+  WiFi.init(&Serial);
+
   for(int i = 0; i<5; i++){
     show_P("Connecting\n to AP");
     status = WiFi.begin(ssid, pass);
@@ -54,9 +58,9 @@ void WIFI_connect(){
 void WIFI_setup()
 {
 
-  show_P("Configuring\nWIFI card");
-  // initialize ESP module
-  WiFi.init(&Serial);
+  // show_P("Configuring\nWIFI card");
+  // // initialize ESP module
+  // WiFi.init(&Serial);
 
   WIFI_connect();
 
@@ -90,11 +94,11 @@ void WIFI_send()
 
 // use other code for own at commands etc to see how to send real values
 
+// void reboot_connection()
+
 void send_data(){
    // if there's a successful connection
 
-  // strncpy_P(Buffer, PSTR("seat-skomobo.massey.ac.nz"), 26);
-  // if (client.connect(Buffer, 80)) {
   show_P("Sending data\nto server");
   
   // may need to make seperate get requests so that it can cope
@@ -107,21 +111,10 @@ void send_data(){
   strncpy_P(Buffer, PSTR("Connection: close"), 18);
   client.println(Buffer);
 
-  // show_P("Crashed?");
-  // client.println(F("Host: seat-skomobo.massey.ac.nz"));
-  // client.println(F("Connection: close"));
   client.println();
 
   // note the time that the connection was made
   lastConnectionTime = millis();
-  // }
-  // else {
-  //   // if you couldn't make a connection
-  //   show_P("Server\nconnection\nlost");
-    
-  //   WiFi.init(&Serial);
-  //   WIFI_connect();
-  // }
 
 }
 
@@ -139,29 +132,36 @@ void httpRequest()
   strncpy_P(Buffer, PSTR("seat-skomobo.massey.ac.nz"), 26);
   if (client.connect(Buffer, 80)) {
 
-    snprintf_P(Buffer,54, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1"), year, month, day, hour, minute, second, PM1, PM25, PM10);
+    // snprintf_P(Buffer,46, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10);
+    snprintf_P(Buffer, 74, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%d.%d_%d.%d_%d_%c HTTP/1.1"),  year, month, day, hour, minute, second, PM1, PM25, PM10,(int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
     // layout_P("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1", year, month, day, hour, minute, second, PM1, PM25, PM10);
+    // client.println(Buffer);
+
+    // snprintf_P(Buffer, 30, PSTR(BOX_ID "_%d.%d_%d.%d_%d_%c HTTP/1.1"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
     send_data();
+
   }else{
     show_P("Server\nconnection\nlost");
 
-    WiFi.init(&Serial);
+    // WiFi.init(&Serial);
     WIFI_connect();
   }
   
-  strncpy_P(Buffer, PSTR("seat-skomobo.massey.ac.nz"), 26);
-  if (client.connect(Buffer, 80)) {
-    snprintf_P(Buffer, 37, PSTR("GET /2_" BOX_ID "_%d.%d_%d.%d_%d_%c HTTP/1.1"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
-    // layout_P("GET /2_" BOX_ID "_%i_%d_%d_%c HTTP/1.1", (int)trunc(temperature*100.0f), (int)trunc(humidity*100.0f), CO2, PIR);
-    send_data();
-  }
-  else{
-    show_P("Server\nconnection\nlost");
+  // move this to bottom for my own protocol
+  // client.stop();
+  // strncpy_P(Buffer, PSTR("seat-skomobo.massey.ac.nz"), 26);
+  // if (client.connect(Buffer, 80)) {
+  //   snprintf_P(Buffer, 37, PSTR("GET /2_" BOX_ID "_%d.%d_%d.%d_%d_%c HTTP/1.1"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
+  //   // layout_P("GET /2_" BOX_ID "_%i_%d_%d_%c HTTP/1.1", (int)trunc(temperature*100.0f), (int)trunc(humidity*100.0f), CO2, PIR);
+  //   send_data();
+  // }
+  // else{
+  //   show_P("Server\nconnection\nlost");
 
-    WiFi.init(&Serial);
-    WIFI_connect();
-  }
-  
+  //   // WiFi.init(&Serial);
+  //   WIFI_connect();
+  // }
+
   delay(6000);
 
 }
