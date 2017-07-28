@@ -73,6 +73,7 @@ void OLED_setup(){
   // OLED_connected = Wire.endTransmission() == 0;
 
   // if(OLED_connected){
+  // delay(1000);
   oled.begin(&Adafruit128x64, 0x3C);
   oled.setFont(TimesNewRoman16);
 

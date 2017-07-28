@@ -15,7 +15,7 @@
 // make a seperate function that constructs the array using the one that reads out individual chars
 
 char ssid[] = HOTSPOT;            // your network SSID (name)
-char pass[] = PASSWORD;        // your network password
+// char pass[] = PASSWORD;        // your network password
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
 // char server[] = "seat-skomobo.massey.ac.nz";
@@ -40,7 +40,10 @@ void WIFI_connect(){
 
   for(int i = 0; i<5; i++){
     show_P("Connecting\n to AP");
-    status = WiFi.begin(ssid, pass);
+
+    strncpy_P(Buffer, PSTR(PASSWORD), 9);
+    status = WiFi.begin(ssid, Buffer);
+    // status = WiFi.begin(ssid, pass);
     
     if(status == WL_CONNECTED){
       show_P("Connected\n to AP");
@@ -48,7 +51,8 @@ void WIFI_connect(){
     }
     else{
         // Connect to WPA/WPA2 network
-      status = WiFi.begin(ssid, pass);
+      // status = WiFi.begin(ssid, pass);
+      status = WiFi.begin(ssid, Buffer);
     }
 
   }
