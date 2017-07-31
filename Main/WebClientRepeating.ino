@@ -15,10 +15,8 @@
 // make a seperate function that constructs the array using the one that reads out individual chars
 
 char ssid[] = HOTSPOT;            // your network SSID (name)
-// char pass[] = PASSWORD;        // your network password
-int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
-// char server[] = "seat-skomobo.massey.ac.nz";
+int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
 unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
 const unsigned long postingInterval = 10000L; // delay between updates, in milliseconds
@@ -38,24 +36,18 @@ void WIFI_connect(){
   // initialize ESP module
   WiFi.init(&Serial);
 
-  // for(int i = 0; i<5; i++){
   show_P("Connecting\n to AP");
 
   strncpy_P(Buffer, PSTR(PASSWORD), 11);
   status = WiFi.begin(ssid, Buffer);
-  // status = WiFi.begin(ssid, pass);
   
   if(status == WL_CONNECTED){
     show_P("Connected\n to AP");
-    // break;
   }
   else{
-      // Connect to WPA/WPA2 network
-    // status = WiFi.begin(ssid, pass);
+    // Connect to WPA/WPA2 network
     status = WiFi.begin(ssid, Buffer);
   }
-
-  // }
  
 }
 
@@ -140,11 +132,6 @@ void httpRequest()
   strncpy_P(Buffer, PSTR("seat-skomobo.massey.ac.nz"), 26);
   if (client.connect(Buffer, 80)) {
 
-    // snprintf_P(Buffer,46, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10);
-    // layout_P("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1", year, month, day, hour, minute, second, PM1, PM25, PM10);
-    // client.println(Buffer);
-
-    // snprintf_P(Buffer, 30, PSTR(BOX_ID "_%d.%d_%d.%d_%d_%c HTTP/1.1"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
     send_data();
 
   }else{
