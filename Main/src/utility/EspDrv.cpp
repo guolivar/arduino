@@ -811,7 +811,7 @@ bool EspDrv::sendData(uint8_t sock, const uint8_t *data, uint16_t len)
 
 	espSerial->write(data, len);
 
-	idx = readUntil(2000);
+	idx = readUntil(6000);
 	if(idx!=TAG_SENDOK)
 	{
 		LOGERROR(F("Data packet send error (2)"));
@@ -851,7 +851,7 @@ bool EspDrv::sendData(uint8_t sock, const __FlashStringHelper *data, uint16_t le
 		espSerial->write('\n');
 	}
 
-	idx = readUntil(2000);
+	idx = readUntil(6000);
 	if(idx!=TAG_SENDOK)
 	{
 		LOGERROR(F("Data packet send error (2)"));
@@ -880,7 +880,7 @@ bool EspDrv::sendDataUdp(uint8_t sock, const char* host, uint16_t port, const ui
 
 	espSerial->write(data, len);
 
-	idx = readUntil(2000);
+	idx = readUntil(6000);
 	if(idx!=TAG_SENDOK)
 	{
 		LOGERROR(F("Data packet send error (2)"));

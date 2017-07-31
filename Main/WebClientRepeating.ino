@@ -38,24 +38,24 @@ void WIFI_connect(){
   // initialize ESP module
   WiFi.init(&Serial);
 
-  for(int i = 0; i<5; i++){
-    show_P("Connecting\n to AP");
+  // for(int i = 0; i<5; i++){
+  show_P("Connecting\n to AP");
 
-    strncpy_P(Buffer, PSTR(PASSWORD), 9);
-    status = WiFi.begin(ssid, Buffer);
-    // status = WiFi.begin(ssid, pass);
-    
-    if(status == WL_CONNECTED){
-      show_P("Connected\n to AP");
-      break;
-    }
-    else{
-        // Connect to WPA/WPA2 network
-      // status = WiFi.begin(ssid, pass);
-      status = WiFi.begin(ssid, Buffer);
-    }
-
+  strncpy_P(Buffer, PSTR(PASSWORD), 11);
+  status = WiFi.begin(ssid, Buffer);
+  // status = WiFi.begin(ssid, pass);
+  
+  if(status == WL_CONNECTED){
+    show_P("Connected\n to AP");
+    // break;
   }
+  else{
+      // Connect to WPA/WPA2 network
+    // status = WiFi.begin(ssid, pass);
+    status = WiFi.begin(ssid, Buffer);
+  }
+
+  // }
  
 }
 
@@ -108,14 +108,18 @@ void send_data(){
   // may need to make seperate get requests so that it can cope
 
   // maybe make one route for each sensor value??
+  snprintf_P(Buffer, 75, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%d.%d_%d.%d_%d_%c HTTP/1.1\n"),  year, month, day, hour, minute, second, PM1, PM25, PM10,(int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
+  // snprintf_P(Buffer, 40, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"),  year, month, day, hour, minute, second, PM1, PM25, PM10);
+  client.print(Buffer);
+  // snprintf_P(Buffer, 28, PSTR("%d.%d_%d.%d_%d_%c HTTP/1.1\n"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
+  // client.print(Buffer);
+  strncpy_P(Buffer, PSTR("Host: seat-skomobo.massey.ac.nz\r\n"), 34);
+  client.print(Buffer);
+  strncpy_P(Buffer, PSTR("Connection: close\r\n\r\n"), 22);
+  client.print(Buffer);
 
-  client.println(Buffer);
-  strncpy_P(Buffer, PSTR("Host: seat-skomobo.massey.ac.nz"), 32);
-  client.println(Buffer);
-  strncpy_P(Buffer, PSTR("Connection: close"), 18);
-  client.println(Buffer);
-
-  client.println();
+  show_P("Data sent");
+  // client.println();
 
   // note the time that the connection was made
   lastConnectionTime = millis();
@@ -137,7 +141,6 @@ void httpRequest()
   if (client.connect(Buffer, 80)) {
 
     // snprintf_P(Buffer,46, PSTR("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"), year, month, day, hour, minute, second, PM1, PM25, PM10);
-    snprintf_P(Buffer, 74, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%d.%d_%d.%d_%d_%c HTTP/1.1"),  year, month, day, hour, minute, second, PM1, PM25, PM10,(int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
     // layout_P("GET /1_" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d HTTP/1.1", year, month, day, hour, minute, second, PM1, PM25, PM10);
     // client.println(Buffer);
 
