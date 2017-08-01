@@ -41,14 +41,17 @@ void WIFI_connect(){
   strncpy_P(Buffer, PSTR(PASSWORD), 11);
   status = WiFi.begin(ssid, Buffer);
   
-  if(status == WL_CONNECTED){
-    show_P("Connected\n to AP");
+  for(int i=0; i<5; i++){
+    if(status == WL_CONNECTED){
+      show_P("Connected\n to AP");
+      break;
+    }
+    else{
+      // Connect to WPA/WPA2 network
+      status = WiFi.begin(ssid, Buffer);
+    }
   }
-  else{
-    // Connect to WPA/WPA2 network
-    status = WiFi.begin(ssid, Buffer);
-  }
- 
+  
 }
 
 void WIFI_setup()
