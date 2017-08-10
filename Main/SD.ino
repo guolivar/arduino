@@ -110,7 +110,8 @@ void Save_sensors() {
       show_P("SD card \nnot plugged \nin");
   }
 
-  WIFI_send();
+  blue_send();
+  // WIFI_send();
 }
 
 void SD_setup() {
