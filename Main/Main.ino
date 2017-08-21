@@ -15,7 +15,7 @@
 
 void setup(){
 
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   // setup all the modules
   OLED_setup();
@@ -27,7 +27,7 @@ void setup(){
   Time_setup();
 
   //  Wifi_setup();
-  // WIFI_setup();
+  WIFI_setup();
 }
 
 void loop() {
