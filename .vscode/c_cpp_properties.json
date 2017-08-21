@@ -1,0 +1,76 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceRoot}",
+                "/usr/include",
+                "/usr/local/include"
+            ],
+            "defines": [],
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "/usr/include",
+                    "/usr/local/include",
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceRoot}",
+                "/usr/include",
+                "/usr/local/include"
+            ],
+            "defines": [],
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "/usr/include",
+                    "/usr/local/include",
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceRoot}",
+                "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/*",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/um",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/ucrt",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/shared",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/winrt",
+                "C:\\Users\\Ryan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.19\\cores\\arduino",
+                "C:\\Users\\Ryan\\AppData\\Local\\Arduino15\\packages\\AZ3166\\hardware\\stm32f4\\1.0.1\\cores\\arduino"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "browse": {
+                "path": [
+                    "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/*",
+                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/um",
+                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/ucrt",
+                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/shared",
+                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/winrt",
+                    "C:/Program Files (x86)/Arduino/libraries",
+                    "C:/Users/Ryan/Documents/Arduino/libraries",
+                    "C:/Program Files (x86)/Arduino/hardware",
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": false,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 2
+}
