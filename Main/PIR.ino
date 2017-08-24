@@ -7,7 +7,7 @@ void PIR_loop(){
    
     // If the sensor's output goes low, motion is detected
     
-    if (digitalRead(2) == LOW) {
+    if (digitalRead(2) == HIGH) {
       PIR = '1';
 //       PIR = '1';
     } else {
