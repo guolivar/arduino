@@ -8,13 +8,13 @@
   For more details see: http://yaab-arduino.blogspot.com/p/wifiesp.html
 */
 
-#include "src/WiFiEsp.h"
+#include "WiFiEsp.h"
 
 
 // make a macro that stores all these strings in flash and then reads out char arrays at runtime?
 // make a seperate function that constructs the array using the one that reads out individual chars
 
-char ssid[] = HOTSPOT;            // your network SSID (name)
+char ssid[] = "HOTSPOT";            // your network SSID (name)
 
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
@@ -38,9 +38,9 @@ void WIFI_connect(){
 
   show_P("Connecting\n to AP");
 
-  strncpy_P(Buffer, PSTR(PASSWORD), 11);
+  strncpy_P(Buffer, PSTR("PASSWORD"), 11);
   status = WiFi.begin(ssid, Buffer);
-  
+
   for(int i=0; i<5; i++){
     if(status == WL_CONNECTED){
       show_P("Connected\n to AP");
@@ -51,7 +51,7 @@ void WIFI_connect(){
       status = WiFi.begin(ssid, Buffer);
     }
   }
-  
+
 }
 
 void WIFI_setup()
@@ -80,7 +80,7 @@ void WIFI_setup()
 
 void WIFI_send()
 {
- 
+
   // if 10 seconds have passed since your last connection,
   // then connect again and send data
   if (millis() - lastConnectionTime > postingInterval) {
@@ -99,7 +99,7 @@ void send_data(){
    // if there's a successful connection
 
   show_P("Sending data\nto server");
-  
+
   // may need to make seperate get requests so that it can cope
 
   // maybe make one route for each sensor value??
@@ -143,7 +143,7 @@ void httpRequest()
     // WiFi.init(&Serial);
     WIFI_connect();
   }
-  
+
   // move this to bottom for my own protocol
   // client.stop();
   // strncpy_P(Buffer, PSTR("seat-skomobo.massey.ac.nz"), 26);
@@ -166,4 +166,4 @@ void httpRequest()
 
 
 
-/// need to copy the server name to the buffer then we need to copy the data after that 
+/// need to copy the server name to the buffer then we need to copy the data after that
