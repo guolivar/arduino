@@ -6,7 +6,7 @@ File myFile;
 // void flash_print(char data[], size_t (*print)( char ) ){
 //     size_t len = strlen_P(data);
 //     for(int k = 0; k < len; k++){
-    
+
 //         //! remove the_char and just insert directly
 //         the_char = pgm_read_byte_near(data + k);
 //         print(the_char);
@@ -56,21 +56,21 @@ bool SD_available = true;
 //TODO: replace with variadic function or single function with branching ifs
 
 void Show_sensor(char format[], int length, int val){
-    
+
     snprintf_P(Buffer, length, format, val);
     show(Buffer);
 
 }
 
 void Show_sensor(char format[], int length, int val, int val2){
-    
+
     snprintf_P(Buffer, length, format, val, val2);
     show(Buffer);
 
 }
 
 void Show_sensor(char format[], int length, int val, int val2, int val3){
-    
+
     snprintf_P(Buffer, length, format, val, val2, val3);
     show(Buffer);
 
@@ -84,9 +84,9 @@ void Show_sensors(){
     Show_sensor(PSTR("Temperature: %d.%d"), 21, (int)temperature, (int)(temperature * 100) %100);
     Show_sensor(PSTR("Humidity: %d.%d"), 17, (int)humidity, (int)(humidity * 100) % 100);
     Show_sensor(PSTR("CO2: %d"), 10, CO2);
-    Show_sensor(PSTR("Dust PM1: %d"), 15, PM1);
-    Show_sensor(PSTR("Dust PM2.5: %d"), 15, PM25);
-    Show_sensor(PSTR("Dust PM10: %d"), 15, PM10);
+    Show_sensor(PSTR("Dust 1: %d"), 15, PM1);
+    Show_sensor(PSTR("Dust 2.5: %d"), 15, PM25);
+    Show_sensor(PSTR("Dust 10: %d"), 15, PM10);
 
 }
 
@@ -101,8 +101,8 @@ void Save_sensors() {
     snprintf_P(Buffer, 22, PSTR("%d:%d:%d %d/%d/%d,%c"), hour, minute, second, day, month, year, PIR);
     Save(Buffer);
 
-    snprintf_P(Buffer, 28, PSTR(",%d.%d,%d.%d,%d,%d,%d,%d\n"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PM1, PM25, PM10);
-    
+    snprintf_P(Buffer, 50, PSTR(",%d.%d,%d.%d,%d,%d,%d,%d\n"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PM1, PM25, PM10);
+
     Save(Buffer);
     show_P("Saved data\nto SD");
 
@@ -111,13 +111,13 @@ void Save_sensors() {
   }
 
   // blue_send();
-  WIFI_send();
+  // WIFI_send();
 }
 
 void SD_setup() {
 
   if (SD.begin(10)) {
- 
+
     show_P("Initializing SD");
     // print the headings for our data in the txt file
     myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
