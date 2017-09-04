@@ -4,9 +4,9 @@ SoftwareSerial dustport(8,9);
 void Dust_setup() {
   //for the arduino mega use serial1 instead of software serial
   //Serial1.begin(9600);
-  
+
   dustport.begin(9600);
-  
+
 }
 
 #define receiveDatIndex 24 // Sensor data payload size
@@ -18,16 +18,23 @@ unsigned int checkSum,checkresult;
 
 
 void readDust(){
-  while (dustport.peek()!=66){
-    receiveDat[0]=dustport.read();
+  valid_data = 0;
+  while (!valid_data){
+    while (!dustport.available()){
+      delay(5);
+    }
+    while (dustport.peek()!=66){
+      receiveDat[0]=dustport.read();
+      delay(5);
+    }
+    dustport.readBytes((char *)receiveDat,receiveDatIndex);
+    checkSum = 0;
+    for (int i = 0;i < receiveDatIndex;i++){
+      checkSum = checkSum + receiveDat[i];
+    }
+    checkresult = receiveDat[receiveDatIndex-2]*256+receiveDat[receiveDatIndex-1]+receiveDat[receiveDatIndex-2]+receiveDat[receiveDatIndex-1];
+    valid_data = (checkSum == checkresult);
   }
-  dustport.readBytes((char *)receiveDat,receiveDatIndex);
-  checkSum = 0;
-  for (int i = 0;i < receiveDatIndex;i++){
-    checkSum = checkSum + receiveDat[i];
-  }
-  checkresult = receiveDat[receiveDatIndex-2]*256+receiveDat[receiveDatIndex-1]+receiveDat[receiveDatIndex-2]+receiveDat[receiveDatIndex-1];
-  valid_data = (checkSum == checkresult);
 }
 
 byte getData(unsigned int index){
@@ -42,7 +49,5 @@ void Dust_loop(){
   PM10 = (receiveDat[8]*256)+receiveDat[9];
 //  String message1 = String(PM1) + F(",") + String(PM25) + F(",") + String(PM10);
 //  return message1;
-  
- }
-  
 
+ }

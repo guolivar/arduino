@@ -14,8 +14,6 @@
 // make a macro that stores all these strings in flash and then reads out char arrays at runtime?
 // make a seperate function that constructs the array using the one that reads out individual chars
 
-char ssid[] = "HOTSPOT";            // your network SSID (name)
-
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
 unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
@@ -38,8 +36,8 @@ void WIFI_connect(){
 
   show_P("Connecting\n to AP");
 
-  strncpy_P(Buffer, PSTR("PASSWORD"), 11);
-  status = WiFi.begin(ssid, Buffer);
+  strncpy_P(Buffer, PASSWORD, 11);
+  status = WiFi.begin(HOTSPOT, Buffer);
 
   for(int i=0; i<5; i++){
     if(status == WL_CONNECTED){
@@ -48,7 +46,7 @@ void WIFI_connect(){
     }
     else{
       // Connect to WPA/WPA2 network
-      status = WiFi.begin(ssid, Buffer);
+      status = WiFi.begin(HOTSPOT, Buffer);
     }
   }
 
@@ -103,14 +101,14 @@ void send_data(){
   // may need to make seperate get requests so that it can cope
 
   // maybe make one route for each sensor value??
-  snprintf_P(Buffer, 75, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d_%d.%d_%d.%d_%d_%c HTTP/1.1\n"),  year, month, day, hour, minute, second, PM1, PM25, PM10,(int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
+  snprintf_P(Buffer, buff_size, PSTR("GET /%4c_%d-%d-%d-%d-%d-%d_%d_%d_%d_%d.%d_%d.%d_%d_%c HTTP/1.1\nHost: "), BOX_ID, year, month, day, hour, minute, second, PM1, PM25, PM10,(int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
   // snprintf_P(Buffer, 40, PSTR("GET /" BOX_ID "_%d-%d-%d-%d-%d-%d_%d_%d_%d"),  year, month, day, hour, minute, second, PM1, PM25, PM10);
   client.print(Buffer);
   // snprintf_P(Buffer, 28, PSTR("%d.%d_%d.%d_%d_%c HTTP/1.1\n"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PIR);
   // client.print(Buffer);
-  strncpy_P(Buffer, PSTR("Host: seat-skomobo.massey.ac.nz\r\n"), 34);
+  strncpy_P(Buffer, server, 26);
   client.print(Buffer);
-  strncpy_P(Buffer, PSTR("Connection: close\r\n\r\n"), 22);
+  strncpy_P(Buffer, PSTR("\r\nConnection: close\r\n\r\n"), 24);
   client.print(Buffer);
 
   show_P("Data sent");
@@ -132,8 +130,8 @@ void httpRequest()
 
   show_P("Connecting\n to server");
 
-  strncpy_P(Buffer, PSTR("seat-skomobo.massey.ac.nz"), 26);
-  if (client.connect(Buffer, 80)) {
+  strncpy_P(Buffer, server, 26);
+  if (client.connect(Buffer, port)) {
 
     send_data();
 

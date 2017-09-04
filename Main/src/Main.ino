@@ -16,7 +16,6 @@
 void setup(){
 
   Serial.begin(115200);
-
   // setup all the modules
   OLED_setup();
   SD_setup();

@@ -31,7 +31,7 @@ verification. For more advanced applications see the I2C Comm guide.
 
 void CO2_setup() {
    pinMode(13, OUTPUT); // address of the Arduino LED indicator
-   
+
 }
 
 int readCO2(){
@@ -48,7 +48,7 @@ int readCO2(){
 
   //////////////////////////
 
-  
+
   const int co2Addr = 127;
   //104
 
@@ -116,10 +116,13 @@ int readCO2(){
   */
 
   while (Wire.available()){
-    
+
     buffer[i] = Wire.read();
     i++;
 
+  }
+  if (i==0){
+    bitSet(error,1);
   }
 
   ///////////////////////
@@ -136,7 +139,7 @@ int readCO2(){
 
   */
 
-  //co2_value = 0;
+  co2_value = 0;
 
   co2_value |= buffer[1] & 0xFF;
 
@@ -148,34 +151,11 @@ int readCO2(){
 
   byte sum = buffer[0] + buffer[1] + buffer[2]; //Byte addition utilizes overflow
 
-  if (sum == buffer[3]){
-
-  // Success!
-
-    digitalWrite(13, LOW);
-
-    return co2_value;
-
+  if (sum != buffer[3]){
+    bitSet(error, 0);
   }
-
-  else{
-
-    // Failure!
-
-    /*
-
-    Checksum failure can be due to a number of factors,
-
-    fuzzy electrons, sensor busy, etc.
-
-    */
-
-    digitalWrite(13, LOW);
-
-    return 0;
-
-  }
-
+  digitalWrite(13, LOW);
+  return co2_value;
 }
 
 
@@ -184,17 +164,7 @@ int readCO2(){
 // whether or not the 0 is due to error or legit
 
 int CO2_loop(){
-  int co2Value = readCO2();
-  if (co2Value > 0){
-
-    CO2 = co2Value;
-//    return co2Value;
-  }
-
-  else {
-    show_P("CO2: Checksum\nfailed\n/Communication \nfailure");
-    CO2 = 0;
-  }
+  bitClear(error,1);
+  bitClear(error,2);
+  CO2 = readCO2();
 }
-
-

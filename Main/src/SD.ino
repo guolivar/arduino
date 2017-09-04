@@ -101,7 +101,7 @@ void Save_sensors() {
     snprintf_P(Buffer, 22, PSTR("%d:%d:%d %d/%d/%d,%c"), hour, minute, second, day, month, year, PIR);
     Save(Buffer);
 
-    snprintf_P(Buffer, 50, PSTR(",%d.%d,%d.%d,%d,%d,%d,%d\n"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PM1, PM25, PM10);
+    snprintf_P(Buffer, 50, PSTR(",%d.%d,%d.%d,%d,%d,%d,%d,%d\n"), (int)temperature, (int)(temperature * 100) % 100, (int)humidity, (int)(humidity * 100) % 100, CO2, PM1, PM25, PM10,error);
 
     Save(Buffer);
     show_P("Saved data\nto SD");
@@ -115,19 +115,76 @@ void Save_sensors() {
 }
 
 void SD_setup() {
-
+  show_P("Initializing SD");
   if (SD.begin(10)) {
-
-    show_P("Initializing SD");
-    // print the headings for our data in the txt file
-    myFile = SD.open(F("Box" BOX_ID ".csv"), FILE_WRITE);
     SD_available = true;
-
-
-    // Print the headings in the csv file
-    save_P("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10\n");
-
     show_P("SD initialized");
+
+    // Read the config information from file
+    show_P("Reading config");
+    myFile = SD.open(F("config.txt"),FILE_READ);
+    // Read Unit number
+    //Read Serial Number
+    String readtmp = "";
+    while (myFile.peek()!='\n'){
+      readtmp = readtmp + String((char)myFile.read());
+    }
+    readtmp.toCharArray(BOX_ID,readtmp.length()+1);
+    readtmp=myFile.read();
+    // Read wifi toggle
+    readtmp = "";
+    while (myFile.peek()!='\n'){
+      readtmp = readtmp + String((char)myFile.read());
+    }
+    s_wifi = (readtmp.toInt() == 1);
+    readtmp=myFile.read();
+    // Read BT toggle
+    readtmp = "";
+    while (myFile.peek()!='\n'){
+      readtmp = readtmp + String((char)myFile.read());
+    }
+    s_bt = (readtmp.toInt() == 1);
+    readtmp=myFile.read();
+    // Read localstorage toggle
+    readtmp = "";
+    while (myFile.peek()!='\n'){
+      readtmp = readtmp + String((char)myFile.read());
+    }
+    s_local = (readtmp.toInt()==1);
+    readtmp=myFile.read();
+    // Read ssid
+    readtmp = "";
+    while (myFile.peek()!='\n'){
+      readtmp = readtmp + String((char)myFile.read());
+    }
+    readtmp.toCharArray(HOTSPOT, readtmp.length()+1);
+    readtmp=myFile.read();
+    // Read pwd
+    readtmp = "";
+    while (myFile.peek()!='\n'){
+      readtmp = readtmp + String((char)myFile.read());
+    }
+    readtmp.toCharArray(PASSWORD, readtmp.length()+1);
+    readtmp=myFile.read();
+    // Read server
+    readtmp = "";
+    while (myFile.peek()!='\n'){
+      readtmp = readtmp + String((char)myFile.read());
+    }
+    readtmp.toCharArray(server, readtmp.length()+1);
+    readtmp=myFile.read();
+    // Read PORT
+    readtmp = "";
+    while (myFile.peek()!='\n'){
+      readtmp = readtmp + String((char)myFile.read());
+    }
+    port = readtmp.toInt();
+    myFile.close();
+
+    // print the headings for our data in the txt file
+    myFile = SD.open(F("Data.csv"), FILE_WRITE);
+    // Print the headings in the csv file
+    save_P("Time,Moving,Temp,Humid,CO2,Dust 1.0,Dust 2.5,Dust 10,ERROR\n");
 
   }
   else{
